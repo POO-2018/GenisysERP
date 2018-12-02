@@ -41,9 +41,21 @@ GO
 CREATE SCHEMA Empleados
 GO
 
+CREATE SCHEMA ERP
+GO
 ---------------------------------------------------------------------------------------------------------
 -- Paso 4: Creamos las tablas del proyecto
 ---------------------------------------------------------------------------------------------------------
+CREATE TABLE ERP.Configuracion(
+	id TINYINT NOT NULL IDENTITY(1,1)
+		CONSTRAINT PK_ERP_Configuracion_id PRIMARY KEY CLUSTERED,
+	appkey NCHAR(50) NOT NULL,
+	valor NCHAR(50) NOT NULL,
+	descripcion NVARCHAR(200) NOT NULL
+);
+GO
+
+
 CREATE TABLE Clientes.Cliente(
 	idCliente INT NOT NULL IDENTITY(1000, 1)
 		CONSTRAINT PK_Clientes_Cliente_idCliente PRIMARY KEY CLUSTERED,
@@ -84,8 +96,9 @@ CREATE TABLE Clientes.Contacto(
 GO
 
 CREATE TABLE Empleados.Usuario(
-    idUsuario int IDENTITY(1,1)
-	CONSTRAINT PK_Empleados_Usuario_idUsuario PRIMARY KEY CLUSTERED,
+    id int IDENTITY(1,1)
+    CONSTRAINT PK_Usuarios_id
+		PRIMARY KEY NONCLUSTERED (id),
     idEmpleado int NOT NULL,
     nombreUsuario varchar(50) NOT NULL,
     contrasena varchar(256)  NOT NULL,   
@@ -94,8 +107,9 @@ GO
 
 CREATE TABLE Empleados.Empleado
 (
-	idEmpleado INT IDENTITY(1,1)
-	CONSTRAINT PK_Empleados_Empleado_idEmpleado PRIMARY KEY CLUSTERED,
+	id INT IDENTITY(1,1)
+	CONSTRAINT PK_Empleado_id
+		PRIMARY KEY NONCLUSTERED (id),
 	identidad VARCHAR(15) NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
 	apellido VARCHAR(30) NOT NULL,
@@ -109,10 +123,12 @@ GO
 
 CREATE TABLE Empleados.Cargo 
 	(
-	 Id INT IDENTITY (1,1),
-	 Nombre VARCHAR (30) NOT NULL,
-	 NivelAcceso INT NOT NULL
-)
+	 id INT IDENTITY (1,1)
+	 CONSTRAINT PK_Cargo_id
+		PRIMARY KEY NONCLUSTERED (id),
+	 nombre VARCHAR (30) NOT NULL,
+	 nivelAcceso INT NOT NULL
+);
 GO
 
 -- TABLA IMPUESTO
@@ -191,17 +207,31 @@ CREATE TABLE Compras.DetalleCompra(
 
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT
-		PK_idCompra_Compra PRIMARY KEY NONCLUSTERED (idCompra)
+		PK_idCompra_Compra PRIMARY KEY CLUSTERED (idCompra)
 GO
 
 ALTER TABLE Compras.DetalleCompra
 	ADD CONSTRAINT
-		PK_idCompra_DetalleCompra PRIMARY KEY NONCLUSTERED (idDetalle)
+		PK_idCompra_DetalleCompra PRIMARY KEY CLUSTERED (idDetalle)
 GO
 
 ---------------------------------------------------------------------------------------------------------
 -- LLAVES FORANEAS
 ---------------------------------------------------------------------------------------------------------
+ALTER TABLE Empleados.Empleado ADD CONSTRAINT fk_Empleado_Cargo
+    FOREIGN KEY (cargo)
+    REFERENCES Empleados.Cargo (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+GO
+
+ALTER TABLE Empleados.Usuario ADD CONSTRAINT fk_Usuarios_Empleado
+    FOREIGN KEY (idEmpleado)
+    REFERENCES Empleados.Empleado (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+GO
+
 ALTER TABLE Inventario.Producto
 ADD CONSTRAINT FK_impuesto$id 
 FOREIGN KEY (idImpuesto) REFERENCES Inventario.Impuesto (idImpuesto)
@@ -225,20 +255,20 @@ GO
 
 ALTER TABLE Inventario.Producto
 ADD CONSTRAINT FK_creadoPor$id 
-FOREIGN KEY (idUsuario) REFERENCES Empleados.Usuario (idUsuario)
+FOREIGN KEY (idUsuario) REFERENCES Empleados.Usuario (id)
 ON UPDATE NO ACTION 
 ON DELETE NO ACTION
 GO
 
 ALTER TABLE Inventario.Categoria
 ADD CONSTRAINT FK_creadoPor_Categoria$id 
-FOREIGN KEY (idUsuario) REFERENCES Empleados.Usuario (idUsuario)
+FOREIGN KEY (idUsuario) REFERENCES Empleados.Usuario (id)
 ON UPDATE NO ACTION 
 ON DELETE NO ACTION
 GO
 ALTER TABLE Inventario.Impuesto
 ADD CONSTRAINT FK_creadoPor_Impuesto$id 
-FOREIGN KEY (idUsuario) REFERENCES Empleados.Usuario (idUsuario)
+FOREIGN KEY (idUsuario) REFERENCES Empleados.Usuario (id)
 ON UPDATE NO ACTION 
 ON DELETE NO ACTION
 GO
@@ -261,7 +291,7 @@ GO
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT
 		FK_Compras_Compra$TieneUn$Empleados_Usuario
-		FOREIGN KEY(idUsuario) REFERENCES Empleados.Usuario(idUsuario)
+		FOREIGN KEY(idUsuario) REFERENCES Empleados.Usuario(id)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
