@@ -97,6 +97,11 @@
   <ItemGroup>
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Clientes\" />
+    <Folder Include="Compras\" />
+    <Folder Include="Empleados\" />
+    <Folder Include="Inventario\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
