@@ -7,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
 
-// namespaces adicionales
-using frmLogin.Empleados;
 
-
-namespace frmLogin
+namespace frmLogin.Empleados
 {
-    public partial class frmMenuPrincipal : MaterialForm
+    public partial class frmMantenimientoUsuarios : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-        public frmMenuPrincipal()
+
+        public frmMantenimientoUsuarios()
         {
+
             InitializeComponent();
+
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -32,20 +33,23 @@ namespace frmLogin
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            Usuario nuevo = new Usuario();
+            // se obtiene el id del combobox cmbEmpleado.Text;
+            nuevo.idEmpleado = 1;
+            nuevo.nombreUsuario = txtNombreUsuario.Text;
+            if (txtContraseña.Text == txtConfirmarContraseña.Text)
+            {
+                nuevo.contrasena = txtContraseña.Text;
+            }
+            nuevo.InsertarUsuario(nuevo);
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void frmMantenimientoUsuarios_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void materialRaisedButton12_Click(object sender, EventArgs e)
-        {
-            frmMantenimientoUsuarios vista = new frmMantenimientoUsuarios();
-            vista.Show();
+            Usuario listar = new Usuario();
+            dgvListarUsuarios.DataSource = listar.ListarUsuario();
         }
     }
 }
