@@ -16,14 +16,14 @@ IF EXISTS(SELECT * FROM sys.databases WHERE name = 'GenisysERP')
 GO
 
 -- Paso 1: Crear la base de datos
--- En este caso el nombre de la base de datos ser· "GenisysERP"
+-- En este caso el nombre de la base de datos ser√° "GenisysERP"
 IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'GenisysERP')
 	BEGIN
 		CREATE DATABASE GenisysERP
 	END
 GO
 
--- Paso 2: Seleccionar la base de datos reciÈn creada
+-- Paso 2: Seleccionar la base de datos reci√©n creada
 USE GenisysERP
 GO
 ---------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE Clientes.Cliente(
 	direccion NVARCHAR(2000) NOT NULL,
 	telefono CHAR(9),
 	correo NVARCHAR(100) NOT NULL,
-	estado BIT NOT NULL
+	estado BIT DEFAULT 1
 );
 GO
 
@@ -76,7 +76,7 @@ CREATE TABLE Clientes.Proveedor(
 	direccion NVARCHAR(2000) NOT NULL,
 	telefono CHAR(9),
 	correo NVARCHAR(100) NOT NULL,
-	estado BIT NOT NULL
+	estado BIT DEFAULT 1
 );
 GO
 
@@ -91,7 +91,7 @@ CREATE TABLE Clientes.Contacto(
 	telefono CHAR(9),
 	correo NVARCHAR(100) NOT NULL,
 	cargo NVARCHAR(100) NOT NULL,
-	estado BIT NOT NULL
+	estado BIT DEFAULT 1
 );
 GO
 
@@ -296,7 +296,7 @@ ALTER TABLE Compras.Compra
 		ON DELETE NO ACTION
 GO
 
--- Llaves for·neas de la tabla Compras.DetalleCompra
+-- Llaves for√°neas de la tabla Compras.DetalleCompra
 ALTER TABLE Compras.DetalleCompra
 	ADD CONSTRAINT
 		FK_Compras_DetalleCompra$TieneUn$Compras_Compra
@@ -349,7 +349,7 @@ GO
 
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT CHK_estadoCompra
-	CHECK (estadoCompra IN ('CotizaciÛn','Orden de Compra', 'Compra'))
+	CHECK (estadoCompra IN ('Cotizaci√≥n','Orden de Compra', 'Compra'))
 GO
 
 ALTER TABLE Compras.Compra
