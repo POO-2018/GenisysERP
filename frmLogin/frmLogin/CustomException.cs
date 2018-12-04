@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-// Agregar los namespaces necesarios
-using System.Data;
-using System.Data.SqlClient;
 
-namespace GenisysATM.Models
+namespace frmLogin
 {
-    class CustomException : Exception
+    class CustomException: Exception
     {
         // Constructores
         public CustomException() : base() { }
