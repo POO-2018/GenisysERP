@@ -49,6 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compras\frmActualizarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmActualizarCompra.Designer.cs">
+      <DependentUpon>frmActualizarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmAgregarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmAgregarCompra.Designer.cs">
+      <DependentUpon>frmAgregarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmBuscarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmBuscarCompras.Designer.cs">
+      <DependentUpon>frmBuscarCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
     <Compile Include="frmLogin.cs">
@@ -99,7 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clientes\" />
-    <Folder Include="Compras\" />
     <Folder Include="Empleados\" />
     <Folder Include="Inventario\" />
   </ItemGroup>
