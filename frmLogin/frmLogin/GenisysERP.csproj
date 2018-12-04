@@ -63,6 +63,7 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmLogin.resx">
@@ -95,13 +96,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clientes\" />
     <Folder Include="Compras\" />
     <Folder Include="Empleados\" />
-    <Folder Include="Inventario\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
