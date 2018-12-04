@@ -63,6 +63,7 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\CategoriaInventario.cs" />
     <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +97,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inventario\CRUDCategoriaInventario\Actualizar_CategoriaInventario.sql" />
+    <Content Include="Inventario\CRUDCategoriaInventario\Eliminar_CategoriaInventario.sql" />
+    <Content Include="Inventario\CRUDCategoriaInventario\Insertar_CatergoriaInvetario.sql" />
+    <Content Include="Inventario\CRUDCategoriaInventario\listar_CategoriaInventario.sql" />
     <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>
