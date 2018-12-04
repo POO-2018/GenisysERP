@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compras\Compra.cs" />
+    <Compile Include="Compras\DetalleCompra.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
     <Compile Include="frmLogin.cs">
@@ -99,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clientes\" />
-    <Folder Include="Compras\" />
     <Folder Include="Empleados\" />
     <Folder Include="Inventario\" />
   </ItemGroup>
