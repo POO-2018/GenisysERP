@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
+    <Compile Include="frmContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContacto.Designer.cs">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
