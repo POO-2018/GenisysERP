@@ -29,7 +29,7 @@ namespace frmLogin.Inventario
 
 
         /// <summary>
-        /// Metodo para insertar un imouesto
+        /// Metodo para insertar un impuesto
         /// </summary>
         /// <param name="impuesto"></param>
         /// <returns></returns>
@@ -143,7 +143,12 @@ namespace frmLogin.Inventario
             }
         }
 
-        public static bool InhabilitarImpuesto(Impuesto impuesto)
+        /// <summary>
+        /// Metodo para eliminar un impuesto
+        /// </summary>
+        /// <param name="impuesto"></param>
+        /// <returns></returns>
+        public static bool EliminarImpuesto(Impuesto impuesto)
         {
             Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
@@ -177,7 +182,7 @@ namespace frmLogin.Inventario
         }
 
         /// <summary>
-        /// 
+        /// Metodo para buscar un impuesto en la base de datos
         /// </summary>
         /// <param name="CodigoImpuesto"></param>
         /// <returns></returns>
@@ -188,7 +193,6 @@ namespace frmLogin.Inventario
             string sql;
             Impuesto resultado = new Impuesto();
 
-            // Query SQL
             sql = @"SELECT *FROM Inventario.Impuesto WHERE idCodigoImpuesto = @CodigoImpuesto";
 
             SqlCommand cmd = conexion.EjecutarComando(sql);
