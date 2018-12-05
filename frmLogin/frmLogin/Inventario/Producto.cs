@@ -197,6 +197,8 @@ namespace frmLogin.Inventario
                 conexion.CerrarConexion();
             }
         }
+
+        // Método de inhabilitación de productod
  
     }
 }
