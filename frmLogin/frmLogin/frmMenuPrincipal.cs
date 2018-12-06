@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
+using frmLogin.Compras;
+
 
 namespace frmLogin
 {
@@ -42,6 +44,29 @@ namespace frmLogin
         private void materialRaisedButton12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAgregarCompra_Click(object sender, EventArgs e)
+        {
+            frmAgregarCompra agregarCompra = new frmAgregarCompra();
+            agregarCompra.ShowDialog();
+        }
+
+        private void btnActualizarCompra_Click(object sender, EventArgs e)
+        {
+            frmActualizarCompra actualizarCompra = new frmActualizarCompra();
+            actualizarCompra.ShowDialog();
+        }
+
+        private void btnBusquedaCompra_Click(object sender, EventArgs e)
+        {
+            frmBuscarCompras buscarCompras = new frmBuscarCompras();
+            buscarCompras.ShowDialog();
         }
     }
 }

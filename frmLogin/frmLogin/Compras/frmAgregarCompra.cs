@@ -30,5 +30,40 @@ namespace frmLogin.Compras
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
+
+        private void frmAgregarCompra_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSubtotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialSingleLineTextField1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReducirProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuitarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

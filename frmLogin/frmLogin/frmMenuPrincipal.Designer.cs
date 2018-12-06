@@ -77,7 +77,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(609, 278);
+            this.tabPage1.Size = new System.Drawing.Size(609, 248);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Clientes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(609, 278);
+            this.tabPage2.Size = new System.Drawing.Size(609, 248);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Compras";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -155,6 +155,7 @@
             this.btnBusquedaCompra.TabIndex = 3;
             this.btnBusquedaCompra.Text = "Busquedas";
             this.btnBusquedaCompra.UseVisualStyleBackColor = true;
+            this.btnBusquedaCompra.Click += new System.EventHandler(this.btnBusquedaCompra_Click);
             // 
             // btnActualizarCompra
             // 
@@ -167,6 +168,7 @@
             this.btnActualizarCompra.TabIndex = 2;
             this.btnActualizarCompra.Text = "Actualizar compra";
             this.btnActualizarCompra.UseVisualStyleBackColor = true;
+            this.btnActualizarCompra.Click += new System.EventHandler(this.btnActualizarCompra_Click);
             // 
             // btnAgregarCompra
             // 
@@ -179,6 +181,7 @@
             this.btnAgregarCompra.TabIndex = 1;
             this.btnAgregarCompra.Text = "Agregar compras";
             this.btnAgregarCompra.UseVisualStyleBackColor = true;
+            this.btnAgregarCompra.Click += new System.EventHandler(this.btnAgregarCompra_Click);
             // 
             // tabPage3
             // 
@@ -187,7 +190,7 @@
             this.tabPage3.Controls.Add(this.btnCategorias);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(609, 278);
+            this.tabPage3.Size = new System.Drawing.Size(609, 248);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -299,6 +302,7 @@
             this.materialRaisedButton1.TabIndex = 2;
             this.materialRaisedButton1.Text = "Salir\r\n";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // frmMenuPrincipal
             // 

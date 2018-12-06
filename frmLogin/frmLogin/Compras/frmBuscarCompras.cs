@@ -27,7 +27,7 @@ namespace frmLogin.Compras
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Red700, Primary.Red900,
-                Primary.Brown500, Accent.Red100, TextShade.WHITE)
+                Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
     }
 }
