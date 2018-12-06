@@ -68,5 +68,11 @@ namespace frmLogin
             frmBuscarCompras buscarCompras = new frmBuscarCompras();
             buscarCompras.ShowDialog();
         }
+
+        private void btnInhabilitarCompra_Click(object sender, EventArgs e)
+        {
+            frmInhabilitarCompra inhabilitarCompra = new frmInhabilitarCompra();
+            inhabilitarCompra.ShowDialog();
+        }
     }
 }

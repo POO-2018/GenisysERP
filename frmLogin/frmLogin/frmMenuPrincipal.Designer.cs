@@ -143,6 +143,7 @@
             this.btnInhabilitarCompra.TabIndex = 4;
             this.btnInhabilitarCompra.Text = "Inhabilitar";
             this.btnInhabilitarCompra.UseVisualStyleBackColor = true;
+            this.btnInhabilitarCompra.Click += new System.EventHandler(this.btnInhabilitarCompra_Click);
             // 
             // btnBusquedaCompra
             // 

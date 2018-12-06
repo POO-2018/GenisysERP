@@ -67,6 +67,12 @@
     <Compile Include="Compras\frmBuscarCompras.Designer.cs">
       <DependentUpon>frmBuscarCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmInhabilitarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmInhabilitarCompra.Designer.cs">
+      <DependentUpon>frmInhabilitarCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
     <Compile Include="frmLogin.cs">
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmBuscarCompras.resx">
       <DependentUpon>frmBuscarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmInhabilitarCompra.resx">
+      <DependentUpon>frmInhabilitarCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
