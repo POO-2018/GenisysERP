@@ -48,8 +48,20 @@ CREATE PROCEDURE sp_ActualizarProducto(
 )
 AS
 BEGIN
-	INSERT INTO Inventario.Producto(idProducto,nombre,cantidadExistencia,cantidadMinima,precioCompra,precioVenta,fechaIngreso,
-								    idUsuario,observaciones,idImpuesto,idCategoria,idProveedor,estado)
-VALUES(@idProducto,@nombre,@cantidadExistencia,@cantidadMinima,@precioCompra,@precioVenta,@fechaIngreso,@idUsuario,@observaciones,
-	   @idImpuesto,@idCategoria,@idProveedor,@estado);
+	UPDATE Inventario.Producto SET idProducto=@idProducto,nombre=@nombre,cantidadExistencia=@cantidadExistencia,
+	                               cantidadMinima=@cantidadMinima,precioCompra=@precioCompra,precioVenta=@precioVenta,
+								   fechaIngreso=@fechaIngreso,idUsuario=@idUsuario,observaciones=@observaciones,idImpuesto=@idImpuesto,
+								   idCategoria=@idCategoria,idProveedor=@idProveedor,estado=@estado
+								   WHERE idInventario=@idInventario;
+END
+GO
+
+CREATE PROCEDURE sp_InhabiliarProducto(
+
+@idInventario int
+)
+AS
+BEGIN
+	UPDATE Inventario.Producto SET estado=0
+								   WHERE idInventario=@idInventario;
 END
