@@ -15,7 +15,7 @@ namespace frmLogin.Inventario
         // Propiedades de la clase CategoriaInventario
         // Esta clase tambien hace uso de usuarios
         public int idCategoria { get; set; }
-        public int idCodigoTipo { get; set; }
+        public string idCodigoTipo { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public int idUsuario { get; set; }
@@ -41,7 +41,7 @@ namespace frmLogin.Inventario
             {
                 using (cmd)
                 {
-                    cmd.Parameters.Add("@idCategoria", SqlDbType.Char, 13).Value = idCategoria;
+                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = idCategoria;
 
                     rdr = cmd.ExecuteReader();
                 }
@@ -49,12 +49,10 @@ namespace frmLogin.Inventario
                 while (rdr.Read())
                 {
                     resultado.idCategoria = rdr.GetInt32(0);
-                    resultado.idCodigoTipo = rdr.GetInt32(0);
-                    resultado.nombre = rdr.GetString(1);
-                    resultado.descripcion = rdr.GetString(2);
-                    resultado.idCategoria = rdr.GetInt32(0);
-
-                    // Remover espacios en blanco
+                    resultado.idCodigoTipo = rdr.GetString(1);
+                    resultado.nombre = rdr.GetString(2);
+                    resultado.descripcion = rdr.GetString(3);
+                    resultado.idCategoria = rdr.GetInt32(4);
                 }
 
                 return resultado;
@@ -69,6 +67,7 @@ namespace frmLogin.Inventario
             }
         }
 
+        // Listar las categorías de Inventario existentes 
         public List<CategoriaInventario> ListarCategorias()
         {
             Conexion conexion = new Conexion();
@@ -89,16 +88,15 @@ namespace frmLogin.Inventario
                 {
                     CategoriaInventario resultado = new CategoriaInventario();
                     resultado.idCategoria = rdr.GetInt32(0);
-                    resultado.idCodigoTipo = rdr.GetInt32(0);
-                    resultado.nombre = rdr.GetString(1);
-                    resultado.descripcion = rdr.GetString(2);
-                    resultado.idCategoria = rdr.GetInt32(0);
-                    // Remover espacios
+                    resultado.idCodigoTipo = rdr.GetString(1);
+                    resultado.nombre = rdr.GetString(2);
+                    resultado.descripcion = rdr.GetString(3);
+                    resultado.idCategoria = rdr.GetInt32(4);
                 }
 
                 return Lista;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 return Lista;
             }
@@ -108,11 +106,8 @@ namespace frmLogin.Inventario
             }
         }
 
-        /// <summary>
-        /// se encarga de guardar un nuevo Paciente en la base de datos, recibe 
-        /// como parametros un objeto de tipo Paciente.
-        /// </summary>
-        /// <returns>true: si se insertó correctamente false: si ocurrió un error</returns>
+        // Insertar Categoria de Inventario
+        // Según el tipo de usuario, se podrá insertar diferentes categorias
         public bool InsertarCategoria(CategoriaInventario Categoria)
         {
 
@@ -162,7 +157,7 @@ namespace frmLogin.Inventario
         }
 
         /// <summary>
-        /// Actualiza los datos de un Paciente en particular
+        /// Actualiza los datos de una categoría 
         /// </summary>
         /// <param name="Categoria"></param>
         /// <returns></returns>
@@ -175,13 +170,13 @@ namespace frmLogin.Inventario
             cmd.CommandType = CommandType.StoredProcedure;
 
             // agregamos los parámetros que son requeridos
-            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Char, 5));
             cmd.Parameters["@idCodigoTipo"].Value = Categoria.idCodigoTipo;
 
-            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 50));
+            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 100));
             cmd.Parameters["@nombre"].Value = Categoria.nombre;
 
-            cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.VarChar, 10));
+            cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.VarChar, 100));
             cmd.Parameters["@descripcion"].Value = Categoria.descripcion;
 
             cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
@@ -199,7 +194,7 @@ namespace frmLogin.Inventario
                 return true;
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
 
                 return false;
@@ -220,10 +215,10 @@ namespace frmLogin.Inventario
             cmd.CommandType = CommandType.StoredProcedure;
 
             // agregamos los parámetros que son requeridos
-            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Char, 5));
             cmd.Parameters["@idCodigoTipo"].Value = Categoria.idCodigoTipo;
 
-            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 50));
+            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 100));
             cmd.Parameters["@nombre"].Value = Categoria.nombre;
 
             //cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.VarChar, 10));
@@ -245,7 +240,7 @@ namespace frmLogin.Inventario
                 return true;
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
 
                 return false;
