@@ -215,6 +215,7 @@
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnActualizar
             // 
@@ -256,7 +257,7 @@
             // lstInventario
             // 
             this.lstInventario.FormattingEnabled = true;
-            this.lstInventario.Location = new System.Drawing.Point(365, 123);
+            this.lstInventario.Location = new System.Drawing.Point(365, 129);
             this.lstInventario.Name = "lstInventario";
             this.lstInventario.Size = new System.Drawing.Size(234, 199);
             this.lstInventario.TabIndex = 15;

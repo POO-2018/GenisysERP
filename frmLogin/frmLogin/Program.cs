@@ -17,7 +17,7 @@ namespace frmLogin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmImpuestoProducto());
+            Application.Run(new frmMenuPrincipal());
         }
     }
 }

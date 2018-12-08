@@ -43,5 +43,11 @@ namespace frmLogin
         {
 
         }
+
+        private void btnImpuestos_Click(object sender, EventArgs e)
+        {
+            Inventario.frmImpuestoProducto nuevo = new Inventario.frmImpuestoProducto();
+            nuevo.ShowDialog();
+        }
     }
 }
