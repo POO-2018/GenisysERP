@@ -200,7 +200,7 @@ namespace frmLogin.Inventario
 
         // Método de inhabilitación de producto
 
-        public static bool ActualizarProducto(Producto elProducto)
+        public static bool InhabilitarProducto(Producto elProducto)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             SqlCommand cmd = conexion.EjecutarComando("sp_InhabiliarProducto");
@@ -258,14 +258,15 @@ namespace frmLogin.Inventario
                     resultado.IdCategoria = rdr.GetInt16(11);
                     resultado.idProveedor = rdr.GetInt16(12);
                     resultado.estado = rdr.GetInt16(13);
+                    Lista.Add(resultado);
                 }
 
                 //Retornamos los datos obtenidos
-                return resultado;
+                return Lista ;
             }
             catch (SqlException)
             {
-                return resultado;
+                return Lista;
             }
             finally
             {
