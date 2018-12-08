@@ -63,6 +63,12 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImpuestoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImpuestoProducto.Designer.cs">
+      <DependentUpon>frmImpuestoProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\Impuesto.cs" />
     <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImpuestoProducto.resx">
+      <DependentUpon>frmImpuestoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
