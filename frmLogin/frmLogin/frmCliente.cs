@@ -29,5 +29,10 @@ namespace frmLogin
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
