@@ -31,7 +31,11 @@ namespace frmLogin
 
         private void frmProveedor_Load(object sender, EventArgs e)
         {
+            lstHabilitado.Visible = false;
+            lstInhabilitado.Visible = false;
 
+            datosH();
+            //datosI();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -108,5 +112,57 @@ namespace frmLogin
                 MessageBox.Show("ha ocurrido un  error en la actualización", "Control de proveedores", MessageBoxButtons.OK);
             }
         }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            lstHabilitado.Visible = true;
+            lstInhabilitado.Visible = false;
+        }
+
+        private void btnInhabilitado_Click(object sender, EventArgs e)
+        {
+            lstHabilitado.Visible = false;
+            lstInhabilitado.Visible = true;
+        }
+
+        private void lstInhabilitado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstHabilitado_Click(object sender, EventArgs e)
+        {
+            btnActualizar.Enabled = true; //actualizar
+            btnHa_In.Enabled = true; //habilitar
+            btnAgregar.Enabled = false; //agregar
+            Clientes.Proveedor elProveedor = new Clientes.Proveedor();
+            elProveedor = Clientes.Proveedor.ObtenerProveedor2(lstHabilitado.SelectedItem.ToString());
+            mskTelefono.Text = elProveedor.telefono;
+            txtNombreEmpresa.Text = elProveedor.nombreEmpresa;
+            txtDireccion.Text = elProveedor.direccion;
+            txtCorreo.Text = elProveedor.telefono;
+        }
+
+        public void datosH()
+        {
+            // cargamos los datos al listbox
+            Clientes.Proveedor nuevo = new Clientes.Proveedor();
+
+            // Creamos la lista
+            List<Clientes.Proveedor> lista = Clientes.Proveedor.ListarProveedorTodosH();
+
+            // Limpiar el listBox
+            lstHabilitado.Items.Clear();
+
+            if (lista.Any())
+            {
+                lista.ForEach(Proveedor => lstHabilitado.Items.Add(Proveedor.nombreEmpresa.ToString()));
+            }
+            else
+            {
+                lstHabilitado.Items.Add("No hay registros");
+            }
+        }
+
     }
 }

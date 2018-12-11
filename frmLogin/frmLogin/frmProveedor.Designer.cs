@@ -40,13 +40,13 @@
             this.lblInstrucciones = new MaterialSkin.Controls.MaterialLabel();
             this.lstInhabilitado = new System.Windows.Forms.ListBox();
             this.lstHabilitado = new System.Windows.Forms.ListBox();
-            this.btnInhabilitado = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnHabilitado = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnActualizar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnHa_In = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnRegresar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mskTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.btnHabilitado = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnInhabilitado = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.SuspendLayout();
@@ -168,11 +168,11 @@
             // 
             // plOpciones
             // 
+            this.plOpciones.Controls.Add(this.btnInhabilitado);
+            this.plOpciones.Controls.Add(this.btnHabilitado);
             this.plOpciones.Controls.Add(this.lblInstrucciones);
             this.plOpciones.Controls.Add(this.lstInhabilitado);
             this.plOpciones.Controls.Add(this.lstHabilitado);
-            this.plOpciones.Controls.Add(this.btnInhabilitado);
-            this.plOpciones.Controls.Add(this.btnHabilitado);
             this.plOpciones.Location = new System.Drawing.Point(514, 104);
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(261, 473);
@@ -194,10 +194,11 @@
             // lstInhabilitado
             // 
             this.lstInhabilitado.FormattingEnabled = true;
-            this.lstInhabilitado.Location = new System.Drawing.Point(12, 61);
+            this.lstInhabilitado.Location = new System.Drawing.Point(12, 120);
             this.lstInhabilitado.Name = "lstInhabilitado";
             this.lstInhabilitado.Size = new System.Drawing.Size(237, 394);
             this.lstInhabilitado.TabIndex = 13;
+            this.lstInhabilitado.SelectedIndexChanged += new System.EventHandler(this.lstInhabilitado_SelectedIndexChanged);
             // 
             // lstHabilitado
             // 
@@ -206,38 +207,7 @@
             this.lstHabilitado.Name = "lstHabilitado";
             this.lstHabilitado.Size = new System.Drawing.Size(237, 381);
             this.lstHabilitado.TabIndex = 12;
-            // 
-            // btnInhabilitado
-            // 
-            this.btnInhabilitado.AutoSize = true;
-            this.btnInhabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnInhabilitado.Depth = 0;
-            this.btnInhabilitado.Icon = null;
-            this.btnInhabilitado.Location = new System.Drawing.Point(123, 30);
-            this.btnInhabilitado.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnInhabilitado.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnInhabilitado.Name = "btnInhabilitado";
-            this.btnInhabilitado.Primary = false;
-            this.btnInhabilitado.Size = new System.Drawing.Size(122, 36);
-            this.btnInhabilitado.TabIndex = 11;
-            this.btnInhabilitado.Text = "INHABILITADOS";
-            this.btnInhabilitado.UseVisualStyleBackColor = true;
-            // 
-            // btnHabilitado
-            // 
-            this.btnHabilitado.AutoSize = true;
-            this.btnHabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHabilitado.Depth = 0;
-            this.btnHabilitado.Icon = null;
-            this.btnHabilitado.Location = new System.Drawing.Point(8, 30);
-            this.btnHabilitado.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHabilitado.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHabilitado.Name = "btnHabilitado";
-            this.btnHabilitado.Primary = false;
-            this.btnHabilitado.Size = new System.Drawing.Size(108, 36);
-            this.btnHabilitado.TabIndex = 0;
-            this.btnHabilitado.Text = "HABILITADOS";
-            this.btnHabilitado.UseVisualStyleBackColor = true;
+            this.lstHabilitado.Click += new System.EventHandler(this.lstHabilitado_Click);
             // 
             // btnAgregar
             // 
@@ -314,6 +284,38 @@
             this.mskTelefono.TabIndex = 20;
             this.mskTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // btnHabilitado
+            // 
+            this.btnHabilitado.AutoSize = true;
+            this.btnHabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHabilitado.Depth = 0;
+            this.btnHabilitado.Icon = null;
+            this.btnHabilitado.Location = new System.Drawing.Point(12, 31);
+            this.btnHabilitado.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHabilitado.Name = "btnHabilitado";
+            this.btnHabilitado.Primary = true;
+            this.btnHabilitado.Size = new System.Drawing.Size(100, 36);
+            this.btnHabilitado.TabIndex = 21;
+            this.btnHabilitado.Text = "HABILITADO";
+            this.btnHabilitado.UseVisualStyleBackColor = true;
+            this.btnHabilitado.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // btnInhabilitado
+            // 
+            this.btnInhabilitado.AutoSize = true;
+            this.btnInhabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnInhabilitado.Depth = 0;
+            this.btnInhabilitado.Icon = null;
+            this.btnInhabilitado.Location = new System.Drawing.Point(136, 31);
+            this.btnInhabilitado.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnInhabilitado.Name = "btnInhabilitado";
+            this.btnInhabilitado.Primary = true;
+            this.btnInhabilitado.Size = new System.Drawing.Size(113, 36);
+            this.btnInhabilitado.TabIndex = 22;
+            this.btnInhabilitado.Text = "INHABILITADO";
+            this.btnInhabilitado.UseVisualStyleBackColor = true;
+            this.btnInhabilitado.Click += new System.EventHandler(this.btnInhabilitado_Click);
+            // 
             // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,8 +357,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCorreo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel plOpciones;
-        private MaterialSkin.Controls.MaterialFlatButton btnInhabilitado;
-        private MaterialSkin.Controls.MaterialFlatButton btnHabilitado;
         private System.Windows.Forms.ListBox lstInhabilitado;
         private System.Windows.Forms.ListBox lstHabilitado;
         private MaterialSkin.Controls.MaterialLabel lblInstrucciones;
@@ -365,5 +365,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnHa_In;
         private MaterialSkin.Controls.MaterialRaisedButton btnRegresar;
         private System.Windows.Forms.MaskedTextBox mskTelefono;
+        private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitado;
+        private MaterialSkin.Controls.MaterialRaisedButton btnHabilitado;
     }
 }
