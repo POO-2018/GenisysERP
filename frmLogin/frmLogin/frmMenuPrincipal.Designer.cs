@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.tbMenu = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnContactos = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnProveedores = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnClientes = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnInhabilitarCompra = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBusquedaCompra = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -48,11 +44,15 @@
             this.btnEmpleados = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tsMenu = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnClientes = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnProveedores = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnContactos = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tbMenu.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMenu
@@ -69,55 +69,6 @@
             this.tbMenu.Size = new System.Drawing.Size(617, 274);
             this.tbMenu.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.btnContactos);
-            this.tabPage1.Controls.Add(this.btnProveedores);
-            this.tabPage1.Controls.Add(this.btnClientes);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(609, 278);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Clientes";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btnContactos
-            // 
-            this.btnContactos.Depth = 0;
-            this.btnContactos.Location = new System.Drawing.Point(401, 88);
-            this.btnContactos.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnContactos.Name = "btnContactos";
-            this.btnContactos.Primary = true;
-            this.btnContactos.Size = new System.Drawing.Size(179, 88);
-            this.btnContactos.TabIndex = 2;
-            this.btnContactos.Text = "Contactos";
-            this.btnContactos.UseVisualStyleBackColor = true;
-            // 
-            // btnProveedores
-            // 
-            this.btnProveedores.Depth = 0;
-            this.btnProveedores.Location = new System.Drawing.Point(203, 88);
-            this.btnProveedores.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Primary = true;
-            this.btnProveedores.Size = new System.Drawing.Size(179, 88);
-            this.btnProveedores.TabIndex = 1;
-            this.btnProveedores.Text = "Proveedores";
-            this.btnProveedores.UseVisualStyleBackColor = true;
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.Depth = 0;
-            this.btnClientes.Location = new System.Drawing.Point(6, 88);
-            this.btnClientes.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Primary = true;
-            this.btnClientes.Size = new System.Drawing.Size(179, 88);
-            this.btnClientes.TabIndex = 0;
-            this.btnClientes.Text = "Clientes\r\n";
-            this.btnClientes.UseVisualStyleBackColor = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnInhabilitarCompra);
@@ -127,7 +78,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(609, 278);
+            this.tabPage2.Size = new System.Drawing.Size(609, 248);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Compras";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -187,7 +138,7 @@
             this.tabPage3.Controls.Add(this.btnCategorias);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(609, 278);
+            this.tabPage3.Size = new System.Drawing.Size(609, 248);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -300,6 +251,55 @@
             this.materialRaisedButton1.Text = "Salir\r\n";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             // 
+            // btnClientes
+            // 
+            this.btnClientes.Depth = 0;
+            this.btnClientes.Location = new System.Drawing.Point(6, 88);
+            this.btnClientes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Primary = true;
+            this.btnClientes.Size = new System.Drawing.Size(179, 88);
+            this.btnClientes.TabIndex = 0;
+            this.btnClientes.Text = "Clientes\r\n";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.Depth = 0;
+            this.btnProveedores.Location = new System.Drawing.Point(203, 88);
+            this.btnProveedores.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Primary = true;
+            this.btnProveedores.Size = new System.Drawing.Size(179, 88);
+            this.btnProveedores.TabIndex = 1;
+            this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            // 
+            // btnContactos
+            // 
+            this.btnContactos.Depth = 0;
+            this.btnContactos.Location = new System.Drawing.Point(401, 88);
+            this.btnContactos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnContactos.Name = "btnContactos";
+            this.btnContactos.Primary = true;
+            this.btnContactos.Size = new System.Drawing.Size(179, 88);
+            this.btnContactos.TabIndex = 2;
+            this.btnContactos.Text = "Contactos";
+            this.btnContactos.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnContactos);
+            this.tabPage1.Controls.Add(this.btnProveedores);
+            this.tabPage1.Controls.Add(this.btnClientes);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(609, 248);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Clientes";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,10 +313,10 @@
             this.Text = "Sistema Genisys ERP";
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.tbMenu.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -324,10 +324,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialTabControl tbMenu;
-        private System.Windows.Forms.TabPage tabPage1;
-        private MaterialSkin.Controls.MaterialRaisedButton btnContactos;
-        private MaterialSkin.Controls.MaterialRaisedButton btnProveedores;
-        private MaterialSkin.Controls.MaterialRaisedButton btnClientes;
         private System.Windows.Forms.TabPage tabPage2;
         private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitarCompra;
         private MaterialSkin.Controls.MaterialRaisedButton btnBusquedaCompra;
@@ -343,5 +339,9 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnEmpleados;
         private MaterialSkin.Controls.MaterialTabSelector tsMenu;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnContactos;
+        private MaterialSkin.Controls.MaterialRaisedButton btnProveedores;
+        private MaterialSkin.Controls.MaterialRaisedButton btnClientes;
     }
 }

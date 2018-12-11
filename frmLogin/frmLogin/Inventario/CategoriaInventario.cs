@@ -20,6 +20,9 @@ namespace frmLogin.Inventario
         public string descripcion { get; set; }
         public int idUsuario { get; set; }
 
+        // Constructor
+        public CategoriaInventario() { }
+
         // Métodos para la clase
 
         public static CategoriaInventario ObtenerCategoria(string idCategoria)
