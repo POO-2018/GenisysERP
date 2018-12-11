@@ -65,5 +65,48 @@ namespace frmLogin
                 MessageBox.Show("Ha ocurrido un problema en la inserción de los datos");
             }
         }
+
+        private void txtNombreEmpresa_Leave(object sender, EventArgs e)
+        {
+            Clientes.Proveedor nuevoProveedor = Clientes.Proveedor.ObtenerProveedor(txtNombreEmpresa.Text);
+            txtDireccion.Text = nuevoProveedor.direccion;
+            mskTelefono.Text = nuevoProveedor.telefono;
+            txtCorreo.Text = nuevoProveedor.correo;
+
+            if (txtDireccion.Text != "")
+            {
+                btnAgregar.Enabled = false;
+                btnActualizar.Enabled = true;
+                btnHa_In.Enabled = true;
+            }
+            else
+            {
+                btnActualizar.Enabled = false;
+                btnHa_In.Enabled = false;
+                btnAgregar.Enabled = true;
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHa_In_Click(object sender, EventArgs e)
+        {
+            //instanciamos de la clase proveedor
+            Clientes.Proveedor nuevoProveedor = new Clientes.Proveedor();
+            nuevoProveedor.nombreEmpresa = txtNombreEmpresa.Text;
+
+            if (Clientes.Proveedor.Inhabilitar_Habilitar_Proveedor(nuevoProveedor))
+            {
+                MessageBox.Show(nuevoProveedor.m);
+                //limpiar();
+            }
+            else
+            {
+                MessageBox.Show("ha ocurrido un  error en la actualización", "Control de proveedores", MessageBoxButtons.OK);
+            }
+        }
     }
 }

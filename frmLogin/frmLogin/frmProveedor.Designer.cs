@@ -119,6 +119,7 @@
             this.txtNombreEmpresa.TabIndex = 4;
             this.txtNombreEmpresa.TabStop = false;
             this.txtNombreEmpresa.UseSystemPasswordChar = false;
+            this.txtNombreEmpresa.Leave += new System.EventHandler(this.txtNombreEmpresa_Leave);
             // 
             // txtDireccion
             // 
@@ -283,6 +284,7 @@
             this.btnHa_In.TabIndex = 18;
             this.btnHa_In.Text = "HABILITAR / INHABILITAR";
             this.btnHa_In.UseVisualStyleBackColor = true;
+            this.btnHa_In.Click += new System.EventHandler(this.btnHa_In_Click);
             // 
             // btnRegresar
             // 
@@ -298,6 +300,7 @@
             this.btnRegresar.TabIndex = 19;
             this.btnRegresar.Text = "REGRESAR";
             this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // mskTelefono
             // 
