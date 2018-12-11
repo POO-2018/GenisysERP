@@ -44,10 +44,6 @@
             this.btnInhabilitar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvImpuesto = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImpuesto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,36 +260,11 @@
             // dgvImpuesto
             // 
             this.dgvImpuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImpuesto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Descripcion,
-            this.Valor,
-            this.id});
             this.dgvImpuesto.Location = new System.Drawing.Point(384, 129);
             this.dgvImpuesto.Name = "dgvImpuesto";
             this.dgvImpuesto.Size = new System.Drawing.Size(345, 213);
             this.dgvImpuesto.TabIndex = 10;
             this.dgvImpuesto.DoubleClick += new System.EventHandler(this.dgvImpuesto_DoubleClick);
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // Valor
-            // 
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
             // 
             // frmImpuestoProducto
             // 
@@ -343,9 +314,5 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitar;
         private MaterialSkin.Controls.MaterialRaisedButton btnSalir;
         private System.Windows.Forms.DataGridView dgvImpuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

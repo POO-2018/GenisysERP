@@ -44,21 +44,8 @@ namespace frmLogin.Inventario
 
             // limpiamos los datos que se encuentren en la lista.
             dgvImpuesto.Rows.Clear();
-            int x = 0;
-            if (listaT.Any())
-            {
-              
-                dgvImpuesto.Rows.Add();
-                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[0].Value=(Impuesto.idCodigoImpuesto.ToString()));
-                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[1].Value = (Impuesto.descripcion.ToString()));
-                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[2].Value = (Impuesto.valor.ToString()));
-                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[3].Value = (Impuesto.idImpuesto.ToString()));
-                x++;
-            }
-            else
-            {
-                dgvImpuesto.Rows[x].Cells[0].Value = "No hay Registros";
-            }
+            dgvImpuesto.DataSource = listaT;
+            
 
         }
 
@@ -158,20 +145,24 @@ namespace frmLogin.Inventario
         {
             //Cargamos los datos del impuesto seleccionado.
             Impuesto cargar = Impuesto.BuscarImpuesto(txtCodigo.Text);
-
-            txtCodigo.Text = cargar.idCodigoImpuesto;
-            txtDescripcion.Text = cargar.descripcion;
-            txtValor.Text = Convert.ToString(cargar.valor);
-            txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
-            txtObservacion.Text = cargar.observacion;
-
-            // Validamos si hay datos existentes.
-            if (txtCodigo.Text != "" && txtDescripcion.Text != "")
+            if(cargar.idCodigoImpuesto !=null && cargar.descripcion != null)
             {
-                btnAgregar.Visible = false;
-                btnActualizar.Visible = true;
-                btnInhabilitar.Visible = true;
+                txtCodigo.Text = cargar.idCodigoImpuesto;
+                txtDescripcion.Text = cargar.descripcion;
+                txtValor.Text = Convert.ToString(cargar.valor);
+                txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
+                txtObservacion.Text = cargar.observacion;
+
+                // Validamos si hay datos existentes.
+                if (txtCodigo.Text != "" && txtDescripcion.Text != "")
+                {
+                    btnAgregar.Visible = false;
+                    btnActualizar.Visible = true;
+                    btnInhabilitar.Visible = true;
+                }
             }
+            
+            
         }
     }
 }
