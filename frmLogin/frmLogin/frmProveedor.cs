@@ -140,7 +140,7 @@ namespace frmLogin
             mskTelefono.Text = elProveedor.telefono;
             txtNombreEmpresa.Text = elProveedor.nombreEmpresa;
             txtDireccion.Text = elProveedor.direccion;
-            txtCorreo.Text = elProveedor.telefono;
+            txtCorreo.Text = elProveedor.correo;
         }
 
         public void datosH()
