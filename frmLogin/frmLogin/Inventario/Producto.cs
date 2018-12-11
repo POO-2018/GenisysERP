@@ -197,6 +197,81 @@ namespace frmLogin.Inventario
                 conexion.CerrarConexion();
             }
         }
+
+        // Método de inhabilitación de producto
+
+        public static bool InhabilitarProducto(Producto elProducto)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            SqlCommand cmd = conexion.EjecutarComando("sp_InhabiliarProducto");
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parámetros
+            cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
+           
+            cmd.Parameters["idInventario"].Value = elProducto.idInvetario;
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
  
+
+        public static List<Producto>LeerTodos()
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            string sql;
+            List<Producto> Lista = new List<Producto>();
+
+            sql = @"SELECT * FROM Inventario.Producto;";
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+            try
+            {
+                
+                 rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                     Producto resultado = new Producto();
+                    resultado.idInvetario = rdr.GetInt16(0);
+                    resultado.idProducto = rdr.GetInt16(1);
+                    resultado.nombre = rdr.GetString(2);
+                    resultado.cantidadExistencia = rdr.GetInt16(3);
+                    resultado.cantidadMinima = rdr.GetInt16(4);
+                    resultado.precioCompra = rdr.GetFloat(5);
+                    resultado.precioVenta = rdr.GetFloat(6);
+                    resultado.fechaIngresa = rdr.GetDateTime(7);
+                    resultado.idUsuario = rdr.GetInt16(8);
+                    resultado.observaciones = rdr.GetString(9);
+                    resultado.idImpuesto = rdr.GetInt16(10);
+                    resultado.IdCategoria = rdr.GetInt16(11);
+                    resultado.idProveedor = rdr.GetInt16(12);
+                    resultado.estado = rdr.GetInt16(13);
+                    Lista.Add(resultado);
+                }
+
+                //Retornamos los datos obtenidos
+                return Lista ;
+            }
+            catch (SqlException)
+            {
+                return Lista;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
     }
 }
