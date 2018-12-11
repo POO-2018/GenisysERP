@@ -13,8 +13,13 @@ using MaterialSkin.Controls;
 
 namespace frmLogin.Inventario
 {
+    
     public partial class frmImpuestoProducto : MaterialForm
     {
+        // Creamos una variable publica para capturar el valor del id del impuesto
+        // seleccionado.
+        public string elCodigo;
+
         private MaterialSkinManager materialSkinManager;
         public frmImpuestoProducto()
         {
@@ -36,16 +41,9 @@ namespace frmLogin.Inventario
             // IdentidadPaciente = Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value);
 
             // inicializamos los textos vacíos
+            dgvImpuesto.DataSource = null;
             Limpiar();
 
-            // cargamos los datos de los impuestos existentes en la base de datos.
-            // instanciamos de la clase impuesto
-            List<Impuesto> listaT = Impuesto.LeerTodos();
-
-            // limpiamos los datos que se encuentren en la lista.
-            dgvImpuesto.Rows.Clear();
-            dgvImpuesto.DataSource = listaT;
-            
 
         }
 
@@ -94,7 +92,10 @@ namespace frmLogin.Inventario
 
 
         }
-
+        /// <summary>
+        /// Función que se encarga de limpiar los textbox y recargar los
+        /// datos en el dataGridView.
+        /// </summary>
         private void Limpiar()
         {
             txtCodigo.Text = "";
@@ -106,24 +107,74 @@ namespace frmLogin.Inventario
             btnActualizar.Visible = false;
             btnInhabilitar.Visible = false;
             txtCodigo.Focus();
+            CargarDatos();
         }
-
+        /// <summary>
+        /// Instancia de la clase Impuesto y llama al método actualizarImpuesto
+        /// y recarga de los datos en el dataGrid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            // Verificamos que el usuario no intente actualizar un registro
+            // con los datos vacios.
+            if(txtCodigo.Text==""|| txtDescripcion.Text == "")
+            {
+                MessageBox.Show("¡Debe ingresar un código y una descripción", "Error en ingreso");
+            }else if(txtValor.Text=="" || txtRegistradoPor.Text == "")
+            {
+                MessageBox.Show("¡Debe ingresar un valor y el usuario quien lo registra", "Error en ingreso");
 
+            }
+            else
+            {
+                //Instanciamos de la clase Impuesto y llamamos es método
+                // actualizar
+                Impuesto actualizar = new Impuesto();
+
+                // cargamos los datos
+                actualizar.idImpuesto = Convert.ToInt32(elCodigo);
+                actualizar.idCodigoImpuesto = txtCodigo.Text;
+                actualizar.descripcion = txtDescripcion.Text;
+                actualizar.valor = Convert.ToDecimal(txtValor.Text);
+                MessageBox.Show(txtValor.Text);
+                actualizar.idUsuario = Convert.ToInt32(txtRegistradoPor.Text);
+                actualizar.fechaCreacion = System.DateTime.Now;
+                actualizar.estado = 1;
+                actualizar.observacion = txtObservacion.Text;
+
+                // guardamos los datos capturados
+                if (Impuesto.ActualizarImpuesto(actualizar))
+                {
+                    MessageBox.Show("Impuesto actualizado correctamente", "GenisysERP");
+                    Limpiar();
+                }
+                else
+                {
+                   MessageBox.Show("Ha ocurrido un problema durante la actualización", "GenisysERP");
+                   Limpiar();
+                }              
+            }
         }
 
-        private void dgvImpuesto_Click(object sender, EventArgs e)
+        public void CargarDatos()
         {
+            // cargamos los datos de los impuestos existentes en la base de datos.
+            // instanciamos de la clase impuesto
+            List<Impuesto> listaT = Impuesto.LeerTodos();
 
+            // limpiamos los datos que se encuentren en la lista.
+            
+            dgvImpuesto.DataSource = listaT;
         }
 
         private void dgvImpuesto_DoubleClick(object sender, EventArgs e)
         {
-            string codigo=  Convert.ToString(dgvImpuesto.CurrentRow.Cells[1].Value);
+            elCodigo=  Convert.ToString(dgvImpuesto.CurrentRow.Cells[3].Value);
 
             //Cargamos los datos del impuesto seleccionado.
-            Impuesto cargar = Impuesto.BuscarImpuesto(codigo);
+            Impuesto cargar = Impuesto.BuscarImpuesto(elCodigo);
 
             txtCodigo.Text = cargar.idCodigoImpuesto;
             txtDescripcion.Text = cargar.descripcion;
@@ -152,6 +203,7 @@ namespace frmLogin.Inventario
                 txtValor.Text = Convert.ToString(cargar.valor);
                 txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
                 txtObservacion.Text = cargar.observacion;
+                elCodigo = Convert.ToString(cargar.idImpuesto);
 
                 // Validamos si hay datos existentes.
                 if (txtCodigo.Text != "" && txtDescripcion.Text != "")

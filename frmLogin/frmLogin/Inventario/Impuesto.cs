@@ -15,13 +15,14 @@ namespace frmLogin.Inventario
     class Impuesto
     {
         // Propiedades 
-        public int idImpuesto { get; set; }
-        public string idCodigoImpuesto { get; set; }
+        // nota se ordenaron de la manera que aparecerán el el dgvImpuesto
         public string descripcion { get; set; }
         public decimal valor { get; set; }
+        public string observacion { get; set; }
+        public string idCodigoImpuesto { get; set; }
+        public int idImpuesto { get; set; }       
         public DateTime fechaCreacion { get; set; }
         public int idUsuario { get; set; }
-        public string observacion { get; set; }
         public int estado { get; set; }
 
         // Constructor
@@ -103,28 +104,28 @@ namespace frmLogin.Inventario
             // Parametros
 
             cmd.Parameters.Add(new SqlParameter("@idImpuesto", SqlDbType.Int));
-            cmd.Parameters["idImpuesto"].Value = impuesto.idImpuesto;
+            cmd.Parameters["@idImpuesto"].Value = impuesto.idImpuesto;
 
             cmd.Parameters.Add(new SqlParameter("@idCodigoImpuesto", SqlDbType.Char, 5));
-            cmd.Parameters["idCodigoImpuesto"].Value = impuesto.idCodigoImpuesto;
+            cmd.Parameters["@idCodigoImpuesto"].Value = impuesto.idCodigoImpuesto;
 
             cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.NVarChar, 100));
-            cmd.Parameters["descripcion"].Value = impuesto.descripcion;
+            cmd.Parameters["@descripcion"].Value = impuesto.descripcion;
 
             cmd.Parameters.Add(new SqlParameter("@valor", SqlDbType.Decimal));
-            cmd.Parameters["valor"].Value = impuesto.valor;
+            cmd.Parameters["@valor"].Value = impuesto.valor;
 
             cmd.Parameters.Add(new SqlParameter("@fechaCreacion", SqlDbType.DateTime));
-            cmd.Parameters["fechaCreacion"].Value = impuesto.fechaCreacion;
+            cmd.Parameters["@fechaCreacion"].Value = impuesto.fechaCreacion;
 
-            cmd.Parameters.Add(new SqlParameter("@idUsario", SqlDbType.Int));
-            cmd.Parameters["idUsuario"].Value = impuesto.idUsuario;
+            cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
+            cmd.Parameters["@idUsuario"].Value = impuesto.idUsuario;
 
             cmd.Parameters.Add(new SqlParameter("@observacion", SqlDbType.NVarChar, 100));
-            cmd.Parameters["observacion"].Value = impuesto.observacion;
+            cmd.Parameters["@observacion"].Value = impuesto.observacion;
 
             cmd.Parameters.Add(new SqlParameter("@estado", SqlDbType.Bit));
-            cmd.Parameters["estado"].Value = impuesto.estado;
+            cmd.Parameters["@estado"].Value = impuesto.estado;
 
             try
             {
@@ -136,7 +137,7 @@ namespace frmLogin.Inventario
             }
             catch (SqlException ex)
             {
-
+                MessageBox.Show(ex.ToString());
                 return false;
             }
             finally

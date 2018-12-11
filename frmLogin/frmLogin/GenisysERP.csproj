@@ -63,10 +63,10 @@
     <Compile Include="Inventario\frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmImpuestoProducto.cs">
+    <Compile Include="Inventario\frmImpuestoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmImpuestoProducto.Designer.cs">
+    <Compile Include="Inventario\frmImpuestoProducto.Designer.cs">
       <DependentUpon>frmImpuestoProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\Impuesto.cs" />
@@ -79,7 +79,7 @@
     <EmbeddedResource Include="Inventario\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmImpuestoProducto.resx">
+    <EmbeddedResource Include="Inventario\frmImpuestoProducto.resx">
       <DependentUpon>frmImpuestoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

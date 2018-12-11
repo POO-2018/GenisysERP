@@ -138,7 +138,7 @@ CREATE TABLE Inventario.Impuesto
 idImpuesto INT NOT NULL IDENTITY (10, 1) CONSTRAINT  PK_idImpuesto PRIMARY KEY CLUSTERED (idImpuesto),
 idCodigoImpuesto CHAR(5) NOT NULL,
 descripcion NVARCHAR(100) NOT NULL,
-valor DECIMAL NOT NULL,
+valor DECIMAL(10,2) NOT NULL,
 fechaCreacion DATETIME NOT NULL,
 idUsuario INT NOT NULL,
 observasion NVARCHAR(100) NOT NULL,

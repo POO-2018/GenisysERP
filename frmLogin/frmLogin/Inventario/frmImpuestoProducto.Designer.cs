@@ -51,12 +51,12 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Depth = 0;
-            this.lblTitulo.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitulo.Location = new System.Drawing.Point(332, 71);
+            this.lblTitulo.Location = new System.Drawing.Point(293, 124);
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(154, 19);
+            this.lblTitulo.Size = new System.Drawing.Size(188, 24);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Contról de impuestos";
             // 
@@ -66,7 +66,7 @@
             this.lblCodigo.Depth = 0;
             this.lblCodigo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCodigo.Location = new System.Drawing.Point(16, 134);
+            this.lblCodigo.Location = new System.Drawing.Point(44, 215);
             this.lblCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(61, 19);
@@ -79,7 +79,7 @@
             this.lblDescripcion.Depth = 0;
             this.lblDescripcion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDescripcion.Location = new System.Drawing.Point(16, 172);
+            this.lblDescripcion.Location = new System.Drawing.Point(44, 253);
             this.lblDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(93, 19);
@@ -92,7 +92,7 @@
             this.lblValor.Depth = 0;
             this.lblValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblValor.Location = new System.Drawing.Point(16, 215);
+            this.lblValor.Location = new System.Drawing.Point(44, 296);
             this.lblValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(49, 19);
@@ -105,7 +105,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(16, 268);
+            this.materialLabel1.Location = new System.Drawing.Point(44, 349);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(111, 19);
@@ -118,7 +118,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(16, 311);
+            this.materialLabel2.Location = new System.Drawing.Point(44, 392);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(96, 19);
@@ -129,7 +129,7 @@
             // 
             this.txtCodigo.Depth = 0;
             this.txtCodigo.Hint = "";
-            this.txtCodigo.Location = new System.Drawing.Point(134, 129);
+            this.txtCodigo.Location = new System.Drawing.Point(162, 210);
             this.txtCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.PasswordChar = '\0';
@@ -146,7 +146,7 @@
             // 
             this.txtDescripcion.Depth = 0;
             this.txtDescripcion.Hint = "";
-            this.txtDescripcion.Location = new System.Drawing.Point(134, 172);
+            this.txtDescripcion.Location = new System.Drawing.Point(162, 253);
             this.txtDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.PasswordChar = '\0';
@@ -162,7 +162,7 @@
             // 
             this.txtValor.Depth = 0;
             this.txtValor.Hint = "";
-            this.txtValor.Location = new System.Drawing.Point(134, 220);
+            this.txtValor.Location = new System.Drawing.Point(162, 301);
             this.txtValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtValor.Name = "txtValor";
             this.txtValor.PasswordChar = '\0';
@@ -178,7 +178,7 @@
             // 
             this.txtRegistradoPor.Depth = 0;
             this.txtRegistradoPor.Hint = "";
-            this.txtRegistradoPor.Location = new System.Drawing.Point(134, 268);
+            this.txtRegistradoPor.Location = new System.Drawing.Point(162, 349);
             this.txtRegistradoPor.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtRegistradoPor.Name = "txtRegistradoPor";
             this.txtRegistradoPor.PasswordChar = '\0';
@@ -194,7 +194,7 @@
             // 
             this.txtObservacion.Depth = 0;
             this.txtObservacion.Hint = "";
-            this.txtObservacion.Location = new System.Drawing.Point(134, 311);
+            this.txtObservacion.Location = new System.Drawing.Point(162, 392);
             this.txtObservacion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.PasswordChar = '\0';
@@ -209,7 +209,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Depth = 0;
-            this.btnAgregar.Location = new System.Drawing.Point(20, 364);
+            this.btnAgregar.Location = new System.Drawing.Point(48, 501);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Primary = true;
@@ -222,7 +222,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Depth = 0;
-            this.btnActualizar.Location = new System.Drawing.Point(201, 364);
+            this.btnActualizar.Location = new System.Drawing.Point(229, 501);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
@@ -235,7 +235,7 @@
             // btnInhabilitar
             // 
             this.btnInhabilitar.Depth = 0;
-            this.btnInhabilitar.Location = new System.Drawing.Point(393, 364);
+            this.btnInhabilitar.Location = new System.Drawing.Point(421, 501);
             this.btnInhabilitar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInhabilitar.Name = "btnInhabilitar";
             this.btnInhabilitar.Primary = true;
@@ -247,7 +247,7 @@
             // btnSalir
             // 
             this.btnSalir.Depth = 0;
-            this.btnSalir.Location = new System.Drawing.Point(584, 364);
+            this.btnSalir.Location = new System.Drawing.Point(612, 501);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
@@ -260,7 +260,7 @@
             // dgvImpuesto
             // 
             this.dgvImpuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImpuesto.Location = new System.Drawing.Point(384, 129);
+            this.dgvImpuesto.Location = new System.Drawing.Point(412, 210);
             this.dgvImpuesto.Name = "dgvImpuesto";
             this.dgvImpuesto.Size = new System.Drawing.Size(345, 213);
             this.dgvImpuesto.TabIndex = 10;
@@ -270,7 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 429);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.dgvImpuesto);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnInhabilitar);

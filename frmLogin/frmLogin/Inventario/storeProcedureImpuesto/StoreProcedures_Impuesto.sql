@@ -7,7 +7,7 @@ CREATE PROCEDURE sp_InsertarImpuesto
 (
 	@idCodigoImpuesto CHAR(5),
 	@descripcion NVARCHAR(100),
-	@valor DECIMAL,
+	@valor DECIMAL(10,2),
 	@fechaCreacion DATETIME, 
 	@idUsuario INT,
 	@observacion NVARCHAR(100),
@@ -28,7 +28,7 @@ CREATE PROCEDURE sp_ActualizarImpuesto
 	@idImpuesto INT,
 	@idCodigoImpuesto CHAR(5),
 	@descripcion NVARCHAR(100),
-	@valor DECIMAL,
+	@valor DECIMAL(10,2),
 	@fechaCreacion DATETIME, 
 	@idUsuario INT,
 	@observacion NVARCHAR(100),
