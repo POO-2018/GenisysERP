@@ -34,7 +34,6 @@
             this.lblCorreo = new MaterialSkin.Controls.MaterialLabel();
             this.txtNombreEmpresa = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtDireccion = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtTelefono = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtCorreo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.plOpciones = new System.Windows.Forms.Panel();
@@ -43,10 +42,11 @@
             this.lstHabilitado = new System.Windows.Forms.ListBox();
             this.btnInhabilitado = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnHabilitado = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnActualizar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnHabilitarInhabilitar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnRegresar = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnActualizar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnHa_In = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnRegresar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.mskTelefono = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.SuspendLayout();
@@ -136,24 +136,6 @@
             this.txtDireccion.TabIndex = 5;
             this.txtDireccion.TabStop = false;
             this.txtDireccion.UseSystemPasswordChar = false;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Depth = 0;
-            this.txtTelefono.Hint = "";
-            this.txtTelefono.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtTelefono.Location = new System.Drawing.Point(244, 234);
-            this.txtTelefono.MaxLength = 32767;
-            this.txtTelefono.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PasswordChar = '\0';
-            this.txtTelefono.SelectedText = "";
-            this.txtTelefono.SelectionLength = 0;
-            this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.Size = new System.Drawing.Size(254, 23);
-            this.txtTelefono.TabIndex = 6;
-            this.txtTelefono.TabStop = false;
-            this.txtTelefono.UseSystemPasswordChar = false;
             // 
             // txtCorreo
             // 
@@ -262,15 +244,15 @@
             this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAgregar.Depth = 0;
             this.btnAgregar.Icon = null;
-            this.btnAgregar.Location = new System.Drawing.Point(29, 541);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregar.Location = new System.Drawing.Point(23, 541);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Primary = false;
+            this.btnAgregar.Primary = true;
             this.btnAgregar.Size = new System.Drawing.Size(83, 36);
-            this.btnAgregar.TabIndex = 12;
+            this.btnAgregar.TabIndex = 16;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnActualizar
             // 
@@ -278,31 +260,29 @@
             this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizar.Depth = 0;
             this.btnActualizar.Icon = null;
-            this.btnActualizar.Location = new System.Drawing.Point(120, 541);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnActualizar.Location = new System.Drawing.Point(112, 541);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Primary = false;
+            this.btnActualizar.Primary = true;
             this.btnActualizar.Size = new System.Drawing.Size(103, 36);
-            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.TabIndex = 17;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // btnHabilitarInhabilitar
+            // btnHa_In
             // 
-            this.btnHabilitarInhabilitar.AutoSize = true;
-            this.btnHabilitarInhabilitar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHabilitarInhabilitar.Depth = 0;
-            this.btnHabilitarInhabilitar.Icon = null;
-            this.btnHabilitarInhabilitar.Location = new System.Drawing.Point(231, 541);
-            this.btnHabilitarInhabilitar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHabilitarInhabilitar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHabilitarInhabilitar.Name = "btnHabilitarInhabilitar";
-            this.btnHabilitarInhabilitar.Primary = false;
-            this.btnHabilitarInhabilitar.Size = new System.Drawing.Size(178, 36);
-            this.btnHabilitarInhabilitar.TabIndex = 14;
-            this.btnHabilitarInhabilitar.Text = "HABILITAR/INHABILITAR";
-            this.btnHabilitarInhabilitar.UseVisualStyleBackColor = true;
+            this.btnHa_In.AutoSize = true;
+            this.btnHa_In.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHa_In.Depth = 0;
+            this.btnHa_In.Icon = null;
+            this.btnHa_In.Location = new System.Drawing.Point(219, 541);
+            this.btnHa_In.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHa_In.Name = "btnHa_In";
+            this.btnHa_In.Primary = true;
+            this.btnHa_In.Size = new System.Drawing.Size(184, 36);
+            this.btnHa_In.TabIndex = 18;
+            this.btnHa_In.Text = "HABILITAR / INHABILITAR";
+            this.btnHa_In.UseVisualStyleBackColor = true;
             // 
             // btnRegresar
             // 
@@ -310,29 +290,40 @@
             this.btnRegresar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRegresar.Depth = 0;
             this.btnRegresar.Icon = null;
-            this.btnRegresar.Location = new System.Drawing.Point(417, 541);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRegresar.Location = new System.Drawing.Point(409, 541);
             this.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Primary = false;
+            this.btnRegresar.Primary = true;
             this.btnRegresar.Size = new System.Drawing.Size(89, 36);
-            this.btnRegresar.TabIndex = 15;
+            this.btnRegresar.TabIndex = 19;
             this.btnRegresar.Text = "REGRESAR";
             this.btnRegresar.UseVisualStyleBackColor = true;
+            // 
+            // mskTelefono
+            // 
+            this.mskTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mskTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.mskTelefono.ForeColor = System.Drawing.SystemColors.Info;
+            this.mskTelefono.Location = new System.Drawing.Point(244, 235);
+            this.mskTelefono.Mask = "0000-0000";
+            this.mskTelefono.Name = "mskTelefono";
+            this.mskTelefono.Size = new System.Drawing.Size(254, 20);
+            this.mskTelefono.TabIndex = 20;
+            this.mskTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.mskTelefono);
             this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.btnHabilitarInhabilitar);
+            this.Controls.Add(this.btnHa_In);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtNombreEmpresa);
             this.Controls.Add(this.lblCorreo);
@@ -358,18 +349,18 @@
         private MaterialSkin.Controls.MaterialLabel lblCorreo;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtNombreEmpresa;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtDireccion;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtTelefono;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCorreo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel plOpciones;
         private MaterialSkin.Controls.MaterialFlatButton btnInhabilitado;
         private MaterialSkin.Controls.MaterialFlatButton btnHabilitado;
-        private MaterialSkin.Controls.MaterialFlatButton btnAgregar;
-        private MaterialSkin.Controls.MaterialFlatButton btnActualizar;
-        private MaterialSkin.Controls.MaterialFlatButton btnHabilitarInhabilitar;
-        private MaterialSkin.Controls.MaterialFlatButton btnRegresar;
         private System.Windows.Forms.ListBox lstInhabilitado;
         private System.Windows.Forms.ListBox lstHabilitado;
         private MaterialSkin.Controls.MaterialLabel lblInstrucciones;
+        private MaterialSkin.Controls.MaterialRaisedButton btnAgregar;
+        private MaterialSkin.Controls.MaterialRaisedButton btnActualizar;
+        private MaterialSkin.Controls.MaterialRaisedButton btnHa_In;
+        private MaterialSkin.Controls.MaterialRaisedButton btnRegresar;
+        private System.Windows.Forms.MaskedTextBox mskTelefono;
     }
 }

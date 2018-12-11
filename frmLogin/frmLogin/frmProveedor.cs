@@ -33,5 +33,37 @@ namespace frmLogin
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            // Instancia de la Clase Cliente
+            Clientes.Proveedor nuevoProveedor = new Clientes.Proveedor();
+            nuevoProveedor.nombreEmpresa = txtNombreEmpresa.Text;
+            nuevoProveedor.direccion = txtDireccion.Text;
+            nuevoProveedor.telefono = mskTelefono.Text;
+            nuevoProveedor.correo = txtCorreo.Text;
+
+
+            if (Clientes.Proveedor.AgregarProveedor(nuevoProveedor))
+            {
+                MessageBox.Show("Se han agregado los datos con éxito");
+                DialogResult res = MessageBox.Show("¿Desea registar contacto para este Proveedor?", "Control de proveedores", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    //Contacto nuevo = new Contacto();
+                    //nuevo.ShowDialog();
+
+                }
+                else
+                {
+                    //Limpiar();
+                }
+                //limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un problema en la inserción de los datos");
+            }
+        }
     }
 }

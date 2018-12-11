@@ -33,7 +33,7 @@ namespace frmLogin.Clientes
         /// <returns>Un objeto de tipo Cliente.</returns>
         public static Proveedor ObtenerProveedor(string nombreEmpresa)
         {
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
             string sql;
             Proveedor resultado = new Proveedor();
 
@@ -82,7 +82,7 @@ namespace frmLogin.Clientes
         /// </summary>
         public static bool AgregarProveedor(Proveedor nuevoProveedor)
         {
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
             SqlCommand cmd = conexion.EjecutarComando("sp_AgregarProveedor");
 
             // Establecer el comando como un Stored Procedure
@@ -90,8 +90,6 @@ namespace frmLogin.Clientes
 
 
             // Parámetros del Stored Procedure
-            cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.Int));
-            cmd.Parameters["@idProveedor"].Value = nuevoProveedor.idProveedor;
             cmd.Parameters.Add(new SqlParameter("@nombreEmpresa", SqlDbType.NVarChar, 100));
             cmd.Parameters["@nombreEmpresa"].Value = nuevoProveedor.nombreEmpresa;
             cmd.Parameters.Add(new SqlParameter("@direccion", SqlDbType.NVarChar, 2000));
@@ -126,7 +124,7 @@ namespace frmLogin.Clientes
         public static bool ActualizarProveedor(Proveedor elProveedor)
         {
             // estabecer conexion
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
 
             //define el comando
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarProveedor");
@@ -182,7 +180,7 @@ namespace frmLogin.Clientes
         public static bool Inhabilitar_Habilitar_Proveedor(Proveedor elProveedor)
         {
             // estabecer conexion
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
 
             //define el comando
             SqlCommand cmd = conexion.EjecutarComando("sp_Habilitar_Inhabilitar_Proveedor");
@@ -238,7 +236,7 @@ namespace frmLogin.Clientes
             List<Proveedor> losproveedores = new List<Proveedor>();
 
             // Establecemos la conexión
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
 
             // especificamos el query de consulta.
             string sql = "SELECT * FROM Clientes.Proveedor WHERE estado = 1";
@@ -285,7 +283,7 @@ namespace frmLogin.Clientes
             List<Proveedor> losProveedores = new List<Proveedor>();
 
             // Establecemos la conexión
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
 
             // especificamos el query de consulta.
             string sql = "SELECT * FROM Clientes.Proveedor WHERE estado = 0";
@@ -329,7 +327,7 @@ namespace frmLogin.Clientes
         public static Proveedor ObtenerProveedor2(string nombreEmpresa)
         {
             // Establecemos la conexión
-            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "PreBasePrueba");
+            Conexion conexion = new Conexion(@"(local)\SQLEXPRESS", "GenisysERP");
 
             string sql;
             Proveedor resultado = new Proveedor();

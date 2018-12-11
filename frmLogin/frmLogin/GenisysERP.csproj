@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\proveedores.png" />
+    <Content Include="Clientes\storedProcedure_Proveedor.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>
   <ItemGroup>
