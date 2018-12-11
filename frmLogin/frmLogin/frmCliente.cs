@@ -209,5 +209,22 @@ namespace frmLogin
                 limpiar();
             }
         }
+
+        private void btnHa_In_Click(object sender, EventArgs e)
+        {
+            Cliente eCliente = new Cliente();
+            eCliente.identidad = txtIdentidad.Text;
+
+            if (Cliente.Inhabilitar_Habilitar_Cliente(eCliente))
+            {
+                MessageBox.Show(eCliente.m);
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un erro en la actualización");
+                limpiar();
+            }
+        }
     }
 }

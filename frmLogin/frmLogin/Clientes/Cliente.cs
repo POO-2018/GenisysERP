@@ -317,6 +317,57 @@ namespace frmLogin.Clientes
                 MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return false;
             }
+            finally
+            {
+                conn.CerrarConexion();
+            }
+        }
+
+
+        public static bool Inhabilitar_Habilitar_Cliente(Cliente elCliente)
+        {
+            // estabecer conexion
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+
+            //define el comando
+            SqlCommand cmd = conn.EjecutarComando("sp_Habilitar_Inhabilitar_Cliente");
+
+            //definir tipo comando
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Agregar los parámetros necesarios para el stored procedure
+            cmd.Parameters.Add(new SqlParameter("@identidad", SqlDbType.Char, 15));
+            cmd.Parameters["@identidad"].Value = elCliente.identidad;
+            cmd.Parameters.Add("@msj", SqlDbType.NVarChar, 100).Direction = ParameterDirection.Output;
+
+            // verificamos si el cliente yatiene un registro
+            Cliente verifica = new Cliente();
+            verifica = Cliente.ObtenerCliente(elCliente.identidad);
+
+            try
+            {
+                if (verifica.id == 0 || verifica.identidad == "")
+                {
+                    MessageBox.Show("El cliente no existe, revise");
+                    return false;
+                }
+                else
+                {
+                    conn.EstablecerConexion();
+                    cmd.ExecuteNonQuery();
+                    elCliente.m = cmd.Parameters["@msj"].Value.ToString();
+                    return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return false;
+            }
+            finally
+            {
+                conn.CerrarConexion();
+            }
         }
     }
 }

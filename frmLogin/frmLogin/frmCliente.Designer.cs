@@ -286,6 +286,7 @@
             this.btnHa_In.TabIndex = 9;
             this.btnHa_In.Text = "Habilitar/Inhabilitar";
             this.btnHa_In.UseVisualStyleBackColor = false;
+            this.btnHa_In.Click += new System.EventHandler(this.btnHa_In_Click);
             // 
             // btnRegresar
             // 
