@@ -148,6 +148,7 @@ namespace frmLogin.Clientes
                     elCliente.telefono = rdr.GetString(5);
                     elCliente.correo = rdr.GetString(6);
                     elCliente.estado = Convert.ToInt16(rdr[7]);
+                    elCliente.usuario = Convert.ToInt32(rdr[8]);
 
                     // agregamos los datos a la lista
                     losClientes.Add(elCliente);
@@ -197,7 +198,7 @@ namespace frmLogin.Clientes
                     elCliente.telefono = rdr.GetString(5);
                     elCliente.correo = rdr.GetString(6);
                     elCliente.estado = Convert.ToInt16(rdr[7]);
-
+                    elCliente.usuario = Convert.ToInt32(rdr[8]);
                     // agregamos los datos a la lista
                     losClientes.Add(elCliente);
                 }

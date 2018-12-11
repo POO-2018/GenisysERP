@@ -122,5 +122,27 @@ namespace frmLogin
         {
             limpiar();
         }
+
+        private void txtIdentidad_Leave(object sender, EventArgs e)
+        {
+            Cliente eCliente = Cliente.ObtenerCliente(txtIdentidad.Text);
+            txtNombres.Text = eCliente.nombres;
+            txtApellidos.Text = eCliente.apellidos;
+            txtDireccion.Text = eCliente.direccion;
+            txtTelefono.Text = eCliente.telefono;
+            txtCorreo.Text = eCliente.correo;
+            if (txtNombres.Text != "")
+            {
+                btnAgregar.Enabled = false;
+                btnActualizar.Enabled = true;
+                btnHa_In.Enabled = true;
+            }
+            else
+            {
+                btnAgregar.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnHa_In.Enabled = false;
+            }
+        }
     }
 }

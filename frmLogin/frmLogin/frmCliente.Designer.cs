@@ -147,6 +147,7 @@
             this.txtIdentidad.TabIndex = 1;
             this.txtIdentidad.TabStop = false;
             this.txtIdentidad.UseSystemPasswordChar = false;
+            this.txtIdentidad.Leave += new System.EventHandler(this.txtIdentidad_Leave);
             // 
             // txtNombres
             // 
