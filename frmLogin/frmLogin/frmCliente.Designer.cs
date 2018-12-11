@@ -46,9 +46,10 @@
             this.btnRegresar = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lstInhabilitados = new System.Windows.Forms.ListBox();
-            this.lstHabilitados = new System.Windows.Forms.ListBox();
             this.btnInhabilitados = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lstHabilitados = new System.Windows.Forms.ListBox();
             this.btnHabilitados = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.lblIdentidad.Depth = 0;
             this.lblIdentidad.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIdentidad.Location = new System.Drawing.Point(59, 116);
+            this.lblIdentidad.Location = new System.Drawing.Point(35, 116);
             this.lblIdentidad.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblIdentidad.Name = "lblIdentidad";
             this.lblIdentidad.Size = new System.Drawing.Size(193, 24);
@@ -71,7 +72,7 @@
             this.lblNombres.Depth = 0;
             this.lblNombres.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNombres.Location = new System.Drawing.Point(59, 186);
+            this.lblNombres.Location = new System.Drawing.Point(35, 186);
             this.lblNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(94, 24);
@@ -84,7 +85,7 @@
             this.lblApellidos.Depth = 0;
             this.lblApellidos.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblApellidos.Location = new System.Drawing.Point(59, 255);
+            this.lblApellidos.Location = new System.Drawing.Point(35, 255);
             this.lblApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(95, 24);
@@ -97,7 +98,7 @@
             this.lblDireccion.Depth = 0;
             this.lblDireccion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDireccion.Location = new System.Drawing.Point(59, 322);
+            this.lblDireccion.Location = new System.Drawing.Point(35, 322);
             this.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(94, 24);
@@ -110,7 +111,7 @@
             this.lblTelefono.Depth = 0;
             this.lblTelefono.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTelefono.Location = new System.Drawing.Point(59, 382);
+            this.lblTelefono.Location = new System.Drawing.Point(35, 382);
             this.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(90, 24);
@@ -123,7 +124,7 @@
             this.lblCorreo.Depth = 0;
             this.lblCorreo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCorreo.Location = new System.Drawing.Point(59, 431);
+            this.lblCorreo.Location = new System.Drawing.Point(35, 431);
             this.lblCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(171, 24);
@@ -142,7 +143,7 @@
             this.txtIdentidad.SelectedText = "";
             this.txtIdentidad.SelectionLength = 0;
             this.txtIdentidad.SelectionStart = 0;
-            this.txtIdentidad.Size = new System.Drawing.Size(244, 28);
+            this.txtIdentidad.Size = new System.Drawing.Size(269, 28);
             this.txtIdentidad.TabIndex = 1;
             this.txtIdentidad.TabStop = false;
             this.txtIdentidad.UseSystemPasswordChar = false;
@@ -159,7 +160,7 @@
             this.txtNombres.SelectedText = "";
             this.txtNombres.SelectionLength = 0;
             this.txtNombres.SelectionStart = 0;
-            this.txtNombres.Size = new System.Drawing.Size(244, 28);
+            this.txtNombres.Size = new System.Drawing.Size(269, 28);
             this.txtNombres.TabIndex = 2;
             this.txtNombres.TabStop = false;
             this.txtNombres.UseSystemPasswordChar = false;
@@ -176,7 +177,7 @@
             this.txtApellidos.SelectedText = "";
             this.txtApellidos.SelectionLength = 0;
             this.txtApellidos.SelectionStart = 0;
-            this.txtApellidos.Size = new System.Drawing.Size(244, 28);
+            this.txtApellidos.Size = new System.Drawing.Size(269, 28);
             this.txtApellidos.TabIndex = 3;
             this.txtApellidos.TabStop = false;
             this.txtApellidos.UseSystemPasswordChar = false;
@@ -193,7 +194,7 @@
             this.txtDireccion.SelectedText = "";
             this.txtDireccion.SelectionLength = 0;
             this.txtDireccion.SelectionStart = 0;
-            this.txtDireccion.Size = new System.Drawing.Size(244, 28);
+            this.txtDireccion.Size = new System.Drawing.Size(269, 28);
             this.txtDireccion.TabIndex = 4;
             this.txtDireccion.TabStop = false;
             this.txtDireccion.UseSystemPasswordChar = false;
@@ -210,7 +211,7 @@
             this.txtTelefono.SelectedText = "";
             this.txtTelefono.SelectionLength = 0;
             this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.Size = new System.Drawing.Size(244, 28);
+            this.txtTelefono.Size = new System.Drawing.Size(269, 28);
             this.txtTelefono.TabIndex = 5;
             this.txtTelefono.TabStop = false;
             this.txtTelefono.UseSystemPasswordChar = false;
@@ -227,7 +228,7 @@
             this.txtCorreo.SelectedText = "";
             this.txtCorreo.SelectionLength = 0;
             this.txtCorreo.SelectionStart = 0;
-            this.txtCorreo.Size = new System.Drawing.Size(244, 28);
+            this.txtCorreo.Size = new System.Drawing.Size(269, 28);
             this.txtCorreo.TabIndex = 6;
             this.txtCorreo.TabStop = false;
             this.txtCorreo.UseSystemPasswordChar = false;
@@ -248,6 +249,7 @@
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnActualizar
             // 
@@ -316,19 +318,10 @@
             // 
             this.lstInhabilitados.FormattingEnabled = true;
             this.lstInhabilitados.ItemHeight = 16;
-            this.lstInhabilitados.Location = new System.Drawing.Point(22, 87);
+            this.lstInhabilitados.Location = new System.Drawing.Point(22, 85);
             this.lstInhabilitados.Name = "lstInhabilitados";
             this.lstInhabilitados.Size = new System.Drawing.Size(302, 276);
             this.lstInhabilitados.TabIndex = 18;
-            // 
-            // lstHabilitados
-            // 
-            this.lstHabilitados.FormattingEnabled = true;
-            this.lstHabilitados.ItemHeight = 16;
-            this.lstHabilitados.Location = new System.Drawing.Point(22, 71);
-            this.lstHabilitados.Name = "lstHabilitados";
-            this.lstHabilitados.Size = new System.Drawing.Size(302, 276);
-            this.lstHabilitados.TabIndex = 17;
             // 
             // btnInhabilitados
             // 
@@ -347,6 +340,15 @@
             this.btnInhabilitados.Text = "Inhabilitados\r\n";
             this.btnInhabilitados.UseVisualStyleBackColor = false;
             // 
+            // lstHabilitados
+            // 
+            this.lstHabilitados.FormattingEnabled = true;
+            this.lstHabilitados.ItemHeight = 16;
+            this.lstHabilitados.Location = new System.Drawing.Point(22, 71);
+            this.lstHabilitados.Name = "lstHabilitados";
+            this.lstHabilitados.Size = new System.Drawing.Size(302, 276);
+            this.lstHabilitados.TabIndex = 17;
+            // 
             // btnHabilitados
             // 
             this.btnHabilitados.AutoSize = true;
@@ -364,11 +366,21 @@
             this.btnHabilitados.Text = "Habilitados\r\n";
             this.btnHabilitados.UseVisualStyleBackColor = false;
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(936, 70);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(16, 17);
+            this.lblUsuario.TabIndex = 12;
+            this.lblUsuario.Text = "1";
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 564);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnHa_In);
@@ -389,6 +401,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCliente";
             this.Text = "frmCliente";
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -419,5 +432,6 @@
         private MaterialSkin.Controls.MaterialFlatButton btnInhabilitados;
         private System.Windows.Forms.ListBox lstHabilitados;
         private MaterialSkin.Controls.MaterialFlatButton btnHabilitados;
+        private System.Windows.Forms.Label lblUsuario;
     }
 }
