@@ -134,9 +134,6 @@ namespace frmLogin.Clientes
 
             // agregar los parametros necesarios
 
-            cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.Int));
-            cmd.Parameters["@idProveedor"].Value = elProveedor.idProveedor;
-
             cmd.Parameters.Add(new SqlParameter("@nombreEmpresa", SqlDbType.NVarChar, 100));
             cmd.Parameters["@nombreEmpresa"].Value = elProveedor.nombreEmpresa;
             cmd.Parameters.Add(new SqlParameter("@direccion", SqlDbType.NVarChar, 2000));

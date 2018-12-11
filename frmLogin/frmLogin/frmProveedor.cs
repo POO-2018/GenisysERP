@@ -60,9 +60,9 @@ namespace frmLogin
                 }
                 else
                 {
-                    //Limpiar();
+                   limpiar();
                 }
-                //limpiar();
+                limpiar();
             }
             else
             {
@@ -94,6 +94,7 @@ namespace frmLogin
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
+            limpiar();
         }
 
         private void btnHa_In_Click(object sender, EventArgs e)
@@ -105,7 +106,7 @@ namespace frmLogin
             if (Clientes.Proveedor.Inhabilitar_Habilitar_Proveedor(nuevoProveedor))
             {
                 MessageBox.Show(nuevoProveedor.m);
-                //limpiar();
+                limpiar();
             }
             else
             {
@@ -219,8 +220,28 @@ namespace frmLogin
             lstInhabilitado.Visible = false;
 
             //reestableciendo valor de focus
-            txtNombreEmpresa.Focus();
+            //txtNombreEmpresa.Focus();
 
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            //instanciamos de la clase cliente
+            Clientes.Proveedor nuevoProveedor = new Clientes.Proveedor();
+            nuevoProveedor.nombreEmpresa = txtNombreEmpresa.Text;
+            nuevoProveedor.direccion = txtDireccion.Text;
+            nuevoProveedor.telefono = mskTelefono.Text;
+            nuevoProveedor.correo = txtCorreo.Text;
+
+            if (Clientes.Proveedor.ActualizarProveedor(nuevoProveedor))
+            {
+                MessageBox.Show("Se ha actualizado el registro", "Control de proveedores", MessageBoxButtons.OK);
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("ha ocurrido un  error en la actualización", "Control de proveedores", MessageBoxButtons.OK);
+            }
         }
     }
 }

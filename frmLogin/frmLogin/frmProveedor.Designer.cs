@@ -194,7 +194,7 @@
             // lstInhabilitado
             // 
             this.lstInhabilitado.FormattingEnabled = true;
-            this.lstInhabilitado.Location = new System.Drawing.Point(12, 120);
+            this.lstInhabilitado.Location = new System.Drawing.Point(12, 75);
             this.lstInhabilitado.Name = "lstInhabilitado";
             this.lstInhabilitado.Size = new System.Drawing.Size(237, 394);
             this.lstInhabilitado.TabIndex = 13;
@@ -240,6 +240,7 @@
             this.btnActualizar.TabIndex = 17;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnHa_In
             // 
