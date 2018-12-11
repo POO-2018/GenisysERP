@@ -211,14 +211,14 @@ namespace frmLogin.Inventario
 
                 while (rdr.Read())
                 {
-                    resultado.idImpuesto = rdr.GetInt16(0);
+                    resultado.idImpuesto = rdr.GetInt32(0);
                     resultado.idCodigoImpuesto = rdr.GetString(1);
                     resultado.descripcion = rdr.GetString(2);
                     resultado.valor = rdr.GetDecimal(3);
                     resultado.fechaCreacion = rdr.GetDateTime(4);
-                    resultado.idUsuario = rdr.GetInt16(5);
+                    resultado.idUsuario = rdr.GetInt32(5);
                     resultado.observacion = rdr.GetString(6);
-                    resultado.estado = rdr.GetByte(7);
+                    resultado.estado = Convert.ToInt16(rdr.GetBoolean(7));
 
 
 
@@ -231,6 +231,46 @@ namespace frmLogin.Inventario
             catch (SqlException)
             {
                 return resultado;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public static List<Impuesto> LeerTodos()
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            string sql;
+            List<Impuesto> Lista = new List<Impuesto>();
+
+            sql = @"SELECT * FROM Inventario.Impuesto WHERE estado=1;";
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+            try
+            {
+
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Impuesto resultado = new Impuesto();
+                    resultado.idImpuesto = rdr.GetInt32(0);
+                    resultado.idCodigoImpuesto = rdr.GetString(1);
+                    resultado.descripcion = rdr.GetString(2);
+                    resultado.valor = rdr.GetDecimal(3);
+                    resultado.fechaCreacion = rdr.GetDateTime(4);
+                    resultado.idUsuario = rdr.GetInt32(5);
+                    resultado.observacion = rdr.GetString(6);
+                    resultado.estado = Convert.ToInt16( rdr.GetBoolean(7));
+                    Lista.Add(resultado);
+                }
+
+                //Retornamos los datos obtenidos
+                return Lista;
+            }
+            catch (SqlException)
+            {
+                return Lista;
             }
             finally
             {

@@ -19,6 +19,8 @@ namespace frmLogin.Inventario
         public frmImpuestoProducto()
         {
             InitializeComponent();
+            // Eliminamos la ultima fila en blanco del data grid
+           dgvImpuesto.AllowUserToAddRows = false;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -30,8 +32,34 @@ namespace frmLogin.Inventario
 
         private void frmImpuestoProducto_Load(object sender, EventArgs e)
         {
+
+            // IdentidadPaciente = Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value);
+
             // inicializamos los textos vacíos
             Limpiar();
+
+            // cargamos los datos de los impuestos existentes en la base de datos.
+            // instanciamos de la clase impuesto
+            List<Impuesto> listaT = Impuesto.LeerTodos();
+
+            // limpiamos los datos que se encuentren en la lista.
+            dgvImpuesto.Rows.Clear();
+            int x = 0;
+            if (listaT.Any())
+            {
+              
+                dgvImpuesto.Rows.Add();
+                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[0].Value=(Impuesto.idCodigoImpuesto.ToString()));
+                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[1].Value = (Impuesto.descripcion.ToString()));
+                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[2].Value = (Impuesto.valor.ToString()));
+                listaT.ForEach(Impuesto => dgvImpuesto.Rows[x].Cells[3].Value = (Impuesto.idImpuesto.ToString()));
+                x++;
+            }
+            else
+            {
+                dgvImpuesto.Rows[x].Cells[0].Value = "No hay Registros";
+            }
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -87,7 +115,63 @@ namespace frmLogin.Inventario
             txtValor.Text = "";
             txtObservacion.Text = "";
             txtRegistradoPor.Text = "";
+            btnAgregar.Visible = true;
+            btnActualizar.Visible = false;
+            btnInhabilitar.Visible = false;
             txtCodigo.Focus();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvImpuesto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvImpuesto_DoubleClick(object sender, EventArgs e)
+        {
+            string codigo=  Convert.ToString(dgvImpuesto.CurrentRow.Cells[0].Value);
+
+            //Cargamos los datos del impuesto seleccionado.
+            Impuesto cargar = Impuesto.BuscarImpuesto(codigo);
+
+            txtCodigo.Text = cargar.idCodigoImpuesto;
+            txtDescripcion.Text = cargar.descripcion;
+            txtValor.Text = Convert.ToString(cargar.valor);
+            txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
+            txtObservacion.Text = cargar.observacion;
+
+            // Validamos si hay datos existentes.
+            if(txtCodigo.Text!="" && txtDescripcion.Text != "")
+            {
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnInhabilitar.Visible = true;
+            }
+
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            //Cargamos los datos del impuesto seleccionado.
+            Impuesto cargar = Impuesto.BuscarImpuesto(txtCodigo.Text);
+
+            txtCodigo.Text = cargar.idCodigoImpuesto;
+            txtDescripcion.Text = cargar.descripcion;
+            txtValor.Text = Convert.ToString(cargar.valor);
+            txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
+            txtObservacion.Text = cargar.observacion;
+
+            // Validamos si hay datos existentes.
+            if (txtCodigo.Text != "" && txtDescripcion.Text != "")
+            {
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnInhabilitar.Visible = true;
+            }
         }
     }
 }
