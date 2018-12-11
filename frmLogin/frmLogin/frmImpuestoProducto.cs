@@ -120,7 +120,7 @@ namespace frmLogin.Inventario
 
         private void dgvImpuesto_DoubleClick(object sender, EventArgs e)
         {
-            string codigo=  Convert.ToString(dgvImpuesto.CurrentRow.Cells[0].Value);
+            string codigo=  Convert.ToString(dgvImpuesto.CurrentRow.Cells[1].Value);
 
             //Cargamos los datos del impuesto seleccionado.
             Impuesto cargar = Impuesto.BuscarImpuesto(codigo);
