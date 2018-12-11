@@ -65,6 +65,7 @@ CREATE TABLE Clientes.Cliente(
 	direccion NVARCHAR(2000) NOT NULL,
 	telefono CHAR(9),
 	correo NVARCHAR(100) NOT NULL,
+	registradoPor INT NOT NULL,
 	estado BIT DEFAULT 1
 );
 GO
@@ -82,7 +83,7 @@ GO
 
 
 CREATE TABLE Clientes.Contacto(
-	idContacto INT NOT NULL IDENTITY(1000, 1)
+	idContacto CHAR(15) NOT NULL
 		CONSTRAINT PK_Clientes_Contacto_idContacto PRIMARY KEY CLUSTERED,
 	idProveedor INT NOT NULL,
 	nombres NVARCHAR(100) NOT NULL,
@@ -215,6 +216,14 @@ ALTER TABLE Compras.DetalleCompra
 		PK_idCompra_DetalleCompra PRIMARY KEY CLUSTERED (idDetalle)
 GO
 
+ALTER TABLE Clientes.Cliente   
+	ADD CONSTRAINT AK_Identidad_Cliente UNIQUE (identidad);   
+GO
+
+ALTER TABLE CLientes.Proveedor   
+	ADD CONSTRAINT AK_nombreEmpresa_Proveedor UNIQUE (nombreEmpresa);   
+GO
+
 ---------------------------------------------------------------------------------------------------------
 -- LLAVES FORANEAS
 ---------------------------------------------------------------------------------------------------------
@@ -279,6 +288,12 @@ ALTER TABLE Clientes.Contacto
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
+
+ALTER TABLE Clientes.Cliente
+	ADD CONSTRAINT FK_Clientes_Clientes$TieneUn$PK_Empleados_Usuario
+		FOREIGN KEY (registradoPor) REFERENCES Empleados.Usuario(id)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
 
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT
@@ -345,6 +360,26 @@ GO
 ALTER TABLE Clientes.Proveedor
 	ADD CONSTRAINT CHK_telefono_Proveedor$FormatoTelefono
 	CHECK (telefono LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]')
+GO
+
+ALTER TABLE Clientes.Proveedor
+	ADD CONSTRAINT CHK_estado_Proveedor$ValoresEstado
+	CHECK (estado IN (0, 1))
+GO
+
+ALTER TABLE Clientes.Contacto
+	ADD CONSTRAINT CHK_identidad_Contacto$FormatoIdentidad
+	CHECK (idContacto LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+
+ALTER TABLE Clientes.Contacto
+	ADD CONSTRAINT CHK_telefono_Contacto$FormatoTelefono
+	CHECK (telefono LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]')
+GO
+
+ALTER TABLE Clientes.Contacto
+	ADD CONSTRAINT CHK_estado_Contacto$ValoresEstado
+	CHECK (estado IN (0, 1))
 GO
 
 ALTER TABLE Compras.Compra
