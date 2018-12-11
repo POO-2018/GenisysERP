@@ -391,3 +391,12 @@ ALTER TABLE Compras.DetalleCompra
 	ADD CONSTRAINT CHK_SubTotalDetalleMayorQueCero
 	CHECK (subTotal >= 0)
 GO
+
+
+ALTER TABLE Compras.Compra
+	ALTER COLUMN numeroFactura NVARCHAR(19) NULL
+GO
+
+ALTER TABLE Compras.Compra
+	ALTER COLUMN autorizadaPor INT NULL
+GO
