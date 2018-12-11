@@ -214,8 +214,8 @@ namespace frmLogin
 
             //reestableciendo los valores por defecto
             btnAgregar.Visible = true;
-            btnActualizar.Visible = false;
-            btnHa_In.Visible = false;
+            btnActualizar.Visible = true;
+            btnHa_In.Visible = true;
             lstHabilitado.Visible = false;
             lstInhabilitado.Visible = false;
 
