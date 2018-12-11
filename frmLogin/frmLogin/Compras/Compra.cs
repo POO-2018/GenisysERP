@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // Agregamos los namespace necesario
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace frmLogin.Compras
 {
@@ -17,6 +18,8 @@ namespace frmLogin.Compras
         public DateTime fechaCompra { get; set; }
         public string numeroFactura { get; set; }
         public int idProveedor { get; set; }
+        public int idCategoria { get; set; }
+        public string nombreCategoria { get; set; }
         public string nombreProveedor { get; set; }
         public decimal subTotal { get; set; }
         public decimal impuesto { get; set; }
@@ -408,7 +411,6 @@ namespace frmLogin.Compras
         {
             // Instanciamos la conexion
             Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -464,5 +466,207 @@ namespace frmLogin.Compras
                 conexion.CerrarConexion();
             }
         }
+
+        /// <summary>
+        /// Método para traer todo el inventario
+        /// Por el filtro del proveedor y categgoria de producto
+        /// </summary>
+        /// <param name="proveedor"></param>
+        /// <param name="categoria"></param>
+        /// <returns>Un DataView con toda la información</returns>
+        public static DataView GetDataViewPorPrevedorCategoria(int proveedor, int categoria)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+
+            // Creamos la variable que contendrá el Query
+            string sql;
+
+            sql = @"SELECT          Inventario.Producto.idInventario            as Id,
+                                    Inventario.Producto.idProducto              as Código,
+                                    Inventario.Producto.nombre                  as Nombre,
+                                    Inventario.Producto.cantidadExistencia      as Existencia,
+                                    Inventario.Producto.cantidadMinima          as Minimo,
+                                    Inventario.Producto.precioCompra            as Compra,
+                                    Inventario.Producto.precioVenta             as Venta,
+                                    Inventario.Producto.observaciones           as Observaciones,
+                                    Inventario.Impuesto.valor                   as Impuesto,
+                                    Inventario.Categoria.nombre                 as Categoria
+                    FROM Inventario.Producto
+                    INNER JOIN Inventario.Impuesto
+                    ON Inventario.Impuesto.idImpuesto = Inventario.Producto.idImpuesto
+                    INNER JOIN Inventario.Categoria
+                    ON Inventario.Categoria.idCategoria = Inventario.Producto.idCategoria
+                    WHERE Inventario.Producto.idProveedor = @idProveedor
+                    AND Inventario.Producto.idCategoria = @idCategoria
+                    AND Inventario.Producto.estado = 1";
+
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+
+                // Enviamos el comando a ejecutar
+                SqlCommand cmd = conexion.EjecutarComando(sql);
+
+                // Especificamos las varibles escalares
+                cmd.Parameters.Add("@idProveedor", SqlDbType.Int).Value = proveedor;
+                cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = categoria;
+
+                data.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                // La tabla con que vamos a llenar los datos
+                data.Fill(ds, "Compras.Compra");
+                DataTable dt = ds.Tables["Compras.Compra"];
+
+                DataView dv = new DataView(dt,
+                    "", "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+        /// <summary>
+        /// Método para traer todo el inventario
+        /// Por el filtro del proveedor y categgoria de producto
+        /// </summary>
+        /// <param name="proveedor"></param>
+        /// <param name="categoria"></param>
+        /// <returns>Un DataView con toda la información</returns>
+        public static DataView GetDataViewPorPrevedorCategoriaNombre(int proveedor, int categoria,int nombre)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+
+            // Creamos la variable que contendrá el Query
+            string sql;
+
+            sql = @"SELECT      Inventario.Producto.idInventario            as Id,
+                                Inventario.Producto.idProducto              as Código,
+                                Inventario.Producto.nombre                  as Nombre,
+                                Inventario.Producto.cantidadExistencia      as Existencia,
+                                Inventario.Producto.cantidadMinima          as Minimo,
+                                Inventario.Producto.precioCompra            as Compra,
+                                Inventario.Producto.precioVenta             as Venta,
+                                Inventario.Producto.observaciones           as Observaciones,
+                                Inventario.Impuesto.valor                   as Impuesto,
+                                Inventario.Categoria.nombre                 as Categoria
+                        FROM Inventario.Producto
+                        INNER JOIN Inventario.Impuesto
+                        ON Inventario.Impuesto.idImpuesto = Inventario.Producto.idImpuesto
+                        INNER JOIN Inventario.Categoria
+                        ON Inventario.Categoria.idCategoria = Inventario.Producto.idCategoria
+                        WHERE Inventario.Producto.idProveedor = @idProveedor
+                        AND Inventario.Producto.idCategoria = @idCategoria
+                        AND Inventario.Producto.nombre LIKE '%' + @nombre + '%'
+                        AND Inventario.Producto.estado = 1";
+
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+
+                // Enviamos el comando a ejecutar
+                SqlCommand cmd = conexion.EjecutarComando(sql);
+
+                // Especificamos las varibles escalares
+                cmd.Parameters.Add("@idProveedor", SqlDbType.Int).Value = proveedor;
+                cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = categoria;
+                cmd.Parameters.Add("@nombre", SqlDbType.NVarChar).Value = nombre;
+
+
+                data.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                // La tabla con que vamos a llenar los datos
+                data.Fill(ds, "Compras.Compra");
+                DataTable dt = ds.Tables["Compras.Compra"];
+
+                DataView dv = new DataView(dt,
+                    "", "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Método para listar todos los Proveedores
+        /// </summary>
+        /// <returns>Una lista con todos los Proveedores</returns>
+        public static List<Compra> LeerTodosHabilitados()
+        {
+            // Instanciamos la clase Conexion
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+
+            // Creamos una lista de tipo de cliente
+            List<Compra> resultados = new List<Compra>();
+
+            // Creamos el query
+            string sql = @"SELECT idProveedor, nombreEmpresa
+                            FROM Clientes.Proveedor
+                            WHERE estado=1";
+
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+
+            try
+            {
+                // Establecemos la conexion
+                conexion.EstablecerConexion();
+
+                // Ejecutamos el query vía un ExecuteReader
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                // Recorremos los elementos del Reader y los almacenamos
+                // en la lista de Proveedor
+
+                while (rdr.Read())
+                {
+                    Compra elProveedor = new Compra();
+
+                    // Asignamos los valores del Reader al objeto
+                    elProveedor.idProveedor = Convert.ToInt16(rdr[0]);
+                    elProveedor.nombreProveedor = rdr.GetString(1);
+
+                    // Agregamos El proveedor a la lista
+                    resultados.Add(elProveedor);
+                }
+
+                // retornamos la lista de las Carreras
+                return resultados;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ha ocurrido un error" + ex.Errors[0].ToString());
+
+                return resultados;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+       
+
+
     }
 }

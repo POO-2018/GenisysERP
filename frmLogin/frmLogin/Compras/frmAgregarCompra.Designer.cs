@@ -33,14 +33,12 @@
             this.lblProveedor = new MaterialSkin.Controls.MaterialLabel();
             this.cmbProveedore = new System.Windows.Forms.ComboBox();
             this.lblSubtotal = new MaterialSkin.Controls.MaterialLabel();
-            this.txtSubtotal = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtImpuesto = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblImpuesto = new MaterialSkin.Controls.MaterialLabel();
             this.txtTotal = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblTotal = new MaterialSkin.Controls.MaterialLabel();
             this.btnNuevoProveedor = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dvdFormulario = new MaterialSkin.Controls.MaterialDivider();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new MaterialSkin.Controls.MaterialLabel();
             this.btnGuardar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
@@ -50,11 +48,6 @@
             this.lblProductos = new MaterialSkin.Controls.MaterialLabel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dgvDetalleCompra = new System.Windows.Forms.DataGridView();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevoProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
@@ -63,6 +56,13 @@
             this.btnQuitarProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtCotizacion = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtSubTotal = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
             this.SuspendLayout();
@@ -130,24 +130,6 @@
             this.lblSubtotal.TabIndex = 5;
             this.lblSubtotal.Text = "SubTotal";
             this.lblSubtotal.Click += new System.EventHandler(this.lblSubtotal_Click);
-            // 
-            // txtSubtotal
-            // 
-            this.txtSubtotal.Depth = 0;
-            this.txtSubtotal.Enabled = false;
-            this.txtSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Hint = "0.00";
-            this.txtSubtotal.Location = new System.Drawing.Point(140, 324);
-            this.txtSubtotal.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.PasswordChar = '\0';
-            this.txtSubtotal.SelectedText = "";
-            this.txtSubtotal.SelectionLength = 0;
-            this.txtSubtotal.SelectionStart = 0;
-            this.txtSubtotal.Size = new System.Drawing.Size(146, 23);
-            this.txtSubtotal.TabIndex = 6;
-            this.txtSubtotal.UseSystemPasswordChar = false;
-            this.txtSubtotal.Click += new System.EventHandler(this.materialSingleLineTextField1_Click);
             // 
             // txtImpuesto
             // 
@@ -231,20 +213,6 @@
             this.dvdFormulario.Size = new System.Drawing.Size(8, 571);
             this.dvdFormulario.TabIndex = 12;
             this.dvdFormulario.Text = "materialDivider1";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstado.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "Holaaaa"});
-            this.cmbEstado.Location = new System.Drawing.Point(130, 118);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(218, 26);
-            this.cmbEstado.TabIndex = 14;
             // 
             // lblEstado
             // 
@@ -344,6 +312,7 @@
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(463, 175);
             this.dgvProductos.TabIndex = 21;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // dgvDetalleCompra
             // 
@@ -358,39 +327,8 @@
             this.SubTotal});
             this.dgvDetalleCompra.Location = new System.Drawing.Point(485, 453);
             this.dgvDetalleCompra.Name = "dgvDetalleCompra";
-            this.dgvDetalleCompra.ReadOnly = true;
             this.dgvDetalleCompra.Size = new System.Drawing.Size(463, 175);
             this.dgvDetalleCompra.TabIndex = 22;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "Id";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.ReadOnly = true;
-            // 
-            // nombreProducto
-            // 
-            this.nombreProducto.HeaderText = "Nombre";
-            this.nombreProducto.Name = "nombreProducto";
-            this.nombreProducto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
             // 
             // btnNuevoProducto
             // 
@@ -499,11 +437,77 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // txtCotizacion
+            // 
+            this.txtCotizacion.Depth = 0;
+            this.txtCotizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCotizacion.Hint = "";
+            this.txtCotizacion.Location = new System.Drawing.Point(127, 115);
+            this.txtCotizacion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCotizacion.Name = "txtCotizacion";
+            this.txtCotizacion.PasswordChar = '\0';
+            this.txtCotizacion.SelectedText = "";
+            this.txtCotizacion.SelectionLength = 0;
+            this.txtCotizacion.SelectionStart = 0;
+            this.txtCotizacion.Size = new System.Drawing.Size(216, 23);
+            this.txtCotizacion.TabIndex = 42;
+            this.txtCotizacion.Text = "Cotización";
+            this.txtCotizacion.UseSystemPasswordChar = false;
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.Depth = 0;
+            this.txtSubTotal.Enabled = false;
+            this.txtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubTotal.Hint = "0.00";
+            this.txtSubTotal.Location = new System.Drawing.Point(140, 324);
+            this.txtSubTotal.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.PasswordChar = '\0';
+            this.txtSubTotal.SelectedText = "";
+            this.txtSubTotal.SelectionLength = 0;
+            this.txtSubTotal.SelectionStart = 0;
+            this.txtSubTotal.Size = new System.Drawing.Size(146, 23);
+            this.txtSubTotal.TabIndex = 43;
+            this.txtSubTotal.UseSystemPasswordChar = false;
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "Id";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Width = 40;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.HeaderText = "Nombre";
+            this.nombreProducto.Name = "nombreProducto";
+            this.nombreProducto.Width = 170;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 70;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 70;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.Width = 70;
+            // 
             // frmAgregarCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 640);
+            this.Controls.Add(this.txtSubTotal);
+            this.Controls.Add(this.txtCotizacion);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnQuitarProducto);
@@ -520,7 +524,6 @@
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.dvdFormulario);
             this.Controls.Add(this.btnNuevoProveedor);
@@ -528,7 +531,6 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.txtImpuesto);
             this.Controls.Add(this.lblImpuesto);
-            this.Controls.Add(this.txtSubtotal);
             this.Controls.Add(this.lblSubtotal);
             this.Controls.Add(this.cmbProveedore);
             this.Controls.Add(this.lblProveedor);
@@ -553,14 +555,12 @@
         private MaterialSkin.Controls.MaterialLabel lblProveedor;
         private System.Windows.Forms.ComboBox cmbProveedore;
         private MaterialSkin.Controls.MaterialLabel lblSubtotal;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtSubtotal;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtImpuesto;
         private MaterialSkin.Controls.MaterialLabel lblImpuesto;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtTotal;
         private MaterialSkin.Controls.MaterialLabel lblTotal;
         private MaterialSkin.Controls.MaterialRaisedButton btnNuevoProveedor;
         private MaterialSkin.Controls.MaterialDivider dvdFormulario;
-        private System.Windows.Forms.ComboBox cmbEstado;
         private MaterialSkin.Controls.MaterialLabel lblEstado;
         private MaterialSkin.Controls.MaterialRaisedButton btnGuardar;
         private System.Windows.Forms.TextBox txtObservaciones;
@@ -577,11 +577,13 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnReducirProducto;
         private MaterialSkin.Controls.MaterialRaisedButton btnQuitarProducto;
         private MaterialSkin.Controls.MaterialRaisedButton btnBuscar;
+        private MaterialSkin.Controls.MaterialRaisedButton btnSalir;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCotizacion;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtSubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
-        private MaterialSkin.Controls.MaterialRaisedButton btnSalir;
     }
 }

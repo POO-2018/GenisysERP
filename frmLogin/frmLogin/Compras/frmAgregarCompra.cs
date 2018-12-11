@@ -32,40 +32,83 @@ namespace frmLogin.Compras
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        /// <summary>
-        /// Metodo
-        /// </summary>
-        private void CargarCMBProveedores()
+/// <summary>
+/// Metodo para llenar el Combo de Proveedores
+/// </summary>
+        private void ListarComboProveedores()
         {
-            DataTable dt = new DataTable();
-            Conexion conexion = new Conexion(@"192.168.0.190","GenisysERP");
-            string sql = "select * FROM Clientes.Proveedor";
-            SqlCommand cmd = new SqlCommand(sql,conexion.conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            cmbProveedore.DisplayMember = "nombreEmpresa";
-            cmbProveedore.ValueMember = "nombreEmpresa";
-            cmbProveedore.DataSource = dt;
+            // Limpiamos los items existentes
+            cmbProveedore.Items.Clear();
+
+            // Instanciamos la clase Carreras
+            Compra proveedores = new Compra();
+
+            // Almacenamos todos los proveedores Existentes
+            // y habilitadas en una lista
+            List<Compra> listaProveedor = Compra.LeerTodosHabilitados();
+
+            // Si hay algún elemento en la lista
+            // Lo agregamos al ComboBox
+            if (listaProveedor.Any())
+            {
+                listaProveedor.ForEach(proveedor => cmbProveedore.Items.Add(proveedor.nombreProveedor.ToString()));
+            }
+            else
+            {
+                cmbProveedore.Items.Add("No hay Proveedores Disponibles");
+            }
+        }
+        /// <summary>
+        /// Metodo paa llenar el combo categoria
+        /// </summary>
+        private void ListarComboCategoria()
+        {
+            // Limpiamos los items existentes
+            cmbCategoria.Items.Clear();
+
+            // Instanciamos la clase Carreras
+            Compra categorias = new Compra();
+
+            // Almacenamos todos los proveedores Existentes
+            // y habilitadas en una lista
+            List<Compra> listaProveedor = Compra.LeerTodosHabilitados();
+
+            // Si hay algún elemento en la lista
+            // Lo agregamos al ComboBox
+            if (listaProveedor.Any())
+            {
+                listaProveedor.ForEach(categoria => cmbCategoria.Items.Add(categoria.nombreCategoria.ToString()));
+            }
+            else
+            {
+                cmbCategoria.Items.Add("No hay Proveedores Disponibles");
+            }
         }
 
-        private void CargarCMBCategoriaProducto()
-        {
-            DataTable dt3 = new DataTable();
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
-            string sql = "select * FROM Inventario.Categoria";
-            SqlCommand cmd = new SqlCommand(sql, conexion.conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt3);
-            cmbCategoria.DisplayMember = "nombre";
-            cmbCategoria.ValueMember = "nombre";
-            cmbCategoria.DataSource = dt3;
-        }
         private void frmAgregarCompra_Load(object sender, EventArgs e)
         {
-            CargarCMBCategoriaProducto();
-            CargarCMBCategoriaProducto();
-        }
 
+            foreach (DataGridViewColumn c in dgvDetalleCompra.Columns)
+                if (c.Name != "Cantidad") c.ReadOnly = true;
+        }
+        /// <summary>
+        /// Metodo para llenar  el inventario según la categoria o el Proveedor
+        /// </summary>
+        /// <param name="El Proveedor"></param>
+        /// <returns>Retorna todos los datos del inventario al Grid</returns>   
+        private void CargarDGWinventario()
+        {
+            try
+            {
+                dgvProductos.DataSource = Compra.GetDataViewPorPrevedorCategoria(1,1);
+                dgvProductos.Columns[0].Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void lblSubtotal_Click(object sender, EventArgs e)
         {
 
@@ -92,6 +135,11 @@ namespace frmLogin.Compras
         }
 
         private void btnQuitarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
