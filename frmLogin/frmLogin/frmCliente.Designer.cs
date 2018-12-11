@@ -319,10 +319,11 @@
             // 
             this.lstInhabilitados.FormattingEnabled = true;
             this.lstInhabilitados.ItemHeight = 16;
-            this.lstInhabilitados.Location = new System.Drawing.Point(22, 85);
+            this.lstInhabilitados.Location = new System.Drawing.Point(22, 71);
             this.lstInhabilitados.Name = "lstInhabilitados";
             this.lstInhabilitados.Size = new System.Drawing.Size(302, 276);
             this.lstInhabilitados.TabIndex = 18;
+            this.lstInhabilitados.Click += new System.EventHandler(this.lstInhabilitados_Click);
             // 
             // btnInhabilitados
             // 
@@ -340,6 +341,7 @@
             this.btnInhabilitados.TabIndex = 16;
             this.btnInhabilitados.Text = "Inhabilitados\r\n";
             this.btnInhabilitados.UseVisualStyleBackColor = false;
+            this.btnInhabilitados.Click += new System.EventHandler(this.btnInhabilitados_Click);
             // 
             // lstHabilitados
             // 
@@ -349,6 +351,7 @@
             this.lstHabilitados.Name = "lstHabilitados";
             this.lstHabilitados.Size = new System.Drawing.Size(302, 276);
             this.lstHabilitados.TabIndex = 17;
+            this.lstHabilitados.Click += new System.EventHandler(this.lstHabilitados_Click);
             // 
             // btnHabilitados
             // 
@@ -366,6 +369,7 @@
             this.btnHabilitados.TabIndex = 15;
             this.btnHabilitados.Text = "Habilitados\r\n";
             this.btnHabilitados.UseVisualStyleBackColor = false;
+            this.btnHabilitados.Click += new System.EventHandler(this.btnHabilitados_Click);
             // 
             // lblUsuario
             // 

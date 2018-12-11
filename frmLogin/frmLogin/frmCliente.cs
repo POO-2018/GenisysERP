@@ -144,5 +144,47 @@ namespace frmLogin
                 btnHa_In.Enabled = false;
             }
         }
+
+        private void lstHabilitados_Click(object sender, EventArgs e)
+        {
+            btnActualizar.Enabled = true;
+            btnHa_In.Enabled = true;
+            btnAgregar.Enabled = false;
+            Cliente elCliente = new Cliente();
+            elCliente = Cliente.ObtenerCliente2(lstHabilitados.SelectedItem.ToString());
+            txtIdentidad.Text = elCliente.identidad;
+            txtNombres.Text = elCliente.nombres;
+            txtApellidos.Text = elCliente.apellidos;
+            txtDireccion.Text = elCliente.direccion;
+            txtTelefono.Text = elCliente.telefono;
+            txtCorreo.Text = elCliente.correo;
+        }
+
+        private void lstInhabilitados_Click(object sender, EventArgs e)
+        {
+            btnActualizar.Enabled = true;
+            btnHa_In.Enabled = true;
+            btnAgregar.Enabled = false;
+            Cliente elCliente = new Cliente();
+            elCliente = Cliente.ObtenerCliente2(lstInhabilitados.SelectedItem.ToString());
+            txtIdentidad.Text = elCliente.identidad;
+            txtNombres.Text = elCliente.nombres;
+            txtApellidos.Text = elCliente.apellidos;
+            txtDireccion.Text = elCliente.direccion;
+            txtTelefono.Text = elCliente.telefono;
+            txtCorreo.Text = elCliente.correo;
+        }
+
+        private void btnHabilitados_Click(object sender, EventArgs e)
+        {
+            lstHabilitados.Visible = true;
+            lstInhabilitados.Visible = false;
+        }
+
+        private void btnInhabilitados_Click(object sender, EventArgs e)
+        {
+            lstHabilitados.Visible = false;
+            lstInhabilitados.Visible = true;
+        }
     }
 }
