@@ -216,6 +216,12 @@ namespace frmLogin.Clientes
             }
         }
 
+        /// <summary>
+        /// Método que se encargará de agregar un nuevo registro de cliente
+        /// en la base de datos.
+        /// </summary>
+        /// <param name="nuevoCliente"></param>
+        /// <returns></returns>
         public static bool AgregarCliente(Cliente nuevoCliente)
         {
             Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
@@ -254,6 +260,62 @@ namespace frmLogin.Clientes
             finally
             {
                 conn.CerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Se encarga de aplicar los cambios que se hagan en el registro
+        /// de cliente
+        /// </summary>
+        /// <param name="eCliente"></param>
+        /// <returns></returns>
+        public static bool ActualizarCliente(Cliente eCliente)
+        {
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            SqlCommand cmd = conn.EjecutarComando("sp_ActualizarCliente");
+
+            // Establecer el tipo de comando
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Agregamos los parámetros necesarios para el stored procedure
+            cmd.Parameters.Add(new SqlParameter("@identidad", SqlDbType.Char, 15));
+            cmd.Parameters["@identidad"].Value = eCliente.identidad;
+            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@nombre"].Value = eCliente.nombres;
+            cmd.Parameters.Add(new SqlParameter("@apellido", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@apellido"].Value = eCliente.apellidos;
+            cmd.Parameters.Add(new SqlParameter("@direccion", SqlDbType.NVarChar, 2000));
+            cmd.Parameters["@direccion"].Value = eCliente.direccion;
+            cmd.Parameters.Add(new SqlParameter("@telefono", SqlDbType.Char, 9));
+            cmd.Parameters["@telefono"].Value = eCliente.telefono;
+            cmd.Parameters.Add(new SqlParameter("@correo", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@correo"].Value = eCliente.correo;
+
+            // Se verifica si el cliente ya cuenta con un registro
+            Cliente verifica = new Cliente();
+            verifica = Cliente.ObtenerCliente(eCliente.identidad);
+
+            try
+            {
+                // Si no se encuentra un registro con la
+                // identidad ingresada muestra un mensaje indicando que
+                // el cliente no existe, caso contrario, se procede a ejecutar la consulta
+                if (verifica.id == 0 || verifica.identidad == "")
+                {
+                    MessageBox.Show("El cliente no existe, revise");
+                    return false;
+                }
+                else
+                {
+                    conn.EstablecerConexion();
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return false;
             }
         }
     }

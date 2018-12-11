@@ -115,6 +115,7 @@ namespace frmLogin
             else
             {
                 MessageBox.Show("Ha ocurrido un problema en la inserción de los datos");
+                limpiar();
             }
         }
 
@@ -185,6 +186,28 @@ namespace frmLogin
         {
             lstHabilitados.Visible = false;
             lstInhabilitados.Visible = true;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Cliente eCliente = new Cliente();
+            eCliente.identidad = txtIdentidad.Text;
+            eCliente.nombres = txtNombres.Text;
+            eCliente.apellidos = txtApellidos.Text;
+            eCliente.direccion = txtDireccion.Text;
+            eCliente.telefono = txtTelefono.Text;
+            eCliente.correo = txtCorreo.Text;
+
+            if (Cliente.ActualizarCliente(eCliente))
+            {
+                MessageBox.Show("Se han actualizado los datos");
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la actualización");
+                limpiar();
+            }
         }
     }
 }
