@@ -7,20 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
 
-
-namespace frmLogin
+namespace frmLogin.Inventario
 {
-    public partial class frmMenuPrincipal : MaterialForm
+    public partial class frmProducto : MaterialForm
     {
         public string idUsuario;
         private MaterialSkinManager materialSkinManager;
-        public frmMenuPrincipal()
+        public frmProducto(string x)
         {
             InitializeComponent();
+            idUsuario = x;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -30,25 +31,19 @@ namespace frmLogin
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        private void materialSingleLineTextField10_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void materialSingleLineTextField1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void materialRaisedButton12_Click(object sender, EventArgs e)
+        private void frmProducto_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnInventario_Click(object sender, EventArgs e)
-        {
-            Inventario.frmProducto abrir = new Inventario.frmProducto(idUsuario);
-            abrir.ShowDialog();
         }
     }
 }
