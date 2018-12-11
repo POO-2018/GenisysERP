@@ -35,7 +35,7 @@ namespace frmLogin
             lstInhabilitado.Visible = false;
 
             datosH();
-            //datosI();
+            datosI();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -160,9 +160,67 @@ namespace frmLogin
             }
             else
             {
-                lstHabilitado.Items.Add("No hay registros");
+                lstHabilitado.Items.Add("No hay registros habilitados");
             }
         }
 
+        public void datosI()
+        {
+            // cargamos los datos al listbox
+            Clientes.Proveedor nuevo = new Clientes.Proveedor();
+
+            // Creamos la lista
+            List<Clientes.Proveedor> lista = Clientes.Proveedor.ListarProveedorTodosI();
+
+            // Limpiar el listBox
+            lstInhabilitado.Items.Clear();
+
+            if (lista.Any())
+            {
+                lista.ForEach(Proveedor => lstInhabilitado.Items.Add(Proveedor.nombreEmpresa.ToString()));
+            }
+            else
+            {
+                lstInhabilitado.Items.Add("No hay registros inhabilitados");
+            }
+        }
+
+        private void lstInhabilitado_Click(object sender, EventArgs e)
+        {
+            btnActualizar.Enabled = true;
+            btnHa_In.Enabled = true;
+            btnAgregar.Enabled = false;
+            Clientes.Proveedor elproveedor = new Clientes.Proveedor();
+            elproveedor = Clientes.Proveedor.ObtenerProveedor2(lstInhabilitado.SelectedItem.ToString());
+
+            txtNombreEmpresa.Text = elproveedor.nombreEmpresa;
+            txtDireccion.Text = elproveedor.direccion;
+            txtCorreo.Text = elproveedor.correo;
+            mskTelefono.Text = elproveedor.telefono;
+        }
+
+        public void limpiar()
+        {
+            //limpiando métodos
+            datosH();
+            datosI();
+
+            //limpiando objetos
+            txtNombreEmpresa.Text = "";
+            txtDireccion.Text = "";
+            txtCorreo.Text = "";
+            mskTelefono.Text = "";
+
+            //reestableciendo los valores por defecto
+            btnAgregar.Visible = true;
+            btnActualizar.Visible = false;
+            btnHa_In.Visible = false;
+            lstHabilitado.Visible = false;
+            lstInhabilitado.Visible = false;
+
+            //reestableciendo valor de focus
+            txtNombreEmpresa.Focus();
+
+        }
     }
 }

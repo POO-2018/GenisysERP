@@ -198,6 +198,7 @@
             this.lstInhabilitado.Name = "lstInhabilitado";
             this.lstInhabilitado.Size = new System.Drawing.Size(237, 394);
             this.lstInhabilitado.TabIndex = 13;
+            this.lstInhabilitado.Click += new System.EventHandler(this.lstInhabilitado_Click);
             this.lstInhabilitado.SelectedIndexChanged += new System.EventHandler(this.lstInhabilitado_SelectedIndexChanged);
             // 
             // lstHabilitado
