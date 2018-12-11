@@ -50,6 +50,11 @@
             this.lblProductos = new MaterialSkin.Controls.MaterialLabel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dgvDetalleCompra = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevoProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
@@ -57,11 +62,6 @@
             this.btnReducirProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnQuitarProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
@@ -112,8 +112,6 @@
             this.cmbProveedore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProveedore.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbProveedore.FormattingEnabled = true;
-            this.cmbProveedore.Items.AddRange(new object[] {
-            "Holaaaa"});
             this.cmbProveedore.Location = new System.Drawing.Point(130, 264);
             this.cmbProveedore.Name = "cmbProveedore";
             this.cmbProveedore.Size = new System.Drawing.Size(218, 26);
@@ -305,8 +303,6 @@
             this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Items.AddRange(new object[] {
-            "Holaaaa"});
             this.cmbCategoria.Location = new System.Drawing.Point(648, 107);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(218, 26);
@@ -329,12 +325,12 @@
             // 
             this.lblProductos.AutoSize = true;
             this.lblProductos.Depth = 0;
-            this.lblProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductos.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblProductos.Location = new System.Drawing.Point(679, 68);
             this.lblProductos.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(122, 29);
+            this.lblProductos.Size = new System.Drawing.Size(78, 19);
             this.lblProductos.TabIndex = 20;
             this.lblProductos.Text = "Productos";
             // 
@@ -365,6 +361,36 @@
             this.dgvDetalleCompra.ReadOnly = true;
             this.dgvDetalleCompra.Size = new System.Drawing.Size(463, 175);
             this.dgvDetalleCompra.TabIndex = 22;
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "Id";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.ReadOnly = true;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.HeaderText = "Nombre";
+            this.nombreProducto.Name = "nombreProducto";
+            this.nombreProducto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
             // 
             // btnNuevoProducto
             // 
@@ -459,36 +485,6 @@
             this.btnBuscar.TabIndex = 40;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "Id";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.ReadOnly = true;
-            // 
-            // nombreProducto
-            // 
-            this.nombreProducto.HeaderText = "Nombre";
-            this.nombreProducto.Name = "nombreProducto";
-            this.nombreProducto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
             // 
             // btnSalir
             // 
