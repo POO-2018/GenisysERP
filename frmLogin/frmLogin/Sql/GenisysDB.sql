@@ -51,7 +51,8 @@ CREATE TABLE ERP.Configuracion(
 		CONSTRAINT PK_ERP_Configuracion_id PRIMARY KEY CLUSTERED,
 	appkey NCHAR(50) NOT NULL,
 	valor NCHAR(50) NOT NULL,
-	descripcion NVARCHAR(200) NOT NULL
+	descripcion NVARCHAR(200) NOT NULL,
+	estado bit NOT NULL;
 );
 GO
 
