@@ -29,5 +29,15 @@ namespace frmLogin.Empleados
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
+
+        private void materialLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

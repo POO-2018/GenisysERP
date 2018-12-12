@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
+    <Compile Include="Empleados\empleados.cs" />
     <Compile Include="Empleados\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Empleados\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Empleados\frmMantenimientoUsuarios.resx">
       <DependentUpon>frmMantenimientoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
