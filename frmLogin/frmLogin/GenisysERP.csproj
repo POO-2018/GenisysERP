@@ -105,6 +105,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Clientes\storedProcedure_Contacto.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>
   <ItemGroup>
