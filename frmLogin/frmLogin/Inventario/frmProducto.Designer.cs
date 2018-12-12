@@ -48,14 +48,17 @@
             this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton5 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.numericExistencia = new System.Windows.Forms.NumericUpDown();
-            this.txtPrecioCompra = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtPrecioVenta = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.numericCantidadMinima = new System.Windows.Forms.NumericUpDown();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.numericPrecioCompra = new System.Windows.Forms.NumericUpDown();
+            this.numericPrecioVenta = new System.Windows.Forms.NumericUpDown();
+            this.cmbCodigoProducto = new System.Windows.Forms.ComboBox();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericExistencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidadMinima)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPrecioCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPrecioVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel2
@@ -145,9 +148,9 @@
             this.materialLabel9.Location = new System.Drawing.Point(17, 447);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(90, 19);
+            this.materialLabel9.Size = new System.Drawing.Size(74, 19);
             this.materialLabel9.TabIndex = 9;
-            this.materialLabel9.Text = "Id Categoría";
+            this.materialLabel9.Text = "Categoría";
             // 
             // materialLabel10
             // 
@@ -158,9 +161,9 @@
             this.materialLabel10.Location = new System.Drawing.Point(17, 396);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(88, 19);
+            this.materialLabel10.Size = new System.Drawing.Size(72, 19);
             this.materialLabel10.TabIndex = 10;
-            this.materialLabel10.Text = "Id impuesto";
+            this.materialLabel10.Text = "Impuesto";
             // 
             // materialLabel11
             // 
@@ -184,9 +187,9 @@
             this.materialLabel12.Location = new System.Drawing.Point(17, 498);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(93, 19);
+            this.materialLabel12.Size = new System.Drawing.Size(77, 19);
             this.materialLabel12.TabIndex = 13;
-            this.materialLabel12.Text = "id Proveedor";
+            this.materialLabel12.Text = "Proveedor";
             // 
             // txtNombre
             // 
@@ -295,8 +298,9 @@
             this.materialRaisedButton5.Primary = true;
             this.materialRaisedButton5.Size = new System.Drawing.Size(96, 35);
             this.materialRaisedButton5.TabIndex = 43;
-            this.materialRaisedButton5.Text = "Eliminar";
+            this.materialRaisedButton5.Text = "Inhabilitar";
             this.materialRaisedButton5.UseVisualStyleBackColor = true;
+            this.materialRaisedButton5.Click += new System.EventHandler(this.materialRaisedButton5_Click);
             // 
             // numericExistencia
             // 
@@ -307,55 +311,6 @@
             this.numericExistencia.Size = new System.Drawing.Size(271, 20);
             this.numericExistencia.TabIndex = 47;
             this.numericExistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtPrecioCompra
-            // 
-            this.txtPrecioCompra.Depth = 0;
-            this.txtPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioCompra.Hint = "";
-            this.txtPrecioCompra.Location = new System.Drawing.Point(160, 291);
-            this.txtPrecioCompra.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.PasswordChar = '\0';
-            this.txtPrecioCompra.SelectedText = "";
-            this.txtPrecioCompra.SelectionLength = 0;
-            this.txtPrecioCompra.SelectionStart = 0;
-            this.txtPrecioCompra.Size = new System.Drawing.Size(271, 23);
-            this.txtPrecioCompra.TabIndex = 18;
-            this.txtPrecioCompra.UseSystemPasswordChar = false;
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.Depth = 0;
-            this.txtPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioVenta.Hint = "";
-            this.txtPrecioVenta.Location = new System.Drawing.Point(160, 344);
-            this.txtPrecioVenta.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.PasswordChar = '\0';
-            this.txtPrecioVenta.SelectedText = "";
-            this.txtPrecioVenta.SelectionLength = 0;
-            this.txtPrecioVenta.SelectionStart = 0;
-            this.txtPrecioVenta.Size = new System.Drawing.Size(271, 23);
-            this.txtPrecioVenta.TabIndex = 19;
-            this.txtPrecioVenta.UseSystemPasswordChar = false;
-            // 
-            // materialSingleLineTextField1
-            // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(160, 85);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(271, 23);
-            this.materialSingleLineTextField1.TabIndex = 48;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField1.Click += new System.EventHandler(this.materialSingleLineTextField1_Click);
             // 
             // numericCantidadMinima
             // 
@@ -377,14 +332,62 @@
             this.dgvInventario.Size = new System.Drawing.Size(494, 482);
             this.dgvInventario.TabIndex = 50;
             // 
+            // numericPrecioCompra
+            // 
+            this.numericPrecioCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.numericPrecioCompra.DecimalPlaces = 2;
+            this.numericPrecioCompra.ForeColor = System.Drawing.Color.White;
+            this.numericPrecioCompra.Location = new System.Drawing.Point(160, 296);
+            this.numericPrecioCompra.Name = "numericPrecioCompra";
+            this.numericPrecioCompra.Size = new System.Drawing.Size(271, 20);
+            this.numericPrecioCompra.TabIndex = 51;
+            this.numericPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numericPrecioVenta
+            // 
+            this.numericPrecioVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.numericPrecioVenta.DecimalPlaces = 2;
+            this.numericPrecioVenta.ForeColor = System.Drawing.Color.White;
+            this.numericPrecioVenta.Location = new System.Drawing.Point(160, 347);
+            this.numericPrecioVenta.Name = "numericPrecioVenta";
+            this.numericPrecioVenta.Size = new System.Drawing.Size(271, 20);
+            this.numericPrecioVenta.TabIndex = 52;
+            this.numericPrecioVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cmbCodigoProducto
+            // 
+            this.cmbCodigoProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cmbCodigoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCodigoProducto.FormattingEnabled = true;
+            this.cmbCodigoProducto.Location = new System.Drawing.Point(160, 91);
+            this.cmbCodigoProducto.Name = "cmbCodigoProducto";
+            this.cmbCodigoProducto.Size = new System.Drawing.Size(271, 21);
+            this.cmbCodigoProducto.TabIndex = 53;
+            this.cmbCodigoProducto.TextChanged += new System.EventHandler(this.cmbCodigoProducto_TextChanged);
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(352, 591);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(96, 35);
+            this.materialRaisedButton1.TabIndex = 54;
+            this.materialRaisedButton1.Text = "Habilitar";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 640);
+            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.cmbCodigoProducto);
+            this.Controls.Add(this.numericPrecioVenta);
+            this.Controls.Add(this.numericPrecioCompra);
             this.Controls.Add(this.dgvInventario);
             this.Controls.Add(this.numericCantidadMinima);
-            this.Controls.Add(this.materialSingleLineTextField1);
             this.Controls.Add(this.numericExistencia);
             this.Controls.Add(this.materialRaisedButton5);
             this.Controls.Add(this.materialRaisedButton4);
@@ -394,8 +397,6 @@
             this.Controls.Add(this.cmbIdCategoria);
             this.Controls.Add(this.cmbIdImpuesto);
             this.Controls.Add(this.txtObservaciones);
-            this.Controls.Add(this.txtPrecioVenta);
-            this.Controls.Add(this.txtPrecioCompra);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.materialLabel12);
             this.Controls.Add(this.materialLabel11);
@@ -414,6 +415,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericExistencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidadMinima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPrecioCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPrecioVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,10 +443,11 @@
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton4;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton5;
         private System.Windows.Forms.NumericUpDown numericExistencia;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtPrecioCompra;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtPrecioVenta;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private System.Windows.Forms.NumericUpDown numericCantidadMinima;
         private System.Windows.Forms.DataGridView dgvInventario;
+        private System.Windows.Forms.NumericUpDown numericPrecioCompra;
+        private System.Windows.Forms.NumericUpDown numericPrecioVenta;
+        private System.Windows.Forms.ComboBox cmbCodigoProducto;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
     }
 }

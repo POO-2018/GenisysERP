@@ -7,28 +7,29 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace frmLogin.Inventario
 {
     class Producto
     {
         //Atributos de la clase
-        int idInvetario { get; set; }
-        int idProducto { get; set; }
-        string nombre { get; set; }
-        int cantidadExistencia { get; set; }
-        int cantidadMinima { get; set; }
-        float precioCompra { get; set; }
-        float precioVenta { get; set; }
+        public int idInvetario { get; set; }
+        public int idProducto { get; set; }
+        public string nombre { get; set; }
+        public int cantidadExistencia { get; set; }
+        public int cantidadMinima { get; set; }
+        public decimal precioCompra { get; set; }
+        public decimal precioVenta { get; set; }
         DateTime fechaIngresa { get; set; }
-        int idUsuario { get; set; }
-        string observaciones { get; set; }
-        int idImpuesto { get; set; }
-        int IdCategoria { get; set; }
-        int idProveedor { get; set; }
-        int estado { get; set; }
+        public int idUsuario { get; set; }
+        public string observaciones { get; set; }
+        public int idImpuesto { get; set; }
+        public int IdCategoria { get; set; }
+        public int idProveedor { get; set; }
+        public int estado { get; set; }
 
         // Constructores de la clase
-        public Producto() { }
+        //public Producto() { }
 
         // Métodos de la clase Producto.
 
@@ -63,8 +64,8 @@ namespace frmLogin.Inventario
                     resultado.nombre = rdr.GetString(2);
                     resultado.cantidadExistencia = rdr.GetInt16(3);
                     resultado.cantidadMinima = rdr.GetInt16(4);
-                    resultado.precioCompra = rdr.GetFloat(5);
-                    resultado.precioVenta = rdr.GetFloat(6);
+                    resultado.precioCompra = rdr.GetDecimal(5);
+                    resultado.precioVenta = rdr.GetDecimal(6);
                     resultado.fechaIngresa = rdr.GetDateTime(7);
                     resultado.idUsuario = rdr.GetInt16(8);
                     resultado.observaciones = rdr.GetString(9);
@@ -93,7 +94,7 @@ namespace frmLogin.Inventario
         /// </summary>
         /// <param name="elProducto"></param>
         /// <returns>true si se insertó, false si ocurre un error</returns>
-        public static bool InsertarProducto(Producto elProducto)
+        public bool InsertarProducto(Producto elProducto)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             SqlCommand cmd = conexion.EjecutarComando("sp_InsertarProducto");
@@ -249,8 +250,8 @@ namespace frmLogin.Inventario
                     resultado.nombre = rdr.GetString(2);
                     resultado.cantidadExistencia = rdr.GetInt16(3);
                     resultado.cantidadMinima = rdr.GetInt16(4);
-                    resultado.precioCompra = rdr.GetFloat(5);
-                    resultado.precioVenta = rdr.GetFloat(6);
+                    resultado.precioCompra = rdr.GetDecimal(5);
+                    resultado.precioVenta = rdr.GetDecimal(6);
                     resultado.fechaIngresa = rdr.GetDateTime(7);
                     resultado.idUsuario = rdr.GetInt16(8);
                     resultado.observaciones = rdr.GetString(9);
