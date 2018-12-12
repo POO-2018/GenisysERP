@@ -37,6 +37,8 @@
             this.txtCorreo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.btnInhabilitado = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnHabilitado = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lblInstrucciones = new MaterialSkin.Controls.MaterialLabel();
             this.lstInhabilitado = new System.Windows.Forms.ListBox();
             this.lstHabilitado = new System.Windows.Forms.ListBox();
@@ -45,8 +47,6 @@
             this.btnHa_In = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnRegresar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mskTelefono = new System.Windows.Forms.MaskedTextBox();
-            this.btnHabilitado = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnInhabilitado = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.SuspendLayout();
@@ -116,7 +116,7 @@
             this.txtNombreEmpresa.SelectionLength = 0;
             this.txtNombreEmpresa.SelectionStart = 0;
             this.txtNombreEmpresa.Size = new System.Drawing.Size(254, 23);
-            this.txtNombreEmpresa.TabIndex = 4;
+            this.txtNombreEmpresa.TabIndex = 0;
             this.txtNombreEmpresa.TabStop = false;
             this.txtNombreEmpresa.UseSystemPasswordChar = false;
             this.txtNombreEmpresa.Leave += new System.EventHandler(this.txtNombreEmpresa_Leave);
@@ -134,7 +134,7 @@
             this.txtDireccion.SelectionLength = 0;
             this.txtDireccion.SelectionStart = 0;
             this.txtDireccion.Size = new System.Drawing.Size(254, 23);
-            this.txtDireccion.TabIndex = 5;
+            this.txtDireccion.TabIndex = 1;
             this.txtDireccion.TabStop = false;
             this.txtDireccion.UseSystemPasswordChar = false;
             // 
@@ -151,7 +151,7 @@
             this.txtCorreo.SelectionLength = 0;
             this.txtCorreo.SelectionStart = 0;
             this.txtCorreo.Size = new System.Drawing.Size(254, 23);
-            this.txtCorreo.TabIndex = 7;
+            this.txtCorreo.TabIndex = 3;
             this.txtCorreo.TabStop = false;
             this.txtCorreo.UseSystemPasswordChar = false;
             // 
@@ -176,7 +176,39 @@
             this.plOpciones.Location = new System.Drawing.Point(514, 104);
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(261, 473);
-            this.plOpciones.TabIndex = 9;
+            this.plOpciones.TabIndex = 8;
+            // 
+            // btnInhabilitado
+            // 
+            this.btnInhabilitado.AutoSize = true;
+            this.btnInhabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnInhabilitado.Depth = 0;
+            this.btnInhabilitado.Icon = null;
+            this.btnInhabilitado.Location = new System.Drawing.Point(136, 31);
+            this.btnInhabilitado.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnInhabilitado.Name = "btnInhabilitado";
+            this.btnInhabilitado.Primary = true;
+            this.btnInhabilitado.Size = new System.Drawing.Size(113, 36);
+            this.btnInhabilitado.TabIndex = 1;
+            this.btnInhabilitado.Text = "INHABILITADO";
+            this.btnInhabilitado.UseVisualStyleBackColor = true;
+            this.btnInhabilitado.Click += new System.EventHandler(this.btnInhabilitado_Click);
+            // 
+            // btnHabilitado
+            // 
+            this.btnHabilitado.AutoSize = true;
+            this.btnHabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHabilitado.Depth = 0;
+            this.btnHabilitado.Icon = null;
+            this.btnHabilitado.Location = new System.Drawing.Point(12, 31);
+            this.btnHabilitado.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHabilitado.Name = "btnHabilitado";
+            this.btnHabilitado.Primary = true;
+            this.btnHabilitado.Size = new System.Drawing.Size(100, 36);
+            this.btnHabilitado.TabIndex = 0;
+            this.btnHabilitado.Text = "HABILITADO";
+            this.btnHabilitado.UseVisualStyleBackColor = true;
+            this.btnHabilitado.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // lblInstrucciones
             // 
@@ -221,7 +253,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Primary = true;
             this.btnAgregar.Size = new System.Drawing.Size(83, 36);
-            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -237,7 +269,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
             this.btnActualizar.Size = new System.Drawing.Size(103, 36);
-            this.btnActualizar.TabIndex = 17;
+            this.btnActualizar.TabIndex = 5;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -253,7 +285,7 @@
             this.btnHa_In.Name = "btnHa_In";
             this.btnHa_In.Primary = true;
             this.btnHa_In.Size = new System.Drawing.Size(184, 36);
-            this.btnHa_In.TabIndex = 18;
+            this.btnHa_In.TabIndex = 6;
             this.btnHa_In.Text = "HABILITAR / INHABILITAR";
             this.btnHa_In.UseVisualStyleBackColor = true;
             this.btnHa_In.Click += new System.EventHandler(this.btnHa_In_Click);
@@ -269,7 +301,7 @@
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Primary = true;
             this.btnRegresar.Size = new System.Drawing.Size(89, 36);
-            this.btnRegresar.TabIndex = 19;
+            this.btnRegresar.TabIndex = 7;
             this.btnRegresar.Text = "REGRESAR";
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
@@ -277,46 +309,14 @@
             // mskTelefono
             // 
             this.mskTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.mskTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.mskTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mskTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskTelefono.ForeColor = System.Drawing.SystemColors.Info;
             this.mskTelefono.Location = new System.Drawing.Point(244, 235);
             this.mskTelefono.Mask = "0000-0000";
             this.mskTelefono.Name = "mskTelefono";
-            this.mskTelefono.Size = new System.Drawing.Size(254, 20);
-            this.mskTelefono.TabIndex = 20;
-            this.mskTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnHabilitado
-            // 
-            this.btnHabilitado.AutoSize = true;
-            this.btnHabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHabilitado.Depth = 0;
-            this.btnHabilitado.Icon = null;
-            this.btnHabilitado.Location = new System.Drawing.Point(12, 31);
-            this.btnHabilitado.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHabilitado.Name = "btnHabilitado";
-            this.btnHabilitado.Primary = true;
-            this.btnHabilitado.Size = new System.Drawing.Size(100, 36);
-            this.btnHabilitado.TabIndex = 21;
-            this.btnHabilitado.Text = "HABILITADO";
-            this.btnHabilitado.UseVisualStyleBackColor = true;
-            this.btnHabilitado.Click += new System.EventHandler(this.materialRaisedButton1_Click);
-            // 
-            // btnInhabilitado
-            // 
-            this.btnInhabilitado.AutoSize = true;
-            this.btnInhabilitado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnInhabilitado.Depth = 0;
-            this.btnInhabilitado.Icon = null;
-            this.btnInhabilitado.Location = new System.Drawing.Point(136, 31);
-            this.btnInhabilitado.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnInhabilitado.Name = "btnInhabilitado";
-            this.btnInhabilitado.Primary = true;
-            this.btnInhabilitado.Size = new System.Drawing.Size(113, 36);
-            this.btnInhabilitado.TabIndex = 22;
-            this.btnInhabilitado.Text = "INHABILITADO";
-            this.btnInhabilitado.UseVisualStyleBackColor = true;
-            this.btnInhabilitado.Click += new System.EventHandler(this.btnInhabilitado_Click);
+            this.mskTelefono.Size = new System.Drawing.Size(254, 17);
+            this.mskTelefono.TabIndex = 2;
             // 
             // frmProveedor
             // 

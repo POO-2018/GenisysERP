@@ -31,11 +31,7 @@ namespace frmLogin
 
         private void frmProveedor_Load(object sender, EventArgs e)
         {
-            lstHabilitado.Visible = false;
-            lstInhabilitado.Visible = false;
-
-            datosH();
-            datosI();
+            limpiar();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -79,15 +75,15 @@ namespace frmLogin
 
             if (txtDireccion.Text != "")
             {
-                btnAgregar.Enabled = false;
-                btnActualizar.Enabled = true;
-                btnHa_In.Enabled = true;
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnHa_In.Visible = true;
             }
             else
             {
-                btnActualizar.Enabled = false;
-                btnHa_In.Enabled = false;
-                btnAgregar.Enabled = true;
+                btnActualizar.Visible = false;
+                btnHa_In.Visible = false;
+                btnAgregar.Visible = true;
             }
         }
 
@@ -133,9 +129,9 @@ namespace frmLogin
 
         private void lstHabilitado_Click(object sender, EventArgs e)
         {
-            btnActualizar.Enabled = true; //actualizar
-            btnHa_In.Enabled = true; //habilitar
-            btnAgregar.Enabled = false; //agregar
+            btnActualizar.Visible = true; //actualizar
+            btnHa_In.Visible = true; //habilitar
+            btnAgregar.Visible = false; //agregar
             Clientes.Proveedor elProveedor = new Clientes.Proveedor();
             elProveedor = Clientes.Proveedor.ObtenerProveedor2(lstHabilitado.SelectedItem.ToString());
             mskTelefono.Text = elProveedor.telefono;
@@ -188,9 +184,9 @@ namespace frmLogin
 
         private void lstInhabilitado_Click(object sender, EventArgs e)
         {
-            btnActualizar.Enabled = true;
-            btnHa_In.Enabled = true;
-            btnAgregar.Enabled = false;
+            btnActualizar.Visible = true;
+            btnHa_In.Visible = true;
+            btnAgregar.Visible = false;
             Clientes.Proveedor elproveedor = new Clientes.Proveedor();
             elproveedor = Clientes.Proveedor.ObtenerProveedor2(lstInhabilitado.SelectedItem.ToString());
 
@@ -214,8 +210,8 @@ namespace frmLogin
 
             //reestableciendo los valores por defecto
             btnAgregar.Visible = true;
-            btnActualizar.Visible = true;
-            btnHa_In.Visible = true;
+            btnActualizar.Visible = false;
+            btnHa_In.Visible = false;
             lstHabilitado.Visible = false;
             lstInhabilitado.Visible = false;
 
