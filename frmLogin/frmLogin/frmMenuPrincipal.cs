@@ -17,6 +17,7 @@ namespace frmLogin
     public partial class frmMenuPrincipal : MaterialForm
     {
         public string idUsuario;
+        
         private MaterialSkinManager materialSkinManager;
         public frmMenuPrincipal()
         {

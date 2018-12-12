@@ -232,6 +232,7 @@
             this.cmbIdImpuesto.Name = "cmbIdImpuesto";
             this.cmbIdImpuesto.Size = new System.Drawing.Size(271, 21);
             this.cmbIdImpuesto.TabIndex = 24;
+            this.cmbIdImpuesto.TextChanged += new System.EventHandler(this.cmbIdImpuesto_TextChanged);
             // 
             // cmbIdCategoria
             // 
@@ -242,6 +243,7 @@
             this.cmbIdCategoria.Name = "cmbIdCategoria";
             this.cmbIdCategoria.Size = new System.Drawing.Size(271, 21);
             this.cmbIdCategoria.TabIndex = 28;
+            this.cmbIdCategoria.TextChanged += new System.EventHandler(this.cmbIdCategoria_TextChanged);
             // 
             // cmbIdProveedor
             // 
@@ -252,6 +254,7 @@
             this.cmbIdProveedor.Name = "cmbIdProveedor";
             this.cmbIdProveedor.Size = new System.Drawing.Size(271, 21);
             this.cmbIdProveedor.TabIndex = 29;
+            this.cmbIdProveedor.TextChanged += new System.EventHandler(this.cmbIdProveedor_TextChanged);
             // 
             // materialRaisedButton3
             // 
@@ -331,6 +334,7 @@
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.Size = new System.Drawing.Size(494, 482);
             this.dgvInventario.TabIndex = 50;
+            this.dgvInventario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInventario_CellMouseDoubleClick);
             // 
             // numericPrecioCompra
             // 
