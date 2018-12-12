@@ -37,11 +37,9 @@ namespace frmLogin.Inventario
 
         private void frmImpuestoProducto_Load(object sender, EventArgs e)
         {
-
-            // IdentidadPaciente = Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value);
-
             // inicializamos los textos vacíos
             dgvImpuesto.DataSource = null;
+            dgvimpuestoInhabilitado.DataSource = null;
             Limpiar();
 
 
@@ -106,6 +104,14 @@ namespace frmLogin.Inventario
             btnAgregar.Visible = true;
             btnActualizar.Visible = false;
             btnInhabilitar.Visible = false;
+            dgvimpuestoInhabilitado.Visible = false;
+            dgvImpuesto.Visible = true;
+            btnInhabilitar.Text = "Inhabilitar";
+            txtCodigo.Enabled = true;
+            txtDescripcion.Enabled = true;
+            txtValor.Enabled = true;
+            txtRegistradoPor.Enabled = true;
+            txtObservacion.Enabled = true;
             txtCodigo.Focus();
             CargarDatos();
         }
@@ -162,33 +168,14 @@ namespace frmLogin.Inventario
         {
             // cargamos los datos de los impuestos existentes en la base de datos.
             // instanciamos de la clase impuesto
-            List<Impuesto> listaT = Impuesto.LeerTodos();
+            List<Impuesto> listah = Impuesto.LeerTodos();
+            dgvImpuesto.DataSource = listah;
 
-            // limpiamos los datos que se encuentren en la lista.
-            
-            dgvImpuesto.DataSource = listaT;
-        }
 
-        private void dgvImpuesto_DoubleClick(object sender, EventArgs e)
-        {
-            elCodigo=  Convert.ToString(dgvImpuesto.CurrentRow.Cells[3].Value);
-
-            //Cargamos los datos del impuesto seleccionado.
-            Impuesto cargar = Impuesto.BuscarImpuesto(elCodigo);
-
-            txtCodigo.Text = cargar.idCodigoImpuesto;
-            txtDescripcion.Text = cargar.descripcion;
-            txtValor.Text = Convert.ToString(cargar.valor);
-            txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
-            txtObservacion.Text = cargar.observacion;
-
-            // Validamos si hay datos existentes.
-            if(txtCodigo.Text!="" && txtDescripcion.Text != "")
-            {
-                btnAgregar.Visible = false;
-                btnActualizar.Visible = true;
-                btnInhabilitar.Visible = true;
-            }
+            // Cargamos los dotos de los impuestos inhabilitados en la base de datos
+            //instanciamos de la clase impuesto
+            List<Impuesto> listaI = Impuesto.LeerTodosInhabilitados();
+            dgvimpuestoInhabilitado.DataSource = listaI;
 
         }
 
@@ -206,7 +193,22 @@ namespace frmLogin.Inventario
                 elCodigo = Convert.ToString(cargar.idImpuesto);
 
                 // Validamos si hay datos existentes.
-                if (txtCodigo.Text != "" && txtDescripcion.Text != "")
+                if (cargar.estado == 0)
+                {
+                   
+                    txtCodigo.Enabled = false;
+                    txtDescripcion.Enabled = false;
+                    txtValor.Enabled = false;
+                    txtRegistradoPor.Enabled = false;
+                    txtObservacion.Enabled = false;
+                    btnActualizar.Visible = false;
+                    btnInhabilitar.Text = "Habilitar";
+                    btnInhabilitar.Visible = true;
+                    btnAgregar.Visible = false;
+                    MessageBox.Show("Impuesto inhabilitado");
+
+                }
+                else if (txtCodigo.Text != "" && txtDescripcion.Text != "")
                 {
                     btnAgregar.Visible = false;
                     btnActualizar.Visible = true;
@@ -215,6 +217,152 @@ namespace frmLogin.Inventario
             }
             
             
+        }
+
+        /// <summary>
+        /// Muestra los impuestos que han sido habilitados 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnInhabilitados_Click(object sender, EventArgs e)
+        {
+            dgvimpuestoInhabilitado.Visible = true;
+
+        }
+        /// <summary>
+        /// Muestra los impuestos que se encuentran disponibles y 
+        /// habilitados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            dgvimpuestoInhabilitado.Visible = false;
+            dgvImpuesto.Visible = true;
+        }
+
+        private void dgvimpuestoInhabilitado_DoubleClick(object sender, EventArgs e)
+        {
+            elCodigo = Convert.ToString(dgvimpuestoInhabilitado.CurrentRow.Cells[3].Value);
+
+            //Cargamos los datos del impuesto seleccionado.
+            Impuesto cargar = Impuesto.BuscarImpuesto(elCodigo);
+
+            txtCodigo.Text = cargar.idCodigoImpuesto;
+            txtDescripcion.Text = cargar.descripcion;
+            txtValor.Text = Convert.ToString(cargar.valor);
+            txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
+            txtObservacion.Text = cargar.observacion;
+            elCodigo = Convert.ToString(cargar.idImpuesto);
+
+            if (cargar.estado == 0)
+            {
+                MessageBox.Show("Impuesto inhabilitado");
+                txtCodigo.Enabled = false;
+                txtDescripcion.Enabled = false;
+                txtValor.Enabled = false;
+                txtRegistradoPor.Enabled = false;
+                txtObservacion.Enabled = false;
+                btnActualizar.Visible = false;
+                btnInhabilitar.Text = "Habilitar";
+                btnInhabilitar.Visible = true;
+                btnAgregar.Visible = false;
+            }
+            else if (txtCodigo.Text != "" && txtDescripcion.Text != "")
+            {
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnInhabilitar.Visible = true;
+            }
+        }
+
+        private void dgvImpuesto_DoubleClick_1(object sender, EventArgs e)
+        {
+            elCodigo = Convert.ToString(dgvImpuesto.CurrentRow.Cells[3].Value);
+
+            //Cargamos los datos del impuesto seleccionado.
+            Impuesto cargar = Impuesto.BuscarImpuesto(elCodigo);
+
+            txtCodigo.Text = cargar.idCodigoImpuesto;
+            txtDescripcion.Text = cargar.descripcion;
+            txtValor.Text = Convert.ToString(cargar.valor);
+            txtRegistradoPor.Text = Convert.ToString(cargar.idUsuario);
+            txtObservacion.Text = cargar.observacion;
+            elCodigo = Convert.ToString(cargar.idImpuesto);
+            // Validamos si hay datos existentes.
+            if (txtCodigo.Text != "" && txtDescripcion.Text != "")
+            {
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnInhabilitar.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Limpia los datos contenidos en los textbox y recarga
+        /// los datos contenidos en los dataGridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void materialRaisedButton1_Click_1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnInhabilitar_Click(object sender, EventArgs e)
+        {
+            //Instanciamos de la clase impuesto
+            Impuesto inhabilitar = new Impuesto();
+            inhabilitar.idImpuesto = Convert.ToInt32(elCodigo);
+            MessageBox.Show(elCodigo);
+
+            //verificamos si la opción está en modo habilitar ó inhabilitar.
+            if (btnInhabilitar.Text== "Inhabilitar")
+            {
+
+                DialogResult R= MessageBox.Show("¿Está seguro que desea inhabilitar el impuesto", "GenisysERP",MessageBoxButtons.YesNo);
+                if (R == DialogResult.Yes)
+                {
+                    //intentamos guardar los cambios
+                    if (Impuesto.EliminarImpuesto(inhabilitar))
+                    {
+                        MessageBox.Show("Impuesto inhabilitado correctamente", "GenisysERP");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error durante la inhabilitación", "GenisysERP");
+                        Limpiar();
+                    }
+
+                }
+                else
+                {
+                    Limpiar();
+                }
+            }
+            else
+            {
+                DialogResult R = MessageBox.Show("¿Está seguro que desea habilitar el impuesto?", "GenisysERP", MessageBoxButtons.YesNo);
+                if (R == DialogResult.Yes)
+                {
+                    // intentamos habilitar el registro
+                    if (Impuesto.HabilitarImpuesto(inhabilitar))
+                    {
+                        MessageBox.Show("Impuesto habilitado correctamente", "GenisysERP");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error durante la habilitación", "GenisysERP");
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    Limpiar();
+                }
+            }
         }
     }
 }

@@ -157,14 +157,10 @@ namespace frmLogin.Inventario
 
             SqlCommand cmd = conn.EjecutarComando("sp_EliminarImpuesto");
             cmd.CommandType = CommandType.StoredProcedure;
-
-
-
-            // Parametros
+            // Parámetros
 
             cmd.Parameters.Add(new SqlParameter("@idImpuesto", SqlDbType.Int));
-            cmd.Parameters["idImpuesto"].Value = impuesto.idImpuesto;
-
+            cmd.Parameters["@idImpuesto"].Value = impuesto.idImpuesto;
             try
             {
                 conn.EstablecerConexion();
@@ -173,7 +169,41 @@ namespace frmLogin.Inventario
 
                 return true;
             }
-            catch (SqlException ex)
+            catch (SqlException )
+            {
+
+                return false;
+            }
+            finally
+            {
+                conn.CerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Habilita un impuesto que ha sido inhabilitado.
+        /// </summary>
+        /// <param name="impuesto"></param>
+        /// <returns></returns>
+        public static bool HabilitarImpuesto(Impuesto impuesto)
+        {
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+
+            SqlCommand cmd = conn.EjecutarComando("sp_HabilitarImpuesto");
+            cmd.CommandType = CommandType.StoredProcedure;
+            // Parámetros
+
+            cmd.Parameters.Add(new SqlParameter("@idImpuesto", SqlDbType.Int));
+            cmd.Parameters["@idImpuesto"].Value = impuesto.idImpuesto;
+            try
+            {
+                conn.EstablecerConexion();
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException)
             {
 
                 return false;
@@ -239,6 +269,10 @@ namespace frmLogin.Inventario
             }
         }
 
+        /// <summary>
+        /// Lee todos los datos que se encuentran habilitados
+        /// </summary>
+        /// <returns></returns>
         public static List<Impuesto> LeerTodos()
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
@@ -263,6 +297,50 @@ namespace frmLogin.Inventario
                     resultado.idUsuario = rdr.GetInt32(5);
                     resultado.observacion = rdr.GetString(6);
                     resultado.estado = Convert.ToInt16( rdr.GetBoolean(7));
+                    Lista.Add(resultado);
+                }
+
+                //Retornamos los datos obtenidos
+                return Lista;
+            }
+            catch (SqlException)
+            {
+                return Lista;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Lee todos los datos que se encuentran inhabilitados 
+        /// </summary>
+        /// <returns></returns>
+        public static List<Impuesto> LeerTodosInhabilitados()
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            string sql;
+            List<Impuesto> Lista = new List<Impuesto>();
+
+            sql = @"SELECT * FROM Inventario.Impuesto WHERE estado=0;";
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+            try
+            {
+
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Impuesto resultado = new Impuesto();
+                    resultado.idImpuesto = rdr.GetInt32(0);
+                    resultado.idCodigoImpuesto = rdr.GetString(1);
+                    resultado.descripcion = rdr.GetString(2);
+                    resultado.valor = rdr.GetDecimal(3);
+                    resultado.fechaCreacion = rdr.GetDateTime(4);
+                    resultado.idUsuario = rdr.GetInt32(5);
+                    resultado.observacion = rdr.GetString(6);
+                    resultado.estado = Convert.ToInt16(rdr.GetBoolean(7));
                     Lista.Add(resultado);
                 }
 
