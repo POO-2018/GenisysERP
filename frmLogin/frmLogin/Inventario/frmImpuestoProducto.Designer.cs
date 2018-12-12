@@ -56,13 +56,13 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Depth = 0;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblTitulo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTitulo.Location = new System.Drawing.Point(305, 126);
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(218, 26);
-            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Size = new System.Drawing.Size(154, 19);
+            this.lblTitulo.TabIndex = 12;
             this.lblTitulo.Text = "Contról de impuestos";
             // 
             // lblCodigo
@@ -75,7 +75,7 @@
             this.lblCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(61, 19);
-            this.lblCodigo.TabIndex = 1;
+            this.lblCodigo.TabIndex = 13;
             this.lblCodigo.Text = "Código:";
             // 
             // lblDescripcion
@@ -88,7 +88,7 @@
             this.lblDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(93, 19);
-            this.lblDescripcion.TabIndex = 2;
+            this.lblDescripcion.TabIndex = 14;
             this.lblDescripcion.Text = "Descripción:";
             // 
             // lblValor
@@ -101,7 +101,7 @@
             this.lblValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(49, 19);
-            this.lblValor.TabIndex = 3;
+            this.lblValor.TabIndex = 15;
             this.lblValor.Text = "Valor:";
             // 
             // materialLabel1
@@ -114,7 +114,7 @@
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(111, 19);
-            this.materialLabel1.TabIndex = 4;
+            this.materialLabel1.TabIndex = 16;
             this.materialLabel1.Text = "Registrado por:";
             // 
             // materialLabel2
@@ -127,7 +127,7 @@
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(96, 19);
-            this.materialLabel2.TabIndex = 5;
+            this.materialLabel2.TabIndex = 17;
             this.materialLabel2.Text = "Observación:";
             // 
             // txtCodigo
@@ -280,7 +280,7 @@
             this.btnInhabilitados.Name = "btnInhabilitados";
             this.btnInhabilitados.Primary = true;
             this.btnInhabilitados.Size = new System.Drawing.Size(119, 29);
-            this.btnInhabilitados.TabIndex = 13;
+            this.btnInhabilitados.TabIndex = 10;
             this.btnInhabilitados.Text = "Inhabilitados";
             this.btnInhabilitados.UseVisualStyleBackColor = true;
             this.btnInhabilitados.Click += new System.EventHandler(this.btnInhabilitados_Click);
@@ -291,7 +291,7 @@
             this.dgvimpuestoInhabilitado.Location = new System.Drawing.Point(390, 225);
             this.dgvimpuestoInhabilitado.Name = "dgvimpuestoInhabilitado";
             this.dgvimpuestoInhabilitado.Size = new System.Drawing.Size(388, 159);
-            this.dgvimpuestoInhabilitado.TabIndex = 14;
+            this.dgvimpuestoInhabilitado.TabIndex = 18;
             this.dgvimpuestoInhabilitado.DoubleClick += new System.EventHandler(this.dgvimpuestoInhabilitado_DoubleClick);
             // 
             // btnhabilitar
@@ -302,7 +302,7 @@
             this.btnhabilitar.Name = "btnhabilitar";
             this.btnhabilitar.Primary = true;
             this.btnhabilitar.Size = new System.Drawing.Size(119, 29);
-            this.btnhabilitar.TabIndex = 15;
+            this.btnhabilitar.TabIndex = 9;
             this.btnhabilitar.Text = "habilitados";
             this.btnhabilitar.UseVisualStyleBackColor = true;
             this.btnhabilitar.Click += new System.EventHandler(this.materialRaisedButton1_Click);
@@ -315,7 +315,7 @@
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Primary = true;
             this.btnLimpiar.Size = new System.Drawing.Size(129, 29);
-            this.btnLimpiar.TabIndex = 16;
+            this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.materialRaisedButton1_Click_1);
