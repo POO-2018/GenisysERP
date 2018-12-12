@@ -45,13 +45,15 @@ namespace frmLogin
                 btnAgregar.Visible = false;
                 Contacto elContacto = new Contacto();
                 elContacto = Contacto.ObtenerContacto2(lstHabilitado.SelectedItem.ToString());
+                mskIdentidad.Text = elContacto.idContacto;
                 txtNombres.Text = elContacto.nombres;
                 txtApellidos.Text = elContacto.apellidos;
                 txtDireccion.Text = elContacto.direccion;
                 mskTelefono.Text = elContacto.telefono;
                 txtCorreo.Text = elContacto.correo;
                 txtCargo.Text = elContacto.cargo;
-                cmbProveedor.Text = elContacto.nombreProveedor;
+                cmbProveedor.Text = elContacto.idProveedor;
+                cmbProveedor.Enabled = false;
             }
         }
 
@@ -76,7 +78,8 @@ namespace frmLogin
                 mskTelefono.Text = elContacto.telefono;
                 txtCorreo.Text = elContacto.correo;
                 txtCargo.Text = elContacto.cargo;
-                cmbProveedor.Text = elContacto.nombreProveedor;
+                cmbProveedor.Text = elContacto.idProveedor;
+                cmbProveedor.Enabled = false;
             }
         }
 
@@ -87,6 +90,8 @@ namespace frmLogin
 
         public void limpiar()
         {
+            datosH();
+            datosI();
             cmbProveedor.SelectedIndex = -1;
             mskIdentidad.Text = "";
             txtNombres.Text = "";

@@ -25,13 +25,14 @@ namespace frmLogin.Clientes
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
-            
+
         }
 
 
         public string m;
 
         //Propiedades
+        public int codProveedor { get; set; }
         public string idContacto { get; set; }
         public string idProveedor { get; set; }
         public string nombres { get; set; }
@@ -230,8 +231,9 @@ namespace frmLogin.Clientes
                 while (rdr.Read())
                 {
                     Contacto elContacto = new Contacto();
-                    elContacto.idProveedor = rdr.GetString(0);
-                    elContacto.idContacto = rdr.GetString(1);
+                    
+                    elContacto.idContacto = rdr.GetString(0);
+                    elContacto.codProveedor = Convert.ToInt32(rdr[1]);
                     elContacto.nombres = rdr.GetString(2);
                     elContacto.apellidos = rdr.GetString(3);
                     elContacto.direccion = rdr.GetString(4);
@@ -279,8 +281,8 @@ namespace frmLogin.Clientes
                 while (rdr.Read())
                 {
                     Contacto elContacto = new Contacto();
-                    elContacto.idProveedor = rdr.GetString(0);
-                    elContacto.idContacto = rdr.GetString(1);
+                    elContacto.idContacto = rdr.GetString(0);
+                    elContacto.codProveedor = Convert.ToInt32(rdr[1]);
                     elContacto.nombres = rdr.GetString(2);
                     elContacto.apellidos = rdr.GetString(3);
                     elContacto.direccion = rdr.GetString(4);
@@ -312,8 +314,8 @@ namespace frmLogin.Clientes
             Contacto resultado = new Contacto();
 
             // Query SQL
-            sql = @"SELECT Contacto.idContacto, Proveedor.nombreEmpresa, Contacto.nombres, Contacto.apellidos, Contacto.direccion, Contacto.telefono, Contacto.correo, Contacto.cargo
-FROM Clientes.Proveedor INNER JOIN Clientes.Contacto ON Proveedor.idProveedor = Contacto.idProveedor WHERE Clientes.Contacto.nombres = @nombres;";
+            sql = @"SELECT Contacto.idContacto, Proveedor.nombreEmpresa, Contacto.nombres, Contacto.apellidos, Contacto.direccion, Contacto.telefono, Contacto.correo, Contacto.cargo, Contacto.estado 
+                    FROM Clientes.Proveedor INNER JOIN Clientes.Contacto ON Proveedor.idProveedor = Contacto.idProveedor WHERE Contacto.nombres = @nombres;";
             SqlCommand cmd = conexion.EjecutarComando(sql);
             SqlDataReader rdr;
 
@@ -329,13 +331,28 @@ FROM Clientes.Proveedor INNER JOIN Clientes.Contacto ON Proveedor.idProveedor = 
                 while (rdr.Read())
                 {
                     resultado.idContacto = rdr.GetString(0);
-                    resultado.nombreProveedor = rdr.GetString(1);
+                    resultado.idProveedor = rdr.GetString(1);
                     resultado.nombres = rdr.GetString(2);
                     resultado.apellidos = rdr.GetString(3);
                     resultado.direccion = rdr.GetString(4);
                     resultado.telefono = rdr.GetString(5);
                     resultado.correo = rdr.GetString(6);
                     resultado.cargo = rdr.GetString(7);
+                    resultado.estado = Convert.ToInt32(rdr[8]);
+                    /*
+                    resultado.codProveedor = Convert.ToInt32(rdr[0]);
+                    resultado.nombreProveedor = rdr.GetString(1);
+                    resultado.direccion = rdr.GetString(4);
+                    resultado.telefono = rdr.GetString(5);
+                    resultado.correo = rdr.GetString(6);
+                    resultado.estado = Convert.ToInt32(rdr[]);
+                    resultado.idContacto = rdr.GetString(1);
+                    resultado.nombres = rdr.GetString(2);
+                    resultado.apellidos = rdr.GetString(3);
+                    
+                    
+                    
+                    resultado.cargo = rdr.GetString(7);*/
                 }
                 return resultado;
             }
