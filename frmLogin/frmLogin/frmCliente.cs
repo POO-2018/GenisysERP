@@ -18,10 +18,11 @@ namespace frmLogin
     public partial class frmCliente : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-
-        public frmCliente()
+        public string idUsuario;
+        public frmCliente(string x)
         {
             InitializeComponent();
+            idUsuario = x;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -40,18 +41,18 @@ namespace frmLogin
         {
             datosI();
             datosH();
-            txtIdentidad.Text = "";
+            mskIdentidad.Text = "";
             txtNombres.Text = "";
             txtApellidos.Text = "";
             txtDireccion.Text = "";
-            txtTelefono.Text = "";
+            mskTelefono.Text = "";
             txtCorreo.Text = "";
-            btnAgregar.Enabled = true;
-            btnActualizar.Enabled = false;
-            btnHa_In.Enabled = false;
+            btnAgregar.Visible = true;
+            btnActualizar.Visible = false;
+            btnHa_In.Visible = false;
             lstHabilitados.Visible = false;
             lstInhabilitados.Visible = false;
-            txtIdentidad.Focus();
+            mskIdentidad.Focus();
         }
 
         public void datosH()
@@ -99,13 +100,13 @@ namespace frmLogin
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Cliente nuevoCliente = new Cliente();
-            nuevoCliente.identidad = txtIdentidad.Text;
+            nuevoCliente.identidad = mskIdentidad.Text;
             nuevoCliente.nombres = txtNombres.Text;
             nuevoCliente.apellidos = txtApellidos.Text;
             nuevoCliente.direccion = txtDireccion.Text;
-            nuevoCliente.telefono = txtTelefono.Text;
+            nuevoCliente.telefono = mskTelefono.Text;
             nuevoCliente.correo = txtCorreo.Text;
-            nuevoCliente.usuario = Convert.ToInt32(lblUsuario.Text);
+            nuevoCliente.usuario = Convert.ToInt32(idUsuario);
 
             if (Cliente.AgregarCliente(nuevoCliente))
             {
@@ -123,57 +124,55 @@ namespace frmLogin
         {
             limpiar();
         }
+        
 
-        private void txtIdentidad_Leave(object sender, EventArgs e)
-        {
-            Cliente eCliente = Cliente.ObtenerCliente(txtIdentidad.Text);
-            txtNombres.Text = eCliente.nombres;
-            txtApellidos.Text = eCliente.apellidos;
-            txtDireccion.Text = eCliente.direccion;
-            txtTelefono.Text = eCliente.telefono;
-            txtCorreo.Text = eCliente.correo;
-            if (txtNombres.Text != "")
-            {
-                btnAgregar.Enabled = false;
-                btnActualizar.Enabled = true;
-                btnHa_In.Enabled = true;
-            }
-            else
-            {
-                btnAgregar.Enabled = true;
-                btnActualizar.Enabled = false;
-                btnHa_In.Enabled = false;
-            }
-        }
 
         private void lstHabilitados_Click(object sender, EventArgs e)
         {
-            btnActualizar.Enabled = true;
-            btnHa_In.Enabled = true;
-            btnAgregar.Enabled = false;
-            Cliente elCliente = new Cliente();
-            elCliente = Cliente.ObtenerCliente2(lstHabilitados.SelectedItem.ToString());
-            txtIdentidad.Text = elCliente.identidad;
-            txtNombres.Text = elCliente.nombres;
-            txtApellidos.Text = elCliente.apellidos;
-            txtDireccion.Text = elCliente.direccion;
-            txtTelefono.Text = elCliente.telefono;
-            txtCorreo.Text = elCliente.correo;
+            if (lstHabilitados.SelectedItem.ToString() == "No hay registros")
+            {
+                btnActualizar.Visible = false;
+                btnHa_In.Visible = false;
+                btnAgregar.Visible = true;
+            }
+            else
+            {
+                btnActualizar.Visible = true;
+                btnHa_In.Visible = true;
+                btnAgregar.Visible = false;
+                Cliente elCliente = new Cliente();
+                elCliente = Cliente.ObtenerCliente2(lstHabilitados.SelectedItem.ToString());
+                mskIdentidad.Text = elCliente.identidad;
+                txtNombres.Text = elCliente.nombres;
+                txtApellidos.Text = elCliente.apellidos;
+                txtDireccion.Text = elCliente.direccion;
+                mskTelefono.Text = elCliente.telefono;
+                txtCorreo.Text = elCliente.correo;
+            }
         }
 
         private void lstInhabilitados_Click(object sender, EventArgs e)
         {
-            btnActualizar.Enabled = true;
-            btnHa_In.Enabled = true;
-            btnAgregar.Enabled = false;
-            Cliente elCliente = new Cliente();
-            elCliente = Cliente.ObtenerCliente2(lstInhabilitados.SelectedItem.ToString());
-            txtIdentidad.Text = elCliente.identidad;
-            txtNombres.Text = elCliente.nombres;
-            txtApellidos.Text = elCliente.apellidos;
-            txtDireccion.Text = elCliente.direccion;
-            txtTelefono.Text = elCliente.telefono;
-            txtCorreo.Text = elCliente.correo;
+            if (lstInhabilitados.SelectedItem.ToString() == "No hay registros")
+            {
+                btnActualizar.Visible = false;
+                btnHa_In.Visible = false;
+                btnAgregar.Visible = true;
+            }
+            else
+            {
+                btnActualizar.Visible = true;
+                btnHa_In.Visible = true;
+                btnAgregar.Visible = false;
+                Cliente elCliente = new Cliente();
+                elCliente = Cliente.ObtenerCliente2(lstInhabilitados.SelectedItem.ToString());
+                mskIdentidad.Text = elCliente.identidad;
+                txtNombres.Text = elCliente.nombres;
+                txtApellidos.Text = elCliente.apellidos;
+                txtDireccion.Text = elCliente.direccion;
+                mskTelefono.Text = elCliente.telefono;
+                txtCorreo.Text = elCliente.correo;
+            }
         }
 
         private void btnHabilitados_Click(object sender, EventArgs e)
@@ -191,12 +190,13 @@ namespace frmLogin
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Cliente eCliente = new Cliente();
-            eCliente.identidad = txtIdentidad.Text;
+            eCliente.identidad = mskIdentidad.Text;
             eCliente.nombres = txtNombres.Text;
             eCliente.apellidos = txtApellidos.Text;
             eCliente.direccion = txtDireccion.Text;
-            eCliente.telefono = txtTelefono.Text;
+            eCliente.telefono = mskTelefono.Text;
             eCliente.correo = txtCorreo.Text;
+            eCliente.usuario = Convert.ToInt32(idUsuario);
 
             if (Cliente.ActualizarCliente(eCliente))
             {
@@ -213,7 +213,7 @@ namespace frmLogin
         private void btnHa_In_Click(object sender, EventArgs e)
         {
             Cliente eCliente = new Cliente();
-            eCliente.identidad = txtIdentidad.Text;
+            eCliente.identidad = mskIdentidad.Text;
 
             if (Cliente.Inhabilitar_Habilitar_Cliente(eCliente))
             {
@@ -222,8 +222,30 @@ namespace frmLogin
             }
             else
             {
-                MessageBox.Show("Ha ocurrido un erro en la actualización");
+                MessageBox.Show("Ha ocurrido un error en la actualización");
                 limpiar();
+            }
+        }
+
+        private void mskIdentidad_Leave(object sender, EventArgs e)
+        {
+            Cliente eCliente = Cliente.ObtenerCliente(mskIdentidad.Text);
+            txtNombres.Text = eCliente.nombres;
+            txtApellidos.Text = eCliente.apellidos;
+            txtDireccion.Text = eCliente.direccion;
+            mskTelefono.Text = eCliente.telefono;
+            txtCorreo.Text = eCliente.correo;
+            if (txtNombres.Text != "")
+            {
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnHa_In.Visible = true;
+            }
+            else
+            {
+                btnAgregar.Visible = true;
+                btnActualizar.Visible = false;
+                btnHa_In.Visible = false;
             }
         }
     }

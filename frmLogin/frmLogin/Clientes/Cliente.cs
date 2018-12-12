@@ -26,7 +26,7 @@ namespace frmLogin.Clientes
 
         public static Cliente ObtenerCliente(string identidad)
         {
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql;
             Cliente resultado = new Cliente();
 
@@ -71,7 +71,7 @@ namespace frmLogin.Clientes
 
         public static Cliente ObtenerCliente2(string nombress)
         {
-            Conexion conexion = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql;
             Cliente resultado = new Cliente();
 
@@ -123,7 +123,7 @@ namespace frmLogin.Clientes
             List<Cliente> losClientes = new List<Cliente>();
 
             // Establecemos la conexión
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // especificamos el query de consulta.
             string sql = "SELECT * FROM Clientes.Cliente WHERE estado = 1";
@@ -173,7 +173,7 @@ namespace frmLogin.Clientes
             List<Cliente> losClientes = new List<Cliente>();
 
             // Establecemos la conexión
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // especificamos el query de consulta.
             string sql = "SELECT * FROM Clientes.Cliente WHERE estado = 0";
@@ -224,7 +224,7 @@ namespace frmLogin.Clientes
         /// <returns></returns>
         public static bool AgregarCliente(Cliente nuevoCliente)
         {
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             SqlCommand cmd = conn.EjecutarComando("sp_AgregarCliente");
 
             // Establecer el tipo de comando
@@ -271,7 +271,7 @@ namespace frmLogin.Clientes
         /// <returns></returns>
         public static bool ActualizarCliente(Cliente eCliente)
         {
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             SqlCommand cmd = conn.EjecutarComando("sp_ActualizarCliente");
 
             // Establecer el tipo de comando
@@ -290,6 +290,8 @@ namespace frmLogin.Clientes
             cmd.Parameters["@telefono"].Value = eCliente.telefono;
             cmd.Parameters.Add(new SqlParameter("@correo", SqlDbType.NVarChar, 100));
             cmd.Parameters["@correo"].Value = eCliente.correo;
+            cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
+            cmd.Parameters["@idUsuario"].Value = eCliente.usuario;
 
             // Se verifica si el cliente ya cuenta con un registro
             Cliente verifica = new Cliente();
@@ -327,7 +329,7 @@ namespace frmLogin.Clientes
         public static bool Inhabilitar_Habilitar_Cliente(Cliente elCliente)
         {
             // estabecer conexion
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "ERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             //define el comando
             SqlCommand cmd = conn.EjecutarComando("sp_Habilitar_Inhabilitar_Cliente");

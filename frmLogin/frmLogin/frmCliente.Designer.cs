@@ -34,23 +34,23 @@
             this.lblDireccion = new MaterialSkin.Controls.MaterialLabel();
             this.lblTelefono = new MaterialSkin.Controls.MaterialLabel();
             this.lblCorreo = new MaterialSkin.Controls.MaterialLabel();
-            this.txtIdentidad = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtNombres = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtApellidos = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtDireccion = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtTelefono = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtCorreo = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnActualizar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnHa_In = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnRegresar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.plDatos = new System.Windows.Forms.Panel();
+            this.btnInhabilitados = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnHabilitados = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lstInhabilitados = new System.Windows.Forms.ListBox();
-            this.btnInhabilitados = new MaterialSkin.Controls.MaterialFlatButton();
             this.lstHabilitados = new System.Windows.Forms.ListBox();
-            this.btnHabilitados = new MaterialSkin.Controls.MaterialFlatButton();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.mskIdentidad = new System.Windows.Forms.MaskedTextBox();
+            this.mskTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnActualizar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnHa_In = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnRegresar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lblListado = new System.Windows.Forms.Label();
+            this.plDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblIdentidad
@@ -59,10 +59,11 @@
             this.lblIdentidad.Depth = 0;
             this.lblIdentidad.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblIdentidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIdentidad.Location = new System.Drawing.Point(35, 116);
+            this.lblIdentidad.Location = new System.Drawing.Point(24, 120);
+            this.lblIdentidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIdentidad.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblIdentidad.Name = "lblIdentidad";
-            this.lblIdentidad.Size = new System.Drawing.Size(193, 24);
+            this.lblIdentidad.Size = new System.Drawing.Size(152, 19);
             this.lblIdentidad.TabIndex = 0;
             this.lblIdentidad.Text = "Número de Identidad:";
             // 
@@ -72,10 +73,11 @@
             this.lblNombres.Depth = 0;
             this.lblNombres.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNombres.Location = new System.Drawing.Point(35, 186);
+            this.lblNombres.Location = new System.Drawing.Point(24, 177);
+            this.lblNombres.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(94, 24);
+            this.lblNombres.Size = new System.Drawing.Size(75, 19);
             this.lblNombres.TabIndex = 1;
             this.lblNombres.Text = "Nombres:";
             // 
@@ -85,10 +87,11 @@
             this.lblApellidos.Depth = 0;
             this.lblApellidos.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblApellidos.Location = new System.Drawing.Point(35, 255);
+            this.lblApellidos.Location = new System.Drawing.Point(24, 233);
+            this.lblApellidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(95, 24);
+            this.lblApellidos.Size = new System.Drawing.Size(76, 19);
             this.lblApellidos.TabIndex = 2;
             this.lblApellidos.Text = "Apellidos:";
             // 
@@ -98,10 +101,11 @@
             this.lblDireccion.Depth = 0;
             this.lblDireccion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDireccion.Location = new System.Drawing.Point(35, 322);
+            this.lblDireccion.Location = new System.Drawing.Point(24, 288);
+            this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(94, 24);
+            this.lblDireccion.Size = new System.Drawing.Size(77, 19);
             this.lblDireccion.TabIndex = 3;
             this.lblDireccion.Text = "Dirección:";
             // 
@@ -111,10 +115,11 @@
             this.lblTelefono.Depth = 0;
             this.lblTelefono.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTelefono.Location = new System.Drawing.Point(35, 382);
+            this.lblTelefono.Location = new System.Drawing.Point(24, 336);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(90, 24);
+            this.lblTelefono.Size = new System.Drawing.Size(73, 19);
             this.lblTelefono.TabIndex = 4;
             this.lblTelefono.Text = "Teléfono:";
             // 
@@ -124,36 +129,20 @@
             this.lblCorreo.Depth = 0;
             this.lblCorreo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCorreo.Location = new System.Drawing.Point(35, 431);
+            this.lblCorreo.Location = new System.Drawing.Point(24, 376);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(171, 24);
+            this.lblCorreo.Size = new System.Drawing.Size(140, 19);
             this.lblCorreo.TabIndex = 5;
             this.lblCorreo.Text = "Correo Electrónico:";
-            // 
-            // txtIdentidad
-            // 
-            this.txtIdentidad.Depth = 0;
-            this.txtIdentidad.Hint = "";
-            this.txtIdentidad.Location = new System.Drawing.Point(282, 116);
-            this.txtIdentidad.MaxLength = 32767;
-            this.txtIdentidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtIdentidad.Name = "txtIdentidad";
-            this.txtIdentidad.PasswordChar = '\0';
-            this.txtIdentidad.SelectedText = "";
-            this.txtIdentidad.SelectionLength = 0;
-            this.txtIdentidad.SelectionStart = 0;
-            this.txtIdentidad.Size = new System.Drawing.Size(269, 28);
-            this.txtIdentidad.TabIndex = 1;
-            this.txtIdentidad.TabStop = false;
-            this.txtIdentidad.UseSystemPasswordChar = false;
-            this.txtIdentidad.Leave += new System.EventHandler(this.txtIdentidad_Leave);
             // 
             // txtNombres
             // 
             this.txtNombres.Depth = 0;
             this.txtNombres.Hint = "";
-            this.txtNombres.Location = new System.Drawing.Point(282, 182);
+            this.txtNombres.Location = new System.Drawing.Point(209, 174);
+            this.txtNombres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombres.MaxLength = 32767;
             this.txtNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombres.Name = "txtNombres";
@@ -161,7 +150,7 @@
             this.txtNombres.SelectedText = "";
             this.txtNombres.SelectionLength = 0;
             this.txtNombres.SelectionStart = 0;
-            this.txtNombres.Size = new System.Drawing.Size(269, 28);
+            this.txtNombres.Size = new System.Drawing.Size(202, 23);
             this.txtNombres.TabIndex = 2;
             this.txtNombres.TabStop = false;
             this.txtNombres.UseSystemPasswordChar = false;
@@ -170,7 +159,8 @@
             // 
             this.txtApellidos.Depth = 0;
             this.txtApellidos.Hint = "";
-            this.txtApellidos.Location = new System.Drawing.Point(282, 255);
+            this.txtApellidos.Location = new System.Drawing.Point(209, 233);
+            this.txtApellidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtApellidos.MaxLength = 32767;
             this.txtApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtApellidos.Name = "txtApellidos";
@@ -178,7 +168,7 @@
             this.txtApellidos.SelectedText = "";
             this.txtApellidos.SelectionLength = 0;
             this.txtApellidos.SelectionStart = 0;
-            this.txtApellidos.Size = new System.Drawing.Size(269, 28);
+            this.txtApellidos.Size = new System.Drawing.Size(202, 23);
             this.txtApellidos.TabIndex = 3;
             this.txtApellidos.TabStop = false;
             this.txtApellidos.UseSystemPasswordChar = false;
@@ -187,7 +177,8 @@
             // 
             this.txtDireccion.Depth = 0;
             this.txtDireccion.Hint = "";
-            this.txtDireccion.Location = new System.Drawing.Point(282, 318);
+            this.txtDireccion.Location = new System.Drawing.Point(209, 284);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDireccion.MaxLength = 32767;
             this.txtDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDireccion.Name = "txtDireccion";
@@ -195,33 +186,17 @@
             this.txtDireccion.SelectedText = "";
             this.txtDireccion.SelectionLength = 0;
             this.txtDireccion.SelectionStart = 0;
-            this.txtDireccion.Size = new System.Drawing.Size(269, 28);
+            this.txtDireccion.Size = new System.Drawing.Size(202, 23);
             this.txtDireccion.TabIndex = 4;
             this.txtDireccion.TabStop = false;
             this.txtDireccion.UseSystemPasswordChar = false;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Depth = 0;
-            this.txtTelefono.Hint = "";
-            this.txtTelefono.Location = new System.Drawing.Point(282, 378);
-            this.txtTelefono.MaxLength = 32767;
-            this.txtTelefono.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PasswordChar = '\0';
-            this.txtTelefono.SelectedText = "";
-            this.txtTelefono.SelectionLength = 0;
-            this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.Size = new System.Drawing.Size(269, 28);
-            this.txtTelefono.TabIndex = 5;
-            this.txtTelefono.TabStop = false;
-            this.txtTelefono.UseSystemPasswordChar = false;
             // 
             // txtCorreo
             // 
             this.txtCorreo.Depth = 0;
             this.txtCorreo.Hint = "";
-            this.txtCorreo.Location = new System.Drawing.Point(282, 431);
+            this.txtCorreo.Location = new System.Drawing.Point(209, 376);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCorreo.MaxLength = 32767;
             this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCorreo.Name = "txtCorreo";
@@ -229,188 +204,214 @@
             this.txtCorreo.SelectedText = "";
             this.txtCorreo.SelectionLength = 0;
             this.txtCorreo.SelectionStart = 0;
-            this.txtCorreo.Size = new System.Drawing.Size(269, 28);
+            this.txtCorreo.Size = new System.Drawing.Size(202, 23);
             this.txtCorreo.TabIndex = 6;
             this.txtCorreo.TabStop = false;
             this.txtCorreo.UseSystemPasswordChar = false;
+            // 
+            // plDatos
+            // 
+            this.plDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDatos.Controls.Add(this.btnInhabilitados);
+            this.plDatos.Controls.Add(this.btnHabilitados);
+            this.plDatos.Controls.Add(this.lstInhabilitados);
+            this.plDatos.Controls.Add(this.lstHabilitados);
+            this.plDatos.Location = new System.Drawing.Point(441, 119);
+            this.plDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plDatos.Name = "plDatos";
+            this.plDatos.Size = new System.Drawing.Size(258, 308);
+            this.plDatos.TabIndex = 11;
+            // 
+            // btnInhabilitados
+            // 
+            this.btnInhabilitados.AutoSize = true;
+            this.btnInhabilitados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnInhabilitados.Depth = 0;
+            this.btnInhabilitados.Icon = null;
+            this.btnInhabilitados.Location = new System.Drawing.Point(122, 5);
+            this.btnInhabilitados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInhabilitados.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnInhabilitados.Name = "btnInhabilitados";
+            this.btnInhabilitados.Primary = true;
+            this.btnInhabilitados.Size = new System.Drawing.Size(122, 36);
+            this.btnInhabilitados.TabIndex = 19;
+            this.btnInhabilitados.Text = "Inhabilitados";
+            this.btnInhabilitados.UseVisualStyleBackColor = true;
+            this.btnInhabilitados.Click += new System.EventHandler(this.btnInhabilitados_Click);
+            // 
+            // btnHabilitados
+            // 
+            this.btnHabilitados.AutoSize = true;
+            this.btnHabilitados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHabilitados.Depth = 0;
+            this.btnHabilitados.Icon = null;
+            this.btnHabilitados.Location = new System.Drawing.Point(11, 6);
+            this.btnHabilitados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHabilitados.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHabilitados.Name = "btnHabilitados";
+            this.btnHabilitados.Primary = true;
+            this.btnHabilitados.Size = new System.Drawing.Size(108, 36);
+            this.btnHabilitados.TabIndex = 18;
+            this.btnHabilitados.Text = "Habilitados";
+            this.btnHabilitados.UseVisualStyleBackColor = true;
+            this.btnHabilitados.Click += new System.EventHandler(this.btnHabilitados_Click);
+            // 
+            // lstInhabilitados
+            // 
+            this.lstInhabilitados.FormattingEnabled = true;
+            this.lstInhabilitados.Location = new System.Drawing.Point(16, 58);
+            this.lstInhabilitados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstInhabilitados.Name = "lstInhabilitados";
+            this.lstInhabilitados.Size = new System.Drawing.Size(228, 225);
+            this.lstInhabilitados.TabIndex = 18;
+            this.lstInhabilitados.Click += new System.EventHandler(this.lstInhabilitados_Click);
+            // 
+            // lstHabilitados
+            // 
+            this.lstHabilitados.FormattingEnabled = true;
+            this.lstHabilitados.Location = new System.Drawing.Point(16, 58);
+            this.lstHabilitados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstHabilitados.Name = "lstHabilitados";
+            this.lstHabilitados.Size = new System.Drawing.Size(228, 225);
+            this.lstHabilitados.TabIndex = 17;
+            this.lstHabilitados.Click += new System.EventHandler(this.lstHabilitados_Click);
+            // 
+            // mskIdentidad
+            // 
+            this.mskIdentidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mskIdentidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mskIdentidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskIdentidad.ForeColor = System.Drawing.Color.White;
+            this.mskIdentidad.Location = new System.Drawing.Point(209, 124);
+            this.mskIdentidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskIdentidad.Mask = "0000-0000-00000";
+            this.mskIdentidad.Name = "mskIdentidad";
+            this.mskIdentidad.Size = new System.Drawing.Size(202, 17);
+            this.mskIdentidad.TabIndex = 1;
+            this.mskIdentidad.Leave += new System.EventHandler(this.mskIdentidad_Leave);
+            // 
+            // mskTelefono
+            // 
+            this.mskTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mskTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mskTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskTelefono.ForeColor = System.Drawing.Color.White;
+            this.mskTelefono.Location = new System.Drawing.Point(209, 339);
+            this.mskTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskTelefono.Mask = "0000-0000";
+            this.mskTelefono.Name = "mskTelefono";
+            this.mskTelefono.Size = new System.Drawing.Size(202, 17);
+            this.mskTelefono.TabIndex = 5;
             // 
             // btnAgregar
             // 
             this.btnAgregar.AutoSize = true;
             this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
             this.btnAgregar.Depth = 0;
             this.btnAgregar.Icon = null;
-            this.btnAgregar.Location = new System.Drawing.Point(63, 503);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregar.Location = new System.Drawing.Point(71, 462);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Primary = false;
-            this.btnAgregar.Size = new System.Drawing.Size(99, 36);
-            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.Primary = true;
+            this.btnAgregar.Size = new System.Drawing.Size(83, 36);
+            this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnActualizar
             // 
             this.btnActualizar.AutoSize = true;
             this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
             this.btnActualizar.Depth = 0;
             this.btnActualizar.Icon = null;
-            this.btnActualizar.Location = new System.Drawing.Point(205, 503);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnActualizar.Location = new System.Drawing.Point(180, 462);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Primary = false;
-            this.btnActualizar.Size = new System.Drawing.Size(124, 36);
-            this.btnActualizar.TabIndex = 8;
+            this.btnActualizar.Primary = true;
+            this.btnActualizar.Size = new System.Drawing.Size(103, 36);
+            this.btnActualizar.TabIndex = 14;
             this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnHa_In
             // 
             this.btnHa_In.AutoSize = true;
             this.btnHa_In.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHa_In.BackColor = System.Drawing.Color.Transparent;
             this.btnHa_In.Depth = 0;
             this.btnHa_In.Icon = null;
-            this.btnHa_In.Location = new System.Drawing.Point(380, 503);
-            this.btnHa_In.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHa_In.Location = new System.Drawing.Point(304, 462);
+            this.btnHa_In.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHa_In.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHa_In.Name = "btnHa_In";
-            this.btnHa_In.Primary = false;
-            this.btnHa_In.Size = new System.Drawing.Size(218, 36);
-            this.btnHa_In.TabIndex = 9;
+            this.btnHa_In.Primary = true;
+            this.btnHa_In.Size = new System.Drawing.Size(178, 36);
+            this.btnHa_In.TabIndex = 15;
             this.btnHa_In.Text = "Habilitar/Inhabilitar";
-            this.btnHa_In.UseVisualStyleBackColor = false;
+            this.btnHa_In.UseVisualStyleBackColor = true;
             this.btnHa_In.Click += new System.EventHandler(this.btnHa_In_Click);
             // 
             // btnRegresar
             // 
             this.btnRegresar.AutoSize = true;
             this.btnRegresar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRegresar.BackColor = System.Drawing.Color.Transparent;
             this.btnRegresar.Depth = 0;
             this.btnRegresar.Icon = null;
-            this.btnRegresar.Location = new System.Drawing.Point(652, 503);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRegresar.Location = new System.Drawing.Point(501, 462);
+            this.btnRegresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Primary = false;
-            this.btnRegresar.Size = new System.Drawing.Size(107, 36);
-            this.btnRegresar.TabIndex = 10;
+            this.btnRegresar.Primary = true;
+            this.btnRegresar.Size = new System.Drawing.Size(89, 36);
+            this.btnRegresar.TabIndex = 16;
             this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // panel1
+            // lblListado
             // 
-            this.panel1.Controls.Add(this.lstInhabilitados);
-            this.panel1.Controls.Add(this.btnInhabilitados);
-            this.panel1.Controls.Add(this.lstHabilitados);
-            this.panel1.Controls.Add(this.btnHabilitados);
-            this.panel1.Location = new System.Drawing.Point(591, 101);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 378);
-            this.panel1.TabIndex = 11;
-            // 
-            // lstInhabilitados
-            // 
-            this.lstInhabilitados.FormattingEnabled = true;
-            this.lstInhabilitados.ItemHeight = 16;
-            this.lstInhabilitados.Location = new System.Drawing.Point(22, 71);
-            this.lstInhabilitados.Name = "lstInhabilitados";
-            this.lstInhabilitados.Size = new System.Drawing.Size(302, 276);
-            this.lstInhabilitados.TabIndex = 18;
-            this.lstInhabilitados.Click += new System.EventHandler(this.lstInhabilitados_Click);
-            // 
-            // btnInhabilitados
-            // 
-            this.btnInhabilitados.AutoSize = true;
-            this.btnInhabilitados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnInhabilitados.BackColor = System.Drawing.Color.Transparent;
-            this.btnInhabilitados.Depth = 0;
-            this.btnInhabilitados.Icon = null;
-            this.btnInhabilitados.Location = new System.Drawing.Point(177, 5);
-            this.btnInhabilitados.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnInhabilitados.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnInhabilitados.Name = "btnInhabilitados";
-            this.btnInhabilitados.Primary = false;
-            this.btnInhabilitados.Size = new System.Drawing.Size(147, 36);
-            this.btnInhabilitados.TabIndex = 16;
-            this.btnInhabilitados.Text = "Inhabilitados\r\n";
-            this.btnInhabilitados.UseVisualStyleBackColor = false;
-            this.btnInhabilitados.Click += new System.EventHandler(this.btnInhabilitados_Click);
-            // 
-            // lstHabilitados
-            // 
-            this.lstHabilitados.FormattingEnabled = true;
-            this.lstHabilitados.ItemHeight = 16;
-            this.lstHabilitados.Location = new System.Drawing.Point(22, 71);
-            this.lstHabilitados.Name = "lstHabilitados";
-            this.lstHabilitados.Size = new System.Drawing.Size(302, 276);
-            this.lstHabilitados.TabIndex = 17;
-            this.lstHabilitados.Click += new System.EventHandler(this.lstHabilitados_Click);
-            // 
-            // btnHabilitados
-            // 
-            this.btnHabilitados.AutoSize = true;
-            this.btnHabilitados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHabilitados.BackColor = System.Drawing.Color.Transparent;
-            this.btnHabilitados.Depth = 0;
-            this.btnHabilitados.Icon = null;
-            this.btnHabilitados.Location = new System.Drawing.Point(22, 5);
-            this.btnHabilitados.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHabilitados.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHabilitados.Name = "btnHabilitados";
-            this.btnHabilitados.Primary = false;
-            this.btnHabilitados.Size = new System.Drawing.Size(130, 36);
-            this.btnHabilitados.TabIndex = 15;
-            this.btnHabilitados.Text = "Habilitados\r\n";
-            this.btnHabilitados.UseVisualStyleBackColor = false;
-            this.btnHabilitados.Click += new System.EventHandler(this.btnHabilitados_Click);
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(936, 70);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(16, 17);
-            this.lblUsuario.TabIndex = 12;
-            this.lblUsuario.Text = "1";
+            this.lblListado.AutoSize = true;
+            this.lblListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListado.ForeColor = System.Drawing.Color.White;
+            this.lblListado.Location = new System.Drawing.Point(499, 93);
+            this.lblListado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblListado.Name = "lblListado";
+            this.lblListado.Size = new System.Drawing.Size(144, 20);
+            this.lblListado.TabIndex = 17;
+            this.lblListado.Text = "Listado de Clientes";
             // 
             // frmCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 564);
-            this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(720, 520);
+            this.Controls.Add(this.lblListado);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnHa_In);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.mskTelefono);
+            this.Controls.Add(this.mskIdentidad);
+            this.Controls.Add(this.plDatos);
             this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtNombres);
-            this.Controls.Add(this.txtIdentidad);
             this.Controls.Add(this.lblCorreo);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.lblApellidos);
             this.Controls.Add(this.lblNombres);
             this.Controls.Add(this.lblIdentidad);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCliente";
-            this.Text = "frmCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frmCliente_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.plDatos.ResumeLayout(false);
+            this.plDatos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,21 +425,21 @@
         private MaterialSkin.Controls.MaterialLabel lblDireccion;
         private MaterialSkin.Controls.MaterialLabel lblTelefono;
         private MaterialSkin.Controls.MaterialLabel lblCorreo;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtIdentidad;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtNombres;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtApellidos;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtDireccion;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtTelefono;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCorreo;
-        private MaterialSkin.Controls.MaterialFlatButton btnAgregar;
-        private MaterialSkin.Controls.MaterialFlatButton btnActualizar;
-        private MaterialSkin.Controls.MaterialFlatButton btnHa_In;
-        private MaterialSkin.Controls.MaterialFlatButton btnRegresar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel plDatos;
         private System.Windows.Forms.ListBox lstInhabilitados;
-        private MaterialSkin.Controls.MaterialFlatButton btnInhabilitados;
         private System.Windows.Forms.ListBox lstHabilitados;
-        private MaterialSkin.Controls.MaterialFlatButton btnHabilitados;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.MaskedTextBox mskIdentidad;
+        private System.Windows.Forms.MaskedTextBox mskTelefono;
+        private MaterialSkin.Controls.MaterialRaisedButton btnAgregar;
+        private MaterialSkin.Controls.MaterialRaisedButton btnActualizar;
+        private MaterialSkin.Controls.MaterialRaisedButton btnHa_In;
+        private MaterialSkin.Controls.MaterialRaisedButton btnRegresar;
+        private System.Windows.Forms.Label lblListado;
+        private MaterialSkin.Controls.MaterialRaisedButton btnHabilitados;
+        private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitados;
     }
 }
