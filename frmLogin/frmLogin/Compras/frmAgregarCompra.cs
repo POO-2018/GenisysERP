@@ -103,7 +103,6 @@ namespace frmLogin.Compras
         /// <summary>
         /// Metodo para llenar  el inventario según la categoria o el Proveedor
         /// </summary>
-        /// <param name="El Proveedor"></param>
         /// <returns>Retorna todos los datos del inventario al Grid</returns>   
         private void CargarDGWinventario()
         {
@@ -111,7 +110,7 @@ namespace frmLogin.Compras
             try
             {
                 dgvProductos.DataSource = Compra.GetDataViewPorPrevedorCategoria(idProveedor, idCategoria);
-                //dgvProductos.Columns[0].Visible = false;
+                dgvProductos.Columns[0].Visible = false;
             }
             catch (Exception ex)
             {
@@ -211,15 +210,24 @@ namespace frmLogin.Compras
                 }
             }
         }
+        /// <summary>
+        /// Funcion que suma el importe en el grid de detalle Compra
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="op"></param>
         public void suma(int id, int op)
         {
 
-            if (Convert.ToInt16(dgvDetalleCompra.Rows[id].Cells["Cantidad"].Value) == 1 && op == -1)
+            if (Convert.ToInt16(dgvDetalleCompra.Rows[id].Cells["Cantidad"].Value) == 1 && op <= -1)
             {
                 MessageBox.Show("No se puede disminuir más la cantidad");
             }
             else
             {
+                if (op!=1 && op!=-1)
+                {
+                    dgvDetalleCompra.Rows[id].Cells["Cantidad"].Value = 0;
+                }
                 dgvDetalleCompra.Rows[id].Cells["Cantidad"].Value = Convert.ToInt16(dgvDetalleCompra.Rows[id].Cells["Cantidad"].Value.ToString()) + op;
                 decimal cantidad = Convert.ToDecimal(dgvDetalleCompra.Rows[id].Cells["Cantidad"].Value.ToString());
                 decimal importe = Convert.ToDecimal(dgvDetalleCompra.Rows[id].Cells["Precio"].Value.ToString());
@@ -254,6 +262,7 @@ namespace frmLogin.Compras
         /// <summary>
         /// Funcion que hace la suma del importe en el grid de pedido
         /// </summary>
+       
         public void Total()
         {
           decimal total = 0;
@@ -264,16 +273,29 @@ namespace frmLogin.Compras
             }
             txtTotal.Text = Convert.ToString(total);
         }
+        /// <summary>
+        /// Metodo para sumar la cantidad de una fila seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             suma(id3, 1);
         }
-
+        /// <summary>
+        /// Metodo para reducir la cantidad de una fila seleccionada en el grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReducirProducto_Click(object sender, EventArgs e)
         {
             suma(id3, -1);
         }
-
+        /// <summary>
+        /// Es para Quitar un detalle de compra del Grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuitarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -290,7 +312,11 @@ namespace frmLogin.Compras
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// El metodo del grid de inventario donde seleccionamos los campos que ocupamos para la compra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -310,29 +336,12 @@ namespace frmLogin.Compras
 
         private void cmbProveedore_Click(object sender, EventArgs e)
         {
-            if (cmbProveedore.SelectedItem != null)
-            {
-                // Creamos un objeto de tipo Compra
-                Compra proveedor = new Compra();
-
-                // Obtenemos la informacion de las Compra, enviando su nombre
-                proveedor = Compra.ObtenerInformacionProveedor(cmbProveedore.SelectedItem.ToString());
-                idProveedor = proveedor.idProveedor;
-            }
+           
         }
 
         private void cmbCategoria_Click(object sender, EventArgs e)
         {
-            if (cmbCategoria.SelectedItem != null)
-            {
-                // Creamos un objeto de tipo Compra
-                Compra categoria = new Compra();
 
-                // Obtenemos la informacion de las Compra, enviando su nombre
-                categoria = Compra.ObtenerInformacionCategoria(cmbCategoria.SelectedItem.ToString());
-                idCategoria = categoria.idCategoria;
-                CargarDGWinventario();
-            }
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -360,12 +369,14 @@ namespace frmLogin.Compras
             compra.total = Convert.ToDecimal(txtTotal.Text);
             compra.observaciones = txtObservaciones.Text;
             compra.estadoCompra = txtCotizacion.Text;
+            //cambiar despues
             compra.idUsuario = 1;
            // compra.autorizadaPor =
 
             if (Compra.InsertarCompra(compra) == true)
             {
                 MessageBox.Show("Compra agregada", "Información");
+                Detalle();
                 //Limpiar();
             }
             else
@@ -388,7 +399,39 @@ namespace frmLogin.Compras
 
         private void dgvDetalleCompra_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            Total();
+           
+        }
+
+        private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCategoria.SelectedItem != null)
+            {
+                // Creamos un objeto de tipo Compra
+                Compra categoria = new Compra();
+
+                // Obtenemos la informacion de las Compra, enviando su nombre
+                categoria = Compra.ObtenerInformacionCategoria(cmbCategoria.SelectedItem.ToString());
+                idCategoria = categoria.idCategoria;
+                CargarDGWinventario();
+            }
+        }
+
+        private void cmbProveedore_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbProveedore.SelectedItem != null)
+            {
+                // Creamos un objeto de tipo Compra
+                Compra proveedor = new Compra();
+
+                // Obtenemos la informacion de las Compra, enviando su nombre
+                proveedor = Compra.ObtenerInformacionProveedor(cmbProveedore.SelectedItem.ToString());
+                idProveedor = proveedor.idProveedor;
+            }
+        }
+
+        private void dgvDetalleCompra_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            suma(id3, Convert.ToInt32(dgvDetalleCompra.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString()));
         }
     }
 }

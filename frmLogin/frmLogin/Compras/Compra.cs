@@ -58,13 +58,13 @@ namespace frmLogin.Compras
             cmd.CommandType = CommandType.StoredProcedure;
 
             // Parámetros del Stored Procedure
-            cmd.Parameters.Add(new SqlParameter("@fechaCompra", SqlDbType.DateTime));
-            cmd.Parameters["@fechaCompra"].Value = laCompra.fechaCompra;
+            //cmd.Parameters.Add(new SqlParameter("@fechaCompra", SqlDbType.DateTime));
+            //cmd.Parameters["@fechaCompra"].Value = laCompra.fechaCompra;
 
             //cmd.Parameters.Add(new SqlParameter("@numeroFactura", SqlDbType.NVarChar, 19));
             //cmd.Parameters["@numeroFactura"].Value = laCompra.numeroFactura;
 
-            cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.DateTime));
+            cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.Int));
             cmd.Parameters["@idProveedor"].Value = laCompra.idProveedor;
 
             cmd.Parameters.Add(new SqlParameter("@subTotal", SqlDbType.Decimal));
@@ -76,7 +76,7 @@ namespace frmLogin.Compras
             cmd.Parameters.Add(new SqlParameter("@total", SqlDbType.Decimal));
             cmd.Parameters["@total"].Value = laCompra.total;
 
-            cmd.Parameters.Add(new SqlParameter("@observaciones", SqlDbType.NVarChar, 50));
+            cmd.Parameters.Add(new SqlParameter("@observaciones", SqlDbType.NVarChar, 150));
             cmd.Parameters["@observaciones"].Value = laCompra.observaciones;
 
             cmd.Parameters.Add(new SqlParameter("@estadoCompra", SqlDbType.NVarChar, 50));
@@ -85,8 +85,8 @@ namespace frmLogin.Compras
             cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
             cmd.Parameters["@idUsuario"].Value = laCompra.idUsuario;
 
-            cmd.Parameters.Add(new SqlParameter("@autorizadaPor", SqlDbType.Int));
-            cmd.Parameters["@autorizadaPor"].Value = laCompra.autorizadaPor;
+            //cmd.Parameters.Add(new SqlParameter("@autorizadaPor", SqlDbType.Int));
+            //cmd.Parameters["@autorizadaPor"].Value = laCompra.autorizadaPor;
 
             // Intentamos ejecutar el procedimiento
             try
@@ -101,6 +101,8 @@ namespace frmLogin.Compras
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show(ex.Errors[0].ToString());
                 return false;
             }
             finally

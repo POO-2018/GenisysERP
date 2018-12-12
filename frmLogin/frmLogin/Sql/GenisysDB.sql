@@ -352,10 +352,10 @@ ALTER TABLE Compras.Compra
 	CHECK (estadoCompra IN ('Cotización','Orden de Compra', 'Compra'))
 GO
 
-ALTER TABLE Compras.Compra
-	ADD CONSTRAINT AK_Compras_Compra$FacturaUnica
-	UNIQUE (numeroFactura)
-GO
+--ALTER TABLE Compras.Compra
+--	ADD CONSTRAINT AK_Compras_Compra$FacturaUnica
+--	UNIQUE (numeroFactura)
+--GO
 
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT CHK_SubTotalMayorQueCero

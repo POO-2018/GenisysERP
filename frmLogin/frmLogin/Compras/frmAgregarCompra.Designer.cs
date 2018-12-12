@@ -73,11 +73,12 @@
             this.mtxtFactura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mtxtFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtFactura.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.mtxtFactura.Location = new System.Drawing.Point(130, 188);
+            this.mtxtFactura.Location = new System.Drawing.Point(135, 155);
             this.mtxtFactura.Mask = "000-000-00-00000000";
             this.mtxtFactura.Name = "mtxtFactura";
             this.mtxtFactura.Size = new System.Drawing.Size(218, 24);
             this.mtxtFactura.TabIndex = 0;
+            this.mtxtFactura.Visible = false;
             // 
             // lblFactura
             // 
@@ -85,12 +86,13 @@
             this.lblFactura.Depth = 0;
             this.lblFactura.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFactura.Location = new System.Drawing.Point(18, 191);
+            this.lblFactura.Location = new System.Drawing.Point(23, 158);
             this.lblFactura.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFactura.Name = "lblFactura";
             this.lblFactura.Size = new System.Drawing.Size(78, 19);
             this.lblFactura.TabIndex = 1;
             this.lblFactura.Text = "N. Factura";
+            this.lblFactura.Visible = false;
             // 
             // lblProveedor
             // 
@@ -98,7 +100,7 @@
             this.lblProveedor.Depth = 0;
             this.lblProveedor.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProveedor.Location = new System.Drawing.Point(18, 263);
+            this.lblProveedor.Location = new System.Drawing.Point(13, 205);
             this.lblProveedor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(77, 19);
@@ -112,10 +114,11 @@
             this.cmbProveedore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProveedore.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.cmbProveedore.FormattingEnabled = true;
-            this.cmbProveedore.Location = new System.Drawing.Point(130, 264);
+            this.cmbProveedore.Location = new System.Drawing.Point(125, 206);
             this.cmbProveedore.Name = "cmbProveedore";
             this.cmbProveedore.Size = new System.Drawing.Size(218, 26);
             this.cmbProveedore.TabIndex = 3;
+            this.cmbProveedore.SelectedValueChanged += new System.EventHandler(this.cmbProveedore_SelectedValueChanged);
             this.cmbProveedore.Click += new System.EventHandler(this.cmbProveedore_Click);
             // 
             // lblSubtotal
@@ -124,7 +127,7 @@
             this.lblSubtotal.Depth = 0;
             this.lblSubtotal.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblSubtotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSubtotal.Location = new System.Drawing.Point(24, 324);
+            this.lblSubtotal.Location = new System.Drawing.Point(19, 266);
             this.lblSubtotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(69, 19);
@@ -138,7 +141,7 @@
             this.txtImpuesto.Enabled = false;
             this.txtImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImpuesto.Hint = "0.00";
-            this.txtImpuesto.Location = new System.Drawing.Point(140, 380);
+            this.txtImpuesto.Location = new System.Drawing.Point(135, 322);
             this.txtImpuesto.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.PasswordChar = '\0';
@@ -155,7 +158,7 @@
             this.lblImpuesto.Depth = 0;
             this.lblImpuesto.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblImpuesto.Location = new System.Drawing.Point(23, 384);
+            this.lblImpuesto.Location = new System.Drawing.Point(18, 326);
             this.lblImpuesto.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblImpuesto.Name = "lblImpuesto";
             this.lblImpuesto.Size = new System.Drawing.Size(72, 19);
@@ -168,7 +171,7 @@
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Hint = "0.00";
-            this.txtTotal.Location = new System.Drawing.Point(140, 438);
+            this.txtTotal.Location = new System.Drawing.Point(135, 380);
             this.txtTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.PasswordChar = '\0';
@@ -187,7 +190,7 @@
             this.lblTotal.Depth = 0;
             this.lblTotal.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotal.Location = new System.Drawing.Point(33, 441);
+            this.lblTotal.Location = new System.Drawing.Point(28, 383);
             this.lblTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(44, 19);
@@ -197,7 +200,7 @@
             // btnNuevoProveedor
             // 
             this.btnNuevoProveedor.Depth = 0;
-            this.btnNuevoProveedor.Location = new System.Drawing.Point(369, 266);
+            this.btnNuevoProveedor.Location = new System.Drawing.Point(364, 208);
             this.btnNuevoProveedor.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNuevoProveedor.Name = "btnNuevoProveedor";
             this.btnNuevoProveedor.Primary = true;
@@ -233,7 +236,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Depth = 0;
-            this.btnGuardar.Location = new System.Drawing.Point(114, 594);
+            this.btnGuardar.Location = new System.Drawing.Point(137, 549);
             this.btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Primary = true;
@@ -249,7 +252,7 @@
             this.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservaciones.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.txtObservaciones.Location = new System.Drawing.Point(140, 490);
+            this.txtObservaciones.Location = new System.Drawing.Point(135, 432);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(304, 78);
@@ -261,7 +264,7 @@
             this.lblObservaciones.Depth = 0;
             this.lblObservaciones.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblObservaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblObservaciones.Location = new System.Drawing.Point(18, 523);
+            this.lblObservaciones.Location = new System.Drawing.Point(13, 465);
             this.lblObservaciones.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(108, 19);
@@ -279,6 +282,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(218, 26);
             this.cmbCategoria.TabIndex = 19;
+            this.cmbCategoria.SelectedValueChanged += new System.EventHandler(this.cmbCategoria_SelectedValueChanged);
             this.cmbCategoria.Click += new System.EventHandler(this.cmbCategoria_Click);
             // 
             // lblCategoria
@@ -335,6 +339,7 @@
             this.dgvDetalleCompra.Size = new System.Drawing.Size(463, 175);
             this.dgvDetalleCompra.TabIndex = 22;
             this.dgvDetalleCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellClick);
+            this.dgvDetalleCompra.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellEndEdit);
             this.dgvDetalleCompra.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellValueChanged);
             // 
             // idProducto
@@ -465,7 +470,7 @@
             // btnSalir
             // 
             this.btnSalir.Depth = 0;
-            this.btnSalir.Location = new System.Drawing.Point(234, 594);
+            this.btnSalir.Location = new System.Drawing.Point(257, 549);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
@@ -499,7 +504,7 @@
             this.txtSubTotal.Enabled = false;
             this.txtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubTotal.Hint = "0.00";
-            this.txtSubTotal.Location = new System.Drawing.Point(140, 324);
+            this.txtSubTotal.Location = new System.Drawing.Point(135, 266);
             this.txtSubTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.PasswordChar = '\0';
