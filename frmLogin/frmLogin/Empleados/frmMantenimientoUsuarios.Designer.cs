@@ -102,7 +102,7 @@
             this.txtConfirmarContraseña.Location = new System.Drawing.Point(203, 177);
             this.txtConfirmarContraseña.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
-            this.txtConfirmarContraseña.PasswordChar = '\0';
+            this.txtConfirmarContraseña.PasswordChar = '*';
             this.txtConfirmarContraseña.SelectedText = "";
             this.txtConfirmarContraseña.SelectionLength = 0;
             this.txtConfirmarContraseña.SelectionStart = 0;
@@ -117,7 +117,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(203, 135);
             this.txtContraseña.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '\0';
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.SelectedText = "";
             this.txtContraseña.SelectionLength = 0;
             this.txtContraseña.SelectionStart = 0;
