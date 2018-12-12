@@ -47,7 +47,7 @@ namespace frmLogin
 
         public void limpiar()
         {
-            cmbProveedor.Items.Clear();
+            cmbProveedor.SelectedIndex = -1;
             mskIdentidad.Text = "";
             txtNombres.Text = "";
             txtApellidos.Text = "";
@@ -65,9 +65,49 @@ namespace frmLogin
             lstInhabilitado.Visible = false;
         }
 
+        Clientes.Contacto cargar = new Clientes.Contacto();
+
         private void frmContacto_Load(object sender, EventArgs e)
         {
             limpiar();
+            cmbProveedor.DataSource = cargar.CargarCombo();
+            cmbProveedor.DisplayMember = "nombreEmpresa";
+            cmbProveedor.ValueMember = "IdProveedor";
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Contacto nContacto = new Contacto();
+            nContacto.idContacto = mskIdentidad.Text;
+            nContacto.idProveedor = cmbProveedor.Text;
+            nContacto.nombres = txtNombres.Text;
+            nContacto.apellidos = txtApellidos.Text;
+            nContacto.direccion = txtDireccion.Text;
+            nContacto.telefono = mskTelefono.Text;
+            nContacto.correo = txtCorreo.Text;
+            nContacto.cargo = txtCargo.Text;
+            if (Contacto.AgregarContacto(nContacto))
+            {
+                MessageBox.Show("Dato ingresado correctamente");
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Error en la inserción");
+                limpiar();
+            }
+        }
+
+        private void btnHabilitados_Click(object sender, EventArgs e)
+        {
+            lstHabilitado.Visible = true;
+            lstInhabilitado.Visible = false;
+        }
+
+        private void btnInhabilitados_Click(object sender, EventArgs e)
+        {
+            lstHabilitado.Visible = false;
+            lstInhabilitado.Visible = true;
         }
     }
 }

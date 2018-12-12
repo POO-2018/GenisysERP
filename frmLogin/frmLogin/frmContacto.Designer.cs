@@ -44,16 +44,16 @@
             this.mskTelefono = new System.Windows.Forms.MaskedTextBox();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.lstHabilitado = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pldatos = new System.Windows.Forms.Panel();
+            this.btnInhabilitados = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnHabilitados = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lstInhabilitado = new System.Windows.Forms.ListBox();
             this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnInhabilitarHabilitar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnActualizar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnRegresar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnHabilitados = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnInhabilitados = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mskIdentidad = new System.Windows.Forms.MaskedTextBox();
-            this.panel1.SuspendLayout();
+            this.pldatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblProveedor
@@ -92,7 +92,7 @@
             this.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(100, 27);
-            this.lblTelefono.TabIndex = 2;
+            this.lblTelefono.TabIndex = 5;
             this.lblTelefono.Text = "Teléfono";
             // 
             // lblDireccion
@@ -105,7 +105,7 @@
             this.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(104, 27);
-            this.lblDireccion.TabIndex = 3;
+            this.lblDireccion.TabIndex = 4;
             this.lblDireccion.Text = "Dirección";
             // 
             // lblApellidos
@@ -118,7 +118,7 @@
             this.lblApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(101, 27);
-            this.lblApellidos.TabIndex = 4;
+            this.lblApellidos.TabIndex = 3;
             this.lblApellidos.Text = "Apellidos";
             // 
             // lblNombres
@@ -131,7 +131,7 @@
             this.lblNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(102, 27);
-            this.lblNombres.TabIndex = 5;
+            this.lblNombres.TabIndex = 2;
             this.lblNombres.Text = "Nombres";
             // 
             // lblCargo
@@ -144,7 +144,7 @@
             this.lblCargo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(70, 27);
-            this.lblCargo.TabIndex = 6;
+            this.lblCargo.TabIndex = 7;
             this.lblCargo.Text = "Cargo";
             // 
             // lblCorreo
@@ -157,7 +157,7 @@
             this.lblCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(78, 27);
-            this.lblCorreo.TabIndex = 7;
+            this.lblCorreo.TabIndex = 6;
             this.lblCorreo.Text = "Correo";
             // 
             // txtNombres
@@ -173,7 +173,7 @@
             this.txtNombres.SelectionLength = 0;
             this.txtNombres.SelectionStart = 0;
             this.txtNombres.Size = new System.Drawing.Size(302, 32);
-            this.txtNombres.TabIndex = 9;
+            this.txtNombres.TabIndex = 2;
             this.txtNombres.UseSystemPasswordChar = false;
             // 
             // txtApellidos
@@ -189,7 +189,7 @@
             this.txtApellidos.SelectionLength = 0;
             this.txtApellidos.SelectionStart = 0;
             this.txtApellidos.Size = new System.Drawing.Size(302, 32);
-            this.txtApellidos.TabIndex = 10;
+            this.txtApellidos.TabIndex = 3;
             this.txtApellidos.UseSystemPasswordChar = false;
             // 
             // txtDireccion
@@ -205,7 +205,7 @@
             this.txtDireccion.SelectionLength = 0;
             this.txtDireccion.SelectionStart = 0;
             this.txtDireccion.Size = new System.Drawing.Size(302, 32);
-            this.txtDireccion.TabIndex = 11;
+            this.txtDireccion.TabIndex = 4;
             this.txtDireccion.UseSystemPasswordChar = false;
             // 
             // txtCorreo
@@ -221,7 +221,7 @@
             this.txtCorreo.SelectionLength = 0;
             this.txtCorreo.SelectionStart = 0;
             this.txtCorreo.Size = new System.Drawing.Size(302, 32);
-            this.txtCorreo.TabIndex = 12;
+            this.txtCorreo.TabIndex = 6;
             this.txtCorreo.UseSystemPasswordChar = false;
             // 
             // txtCargo
@@ -237,7 +237,7 @@
             this.txtCargo.SelectionLength = 0;
             this.txtCargo.SelectionStart = 0;
             this.txtCargo.Size = new System.Drawing.Size(302, 32);
-            this.txtCargo.TabIndex = 13;
+            this.txtCargo.TabIndex = 7;
             this.txtCargo.UseSystemPasswordChar = false;
             // 
             // mskTelefono
@@ -250,7 +250,7 @@
             this.mskTelefono.Mask = "0000-0000";
             this.mskTelefono.Name = "mskTelefono";
             this.mskTelefono.Size = new System.Drawing.Size(302, 25);
-            this.mskTelefono.TabIndex = 15;
+            this.mskTelefono.TabIndex = 5;
             // 
             // cmbProveedor
             // 
@@ -260,99 +260,29 @@
             this.cmbProveedor.Location = new System.Drawing.Point(217, 123);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(302, 28);
-            this.cmbProveedor.TabIndex = 16;
+            this.cmbProveedor.TabIndex = 0;
             // 
             // lstHabilitado
             // 
             this.lstHabilitado.FormattingEnabled = true;
             this.lstHabilitado.ItemHeight = 20;
-            this.lstHabilitado.Location = new System.Drawing.Point(42, 47);
+            this.lstHabilitado.Location = new System.Drawing.Point(22, 26);
             this.lstHabilitado.Name = "lstHabilitado";
-            this.lstHabilitado.Size = new System.Drawing.Size(238, 264);
+            this.lstHabilitado.Size = new System.Drawing.Size(285, 304);
             this.lstHabilitado.TabIndex = 17;
             this.lstHabilitado.Click += new System.EventHandler(this.lstHabilitado_Click);
             // 
-            // panel1
+            // pldatos
             // 
-            this.panel1.Controls.Add(this.btnInhabilitados);
-            this.panel1.Controls.Add(this.btnHabilitados);
-            this.panel1.Controls.Add(this.lstInhabilitado);
-            this.panel1.Controls.Add(this.lstHabilitado);
-            this.panel1.Location = new System.Drawing.Point(568, 95);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(341, 417);
-            this.panel1.TabIndex = 18;
-            // 
-            // lstInhabilitado
-            // 
-            this.lstInhabilitado.FormattingEnabled = true;
-            this.lstInhabilitado.ItemHeight = 20;
-            this.lstInhabilitado.Location = new System.Drawing.Point(42, 75);
-            this.lstInhabilitado.Name = "lstInhabilitado";
-            this.lstInhabilitado.Size = new System.Drawing.Size(238, 264);
-            this.lstInhabilitado.TabIndex = 18;
-            this.lstInhabilitado.Click += new System.EventHandler(this.lstInhabilitado_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Depth = 0;
-            this.btnAgregar.Location = new System.Drawing.Point(37, 563);
-            this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Primary = true;
-            this.btnAgregar.Size = new System.Drawing.Size(110, 49);
-            this.btnAgregar.TabIndex = 19;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnInhabilitarHabilitar
-            // 
-            this.btnInhabilitarHabilitar.Depth = 0;
-            this.btnInhabilitarHabilitar.Location = new System.Drawing.Point(314, 563);
-            this.btnInhabilitarHabilitar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnInhabilitarHabilitar.Name = "btnInhabilitarHabilitar";
-            this.btnInhabilitarHabilitar.Primary = true;
-            this.btnInhabilitarHabilitar.Size = new System.Drawing.Size(246, 49);
-            this.btnInhabilitarHabilitar.TabIndex = 20;
-            this.btnInhabilitarHabilitar.Text = "INHABILITAR/HABILITAR";
-            this.btnInhabilitarHabilitar.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Depth = 0;
-            this.btnActualizar.Location = new System.Drawing.Point(164, 563);
-            this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Primary = true;
-            this.btnActualizar.Size = new System.Drawing.Size(134, 49);
-            this.btnActualizar.TabIndex = 21;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Depth = 0;
-            this.btnRegresar.Location = new System.Drawing.Point(577, 563);
-            this.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Primary = true;
-            this.btnRegresar.Size = new System.Drawing.Size(110, 49);
-            this.btnRegresar.TabIndex = 22;
-            this.btnRegresar.Text = "REGRESAR";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
-            // btnHabilitados
-            // 
-            this.btnHabilitados.Depth = 0;
-            this.btnHabilitados.Location = new System.Drawing.Point(9, 361);
-            this.btnHabilitados.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHabilitados.Name = "btnHabilitados";
-            this.btnHabilitados.Primary = true;
-            this.btnHabilitados.Size = new System.Drawing.Size(151, 49);
-            this.btnHabilitados.TabIndex = 23;
-            this.btnHabilitados.Text = "HABILITADOS";
-            this.btnHabilitados.UseVisualStyleBackColor = true;
+            this.pldatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pldatos.Controls.Add(this.btnInhabilitados);
+            this.pldatos.Controls.Add(this.btnHabilitados);
+            this.pldatos.Controls.Add(this.lstInhabilitado);
+            this.pldatos.Controls.Add(this.lstHabilitado);
+            this.pldatos.Location = new System.Drawing.Point(568, 95);
+            this.pldatos.Name = "pldatos";
+            this.pldatos.Size = new System.Drawing.Size(341, 417);
+            this.pldatos.TabIndex = 12;
             // 
             // btnInhabilitados
             // 
@@ -365,6 +295,80 @@
             this.btnInhabilitados.TabIndex = 24;
             this.btnInhabilitados.Text = "INHABILITADOS";
             this.btnInhabilitados.UseVisualStyleBackColor = true;
+            this.btnInhabilitados.Click += new System.EventHandler(this.btnInhabilitados_Click);
+            // 
+            // btnHabilitados
+            // 
+            this.btnHabilitados.Depth = 0;
+            this.btnHabilitados.Location = new System.Drawing.Point(9, 361);
+            this.btnHabilitados.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHabilitados.Name = "btnHabilitados";
+            this.btnHabilitados.Primary = true;
+            this.btnHabilitados.Size = new System.Drawing.Size(151, 49);
+            this.btnHabilitados.TabIndex = 23;
+            this.btnHabilitados.Text = "HABILITADOS";
+            this.btnHabilitados.UseVisualStyleBackColor = true;
+            this.btnHabilitados.Click += new System.EventHandler(this.btnHabilitados_Click);
+            // 
+            // lstInhabilitado
+            // 
+            this.lstInhabilitado.FormattingEnabled = true;
+            this.lstInhabilitado.ItemHeight = 20;
+            this.lstInhabilitado.Location = new System.Drawing.Point(22, 29);
+            this.lstInhabilitado.Name = "lstInhabilitado";
+            this.lstInhabilitado.Size = new System.Drawing.Size(285, 304);
+            this.lstInhabilitado.TabIndex = 18;
+            this.lstInhabilitado.Click += new System.EventHandler(this.lstInhabilitado_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Depth = 0;
+            this.btnAgregar.Location = new System.Drawing.Point(37, 563);
+            this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Primary = true;
+            this.btnAgregar.Size = new System.Drawing.Size(110, 49);
+            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnInhabilitarHabilitar
+            // 
+            this.btnInhabilitarHabilitar.Depth = 0;
+            this.btnInhabilitarHabilitar.Location = new System.Drawing.Point(393, 563);
+            this.btnInhabilitarHabilitar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnInhabilitarHabilitar.Name = "btnInhabilitarHabilitar";
+            this.btnInhabilitarHabilitar.Primary = true;
+            this.btnInhabilitarHabilitar.Size = new System.Drawing.Size(246, 49);
+            this.btnInhabilitarHabilitar.TabIndex = 10;
+            this.btnInhabilitarHabilitar.Text = "INHABILITAR/HABILITAR";
+            this.btnInhabilitarHabilitar.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Depth = 0;
+            this.btnActualizar.Location = new System.Drawing.Point(208, 563);
+            this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Primary = true;
+            this.btnActualizar.Size = new System.Drawing.Size(134, 49);
+            this.btnActualizar.TabIndex = 9;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Depth = 0;
+            this.btnRegresar.Location = new System.Drawing.Point(799, 563);
+            this.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Primary = true;
+            this.btnRegresar.Size = new System.Drawing.Size(110, 49);
+            this.btnRegresar.TabIndex = 11;
+            this.btnRegresar.Text = "REGRESAR";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // mskIdentidad
             // 
@@ -376,7 +380,7 @@
             this.mskIdentidad.Mask = "0000-0000-00000";
             this.mskIdentidad.Name = "mskIdentidad";
             this.mskIdentidad.Size = new System.Drawing.Size(302, 25);
-            this.mskIdentidad.TabIndex = 23;
+            this.mskIdentidad.TabIndex = 1;
             // 
             // frmContacto
             // 
@@ -388,7 +392,7 @@
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnInhabilitarHabilitar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pldatos);
             this.Controls.Add(this.cmbProveedor);
             this.Controls.Add(this.mskTelefono);
             this.Controls.Add(this.txtCargo);
@@ -408,7 +412,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmContacto";
             this.Load += new System.EventHandler(this.frmContacto_Load);
-            this.panel1.ResumeLayout(false);
+            this.pldatos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +436,7 @@
         private System.Windows.Forms.MaskedTextBox mskTelefono;
         private System.Windows.Forms.ComboBox cmbProveedor;
         private System.Windows.Forms.ListBox lstHabilitado;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pldatos;
         private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitados;
         private MaterialSkin.Controls.MaterialRaisedButton btnHabilitados;
         private System.Windows.Forms.ListBox lstInhabilitado;
