@@ -41,7 +41,7 @@
             // 
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Depth = 0;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblUsuario.Location = new System.Drawing.Point(47, 168);
             this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
@@ -70,7 +70,7 @@
             // 
             this.lblGenesysERP.BackColor = System.Drawing.Color.Transparent;
             this.lblGenesysERP.Depth = 0;
-            this.lblGenesysERP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblGenesysERP.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblGenesysERP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblGenesysERP.Location = new System.Drawing.Point(143, 80);
             this.lblGenesysERP.MouseState = MaterialSkin.MouseState.HOVER;
@@ -84,7 +84,7 @@
             // 
             this.lblContraseña.BackColor = System.Drawing.Color.Transparent;
             this.lblContraseña.Depth = 0;
-            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblContraseña.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblContraseña.Location = new System.Drawing.Point(45, 237);
             this.lblContraseña.MouseState = MaterialSkin.MouseState.HOVER;
@@ -108,6 +108,7 @@
             this.txtContraseña.Size = new System.Drawing.Size(251, 23);
             this.txtContraseña.TabIndex = 4;
             this.txtContraseña.UseSystemPasswordChar = false;
+            this.txtContraseña.Click += new System.EventHandler(this.txtContraseña_Click);
             // 
             // btnAceptar
             // 
@@ -120,6 +121,7 @@
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
