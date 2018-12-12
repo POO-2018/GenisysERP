@@ -47,7 +47,8 @@ namespace frmLogin
 
         public void limpiar()
         {
-            cmbProveedor.SelectedIndex = -1;
+            //cmbProveedor.SelectedIndex = -1;
+            cmbProveedor.Text = "";
             mskIdentidad.Text = "";
             txtNombres.Text = "";
             txtApellidos.Text = "";
@@ -63,6 +64,7 @@ namespace frmLogin
             btnInhabilitados.Visible = true;
             lstHabilitado.Visible = false;
             lstInhabilitado.Visible = false;
+            cmbProveedor.Enabled = true;
         }
 
         Clientes.Contacto cargar = new Clientes.Contacto();
@@ -108,6 +110,53 @@ namespace frmLogin
         {
             lstHabilitado.Visible = false;
             lstInhabilitado.Visible = true;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Contacto eContacto = new Contacto();
+            eContacto.idContacto = mskIdentidad.Text;
+            eContacto.nombres = txtNombres.Text;
+            eContacto.apellidos = txtApellidos.Text;
+            eContacto.direccion = txtDireccion.Text;
+            eContacto.telefono = mskTelefono.Text;
+            eContacto.correo = txtCorreo.Text;
+            eContacto.cargo = txtCargo.Text;
+            if (Contacto.ActualizarContacto(eContacto))
+            {
+                MessageBox.Show("Se han actualizado los datos");
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la actualización");
+                limpiar();
+            }
+        }
+
+        private void mskIdentidad_Leave(object sender, EventArgs e)
+        {
+            Contacto eContacto = Contacto.ObtenerContacto3(mskIdentidad.Text);
+            txtNombres.Text = eContacto.nombres;
+            txtApellidos.Text = eContacto.apellidos;
+            txtDireccion.Text = eContacto.direccion;
+            mskTelefono.Text = eContacto.telefono;
+            txtCorreo.Text = eContacto.correo;
+            txtCargo.Text = eContacto.cargo;
+            cmbProveedor.Text = eContacto.nombreProveedor;
+            if (txtNombres.Text != "")
+            {
+                btnAgregar.Visible = false;
+                btnActualizar.Visible = true;
+                btnInhabilitarHabilitar.Visible = true;
+                cmbProveedor.Enabled = false;
+            }
+            else
+            {
+                btnAgregar.Visible = true;
+                btnActualizar.Visible = false;
+                btnInhabilitarHabilitar.Visible = false;
+            }
         }
     }
 }

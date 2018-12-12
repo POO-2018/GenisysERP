@@ -41,7 +41,7 @@ namespace frmLogin.Clientes
         public string correo { get; set; }
         public string cargo { get; set; }
         public int estado { get; set; } 
-
+        public string nombreProveedor { get; set; }
         /// <summary>
         /// Obtiene un cliente desde la tabla Clientes.Contacto
         /// </summary>
@@ -145,6 +145,68 @@ namespace frmLogin.Clientes
             }
            
         }
+
+        public static bool ActualizarContacto(Contacto elContacto)
+        {
+            // estabecer conexion
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+
+            //define el comando
+            SqlCommand cmd = conn.EjecutarComando("sp_ActualizarContacto");
+
+            //definir tipo comando
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // agregar los parametros necesarios
+
+            cmd.Parameters.Add(new SqlParameter("@idContacto", SqlDbType.Char, 15));
+            cmd.Parameters["@idContacto"].Value = elContacto.idContacto;
+            cmd.Parameters.Add(new SqlParameter("@nombres", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@nombres"].Value = elContacto.nombres;
+            cmd.Parameters.Add(new SqlParameter("@apellidos", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@apellidos"].Value = elContacto.apellidos;
+            cmd.Parameters.Add(new SqlParameter("@direccion", SqlDbType.NVarChar, 2000));
+            cmd.Parameters["@direccion"].Value = elContacto.direccion;
+            cmd.Parameters.Add(new SqlParameter("@telefono", SqlDbType.Char, 9));
+            cmd.Parameters["@telefono"].Value = elContacto.telefono;
+            cmd.Parameters.Add(new SqlParameter("@correo", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@correo"].Value = elContacto.correo;
+            cmd.Parameters.Add(new SqlParameter("@cargo", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@cargo"].Value = elContacto.cargo;
+
+            // verificamos si el cliente yatiene un registro
+            Contacto verifica = new Contacto();
+            verifica = Contacto.ObtenerContacto(elContacto.idContacto);
+
+
+            try
+            {
+                if (verifica.idContacto == "")
+                {
+                    MessageBox.Show("El contacto no existe, revise");
+                    return false;
+                }
+                else
+                {
+                    conn.EstablecerConexion();
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return false;
+            }
+            finally
+            {
+                conn.CerrarConexion();
+            }
+        }
+
+
         public static List<Contacto> ListarContactoTodosH()
         {
             // declaramos la lista de tipo cliente
@@ -277,6 +339,52 @@ namespace frmLogin.Clientes
                     resultado.cargo = rdr.GetString(7);
                     resultado.estado = Convert.ToInt16(rdr[8]);
                 }
+                return resultado;
+            }
+            catch (SqlException ex)
+            {
+                return resultado;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public static Contacto ObtenerContacto3(string idContacto)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress",
+            "GenisysERP");
+            string sql;
+            Contacto resultado = new Contacto();
+
+            //Query SQL
+            sql = @"SELECT Clientes.Contacto.nombres, Clientes.Contacto.apellidos, Clientes.Contacto.direccion, Clientes.Contacto.telefono, Clientes.Contacto.correo, Clientes.Contacto.cargo, Clientes.Proveedor.nombreEmpresa
+FROM Clientes.Proveedor INNER JOIN Clientes.Contacto ON Proveedor.idProveedor = Contacto.idProveedor WHERE Clientes.Contacto.idContacto = @idContacto;";
+
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@idContacto", SqlDbType.Char, 15).Value
+                    = idContacto;
+
+                    rdr = cmd.ExecuteReader();
+                }
+                while (rdr.Read())
+                {
+                    resultado.nombres = rdr.GetString(0);
+                    resultado.apellidos = rdr.GetString(1);
+                    resultado.direccion = rdr.GetString(2);
+                    resultado.telefono = rdr.GetString(3);
+                    resultado.correo = rdr.GetString(4);
+                    resultado.cargo = rdr.GetString(5);
+                    resultado.nombreProveedor = rdr.GetString(6);
+                }
+
                 return resultado;
             }
             catch (SqlException ex)

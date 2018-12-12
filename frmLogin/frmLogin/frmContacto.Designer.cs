@@ -62,11 +62,11 @@
             this.lblProveedor.Depth = 0;
             this.lblProveedor.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProveedor.Location = new System.Drawing.Point(44, 123);
+            this.lblProveedor.Location = new System.Drawing.Point(43, 425);
             this.lblProveedor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(113, 27);
-            this.lblProveedor.TabIndex = 0;
+            this.lblProveedor.TabIndex = 8;
             this.lblProveedor.Text = "Proveedor";
             // 
             // lblIdContacto
@@ -75,7 +75,7 @@
             this.lblIdContacto.Depth = 0;
             this.lblIdContacto.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblIdContacto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIdContacto.Location = new System.Drawing.Point(44, 170);
+            this.lblIdContacto.Location = new System.Drawing.Point(43, 110);
             this.lblIdContacto.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblIdContacto.Name = "lblIdContacto";
             this.lblIdContacto.Size = new System.Drawing.Size(122, 27);
@@ -88,7 +88,7 @@
             this.lblTelefono.Depth = 0;
             this.lblTelefono.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTelefono.Location = new System.Drawing.Point(44, 348);
+            this.lblTelefono.Location = new System.Drawing.Point(43, 288);
             this.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(100, 27);
@@ -101,7 +101,7 @@
             this.lblDireccion.Depth = 0;
             this.lblDireccion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDireccion.Location = new System.Drawing.Point(44, 304);
+            this.lblDireccion.Location = new System.Drawing.Point(43, 244);
             this.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(104, 27);
@@ -114,7 +114,7 @@
             this.lblApellidos.Depth = 0;
             this.lblApellidos.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblApellidos.Location = new System.Drawing.Point(44, 261);
+            this.lblApellidos.Location = new System.Drawing.Point(43, 201);
             this.lblApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(101, 27);
@@ -127,7 +127,7 @@
             this.lblNombres.Depth = 0;
             this.lblNombres.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNombres.Location = new System.Drawing.Point(44, 217);
+            this.lblNombres.Location = new System.Drawing.Point(43, 157);
             this.lblNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(102, 27);
@@ -140,7 +140,7 @@
             this.lblCargo.Depth = 0;
             this.lblCargo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCargo.Location = new System.Drawing.Point(44, 435);
+            this.lblCargo.Location = new System.Drawing.Point(43, 375);
             this.lblCargo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(70, 27);
@@ -153,7 +153,7 @@
             this.lblCorreo.Depth = 0;
             this.lblCorreo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCorreo.Location = new System.Drawing.Point(44, 394);
+            this.lblCorreo.Location = new System.Drawing.Point(43, 334);
             this.lblCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(78, 27);
@@ -165,7 +165,7 @@
             this.txtNombres.Depth = 0;
             this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.Hint = "";
-            this.txtNombres.Location = new System.Drawing.Point(217, 212);
+            this.txtNombres.Location = new System.Drawing.Point(216, 152);
             this.txtNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PasswordChar = '\0';
@@ -173,7 +173,7 @@
             this.txtNombres.SelectionLength = 0;
             this.txtNombres.SelectionStart = 0;
             this.txtNombres.Size = new System.Drawing.Size(302, 32);
-            this.txtNombres.TabIndex = 2;
+            this.txtNombres.TabIndex = 1;
             this.txtNombres.UseSystemPasswordChar = false;
             // 
             // txtApellidos
@@ -181,7 +181,7 @@
             this.txtApellidos.Depth = 0;
             this.txtApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidos.Hint = "";
-            this.txtApellidos.Location = new System.Drawing.Point(217, 256);
+            this.txtApellidos.Location = new System.Drawing.Point(216, 196);
             this.txtApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.PasswordChar = '\0';
@@ -189,7 +189,7 @@
             this.txtApellidos.SelectionLength = 0;
             this.txtApellidos.SelectionStart = 0;
             this.txtApellidos.Size = new System.Drawing.Size(302, 32);
-            this.txtApellidos.TabIndex = 3;
+            this.txtApellidos.TabIndex = 2;
             this.txtApellidos.UseSystemPasswordChar = false;
             // 
             // txtDireccion
@@ -197,7 +197,7 @@
             this.txtDireccion.Depth = 0;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Hint = "";
-            this.txtDireccion.Location = new System.Drawing.Point(217, 299);
+            this.txtDireccion.Location = new System.Drawing.Point(216, 239);
             this.txtDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PasswordChar = '\0';
@@ -205,7 +205,7 @@
             this.txtDireccion.SelectionLength = 0;
             this.txtDireccion.SelectionStart = 0;
             this.txtDireccion.Size = new System.Drawing.Size(302, 32);
-            this.txtDireccion.TabIndex = 4;
+            this.txtDireccion.TabIndex = 3;
             this.txtDireccion.UseSystemPasswordChar = false;
             // 
             // txtCorreo
@@ -213,7 +213,7 @@
             this.txtCorreo.Depth = 0;
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Hint = "";
-            this.txtCorreo.Location = new System.Drawing.Point(217, 389);
+            this.txtCorreo.Location = new System.Drawing.Point(216, 329);
             this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.PasswordChar = '\0';
@@ -221,7 +221,7 @@
             this.txtCorreo.SelectionLength = 0;
             this.txtCorreo.SelectionStart = 0;
             this.txtCorreo.Size = new System.Drawing.Size(302, 32);
-            this.txtCorreo.TabIndex = 6;
+            this.txtCorreo.TabIndex = 5;
             this.txtCorreo.UseSystemPasswordChar = false;
             // 
             // txtCargo
@@ -229,7 +229,7 @@
             this.txtCargo.Depth = 0;
             this.txtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCargo.Hint = "";
-            this.txtCargo.Location = new System.Drawing.Point(217, 430);
+            this.txtCargo.Location = new System.Drawing.Point(216, 370);
             this.txtCargo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.PasswordChar = '\0';
@@ -237,7 +237,7 @@
             this.txtCargo.SelectionLength = 0;
             this.txtCargo.SelectionStart = 0;
             this.txtCargo.Size = new System.Drawing.Size(302, 32);
-            this.txtCargo.TabIndex = 7;
+            this.txtCargo.TabIndex = 6;
             this.txtCargo.UseSystemPasswordChar = false;
             // 
             // mskTelefono
@@ -246,21 +246,21 @@
             this.mskTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mskTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskTelefono.ForeColor = System.Drawing.Color.White;
-            this.mskTelefono.Location = new System.Drawing.Point(217, 350);
+            this.mskTelefono.Location = new System.Drawing.Point(216, 290);
             this.mskTelefono.Mask = "0000-0000";
             this.mskTelefono.Name = "mskTelefono";
             this.mskTelefono.Size = new System.Drawing.Size(302, 25);
-            this.mskTelefono.TabIndex = 5;
+            this.mskTelefono.TabIndex = 4;
             // 
             // cmbProveedor
             // 
             this.cmbProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cmbProveedor.ForeColor = System.Drawing.Color.White;
             this.cmbProveedor.FormattingEnabled = true;
-            this.cmbProveedor.Location = new System.Drawing.Point(217, 123);
+            this.cmbProveedor.Location = new System.Drawing.Point(216, 425);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(302, 28);
-            this.cmbProveedor.TabIndex = 0;
+            this.cmbProveedor.TabIndex = 7;
             // 
             // lstHabilitado
             // 
@@ -314,7 +314,7 @@
             // 
             this.lstInhabilitado.FormattingEnabled = true;
             this.lstInhabilitado.ItemHeight = 20;
-            this.lstInhabilitado.Location = new System.Drawing.Point(22, 29);
+            this.lstInhabilitado.Location = new System.Drawing.Point(22, 28);
             this.lstInhabilitado.Name = "lstInhabilitado";
             this.lstInhabilitado.Size = new System.Drawing.Size(285, 304);
             this.lstInhabilitado.TabIndex = 18;
@@ -356,6 +356,7 @@
             this.btnActualizar.TabIndex = 9;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnRegresar
             // 
@@ -376,11 +377,12 @@
             this.mskIdentidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mskIdentidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskIdentidad.ForeColor = System.Drawing.Color.White;
-            this.mskIdentidad.Location = new System.Drawing.Point(217, 170);
+            this.mskIdentidad.Location = new System.Drawing.Point(216, 110);
             this.mskIdentidad.Mask = "0000-0000-00000";
             this.mskIdentidad.Name = "mskIdentidad";
             this.mskIdentidad.Size = new System.Drawing.Size(302, 25);
-            this.mskIdentidad.TabIndex = 1;
+            this.mskIdentidad.TabIndex = 0;
+            this.mskIdentidad.Leave += new System.EventHandler(this.mskIdentidad_Leave);
             // 
             // frmContacto
             // 
