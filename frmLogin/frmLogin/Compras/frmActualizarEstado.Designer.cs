@@ -1,6 +1,6 @@
 ﻿namespace frmLogin.Compras
 {
-    partial class frmActualizarCompra
+    partial class frmActualizarEstado
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // frmActualizarCompra
+            // frmActualizarEstado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmActualizarCompra";
+            this.Name = "frmActualizarEstado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Actualizar";
+            this.Text = "Actualizar estado";
             this.ResumeLayout(false);
 
         }

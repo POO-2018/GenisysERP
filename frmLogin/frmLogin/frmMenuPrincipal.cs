@@ -59,8 +59,8 @@ namespace frmLogin
 
         private void btnActualizarCompra_Click(object sender, EventArgs e)
         {
-            frmActualizarCompra actualizarCompra = new frmActualizarCompra();
-            actualizarCompra.ShowDialog();
+            frmMenuActualizar menuActualizar = new frmMenuActualizar();
+            menuActualizar.ShowDialog();
         }
 
         private void btnBusquedaCompra_Click(object sender, EventArgs e)
