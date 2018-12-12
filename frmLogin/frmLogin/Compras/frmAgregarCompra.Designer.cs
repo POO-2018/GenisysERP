@@ -48,6 +48,11 @@
             this.lblProductos = new MaterialSkin.Controls.MaterialLabel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dgvDetalleCompra = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevoProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
@@ -58,11 +63,6 @@
             this.btnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtCotizacion = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtSubTotal = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +116,7 @@
             this.cmbProveedore.Name = "cmbProveedore";
             this.cmbProveedore.Size = new System.Drawing.Size(218, 26);
             this.cmbProveedore.TabIndex = 3;
+            this.cmbProveedore.Click += new System.EventHandler(this.cmbProveedore_Click);
             // 
             // lblSubtotal
             // 
@@ -177,6 +178,8 @@
             this.txtTotal.Size = new System.Drawing.Size(146, 23);
             this.txtTotal.TabIndex = 10;
             this.txtTotal.UseSystemPasswordChar = false;
+            this.txtTotal.Click += new System.EventHandler(this.txtTotal_Click);
+            this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // lblTotal
             // 
@@ -238,6 +241,7 @@
             this.btnGuardar.TabIndex = 15;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtObservaciones
             // 
@@ -275,6 +279,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(218, 26);
             this.cmbCategoria.TabIndex = 19;
+            this.cmbCategoria.Click += new System.EventHandler(this.cmbCategoria_Click);
             // 
             // lblCategoria
             // 
@@ -329,6 +334,38 @@
             this.dgvDetalleCompra.Name = "dgvDetalleCompra";
             this.dgvDetalleCompra.Size = new System.Drawing.Size(463, 175);
             this.dgvDetalleCompra.TabIndex = 22;
+            this.dgvDetalleCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellClick);
+            this.dgvDetalleCompra.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellValueChanged);
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "Id";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Width = 40;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.HeaderText = "Nombre";
+            this.nombreProducto.Name = "nombreProducto";
+            this.nombreProducto.Width = 170;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 70;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 70;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.Width = 70;
             // 
             // btnNuevoProducto
             // 
@@ -357,6 +394,7 @@
             this.txtNombre.Size = new System.Drawing.Size(216, 23);
             this.txtNombre.TabIndex = 31;
             this.txtNombre.UseSystemPasswordChar = false;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblNombre
             // 
@@ -440,6 +478,7 @@
             // txtCotizacion
             // 
             this.txtCotizacion.Depth = 0;
+            this.txtCotizacion.Enabled = false;
             this.txtCotizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCotizacion.Hint = "";
             this.txtCotizacion.Location = new System.Drawing.Point(127, 115);
@@ -470,36 +509,6 @@
             this.txtSubTotal.Size = new System.Drawing.Size(146, 23);
             this.txtSubTotal.TabIndex = 43;
             this.txtSubTotal.UseSystemPasswordChar = false;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "Id";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Width = 40;
-            // 
-            // nombreProducto
-            // 
-            this.nombreProducto.HeaderText = "Nombre";
-            this.nombreProducto.Name = "nombreProducto";
-            this.nombreProducto.Width = 170;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 70;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 70;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.Width = 70;
             // 
             // frmAgregarCompra
             // 

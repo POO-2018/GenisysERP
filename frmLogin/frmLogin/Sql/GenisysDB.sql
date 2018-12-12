@@ -400,3 +400,7 @@ GO
 ALTER TABLE Compras.Compra
 	ALTER COLUMN autorizadaPor INT NULL
 GO
+
+ALTER TABLE Inventario.Impuesto
+	ALTER COLUMN valor DECIMAL(8,2) NOT NULL
+Go
