@@ -74,8 +74,8 @@ namespace frmLogin.Clientes
                 }
                 while (rdr.Read())
                 {
-                    resultado.idProveedor = rdr.GetString(0);
-                    resultado.idContacto = rdr.GetString(1);
+                    resultado.idContacto = rdr.GetString(0);
+                    resultado.codProveedor = Convert.ToInt32(rdr[1]);
                     resultado.nombres = rdr.GetString(2);
                     resultado.apellidos = rdr.GetString(3);
                     resultado.direccion = rdr.GetString(4);
@@ -207,6 +207,55 @@ namespace frmLogin.Clientes
             }
         }
 
+        public static bool Inhabilitar_Habilitar_Contacto(Contacto elContacto)
+        {
+            // estabecer conexion
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+
+            //define el comando
+            SqlCommand cmd = conn.EjecutarComando("sp_Habilitar_Inhabilitar_Contacto");
+
+            //definir tipo comando
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // agregar los parametros necesarios
+
+            cmd.Parameters.Add(new SqlParameter("@idContacto", SqlDbType.Char, 15));
+            cmd.Parameters["@idContacto"].Value = elContacto.idContacto;
+            cmd.Parameters.Add("@msj", SqlDbType.NVarChar, 100).Direction = ParameterDirection.Output;
+
+            // verificamos si el cliente yatiene un registro
+            Contacto verifica = new Contacto();
+            verifica = Contacto.ObtenerContacto(elContacto.idContacto);
+
+
+            try
+            {
+                if (verifica.idContacto == "")
+                {
+                    MessageBox.Show("El contacto no existe, revise");
+                    return false;
+                }
+                else
+                {
+                    conn.EstablecerConexion();
+                    cmd.ExecuteNonQuery();
+                    elContacto.m = cmd.Parameters["@msj"].Value.ToString();
+                    return true;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return false;
+            }
+            finally
+            {
+                conn.CerrarConexion();
+            }
+        }
 
         public static List<Contacto> ListarContactoTodosH()
         {
@@ -339,20 +388,6 @@ namespace frmLogin.Clientes
                     resultado.correo = rdr.GetString(6);
                     resultado.cargo = rdr.GetString(7);
                     resultado.estado = Convert.ToInt32(rdr[8]);
-                    /*
-                    resultado.codProveedor = Convert.ToInt32(rdr[0]);
-                    resultado.nombreProveedor = rdr.GetString(1);
-                    resultado.direccion = rdr.GetString(4);
-                    resultado.telefono = rdr.GetString(5);
-                    resultado.correo = rdr.GetString(6);
-                    resultado.estado = Convert.ToInt32(rdr[]);
-                    resultado.idContacto = rdr.GetString(1);
-                    resultado.nombres = rdr.GetString(2);
-                    resultado.apellidos = rdr.GetString(3);
-                    
-                    
-                    
-                    resultado.cargo = rdr.GetString(7);*/
                 }
                 return resultado;
             }

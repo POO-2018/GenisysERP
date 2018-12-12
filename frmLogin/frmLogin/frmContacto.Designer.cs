@@ -279,7 +279,7 @@
             this.pldatos.Controls.Add(this.btnHabilitados);
             this.pldatos.Controls.Add(this.lstInhabilitado);
             this.pldatos.Controls.Add(this.lstHabilitado);
-            this.pldatos.Location = new System.Drawing.Point(568, 95);
+            this.pldatos.Location = new System.Drawing.Point(568, 102);
             this.pldatos.Name = "pldatos";
             this.pldatos.Size = new System.Drawing.Size(341, 417);
             this.pldatos.TabIndex = 12;
@@ -344,6 +344,7 @@
             this.btnInhabilitarHabilitar.TabIndex = 10;
             this.btnInhabilitarHabilitar.Text = "INHABILITAR/HABILITAR";
             this.btnInhabilitarHabilitar.UseVisualStyleBackColor = true;
+            this.btnInhabilitarHabilitar.Click += new System.EventHandler(this.btnInhabilitarHabilitar_Click);
             // 
             // btnActualizar
             // 

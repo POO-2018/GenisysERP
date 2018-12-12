@@ -72,6 +72,7 @@ namespace frmLogin
                 btnAgregar.Visible = false;
                 Contacto elContacto = new Contacto();
                 elContacto = Contacto.ObtenerContacto2(lstInhabilitado.SelectedItem.ToString());
+                mskIdentidad.Text = elContacto.idContacto;
                 txtNombres.Text = elContacto.nombres;
                 txtApellidos.Text = elContacto.apellidos;
                 txtDireccion.Text = elContacto.direccion;
@@ -243,6 +244,22 @@ namespace frmLogin
             else
             {
                 lstInhabilitado.Items.Add("No hay registros");
+            }
+        }
+
+        private void btnInhabilitarHabilitar_Click(object sender, EventArgs e)
+        {
+            Contacto eContacto = new Contacto();
+            eContacto.idContacto = mskIdentidad.Text;
+            if (Contacto.Inhabilitar_Habilitar_Contacto(eContacto))
+            {
+                MessageBox.Show(eContacto.m);
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la actualización");
+                limpiar();
             }
         }
     }
