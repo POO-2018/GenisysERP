@@ -45,7 +45,7 @@ namespace frmLogin.Compras
         public static bool InsertarCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InsertarCompra");
@@ -113,7 +113,7 @@ namespace frmLogin.Compras
         public static bool ActualizarCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarCompra");
@@ -186,7 +186,7 @@ namespace frmLogin.Compras
         public static bool ActualizarEstadoCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarEstadoCompra");
@@ -234,7 +234,7 @@ namespace frmLogin.Compras
         public static bool InhabilitarCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InhabilitarCompra");
@@ -278,7 +278,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorEstado(string estadoCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -344,7 +344,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorFactura(string factura)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -410,7 +410,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorProveedor(string nombreEmpresa)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -477,7 +477,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorPrevedorCategoria(int proveedor, int categoria)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -545,7 +545,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorPrevedorCategoriaNombre(int proveedor, int categoria,int nombre)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -614,7 +614,7 @@ namespace frmLogin.Compras
         public static List<Compra> LeerTodosHabilitados()
         {
             // Instanciamos la clase Conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos una lista de tipo de cliente
             List<Compra> resultados = new List<Compra>();
