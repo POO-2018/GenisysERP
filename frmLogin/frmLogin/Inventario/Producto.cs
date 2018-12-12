@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 // Agregamos los namespaces que necesitamos
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Windows.Forms;
 
 namespace frmLogin.Inventario
 {
@@ -14,7 +14,7 @@ namespace frmLogin.Inventario
     {
         //Atributos de la clase
         public int idInvetario { get; set; }
-        public int idProducto { get; set; }
+        public string idProducto { get; set; }
         public string nombre { get; set; }
         public int cantidadExistencia { get; set; }
         public int cantidadMinima { get; set; }
@@ -59,27 +59,28 @@ namespace frmLogin.Inventario
 
                 while (rdr.Read())
                 {
-                    resultado.idInvetario = rdr.GetInt16(0);
-                    resultado.idProducto = rdr.GetInt16(1);
+                    resultado.idInvetario = rdr.GetInt32(0);
+                    resultado.idProducto = rdr.GetString(1);
                     resultado.nombre = rdr.GetString(2);
-                    resultado.cantidadExistencia = rdr.GetInt16(3);
-                    resultado.cantidadMinima = rdr.GetInt16(4);
+                    resultado.cantidadExistencia = rdr.GetInt32(3);
+                    resultado.cantidadMinima = rdr.GetInt32(4);
                     resultado.precioCompra = rdr.GetDecimal(5);
                     resultado.precioVenta = rdr.GetDecimal(6);
                     resultado.fechaIngresa = rdr.GetDateTime(7);
-                    resultado.idUsuario = rdr.GetInt16(8);
+                    resultado.idUsuario = rdr.GetInt32(8);
                     resultado.observaciones = rdr.GetString(9);
-                    resultado.idImpuesto = rdr.GetInt16(10);
-                    resultado.IdCategoria = rdr.GetInt16(11);
-                    resultado.idProveedor = rdr.GetInt16(12);
-                    resultado.estado = rdr.GetInt16(13);
+                    resultado.idImpuesto = rdr.GetInt32(10);
+                    resultado.IdCategoria = rdr.GetInt32(11);
+                    resultado.idProveedor = rdr.GetInt32(12);
+                    resultado.estado = rdr.GetInt32(13);
                 }
 
                 //Retornamos los datos obtenidos
                 return resultado;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return resultado;
             }
             finally
@@ -108,7 +109,7 @@ namespace frmLogin.Inventario
             cmd.Parameters.Add(new SqlParameter("cantidadMinima", SqlDbType.Int));
             cmd.Parameters.Add(new SqlParameter("precioCompra", SqlDbType.Float));
             cmd.Parameters.Add(new SqlParameter("precioVenta", SqlDbType.Float));
-            cmd.Parameters.Add(new SqlParameter("fechaIngreso", SqlDbType.DateTime2));
+            //cmd.Parameters.Add(new SqlParameter("fechaIngreso", SqlDbType.DateTime));
             cmd.Parameters.Add(new SqlParameter("idUsuario", SqlDbType.Int));
             cmd.Parameters.Add(new SqlParameter("observaciones", SqlDbType.NVarChar, 100));
             cmd.Parameters.Add(new SqlParameter("idImpuesto", SqlDbType.Int));                 
@@ -122,7 +123,7 @@ namespace frmLogin.Inventario
             cmd.Parameters["cantidadMinima"].Value = elProducto.cantidadMinima;
             cmd.Parameters["precioCompra"].Value = elProducto.precioCompra;
             cmd.Parameters["precioVenta"].Value = elProducto.precioVenta;
-            cmd.Parameters["fechaIngreso"].Value = elProducto.fechaIngresa;
+            //cmd.Parameters["fechaIngreso"].Value = elProducto.fechaIngresa;
             cmd.Parameters["idUsuario"].Value = elProducto.idUsuario;
             cmd.Parameters["observaciones"].Value = elProducto.observaciones;
             cmd.Parameters["idImpuesto"].Value = elProducto.idImpuesto;
@@ -136,8 +137,9 @@ namespace frmLogin.Inventario
 
                 return true;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return false;
             }
             finally
@@ -189,8 +191,9 @@ namespace frmLogin.Inventario
 
                 return true;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return false;
             }
             finally
@@ -218,8 +221,9 @@ namespace frmLogin.Inventario
 
                 return true;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return false;
             }
             finally
@@ -227,7 +231,33 @@ namespace frmLogin.Inventario
                 conexion.CerrarConexion();
             }
         }
- 
+        //UPDATE Inventario.Producto SET estado=0
+        //WHERE idInventario = @idInventario;
+        // metodo para habilitar un producto
+        public bool HabilitarProducto(string elProducto)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            SqlCommand cmd = conexion.EjecutarComando("UPDATE Inventario.Producto SET estado=0" +
+                                "WHERE idInventario = @idInventario;");
+
+            // Parámetros
+            cmd.Parameters.Add("@idInventario", SqlDbType.Int).Value = elProducto;
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
 
         public List<Producto>LeerTodos()
         {
@@ -245,28 +275,29 @@ namespace frmLogin.Inventario
                 while (rdr.Read())
                 {
                      Producto resultado = new Producto();
-                    resultado.idInvetario = rdr.GetInt16(0);
-                    resultado.idProducto = rdr.GetInt16(1);
+                    resultado.idInvetario = rdr.GetInt32(0);
+                    resultado.idProducto = rdr.GetString(1);
                     resultado.nombre = rdr.GetString(2);
-                    resultado.cantidadExistencia = rdr.GetInt16(3);
-                    resultado.cantidadMinima = rdr.GetInt16(4);
+                    resultado.cantidadExistencia = rdr.GetInt32(3);
+                    resultado.cantidadMinima = rdr.GetInt32(4);
                     resultado.precioCompra = rdr.GetDecimal(5);
                     resultado.precioVenta = rdr.GetDecimal(6);
                     resultado.fechaIngresa = rdr.GetDateTime(7);
-                    resultado.idUsuario = rdr.GetInt16(8);
+                    resultado.idUsuario = rdr.GetInt32(8);
                     resultado.observaciones = rdr.GetString(9);
-                    resultado.idImpuesto = rdr.GetInt16(10);
-                    resultado.IdCategoria = rdr.GetInt16(11);
-                    resultado.idProveedor = rdr.GetInt16(12);
-                    resultado.estado = rdr.GetInt16(13);
+                    resultado.idImpuesto = rdr.GetInt32(10);
+                    resultado.IdCategoria = rdr.GetInt32(11);
+                    resultado.idProveedor = rdr.GetInt32(12);
+                    resultado.estado = Convert.ToInt32(rdr.GetValue(13));
                     Lista.Add(resultado);
                 }
 
                 //Retornamos los datos obtenidos
                 return Lista ;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return Lista;
             }
             finally
