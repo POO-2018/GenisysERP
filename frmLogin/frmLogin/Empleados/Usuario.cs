@@ -14,6 +14,7 @@ namespace frmLogin.Empleados
     {
         public int id { get; set; }
         public int idEmpleado { get; set; }
+        public string nombreEmpleado { get; set; }
         public string nombreUsuario { get; set; }
         public string contrasena { get; set; }
 
@@ -71,7 +72,8 @@ namespace frmLogin.Empleados
             List<Usuario> Lista = new List<Usuario>();
 
             // Query SQL
-            sql = @"Select * From  [Empleados].[Usuario]";
+            sql = @"select U.id, U.idEmpleado, E.nombre, U.nombreUsuario, U.contrasena from  
+                    [Empleados].[Usuario] as U inner join [Empleados].[Empleado] as E on U.idEmpleado = E.id ";
 
             SqlCommand cmd = conexion.EjecutarComando(sql);
             SqlDataReader rdr;
@@ -85,7 +87,8 @@ namespace frmLogin.Empleados
                     Usuario resultado = new Usuario();
                     resultado.id = rdr.GetInt32(0);
                     resultado.idEmpleado = rdr.GetInt32(1);
-                    resultado.nombreUsuario = rdr.GetString(2);
+                    resultado.nombreEmpleado = rdr.GetString(2);
+                    resultado.nombreUsuario = rdr.GetString(3);
                     resultado.contrasena = "*******";
                     Lista.Add(resultado);
                     // Remover espacios
@@ -111,7 +114,8 @@ namespace frmLogin.Empleados
             List<Usuario> Lista = new List<Usuario>();
 
             // Query SQL
-            sql = @"Select * From  [Empleados].[Usuario] WHERE nombreUsuario = @nick";
+            sql = @"select U.id, U.idEmpleado, E.nombre, U.nombreUsuario, U.contrasena from  
+                   [Empleados].[Usuario] as U inner join [Empleados].[Empleado] as E on U.idEmpleado = E.id WHERE nombreUsuario = @nick";
 
             SqlCommand cmd = conexion.EjecutarComando(sql);
             SqlDataReader rdr;
@@ -129,7 +133,8 @@ namespace frmLogin.Empleados
                     Usuario resultado = new Usuario();
                     resultado.id = rdr.GetInt32(0);
                     resultado.idEmpleado = rdr.GetInt32(1);
-                    resultado.nombreUsuario = rdr.GetString(2);
+                    resultado.nombreEmpleado = rdr.GetString(2);
+                    resultado.nombreUsuario = rdr.GetString(3);
                     resultado.contrasena = "*******";
                     Lista.Add(resultado);
                     // Remover espacios
