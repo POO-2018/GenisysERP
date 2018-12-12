@@ -314,7 +314,7 @@
             // 
             this.lstInhabilitado.FormattingEnabled = true;
             this.lstInhabilitado.ItemHeight = 20;
-            this.lstInhabilitado.Location = new System.Drawing.Point(22, 28);
+            this.lstInhabilitado.Location = new System.Drawing.Point(22, 27);
             this.lstInhabilitado.Name = "lstInhabilitado";
             this.lstInhabilitado.Size = new System.Drawing.Size(285, 304);
             this.lstInhabilitado.TabIndex = 18;

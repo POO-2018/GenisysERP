@@ -32,12 +32,52 @@ namespace frmLogin
 
         private void lstHabilitado_Click(object sender, EventArgs e)
         {
-
+            if (lstHabilitado.SelectedItem.ToString() == "No hay registros")
+            {
+                btnActualizar.Visible = false;
+                btnInhabilitarHabilitar.Visible = false;
+                btnAgregar.Visible = true;
+            }
+            else
+            {
+                btnActualizar.Visible = true;
+                btnInhabilitarHabilitar.Visible = true;
+                btnAgregar.Visible = false;
+                Contacto elContacto = new Contacto();
+                elContacto = Contacto.ObtenerContacto2(lstHabilitado.SelectedItem.ToString());
+                txtNombres.Text = elContacto.nombres;
+                txtApellidos.Text = elContacto.apellidos;
+                txtDireccion.Text = elContacto.direccion;
+                mskTelefono.Text = elContacto.telefono;
+                txtCorreo.Text = elContacto.correo;
+                txtCargo.Text = elContacto.cargo;
+                cmbProveedor.Text = elContacto.nombreProveedor;
+            }
         }
 
         private void lstInhabilitado_Click(object sender, EventArgs e)
         {
-
+            if (lstInhabilitado.SelectedItem.ToString() == "No hay registros")
+            {
+                btnActualizar.Visible = false;
+                btnInhabilitarHabilitar.Visible = false;
+                btnAgregar.Visible = true;
+            }
+            else
+            {
+                btnActualizar.Visible = true;
+                btnInhabilitarHabilitar.Visible = true;
+                btnAgregar.Visible = false;
+                Contacto elContacto = new Contacto();
+                elContacto = Contacto.ObtenerContacto2(lstInhabilitado.SelectedItem.ToString());
+                txtNombres.Text = elContacto.nombres;
+                txtApellidos.Text = elContacto.apellidos;
+                txtDireccion.Text = elContacto.direccion;
+                mskTelefono.Text = elContacto.telefono;
+                txtCorreo.Text = elContacto.correo;
+                txtCargo.Text = elContacto.cargo;
+                cmbProveedor.Text = elContacto.nombreProveedor;
+            }
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -47,8 +87,7 @@ namespace frmLogin
 
         public void limpiar()
         {
-            //cmbProveedor.SelectedIndex = -1;
-            cmbProveedor.Text = "";
+            cmbProveedor.SelectedIndex = -1;
             mskIdentidad.Text = "";
             txtNombres.Text = "";
             txtApellidos.Text = "";
@@ -75,6 +114,7 @@ namespace frmLogin
             cmbProveedor.DataSource = cargar.CargarCombo();
             cmbProveedor.DisplayMember = "nombreEmpresa";
             cmbProveedor.ValueMember = "IdProveedor";
+            cmbProveedor.SelectedIndex = -1;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -156,6 +196,48 @@ namespace frmLogin
                 btnAgregar.Visible = true;
                 btnActualizar.Visible = false;
                 btnInhabilitarHabilitar.Visible = false;
+            }
+        }
+
+        public void datosH()
+        {
+            // Cargar los datos al listbox
+            Contacto nuevo = new Contacto();
+
+            // Creamos la lista
+            List<Contacto> lista = Contacto.ListarContactoTodosH();
+
+            // Limpiar el listbox
+            lstHabilitado.Items.Clear();
+
+            if (lista.Any())
+            {
+                lista.ForEach(contacto => lstHabilitado.Items.Add(contacto.nombres.ToString()));
+            }
+            else
+            {
+                lstHabilitado.Items.Add("No hay registros");
+            }
+        }
+
+        public void datosI()
+        {
+            // Cargar los datos al listbox
+            Contacto nuevo = new Contacto();
+
+            // Creamos la lista
+            List<Contacto> lista = Contacto.ListarContactoTodosI();
+
+            // Limpiar el listbox
+            lstInhabilitado.Items.Clear();
+
+            if (lista.Any())
+            {
+                lista.ForEach(contacto => lstInhabilitado.Items.Add(contacto.nombres.ToString()));
+            }
+            else
+            {
+                lstInhabilitado.Items.Add("No hay registros");
             }
         }
     }
