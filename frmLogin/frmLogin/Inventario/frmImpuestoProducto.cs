@@ -144,7 +144,6 @@ namespace frmLogin.Inventario
                 actualizar.idCodigoImpuesto = txtCodigo.Text;
                 actualizar.descripcion = txtDescripcion.Text;
                 actualizar.valor = Convert.ToDecimal(txtValor.Text);
-                MessageBox.Show(txtValor.Text);
                 actualizar.idUsuario = Convert.ToInt32(txtRegistradoPor.Text);
                 actualizar.fechaCreacion = System.DateTime.Now;
                 actualizar.estado = 1;
@@ -314,7 +313,6 @@ namespace frmLogin.Inventario
             //Instanciamos de la clase impuesto
             Impuesto inhabilitar = new Impuesto();
             inhabilitar.idImpuesto = Convert.ToInt32(elCodigo);
-            MessageBox.Show(elCodigo);
 
             //verificamos si la opción está en modo habilitar ó inhabilitar.
             if (btnInhabilitar.Text== "Inhabilitar")
