@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtConfirmarContraseña = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtContraseña = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtNombreUsuario = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -38,13 +40,11 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvListarUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.txtNombreUsuarioBuscar = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnEliminar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.dgvListarUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarUsuarios)).BeginInit();
@@ -70,6 +70,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de usuario";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Depth = 0;
+            this.btnCancelar.Location = new System.Drawing.Point(272, 363);
+            this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Primary = true;
+            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Depth = 0;
+            this.btnAgregar.Location = new System.Drawing.Point(90, 363);
+            this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Primary = true;
+            this.btnAgregar.Size = new System.Drawing.Size(112, 35);
+            this.btnAgregar.TabIndex = 12;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // txtConfirmarContraseña
             // 
             this.txtConfirmarContraseña.Depth = 0;
@@ -77,7 +102,7 @@
             this.txtConfirmarContraseña.Location = new System.Drawing.Point(203, 177);
             this.txtConfirmarContraseña.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
-            this.txtConfirmarContraseña.PasswordChar = '\0';
+            this.txtConfirmarContraseña.PasswordChar = '*';
             this.txtConfirmarContraseña.SelectedText = "";
             this.txtConfirmarContraseña.SelectionLength = 0;
             this.txtConfirmarContraseña.SelectionStart = 0;
@@ -92,7 +117,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(203, 135);
             this.txtContraseña.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '\0';
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.SelectedText = "";
             this.txtContraseña.SelectionLength = 0;
             this.txtContraseña.SelectionStart = 0;
@@ -174,6 +199,7 @@
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(257, 28);
             this.cmbEmpleado.TabIndex = 0;
+            this.cmbEmpleado.TextChanged += new System.EventHandler(this.cmbEmpleado_TextChanged);
             // 
             // groupBox2
             // 
@@ -189,6 +215,43 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de usuarios";
+            // 
+            // dgvListarUsuarios
+            // 
+            this.dgvListarUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvListarUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.dgvListarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListarUsuarios.Location = new System.Drawing.Point(14, 55);
+            this.dgvListarUsuarios.Name = "dgvListarUsuarios";
+            this.dgvListarUsuarios.Size = new System.Drawing.Size(480, 290);
+            this.dgvListarUsuarios.TabIndex = 12;
+            this.dgvListarUsuarios.SelectionChanged += new System.EventHandler(this.dgvListarUsuarios_SelectionChanged);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Depth = 0;
+            this.btnEliminar.Location = new System.Drawing.Point(195, 363);
+            this.btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Primary = true;
+            this.btnEliminar.Size = new System.Drawing.Size(112, 35);
+            this.btnEliminar.TabIndex = 11;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Depth = 0;
+            this.btnBuscar.Location = new System.Drawing.Point(419, 24);
+            this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Primary = true;
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 10;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // materialLabel5
             // 
@@ -217,65 +280,6 @@
             this.txtNombreUsuarioBuscar.Size = new System.Drawing.Size(164, 23);
             this.txtNombreUsuarioBuscar.TabIndex = 8;
             this.txtNombreUsuarioBuscar.UseSystemPasswordChar = false;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Depth = 0;
-            this.btnBuscar.Location = new System.Drawing.Point(419, 24);
-            this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Primary = true;
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Depth = 0;
-            this.btnEliminar.Location = new System.Drawing.Point(195, 363);
-            this.btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Primary = true;
-            this.btnEliminar.Size = new System.Drawing.Size(112, 35);
-            this.btnEliminar.TabIndex = 11;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Depth = 0;
-            this.btnAgregar.Location = new System.Drawing.Point(90, 363);
-            this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Primary = true;
-            this.btnAgregar.Size = new System.Drawing.Size(112, 35);
-            this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Depth = 0;
-            this.btnCancelar.Location = new System.Drawing.Point(272, 363);
-            this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Primary = true;
-            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // dgvListarUsuarios
-            // 
-            this.dgvListarUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvListarUsuarios.BackgroundColor = System.Drawing.Color.SlateGray;
-            this.dgvListarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListarUsuarios.Location = new System.Drawing.Point(14, 55);
-            this.dgvListarUsuarios.Name = "dgvListarUsuarios";
-            this.dgvListarUsuarios.Size = new System.Drawing.Size(480, 290);
-            this.dgvListarUsuarios.TabIndex = 12;
             // 
             // frmMantenimientoUsuarios
             // 
