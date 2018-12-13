@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,8 +49,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\Cliente.cs" />
+    <Compile Include="Clientes\Contacto.cs" />
+    <Compile Include="Clientes\Proveedor.cs" />
+    <Compile Include="Compras\Compra.cs" />
+    <Compile Include="Compras\DetalleCompra.cs" />
+    <Compile Include="Compras\frmActualizarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmActualizarCompra.Designer.cs">
+      <DependentUpon>frmActualizarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmActualizarEstadoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmActualizarEstadoCompra.Designer.cs">
+      <DependentUpon>frmActualizarEstadoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmAgregarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmAgregarCompra.Designer.cs">
+      <DependentUpon>frmAgregarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmBuscarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmBuscarCompras.Designer.cs">
+      <DependentUpon>frmBuscarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmInhabilitarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmInhabilitarCompra.Designer.cs">
+      <DependentUpon>frmInhabilitarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmMenuActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmMenuActualizar.Designer.cs">
+      <DependentUpon>frmMenuActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContacto.Designer.cs">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedor.Designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmProducto.designer.cs">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\CategoriaInventario.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
+    <Compile Include="Empleados\Encriptacion.cs" />
+    <Compile Include="Empleados\empleados.cs" />
+    <Compile Include="Empleados\frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\frmMantenimientoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmMantenimientoUsuarios.Designer.cs">
+      <DependentUpon>frmMantenimientoUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\Usuario.cs" />
+    <Compile Include="frmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcercaDe.Designer.cs">
+      <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmCategoriaInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmCategoriaInventario.Designer.cs">
+      <DependentUpon>frmCategoriaInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,13 +156,66 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\frmImpuestoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmImpuestoProducto.Designer.cs">
+      <DependentUpon>frmImpuestoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Impuesto.cs" />
+    <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Compras\frmActualizarCompra.resx">
+      <DependentUpon>frmActualizarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmActualizarEstadoCompra.resx">
+      <DependentUpon>frmActualizarEstadoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmAgregarCompra.resx">
+      <DependentUpon>frmAgregarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmBuscarCompras.resx">
+      <DependentUpon>frmBuscarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmInhabilitarCompra.resx">
+      <DependentUpon>frmInhabilitarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmMenuActualizar.resx">
+      <DependentUpon>frmMenuActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAcercaDe.resx">
+      <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContacto.resx">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmProducto.resx">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmCategoriaInventario.resx">
+      <DependentUpon>frmCategoriaInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmMantenimientoUsuarios.resx">
+      <DependentUpon>frmMantenimientoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmImpuestoProducto.resx">
+      <DependentUpon>frmImpuestoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,13 +241,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Clientes\storedProcedure_Cliente.sql" />
+    <Content Include="Clientes\storedProcedure_Contacto.sql" />
+    <Content Include="Clientes\storedProcedure_Proveedor.sql" />
+    <Content Include="Empleados\CRUD\InsertarCargos.sql" />
+    <Content Include="Inventario\sp_Producto.sql" />
+    <Content Include="Inventario\storeProcedureImpuesto\StoreProcedures_Impuesto.sql" />
+    <Content Include="Inventario\sp_CategoriaInventario.sql" />
+    <Content Include="Resources\proveedores.png" />
+    <Content Include="Sql\sp_ERPConfiguraciones.sql" />
+    <Content Include="Empleados\CRUD\CRUD empleados.sql" />
+    <Content Include="Empleados\CRUD\CRUD Usuario.sql" />
+    <Content Include="Empleados\CRUD\CRUD-empleados.sql" />
     <Content Include="Sql\GenisysDB.sql" />
+    <Content Include="Sql\sp_Compra.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Clientes\" />
-    <Folder Include="Compras\" />
-    <Folder Include="Empleados\" />
-    <Folder Include="Inventario\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

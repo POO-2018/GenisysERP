@@ -51,7 +51,8 @@ CREATE TABLE ERP.Configuracion(
 		CONSTRAINT PK_ERP_Configuracion_id PRIMARY KEY CLUSTERED,
 	appkey NCHAR(50) NOT NULL,
 	valor NCHAR(50) NOT NULL,
-	descripcion NVARCHAR(200) NOT NULL
+	descripcion NVARCHAR(200) NOT NULL,
+	estado bit NOT NULL
 );
 GO
 
@@ -65,6 +66,7 @@ CREATE TABLE Clientes.Cliente(
 	direccion NVARCHAR(2000) NOT NULL,
 	telefono CHAR(9),
 	correo NVARCHAR(100) NOT NULL,
+	registradoPor INT NOT NULL,
 	estado BIT DEFAULT 1
 );
 GO
@@ -82,7 +84,7 @@ GO
 
 
 CREATE TABLE Clientes.Contacto(
-	idContacto INT NOT NULL IDENTITY(1000, 1)
+	idContacto CHAR(15) NOT NULL
 		CONSTRAINT PK_Clientes_Contacto_idContacto PRIMARY KEY CLUSTERED,
 	idProveedor INT NOT NULL,
 	nombres NVARCHAR(100) NOT NULL,
@@ -100,7 +102,7 @@ CREATE TABLE Empleados.Usuario(
     CONSTRAINT PK_Usuarios_id
 		PRIMARY KEY NONCLUSTERED (id),
     idEmpleado int NOT NULL,
-    nombreUsuario varchar(50) NOT NULL,
+    nombreUsuario varchar(50) UNIQUE NOT NULL,
     contrasena varchar(256)  NOT NULL,   
 );
 GO
@@ -110,7 +112,7 @@ CREATE TABLE Empleados.Empleado
 	id INT IDENTITY(1,1)
 	CONSTRAINT PK_Empleado_id
 		PRIMARY KEY NONCLUSTERED (id),
-	identidad VARCHAR(15) NOT NULL,
+	identidad VARCHAR(15) UNIQUE NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
 	apellido VARCHAR(30) NOT NULL,
 	cargo int NOT NULL,
@@ -138,7 +140,7 @@ CREATE TABLE Inventario.Impuesto
 idImpuesto INT NOT NULL IDENTITY (10, 1) CONSTRAINT  PK_idImpuesto PRIMARY KEY CLUSTERED (idImpuesto),
 idCodigoImpuesto CHAR(5) NOT NULL,
 descripcion NVARCHAR(100) NOT NULL,
-valor DECIMAL NOT NULL,
+valor DECIMAL(10,2) NOT NULL,
 fechaCreacion DATETIME NOT NULL,
 idUsuario INT NOT NULL,
 observasion NVARCHAR(100) NOT NULL,
@@ -154,6 +156,7 @@ idCategoria INT NOT NULL IDENTITY (100, 1) CONSTRAINT PK_idCategoria PRIMARY KEY
 idCodigoTipo CHAR(5) NOT NULL,
 nombre NVARCHAR(100) NOT NULL,
 descripcion NVARCHAR(100) NOT NULL,
+estado BIT NOT NULL,
 idUsuario INT NOT NULL
 );
 GO
@@ -167,8 +170,8 @@ idProducto CHAR(12) NOT NULL,
 nombre NVARCHAR(100) NOT NULL,
 cantidadExistencia INT NOT NULL,
 cantidadMinima INT NOT NULL,
-precioCompra FLOAT NOT NULL,
-precioVenta FLOAT NOT NULL,
+precioCompra DECIMAL(10,2) NOT NULL,
+precioVenta DECIMAL(10,2) NOT NULL,
 fechaIngreso DATETIME NOT NULL,
 idUsuario INT NOT NULL,
 observaciones NVARCHAR(100) NOT NULL,
@@ -213,6 +216,14 @@ GO
 ALTER TABLE Compras.DetalleCompra
 	ADD CONSTRAINT
 		PK_idCompra_DetalleCompra PRIMARY KEY CLUSTERED (idDetalle)
+GO
+
+ALTER TABLE Clientes.Cliente   
+	ADD CONSTRAINT AK_Identidad_Cliente UNIQUE (identidad);   
+GO
+
+ALTER TABLE CLientes.Proveedor   
+	ADD CONSTRAINT AK_nombreEmpresa_Proveedor UNIQUE (nombreEmpresa);   
 GO
 
 ---------------------------------------------------------------------------------------------------------
@@ -280,6 +291,12 @@ ALTER TABLE Clientes.Contacto
 		ON DELETE NO ACTION
 GO
 
+ALTER TABLE Clientes.Cliente
+	ADD CONSTRAINT FK_Clientes_Clientes$TieneUn$PK_Empleados_Usuario
+		FOREIGN KEY (registradoPor) REFERENCES Empleados.Usuario(id)
+		ON UPDATE NO ACTION
+		ON DELETE NO ACTION
+
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT
 		FK_Compras_Compra$TieneUn$Clientes_Proveedor
@@ -316,6 +333,11 @@ GO
 ---------------------------------------------------------------------------
 -- CHECK CONSTRAINT
 ---------------------------------------------------------------------------
+ALTER TABLE Inventario.Categoria
+	ADD CONSTRAINT CHK_DFLT_Inventario_Categoria
+	DEFAULT '1' for estado
+GO
+
 
 ALTER TABLE Inventario.Producto
 ADD CONSTRAINT CHK_Inventario_Inventario$CantidadExistenciaDebeSerMayorA0
@@ -347,15 +369,35 @@ ALTER TABLE Clientes.Proveedor
 	CHECK (telefono LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]')
 GO
 
+ALTER TABLE Clientes.Proveedor
+	ADD CONSTRAINT CHK_estado_Proveedor$ValoresEstado
+	CHECK (estado IN (0, 1))
+GO
+
+ALTER TABLE Clientes.Contacto
+	ADD CONSTRAINT CHK_identidad_Contacto$FormatoIdentidad
+	CHECK (idContacto LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+
+ALTER TABLE Clientes.Contacto
+	ADD CONSTRAINT CHK_telefono_Contacto$FormatoTelefono
+	CHECK (telefono LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]')
+GO
+
+ALTER TABLE Clientes.Contacto
+	ADD CONSTRAINT CHK_estado_Contacto$ValoresEstado
+	CHECK (estado IN (0, 1))
+GO
+
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT CHK_estadoCompra
 	CHECK (estadoCompra IN ('Cotización','Orden de Compra', 'Compra'))
 GO
 
-ALTER TABLE Compras.Compra
-	ADD CONSTRAINT AK_Compras_Compra$FacturaUnica
-	UNIQUE (numeroFactura)
-GO
+--ALTER TABLE Compras.Compra
+--	ADD CONSTRAINT AK_Compras_Compra$FacturaUnica
+--	UNIQUE (numeroFactura)
+--GO
 
 ALTER TABLE Compras.Compra
 	ADD CONSTRAINT CHK_SubTotalMayorQueCero
@@ -391,3 +433,16 @@ ALTER TABLE Compras.DetalleCompra
 	ADD CONSTRAINT CHK_SubTotalDetalleMayorQueCero
 	CHECK (subTotal >= 0)
 GO
+
+
+ALTER TABLE Compras.Compra
+	ALTER COLUMN numeroFactura NVARCHAR(19) NULL
+GO
+
+ALTER TABLE Compras.Compra
+	ALTER COLUMN autorizadaPor INT NULL
+GO
+
+ALTER TABLE Inventario.Impuesto
+	ALTER COLUMN valor DECIMAL(8,2) NOT NULL
+Go
