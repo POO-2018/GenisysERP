@@ -101,6 +101,7 @@
             this.txtCodigo.Depth = 0;
             this.txtCodigo.Hint = "";
             this.txtCodigo.Location = new System.Drawing.Point(222, 96);
+            this.txtCodigo.MaxLength = 32767;
             this.txtCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.PasswordChar = '\0';
@@ -109,6 +110,7 @@
             this.txtCodigo.SelectionStart = 0;
             this.txtCodigo.Size = new System.Drawing.Size(466, 23);
             this.txtCodigo.TabIndex = 4;
+            this.txtCodigo.TabStop = false;
             this.txtCodigo.UseSystemPasswordChar = false;
             // 
             // txtNombre
@@ -116,6 +118,7 @@
             this.txtNombre.Depth = 0;
             this.txtNombre.Hint = "";
             this.txtNombre.Location = new System.Drawing.Point(222, 142);
+            this.txtNombre.MaxLength = 32767;
             this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
@@ -124,6 +127,7 @@
             this.txtNombre.SelectionStart = 0;
             this.txtNombre.Size = new System.Drawing.Size(466, 23);
             this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabStop = false;
             this.txtNombre.UseSystemPasswordChar = false;
             // 
             // txtDescripcion
@@ -131,6 +135,7 @@
             this.txtDescripcion.Depth = 0;
             this.txtDescripcion.Hint = "";
             this.txtDescripcion.Location = new System.Drawing.Point(222, 200);
+            this.txtDescripcion.MaxLength = 32767;
             this.txtDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.PasswordChar = '\0';
@@ -139,6 +144,7 @@
             this.txtDescripcion.SelectionStart = 0;
             this.txtDescripcion.Size = new System.Drawing.Size(466, 23);
             this.txtDescripcion.TabIndex = 6;
+            this.txtDescripcion.TabStop = false;
             this.txtDescripcion.UseSystemPasswordChar = false;
             // 
             // txtUsuario
@@ -146,6 +152,7 @@
             this.txtUsuario.Depth = 0;
             this.txtUsuario.Hint = "";
             this.txtUsuario.Location = new System.Drawing.Point(222, 250);
+            this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
@@ -154,16 +161,20 @@
             this.txtUsuario.SelectionStart = 0;
             this.txtUsuario.Size = new System.Drawing.Size(466, 23);
             this.txtUsuario.TabIndex = 7;
+            this.txtUsuario.TabStop = false;
             this.txtUsuario.UseSystemPasswordChar = false;
             // 
             // btnAgregar
             // 
+            this.btnAgregar.AutoSize = true;
+            this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAgregar.Depth = 0;
+            this.btnAgregar.Icon = null;
             this.btnAgregar.Location = new System.Drawing.Point(110, 480);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Primary = true;
-            this.btnAgregar.Size = new System.Drawing.Size(154, 51);
+            this.btnAgregar.Size = new System.Drawing.Size(83, 36);
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -171,12 +182,15 @@
             // 
             // btnInhabilitar
             // 
+            this.btnInhabilitar.AutoSize = true;
+            this.btnInhabilitar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnInhabilitar.Depth = 0;
+            this.btnInhabilitar.Icon = null;
             this.btnInhabilitar.Location = new System.Drawing.Point(430, 480);
             this.btnInhabilitar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInhabilitar.Name = "btnInhabilitar";
             this.btnInhabilitar.Primary = true;
-            this.btnInhabilitar.Size = new System.Drawing.Size(154, 51);
+            this.btnInhabilitar.Size = new System.Drawing.Size(103, 36);
             this.btnInhabilitar.TabIndex = 9;
             this.btnInhabilitar.Text = "Inhabilitar";
             this.btnInhabilitar.UseVisualStyleBackColor = true;
@@ -184,12 +198,15 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.AutoSize = true;
+            this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizar.Depth = 0;
+            this.btnActualizar.Icon = null;
             this.btnActualizar.Location = new System.Drawing.Point(270, 480);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
-            this.btnActualizar.Size = new System.Drawing.Size(154, 51);
+            this.btnActualizar.Size = new System.Drawing.Size(103, 36);
             this.btnActualizar.TabIndex = 11;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -197,12 +214,15 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.AutoSize = true;
+            this.btnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSalir.Depth = 0;
+            this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(590, 480);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
-            this.btnSalir.Size = new System.Drawing.Size(98, 51);
+            this.btnSalir.Size = new System.Drawing.Size(58, 36);
             this.btnSalir.TabIndex = 12;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -237,6 +257,7 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Name = "frmCategoriaInventario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categoria Inventario";
             this.Load += new System.EventHandler(this.frmCategoriaInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwCategorias)).EndInit();
