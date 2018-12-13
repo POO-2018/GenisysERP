@@ -47,5 +47,11 @@ namespace frmLogin
             frmMantenimientoUsuarios vista = new frmMantenimientoUsuarios();
             vista.Show();
         }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            Empleados.frmEmpleados vista = new frmEmpleados();
+            vista.ShowDialog();
+        }
     }
 }
