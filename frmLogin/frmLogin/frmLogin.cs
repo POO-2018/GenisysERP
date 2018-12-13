@@ -22,19 +22,21 @@ namespace frmLogin
         public frmLogin()
         {
             InitializeComponent();
-
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Red700, Primary.Red900,
-                Primary.Brown500, Accent.Red100, TextShade.WHITE
-
-            );
+                Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_Click(object sender, EventArgs e)
         {
 
         }
