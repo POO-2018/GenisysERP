@@ -115,6 +115,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Empleados\CRUD\CRUD empleados.sql" />
     <Content Include="Empleados\CRUD\CRUD Usuario.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>

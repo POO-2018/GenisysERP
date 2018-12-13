@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,12 +31,22 @@ namespace frmLogin.Empleados
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        private void materialLabel3_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void materialLabel4_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHabilitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDesabilitar_Click(object sender, EventArgs e)
         {
 
         }
