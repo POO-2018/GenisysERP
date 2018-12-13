@@ -44,7 +44,6 @@
             this.cmbIdCategoria = new System.Windows.Forms.ComboBox();
             this.cmbIdProveedor = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnActualizar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnInhabilitar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.numericExistencia = new System.Windows.Forms.NumericUpDown();
@@ -265,7 +264,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Depth = 0;
-            this.btnAgregar.Location = new System.Drawing.Point(586, 592);
+            this.btnAgregar.Location = new System.Drawing.Point(454, 585);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Primary = true;
@@ -275,22 +274,10 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Depth = 0;
-            this.btnBuscar.Location = new System.Drawing.Point(718, 593);
-            this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Primary = true;
-            this.btnBuscar.Size = new System.Drawing.Size(96, 34);
-            this.btnBuscar.TabIndex = 14;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // btnActualizar
             // 
             this.btnActualizar.Depth = 0;
-            this.btnActualizar.Location = new System.Drawing.Point(850, 593);
+            this.btnActualizar.Location = new System.Drawing.Point(586, 584);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
@@ -303,7 +290,7 @@
             // btnInhabilitar
             // 
             this.btnInhabilitar.Depth = 0;
-            this.btnInhabilitar.Location = new System.Drawing.Point(454, 592);
+            this.btnInhabilitar.Location = new System.Drawing.Point(722, 584);
             this.btnInhabilitar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInhabilitar.Name = "btnInhabilitar";
             this.btnInhabilitar.Primary = true;
@@ -344,6 +331,7 @@
             this.dgvInventario.TabIndex = 16;
             this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
             this.dgvInventario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInventario_CellMouseDoubleClick);
+            this.dgvInventario.SystemColorsChanged += new System.EventHandler(this.dgvInventario_SystemColorsChanged);
             // 
             // numericPrecioCompra
             // 
@@ -370,7 +358,7 @@
             // btnHabilitar
             // 
             this.btnHabilitar.Depth = 0;
-            this.btnHabilitar.Location = new System.Drawing.Point(352, 591);
+            this.btnHabilitar.Location = new System.Drawing.Point(852, 584);
             this.btnHabilitar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Primary = true;
@@ -410,7 +398,6 @@
             this.Controls.Add(this.numericExistencia);
             this.Controls.Add(this.btnInhabilitar);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cmbIdProveedor);
             this.Controls.Add(this.cmbIdCategoria);
@@ -458,7 +445,6 @@
         private System.Windows.Forms.ComboBox cmbIdCategoria;
         private System.Windows.Forms.ComboBox cmbIdProveedor;
         private MaterialSkin.Controls.MaterialRaisedButton btnAgregar;
-        private MaterialSkin.Controls.MaterialRaisedButton btnBuscar;
         private MaterialSkin.Controls.MaterialRaisedButton btnActualizar;
         private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitar;
         private System.Windows.Forms.NumericUpDown numericExistencia;

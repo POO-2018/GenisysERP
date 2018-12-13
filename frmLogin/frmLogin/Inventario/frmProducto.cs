@@ -24,7 +24,7 @@ namespace frmLogin.Inventario
         public string idCategoria;
         public string idProveedor;
         public string idProducto;
-        public string idInventario;
+        public string idInventario;      
         private MaterialSkinManager materialSkinManager;
 
         public frmProducto(string x)
@@ -42,6 +42,7 @@ namespace frmLogin.Inventario
             // Conectar con la base de datos
             // Nos servirá para poder realizar la búsqueda de producto 
             // Filtrando por nombre
+            
             llenarComboBox();
 
         }
@@ -191,11 +192,12 @@ namespace frmLogin.Inventario
                 Nuevo.idImpuesto = Convert.ToInt32(idimpuesto);
                 Nuevo.IdCategoria = Convert.ToInt32(idCategoria);
                 Nuevo.idProveedor = Convert.ToInt32(idProveedor);
-                Nuevo.idUsuario = 1;
+                Nuevo.idUsuario = 2;
                 Nuevo.observaciones = txtObservaciones.Text;
 
                 if (Nuevo.InsertarProducto(Nuevo))
                 {
+                
                     MessageBox.Show("Exito");
                 }
                 else
@@ -215,7 +217,7 @@ namespace frmLogin.Inventario
         private void btnInhabilitar_Click_1(object sender, EventArgs e)
         {
             Inventario.Producto inhabilitar = new Inventario.Producto();
-            if (inhabilitar.InhabilitarProducto(idProducto))
+            if (inhabilitar.InhabilitarProducto(idInventario))
             {
                 MessageBox.Show("Exito!");
             }
@@ -229,7 +231,7 @@ namespace frmLogin.Inventario
         private void btnHabilitar_Click(object sender, EventArgs e)
         {
             Inventario.Producto habilitar = new Inventario.Producto();
-            if (habilitar.HabilitarProducto(idProducto))
+            if (habilitar.HabilitarProducto(idInventario))
             {
 
                 MessageBox.Show("Exito!");
@@ -354,6 +356,7 @@ namespace frmLogin.Inventario
         // Llenar el data grid view
         private void dgvInventario_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            idInventario = dgvInventario.CurrentRow.Cells["idInvetario"].Value.ToString();
             txtCodigoProducto.Text = dgvInventario.CurrentRow.Cells["idProducto"].Value.ToString();
             txtNombre.Text = dgvInventario.CurrentRow.Cells["nombre"].Value.ToString();
             numericExistencia.Text = dgvInventario.CurrentRow.Cells["cantidadExistencia"].Value.ToString();
@@ -510,6 +513,7 @@ namespace frmLogin.Inventario
             Inventario.Producto Nuevo = new Inventario.Producto();
             Nuevo.idProducto = txtCodigoProducto.Text;
             Nuevo.nombre = txtNombre.Text;
+            Nuevo.idInvetario = Convert.ToInt32(idInventario);
             Nuevo.cantidadExistencia = Convert.ToInt32(numericExistencia.Value);
             Nuevo.cantidadMinima = Convert.ToInt32(numericCantidadMinima.Value);
             Nuevo.precioCompra = Convert.ToInt32(numericPrecioCompra.Value);
@@ -528,6 +532,22 @@ namespace frmLogin.Inventario
             {
                 MessageBox.Show("Error");
             }
+        }
+
+        private void dgvInventario_SystemColorsChanged(object sender, EventArgs e)
+        {
+            idInventario = dgvInventario.CurrentRow.Cells["idInvetario"].Value.ToString();
+            //if (Convert.ToInt32(dgvInventario.CurrentRow.Cells["estado"].Value) == 1)
+            //{
+            //    btnInhabilitar.Visible = true;
+            //    btnHabilitar.Visible = false;
+            //}
+            //else
+            //{
+            //    btnInhabilitar.Visible = false;
+            //    btnHabilitar.Visible = true;
+            //}
+
         }
     }
 }

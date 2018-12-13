@@ -157,33 +157,33 @@ namespace frmLogin.Inventario
             cmd.CommandType = CommandType.StoredProcedure;
 
             // Parámetros
-            cmd.Parameters.Add(new SqlParameter("idProducto", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("nombre", SqlDbType.NVarChar, 100));
-            cmd.Parameters.Add(new SqlParameter("cantidadExistencia", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("cantidadMinima", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("precioCompra", SqlDbType.Float));
-            cmd.Parameters.Add(new SqlParameter("precioVenta", SqlDbType.Float));
-            cmd.Parameters.Add(new SqlParameter("fechaIngreso", SqlDbType.DateTime2));
-            cmd.Parameters.Add(new SqlParameter("idUsuario", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("observaciones", SqlDbType.NVarChar, 100));
-            cmd.Parameters.Add(new SqlParameter("idImpuesto", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("idCategoria", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("idProveedor", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Bit));
+            cmd.Parameters.Add(new SqlParameter("@idInventario", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@idProducto", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.NVarChar, 100));
+            cmd.Parameters.Add(new SqlParameter("@cantidadExistencia", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@cantidadMinima", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@precioCompra", SqlDbType.Float));
+            cmd.Parameters.Add(new SqlParameter("@precioVenta", SqlDbType.Float));
+            //cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@observaciones", SqlDbType.NVarChar, 100));
+            cmd.Parameters.Add(new SqlParameter("@idImpuesto", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@idCategoria", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@estado", SqlDbType.Bit));
 
-            cmd.Parameters["idProducto"].Value = elProducto.idProducto;
-            cmd.Parameters["nombre"].Value = elProducto.nombre;
-            cmd.Parameters["cantidadExistencia"].Value = elProducto.cantidadExistencia;
-            cmd.Parameters["cantidadMinima"].Value = elProducto.cantidadMinima;
-            cmd.Parameters["precioCompra"].Value = elProducto.precioCompra;
-            cmd.Parameters["precioVenta"].Value = elProducto.precioVenta;
-            cmd.Parameters["fechaIngreso"].Value = elProducto.fechaIngresa;
-            cmd.Parameters["idUsuario"].Value = elProducto.idUsuario;
-            cmd.Parameters["observaciones"].Value = elProducto.observaciones;
-            cmd.Parameters["idImpuesto"].Value = elProducto.idImpuesto;
-            cmd.Parameters["idCategoria"].Value = elProducto.IdCategoria;
-            cmd.Parameters["idProveedor"].Value = elProducto.idProveedor;
-            cmd.Parameters["estado"].Value = elProducto.estado;
+            cmd.Parameters["@idInventario"].Value = elProducto.idInvetario;
+            cmd.Parameters["@idProducto"].Value = elProducto.idProducto;
+            cmd.Parameters["@nombre"].Value = elProducto.nombre;
+            cmd.Parameters["@cantidadExistencia"].Value = elProducto.cantidadExistencia;
+            cmd.Parameters["@cantidadMinima"].Value = elProducto.cantidadMinima;
+            cmd.Parameters["@precioCompra"].Value = elProducto.precioCompra;
+            cmd.Parameters["@precioVenta"].Value = elProducto.precioVenta;
+            //cmd.Parameters["@idUsuario"].Value = elProducto.idUsuario;
+            cmd.Parameters["@observaciones"].Value = elProducto.observaciones;
+            cmd.Parameters["@idImpuesto"].Value = elProducto.idImpuesto;
+            cmd.Parameters["@idCategoria"].Value = elProducto.IdCategoria;
+            cmd.Parameters["@idProveedor"].Value = elProducto.idProveedor;
+            cmd.Parameters["@estado"].Value = elProducto.estado;
 
             try
             {
@@ -233,17 +233,21 @@ namespace frmLogin.Inventario
                 conexion.CerrarConexion();
             }
         }
-        //UPDATE Inventario.Producto SET estado=0
-        //WHERE idInventario = @idInventario;
+ 
         // metodo para habilitar un producto
         public bool HabilitarProducto(string elProducto)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
-            SqlCommand cmd = conexion.EjecutarComando("UPDATE Inventario.Producto SET estado=0" +
-                                "WHERE idInventario = @idInventario;");
+            // Eniamos y especificamos el comando a utilizar
+            SqlCommand cmd = conexion.EjecutarComando("sp_HabiliarProducto");
+
+            cmd.CommandType = CommandType.StoredProcedure;
 
             // Parámetros
-            cmd.Parameters.Add("@idInventario", SqlDbType.Int).Value = elProducto;
+            cmd.Parameters.Add(new SqlParameter("@idInventario", SqlDbType.Int));
+            cmd.Parameters["@idInventario"].Value = elProducto;
+
+            //cmd.Parameters["idInventario"].Value = elProducto;
             try
             {
                 cmd.ExecuteNonQuery();
