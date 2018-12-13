@@ -24,6 +24,7 @@ namespace frmLogin
     {
         private MaterialSkinManager materialSkinManager;
         protected string idUsuario;
+        protected int nivelAcceso;
         public frmMenuPrincipal(string x)
         {
             InitializeComponent();
@@ -39,7 +40,8 @@ namespace frmLogin
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            Empleados.Usuario nivelacc = new Usuario();
+            nivelAcceso =  nivelacc.nivelAcceso(idUsuario);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -49,14 +51,28 @@ namespace frmLogin
 
         private void materialRaisedButton12_Click(object sender, EventArgs e)
         {
-            frmMantenimientoUsuarios vista = new frmMantenimientoUsuarios();
-            vista.Show();
+            if (nivelAcceso == 3)
+            {
+                frmMantenimientoUsuarios vista = new frmMantenimientoUsuarios();
+                vista.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            Empleados.frmEmpleados vista = new frmEmpleados();
-            vista.ShowDialog();
+            if (nivelAcceso == 3)
+            {
+                Empleados.frmEmpleados vista = new frmEmpleados();
+                vista.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
@@ -66,14 +82,29 @@ namespace frmLogin
 
         private void btnAgregarCompra_Click(object sender, EventArgs e)
         {
-            frmAgregarCompra agregarCompra = new frmAgregarCompra(idUsuario);
-            agregarCompra.ShowDialog();
+            if (nivelAcceso == 3)
+            {
+                frmAgregarCompra agregarCompra = new frmAgregarCompra(idUsuario);
+                agregarCompra.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
+            
         }
 
         private void btnActualizarCompra_Click(object sender, EventArgs e)
         {
-            frmMenuActualizar menuActualizar = new frmMenuActualizar(idUsuario);
-            menuActualizar.ShowDialog();
+            if (nivelAcceso >= 2)
+            {
+                frmMenuActualizar menuActualizar = new frmMenuActualizar(idUsuario);
+                menuActualizar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
 
         private void btnBusquedaCompra_Click(object sender, EventArgs e)
@@ -84,8 +115,15 @@ namespace frmLogin
 
         private void btnInhabilitarCompra_Click(object sender, EventArgs e)
         {
-            frmInhabilitarCompra inhabilitarCompra = new frmInhabilitarCompra();
-            inhabilitarCompra.ShowDialog();
+            if (nivelAcceso == 3)
+            {
+                frmInhabilitarCompra inhabilitarCompra = new frmInhabilitarCompra();
+                inhabilitarCompra.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
@@ -102,8 +140,15 @@ namespace frmLogin
 
         private void btnImpuestos_Click(object sender, EventArgs e)
         {
-            frmImpuestoProducto nuevo = new frmImpuestoProducto();
-            nuevo.ShowDialog();
+            if (nivelAcceso == 3)
+            {
+                frmImpuestoProducto nuevo = new frmImpuestoProducto();
+                nuevo.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -114,14 +159,28 @@ namespace frmLogin
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            frmProveedor vista = new frmProveedor();
-            vista.ShowDialog();
+            if (nivelAcceso == 3)
+            {
+                frmProveedor vista = new frmProveedor();
+                vista.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
 
         private void btnContactos_Click(object sender, EventArgs e)
         {
-            frmContacto vista = new frmContacto(idUsuario);
-            vista.ShowDialog();
+            if (nivelAcceso >= 2)
+            {
+                frmContacto vista = new frmContacto(idUsuario);
+                vista.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
+            }
         }
     }
 }

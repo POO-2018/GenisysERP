@@ -192,5 +192,50 @@ namespace frmLogin.Empleados
                 conn.CerrarConexion();
             }
         }
+
+        public int nivelAcceso(string id)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            string sql;
+            List<Usuario> Lista = new List<Usuario>();
+
+            // Query SQL
+            sql = @"SELECT        Empleados.Cargo.nivelAcceso
+FROM            Empleados.Cargo INNER JOIN
+                         Empleados.Empleado ON Empleados.Cargo.id = Empleados.Empleado.cargo INNER JOIN
+                         Empleados.Usuario ON Empleados.Empleado.id = Empleados.Usuario.idEmpleado WHERE Empleados.Usuario.id = @id";
+
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                }
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    
+                    return rdr.GetInt32(0);
+                    
+                }
+
+                
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return 0;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+            return 0;
+        }
     }
 }

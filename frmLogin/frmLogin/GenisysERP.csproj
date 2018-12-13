@@ -244,6 +244,7 @@
     <Content Include="Clientes\storedProcedure_Cliente.sql" />
     <Content Include="Clientes\storedProcedure_Contacto.sql" />
     <Content Include="Clientes\storedProcedure_Proveedor.sql" />
+    <Content Include="Empleados\CRUD\InsertarCargos.sql" />
     <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Inventario\storeProcedureImpuesto\StoreProcedures_Impuesto.sql" />
     <Content Include="Inventario\sp_CategoriaInventario.sql" />
