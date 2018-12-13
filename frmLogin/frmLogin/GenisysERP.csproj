@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Empleados\CRUD\CRUD Usuario.sql" />
+    <Content Include="Empleados\CRUD\CRUD-empleados.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>
   <ItemGroup>
