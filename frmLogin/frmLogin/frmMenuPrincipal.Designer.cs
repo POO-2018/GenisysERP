@@ -47,6 +47,7 @@
             this.btnEmpleados = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tsMenu = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.Acercade = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tbMenu.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -311,7 +312,6 @@
             // 
             // materialRaisedButton1
             // 
-            this.materialRaisedButton1.AutoSize = true;
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
@@ -319,22 +319,40 @@
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(58, 36);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(76, 38);
             this.materialRaisedButton1.TabIndex = 2;
+            this.materialRaisedButton1.TabStop = false;
             this.materialRaisedButton1.Text = "Salir\r\n";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // Acercade
+            // 
+            this.Acercade.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Acercade.Depth = 0;
+            this.Acercade.Icon = null;
+            this.Acercade.Location = new System.Drawing.Point(3, 427);
+            this.Acercade.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Acercade.Name = "Acercade";
+            this.Acercade.Primary = true;
+            this.Acercade.Size = new System.Drawing.Size(155, 20);
+            this.Acercade.TabIndex = 3;
+            this.Acercade.Text = "Acerca de nosotros";
+            this.Acercade.UseVisualStyleBackColor = true;
+            this.Acercade.Click += new System.EventHandler(this.Acercade_Click);
             // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 449);
+            this.Controls.Add(this.Acercade);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.tsMenu);
             this.Controls.Add(this.tbMenu);
             this.MaximizeBox = false;
             this.Name = "frmMenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Genisys ERP";
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.tbMenu.ResumeLayout(false);
@@ -343,7 +361,6 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -368,5 +385,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnContactos;
         private MaterialSkin.Controls.MaterialRaisedButton btnProveedores;
         private MaterialSkin.Controls.MaterialRaisedButton btnClientes;
+        private MaterialSkin.Controls.MaterialRaisedButton Acercade;
     }
 }

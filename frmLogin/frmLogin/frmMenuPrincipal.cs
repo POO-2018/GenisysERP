@@ -77,6 +77,7 @@ namespace frmLogin
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
+            Application.Exit();
             this.Close();
         }
 
@@ -181,6 +182,11 @@ namespace frmLogin
             {
                 MessageBox.Show("No cuentas con los suficientes permisos!", "Restriccion de seguridad");
             }
+        }
+
+        private void Acercade_Click(object sender, EventArgs e)
+        {
+            frmAcercaDe vista = new frmAcercaDe();
         }
     }
 }
