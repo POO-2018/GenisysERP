@@ -10,7 +10,8 @@ using System.Windows.Forms;
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
-using frmLogin.Inventario;
+
+using frmLogin.Compras;
 
 
 namespace frmLogin
@@ -45,22 +46,33 @@ namespace frmLogin
 
         }
 
-        private void btnCategorias_Click(object sender, EventArgs e)
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            frmCategoriaInventario abrir = new frmCategoriaInventario();
-            abrir.Show();
+            this.Close();
         }
 
-        private void btnInventario_Click(object sender, EventArgs e)
+        private void btnAgregarCompra_Click(object sender, EventArgs e)
         {
-            frmProducto nuevo = new frmProducto("1");
-            nuevo.ShowDialog();
+            frmAgregarCompra agregarCompra = new frmAgregarCompra("1");
+            agregarCompra.ShowDialog();
         }
 
-        private void btnImpuestos_Click(object sender, EventArgs e)
+        private void btnActualizarCompra_Click(object sender, EventArgs e)
         {
-            frmImpuestoProducto nuevo = new frmImpuestoProducto();
-            nuevo.ShowDialog();
+            frmMenuActualizar menuActualizar = new frmMenuActualizar("1");
+            menuActualizar.ShowDialog();
+        }
+
+        private void btnBusquedaCompra_Click(object sender, EventArgs e)
+        {
+            frmBuscarCompras buscarCompras = new frmBuscarCompras(0);
+            buscarCompras.ShowDialog();
+        }
+
+        private void btnInhabilitarCompra_Click(object sender, EventArgs e)
+        {
+            frmInhabilitarCompra inhabilitarCompra = new frmInhabilitarCompra();
+            inhabilitarCompra.ShowDialog();
         }
     }
 }

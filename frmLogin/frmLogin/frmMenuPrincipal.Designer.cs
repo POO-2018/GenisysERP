@@ -143,6 +143,7 @@
             this.btnInhabilitarCompra.TabIndex = 4;
             this.btnInhabilitarCompra.Text = "Inhabilitar";
             this.btnInhabilitarCompra.UseVisualStyleBackColor = true;
+            this.btnInhabilitarCompra.Click += new System.EventHandler(this.btnInhabilitarCompra_Click);
             // 
             // btnBusquedaCompra
             // 
@@ -155,6 +156,7 @@
             this.btnBusquedaCompra.TabIndex = 3;
             this.btnBusquedaCompra.Text = "Busquedas";
             this.btnBusquedaCompra.UseVisualStyleBackColor = true;
+            this.btnBusquedaCompra.Click += new System.EventHandler(this.btnBusquedaCompra_Click);
             // 
             // btnActualizarCompra
             // 
@@ -167,6 +169,7 @@
             this.btnActualizarCompra.TabIndex = 2;
             this.btnActualizarCompra.Text = "Actualizar compra";
             this.btnActualizarCompra.UseVisualStyleBackColor = true;
+            this.btnActualizarCompra.Click += new System.EventHandler(this.btnActualizarCompra_Click);
             // 
             // btnAgregarCompra
             // 
@@ -179,6 +182,7 @@
             this.btnAgregarCompra.TabIndex = 1;
             this.btnAgregarCompra.Text = "Agregar compras";
             this.btnAgregarCompra.UseVisualStyleBackColor = true;
+            this.btnAgregarCompra.Click += new System.EventHandler(this.btnAgregarCompra_Click);
             // 
             // tabPage3
             // 
@@ -302,6 +306,7 @@
             this.materialRaisedButton1.TabIndex = 2;
             this.materialRaisedButton1.Text = "Salir\r\n";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // frmMenuPrincipal
             // 
