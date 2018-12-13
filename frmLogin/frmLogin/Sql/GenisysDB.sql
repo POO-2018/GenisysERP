@@ -51,7 +51,8 @@ CREATE TABLE ERP.Configuracion(
 		CONSTRAINT PK_ERP_Configuracion_id PRIMARY KEY CLUSTERED,
 	appkey NCHAR(50) NOT NULL,
 	valor NCHAR(50) NOT NULL,
-	descripcion NVARCHAR(200) NOT NULL
+	descripcion NVARCHAR(200) NOT NULL,
+	estado bit NOT NULL
 );
 GO
 
@@ -138,7 +139,7 @@ CREATE TABLE Inventario.Impuesto
 idImpuesto INT NOT NULL IDENTITY (10, 1) CONSTRAINT  PK_idImpuesto PRIMARY KEY CLUSTERED (idImpuesto),
 idCodigoImpuesto CHAR(5) NOT NULL,
 descripcion NVARCHAR(100) NOT NULL,
-valor DECIMAL NOT NULL,
+valor DECIMAL(10,2) NOT NULL,
 fechaCreacion DATETIME NOT NULL,
 idUsuario INT NOT NULL,
 observasion NVARCHAR(100) NOT NULL,
@@ -154,6 +155,7 @@ idCategoria INT NOT NULL IDENTITY (100, 1) CONSTRAINT PK_idCategoria PRIMARY KEY
 idCodigoTipo CHAR(5) NOT NULL,
 nombre NVARCHAR(100) NOT NULL,
 descripcion NVARCHAR(100) NOT NULL,
+estado BIT NOT NULL,
 idUsuario INT NOT NULL
 );
 GO
@@ -167,8 +169,8 @@ idProducto CHAR(12) NOT NULL,
 nombre NVARCHAR(100) NOT NULL,
 cantidadExistencia INT NOT NULL,
 cantidadMinima INT NOT NULL,
-precioCompra FLOAT NOT NULL,
-precioVenta FLOAT NOT NULL,
+precioCompra DECIMAL(10,2) NOT NULL,
+precioVenta DECIMAL(10,2) NOT NULL,
 fechaIngreso DATETIME NOT NULL,
 idUsuario INT NOT NULL,
 observaciones NVARCHAR(100) NOT NULL,
@@ -316,6 +318,11 @@ GO
 ---------------------------------------------------------------------------
 -- CHECK CONSTRAINT
 ---------------------------------------------------------------------------
+ALTER TABLE Inventario.Categoria
+	ADD CONSTRAINT CHK_DFLT_Inventario_Categoria
+	DEFAULT '1' for estado
+GO
+
 
 ALTER TABLE Inventario.Producto
 ADD CONSTRAINT CHK_Inventario_Inventario$CantidadExistenciaDebeSerMayorA0

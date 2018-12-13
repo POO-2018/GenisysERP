@@ -77,7 +77,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(609, 278);
+            this.tabPage1.Size = new System.Drawing.Size(609, 248);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Clientes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(609, 278);
+            this.tabPage2.Size = new System.Drawing.Size(609, 248);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Compras";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@
             this.tabPage3.Controls.Add(this.btnCategorias);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(609, 278);
+            this.tabPage3.Size = new System.Drawing.Size(609, 248);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -203,6 +203,7 @@
             this.btnInventario.TabIndex = 7;
             this.btnInventario.Text = "Inventario";
             this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnImpuestos
             // 
@@ -215,6 +216,7 @@
             this.btnImpuestos.TabIndex = 6;
             this.btnImpuestos.Text = "Impuestos";
             this.btnImpuestos.UseVisualStyleBackColor = true;
+            this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
             // 
             // btnCategorias
             // 
@@ -227,6 +229,7 @@
             this.btnCategorias.TabIndex = 5;
             this.btnCategorias.Text = "Categorias";
             this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // tabPage4
             // 
@@ -324,10 +327,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialTabControl tbMenu;
-        private System.Windows.Forms.TabPage tabPage1;
-        private MaterialSkin.Controls.MaterialRaisedButton btnContactos;
-        private MaterialSkin.Controls.MaterialRaisedButton btnProveedores;
-        private MaterialSkin.Controls.MaterialRaisedButton btnClientes;
         private System.Windows.Forms.TabPage tabPage2;
         private MaterialSkin.Controls.MaterialRaisedButton btnInhabilitarCompra;
         private MaterialSkin.Controls.MaterialRaisedButton btnBusquedaCompra;
@@ -343,5 +342,9 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnEmpleados;
         private MaterialSkin.Controls.MaterialTabSelector tsMenu;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnContactos;
+        private MaterialSkin.Controls.MaterialRaisedButton btnProveedores;
+        private MaterialSkin.Controls.MaterialRaisedButton btnClientes;
     }
 }

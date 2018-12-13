@@ -7,7 +7,7 @@ CREATE PROCEDURE sp_InsertarImpuesto
 (
 	@idCodigoImpuesto CHAR(5),
 	@descripcion NVARCHAR(100),
-	@valor DECIMAL,
+	@valor DECIMAL(10,2),
 	@fechaCreacion DATETIME, 
 	@idUsuario INT,
 	@observacion NVARCHAR(100),
@@ -28,7 +28,7 @@ CREATE PROCEDURE sp_ActualizarImpuesto
 	@idImpuesto INT,
 	@idCodigoImpuesto CHAR(5),
 	@descripcion NVARCHAR(100),
-	@valor DECIMAL,
+	@valor DECIMAL(10,2),
 	@fechaCreacion DATETIME, 
 	@idUsuario INT,
 	@observacion NVARCHAR(100),
@@ -56,6 +56,14 @@ CREATE PROCEDURE sp_EliminarImpuesto
 	@idImpuesto INT
 )
 AS 
-DELETE FROM Inventario.Impuesto
-	WHERE @idImpuesto = idImpuesto
+UPDATE Inventario.Impuesto SET estado=0 WHERE idImpuesto=@idImpuesto;
 GO
+
+CREATE PROCEDURE sp_HabilitarImpuesto
+(
+	@idImpuesto INT
+)
+AS 
+UPDATE Inventario.Impuesto SET estado=1 WHERE idImpuesto=@idImpuesto;
+GO
+

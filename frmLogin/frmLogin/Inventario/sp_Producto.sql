@@ -6,14 +6,12 @@ de la tabla inventario.Producto
 */
 
 CREATE PROCEDURE sp_InsertarProducto(
-@idInventario int,
 @idProducto int,
 @nombre NVARCHAR(100),
 @cantidadExistencia INT,
 @cantidadMinima INT,
-@precioCompra FLOAT,
-@precioVenta FLOAT,
-@fechaIngreso DATETIME,
+@precioCompra DECIMAL,
+@precioVenta DECIMAL,
 @idUsuario INT,
 @observaciones NVARCHAR(100),
 @idImpuesto INT,
@@ -25,7 +23,7 @@ AS
 BEGIN
 	INSERT INTO Inventario.Producto(idProducto,nombre,cantidadExistencia,cantidadMinima,precioCompra,precioVenta,fechaIngreso,
 								    idUsuario,observaciones,idImpuesto,idCategoria,idProveedor,estado)
-VALUES(@idProducto,@nombre,@cantidadExistencia,@cantidadMinima,@precioCompra,@precioVenta,@fechaIngreso,@idUsuario,@observaciones,
+VALUES(@idProducto,@nombre,@cantidadExistencia,@cantidadMinima,@precioCompra,@precioVenta,GETDATE(),@idUsuario,@observaciones,
 	   @idImpuesto,@idCategoria,@idProveedor,@estado);
 END
 GO
@@ -36,10 +34,8 @@ CREATE PROCEDURE sp_ActualizarProducto(
 @nombre NVARCHAR(100),
 @cantidadExistencia INT,
 @cantidadMinima INT,
-@precioCompra FLOAT,
-@precioVenta FLOAT,
-@fechaIngreso DATETIME,
-@idUsuario INT,
+@precioCompra DECIMAL,
+@precioVenta DECIMAL,
 @observaciones NVARCHAR(100),
 @idImpuesto INT,
 @idCategoria INT,
@@ -50,7 +46,7 @@ AS
 BEGIN
 	UPDATE Inventario.Producto SET idProducto=@idProducto,nombre=@nombre,cantidadExistencia=@cantidadExistencia,
 	                               cantidadMinima=@cantidadMinima,precioCompra=@precioCompra,precioVenta=@precioVenta,
-								   fechaIngreso=@fechaIngreso,idUsuario=@idUsuario,observaciones=@observaciones,idImpuesto=@idImpuesto,
+								   observaciones=@observaciones,idImpuesto=@idImpuesto,
 								   idCategoria=@idCategoria,idProveedor=@idProveedor,estado=@estado
 								   WHERE idInventario=@idInventario;
 END
@@ -63,5 +59,15 @@ CREATE PROCEDURE sp_InhabiliarProducto(
 AS
 BEGIN
 	UPDATE Inventario.Producto SET estado=0
+								   WHERE idInventario=@idInventario;
+END
+GO
+
+CREATE PROCEDURE sp_HabiliarProducto(
+@idInventario int
+)
+AS
+BEGIN
+	UPDATE Inventario.Producto SET estado=1
 								   WHERE idInventario=@idInventario;
 END

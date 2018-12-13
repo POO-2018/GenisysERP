@@ -10,17 +10,17 @@ using System.Windows.Forms;
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
-using frmLogin.Inventario;
-
 
 namespace frmLogin
 {
-    public partial class frmMenuPrincipal : MaterialForm
+    public partial class frmAcercaDe : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-        public frmMenuPrincipal()
+
+        public frmAcercaDe()
         {
             InitializeComponent();
+
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -30,37 +30,20 @@ namespace frmLogin
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        private void frmAcercaDe_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-
+            //Cerramos el formulario.
+            this.Close();
         }
 
-        private void materialRaisedButton12_Click(object sender, EventArgs e)
+        private void materialLabel21_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnCategorias_Click(object sender, EventArgs e)
-        {
-            frmCategoriaInventario abrir = new frmCategoriaInventario();
-            abrir.Show();
-        }
-
-        private void btnInventario_Click(object sender, EventArgs e)
-        {
-            frmProducto nuevo = new frmProducto("1");
-            nuevo.ShowDialog();
-        }
-
-        private void btnImpuestos_Click(object sender, EventArgs e)
-        {
-            frmImpuestoProducto nuevo = new frmImpuestoProducto();
-            nuevo.ShowDialog();
         }
     }
 }
