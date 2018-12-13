@@ -6,22 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Windows.Forms;
 
-
-namespace frmLogin
+namespace frmLogin.Empleados
 {
-    public partial class frmLogin : MaterialForm
+    public partial class frmCambiarContrasena : MaterialForm
     {
-
         private MaterialSkinManager materialSkinManager;
-        public frmLogin()
+        public frmCambiarContrasena()
         {
             InitializeComponent();
+
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -29,18 +28,11 @@ namespace frmLogin
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
-            txtContraseña.Text = "";
-            txtContraseña.PasswordChar = '*';
+
+            txtUsuario.Text = frmMantenimientoUsuarios.x;
         }
 
-        private void cambiarFuente()
-        {
-            //lblErrorUsuarioContrasena.BackColor = Color.WhiteSmoke;
-            lblErrorUsuarioContrasena.ForeColor = Color.Gold;
-            lblErrorUsuarioContrasena.Font = new Font("Roboto", 8, FontStyle.Regular);
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnConfirmarCambioContrasena_Click(object sender, EventArgs e)
         {
             Conexion conexion = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
             //Empleados.Encriptacion encriptacion = new Empleados.Encriptacion();
@@ -48,7 +40,11 @@ namespace frmLogin
             string sql = @"SELECT contrasena FROM Empleados.Usuario WHERE nombreUsuario = @Usuario";
             SqlCommand cmd = conexion.EjecutarComando(sql);
             string laEncriptacion;
-            laEncriptacion = Empleados.Encriptacion.procesarSha256Hash(txtContraseña.Text);
+            string segundaEncriptacion;
+            string otraEncriptacion;
+            laEncriptacion = Empleados.Encriptacion.procesarSha256Hash(txtContrasenaActual.Text);
+            segundaEncriptacion = Empleados.Encriptacion.procesarSha256Hash(txtNuevaContraseña.Text);
+            otraEncriptacion = Empleados.Encriptacion.procesarSha256Hash(txtConfirmarNuevaContraseña.Text);
 
             SqlDataReader rdr;
 
@@ -69,12 +65,11 @@ namespace frmLogin
 
                 if (laEncriptacion == usuario.contrasena)
                 {
-                    //Cambiar al formulario de Menu Principal
-                    Empleados.frmMantenimientoUsuarios mu = new Empleados.frmMantenimientoUsuarios();
-                    this.Hide();
-                    mu.ShowDialog();
-                    this.Show();
-                    LimpiarFormulario();
+                    if (segundaEncriptacion == otraEncriptacion)
+                    {
+                        MessageBox.Show("Contraseña actualizada", "Confirmacion");
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -87,18 +82,6 @@ namespace frmLogin
 
                 throw;
             }
-
-        }
-
-        private void LimpiarFormulario()
-        {
-            txtUsuario.Text = "";
-            txtContraseña.Text = "";
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

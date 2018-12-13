@@ -65,6 +65,11 @@ namespace frmLogin.Empleados
             }
         }
 
+        public void ModificarUsuario(Usuario elUsuario)
+        {
+
+        }
+
         public List<Usuario> ListarUsuario()
         {
             Conexion conexion = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
@@ -152,6 +157,8 @@ namespace frmLogin.Empleados
                 conexion.CerrarConexion();
             }
         }
+
+
 
         public bool Eliminar(string Nick)
         {

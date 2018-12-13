@@ -109,7 +109,6 @@
             this.txtContraseña.Size = new System.Drawing.Size(251, 23);
             this.txtContraseña.TabIndex = 4;
             this.txtContraseña.UseSystemPasswordChar = false;
-            this.txtContraseña.Click += new System.EventHandler(this.txtContraseña_Click);
             // 
             // btnAceptar
             // 

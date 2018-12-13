@@ -19,8 +19,9 @@ namespace frmLogin.Empleados
     public partial class frmMantenimientoUsuarios : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-        public string x;
+        public static string x;
         public string id;
+        public static string sel;
         public frmMantenimientoUsuarios()
         {
 
@@ -38,7 +39,7 @@ namespace frmLogin.Empleados
             string sql;
             // Query SQL
             sql = @"SELECT * FROM Empleados.Empleado WHERE estado = 1";
-            
+
             SqlCommand cmd = conn.EjecutarComando(sql);
             SqlDataReader rdr;
 
@@ -106,6 +107,7 @@ namespace frmLogin.Empleados
         private void dgvListarUsuarios_SelectionChanged(object sender, EventArgs e)
         {
             x = dgvListarUsuarios.CurrentRow.Cells["nombreUsuario"].Value.ToString();
+            //sel = dgvListarUsuarios.CurrentRow.Cells.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -152,6 +154,14 @@ namespace frmLogin.Empleados
             {
                 conn.CerrarConexion();
             }
+        }
+
+        private void btnCambiarContrasena_Click(object sender, EventArgs e)
+        {
+            frmCambiarContrasena cc = new frmCambiarContrasena();
+            cc.Show();
+
+            
         }
     }
 }

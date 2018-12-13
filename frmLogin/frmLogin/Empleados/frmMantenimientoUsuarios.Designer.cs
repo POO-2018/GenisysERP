@@ -40,6 +40,7 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCambiarContrasena = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvListarUsuarios = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -203,6 +204,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnCambiarContrasena);
             this.groupBox2.Controls.Add(this.dgvListarUsuarios);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnBuscar);
@@ -215,6 +217,19 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de usuarios";
+            // 
+            // btnCambiarContrasena
+            // 
+            this.btnCambiarContrasena.Depth = 0;
+            this.btnCambiarContrasena.Location = new System.Drawing.Point(95, 363);
+            this.btnCambiarContrasena.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCambiarContrasena.Name = "btnCambiarContrasena";
+            this.btnCambiarContrasena.Primary = true;
+            this.btnCambiarContrasena.Size = new System.Drawing.Size(131, 35);
+            this.btnCambiarContrasena.TabIndex = 13;
+            this.btnCambiarContrasena.Text = "Cambiar Contraseña";
+            this.btnCambiarContrasena.UseVisualStyleBackColor = true;
+            this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
             // 
             // dgvListarUsuarios
             // 
@@ -230,7 +245,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Depth = 0;
-            this.btnEliminar.Location = new System.Drawing.Point(195, 363);
+            this.btnEliminar.Location = new System.Drawing.Point(309, 363);
             this.btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Primary = true;
@@ -319,5 +334,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnEliminar;
         private MaterialSkin.Controls.MaterialRaisedButton btnBuscar;
         private System.Windows.Forms.DataGridView dgvListarUsuarios;
+        private MaterialSkin.Controls.MaterialRaisedButton btnCambiarContrasena;
     }
 }

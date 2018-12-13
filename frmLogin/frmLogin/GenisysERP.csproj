@@ -52,6 +52,12 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
     <Compile Include="Empleados\Encriptacion.cs" />
+    <Compile Include="Empleados\frmCambiarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmCambiarContrasena.Designer.cs">
+      <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Empleados\frmMantenimientoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Empleados\frmCambiarContrasena.resx">
+      <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Empleados\frmMantenimientoUsuarios.resx">
       <DependentUpon>frmMantenimientoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
