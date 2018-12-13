@@ -103,5 +103,23 @@ namespace frmLogin
             frmImpuestoProducto nuevo = new frmImpuestoProducto();
             nuevo.ShowDialog();
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            frmCliente nuevo = new frmCliente("1");
+            nuevo.ShowDialog();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedor nuevo = new frmProveedor();
+            nuevo.ShowDialog();
+        }
+
+        private void btnContactos_Click(object sender, EventArgs e)
+        {
+            frmContacto nuevo = new frmContacto("");
+            nuevo.ShowDialog();
+        }
     }
 }

@@ -96,6 +96,7 @@
             this.btnContactos.TabIndex = 2;
             this.btnContactos.Text = "Contactos";
             this.btnContactos.UseVisualStyleBackColor = true;
+            this.btnContactos.Click += new System.EventHandler(this.btnContactos_Click);
             // 
             // btnProveedores
             // 
@@ -111,6 +112,7 @@
             this.btnProveedores.TabIndex = 1;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // btnClientes
             // 

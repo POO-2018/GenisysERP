@@ -49,6 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\Cliente.cs" />
+    <Compile Include="Clientes\Contacto.cs" />
+    <Compile Include="Clientes\frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmCliente.designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmContacto.designer.cs">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmProveedor.designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Proveedor.cs" />
     <Compile Include="Compras\Compra.cs" />
     <Compile Include="Compras\DetalleCompra.cs" />
     <Compile Include="Compras\frmActualizarCompra.cs">
@@ -96,22 +117,22 @@
     <Compile Include="Inventario\CategoriaInventario.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
-	<Compile Include="Empleados\Encriptacion.cs" />
-	<Compile Include="Empleados\empleados.cs" />
+    <Compile Include="Empleados\Encriptacion.cs" />
+    <Compile Include="Empleados\empleados.cs" />
     <Compile Include="Empleados\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Empleados\frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-	<Compile Include="Empleados\frmMantenimientoUsuarios.cs">
+    <Compile Include="Empleados\frmMantenimientoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Empleados\frmMantenimientoUsuarios.Designer.cs">
       <DependentUpon>frmMantenimientoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Empleados\Usuario.cs" />
-	<Compile Include="frmAcercaDe.cs">
+    <Compile Include="frmAcercaDe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAcercaDe.Designer.cs">
@@ -123,7 +144,7 @@
     <Compile Include="Inventario\frmCategoriaInventario.Designer.cs">
       <DependentUpon>frmCategoriaInventario.cs</DependentUpon>
     </Compile>
-	<Compile Include="frmLogin.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
@@ -145,7 +166,16 @@
     <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-	<EmbeddedResource Include="Compras\frmActualizarCompra.resx">
+    <EmbeddedResource Include="Clientes\frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmContacto.resx">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmActualizarCompra.resx">
       <DependentUpon>frmActualizarCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmActualizarEstadoCompra.resx">
@@ -172,13 +202,13 @@
     <EmbeddedResource Include="Inventario\frmCategoriaInventario.resx">
       <DependentUpon>frmCategoriaInventario.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="Empleados\frmEmpleados.resx">
+    <EmbeddedResource Include="Empleados\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\frmMantenimientoUsuarios.resx">
       <DependentUpon>frmMantenimientoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
@@ -211,23 +241,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-  <Content Include="Inventario\sp_Producto.sql" />
+    <Content Include="Clientes\storedProcedure_Cliente.sql" />
+    <Content Include="Clientes\storedProcedure_Contacto.sql" />
+    <Content Include="Clientes\storedProcedure_Proveedor.sql" />
+    <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Inventario\storeProcedureImpuesto\StoreProcedures_Impuesto.sql" />
     <Content Include="Inventario\sp_CategoriaInventario.sql" />
+    <Content Include="MaterialSkin.dll" />
     <Content Include="Sql\sp_ERPConfiguraciones.sql" />
-	<Content Include="Empleados\CRUD\CRUD empleados.sql" />
+    <Content Include="Empleados\CRUD\CRUD empleados.sql" />
     <Content Include="Empleados\CRUD\CRUD Usuario.sql" />
-    <Content Include="Empleados\CRUD\CRUD-empleados.sql" />    <Content Include="Sql\GenisysDB.sql" />
+    <Content Include="Empleados\CRUD\CRUD-empleados.sql" />
+    <Content Include="Sql\GenisysDB.sql" />
     <Content Include="Sql\sp_Compra.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Clientes\" />
-	 <Folder Include="Compras\" />
-    <Folder Include="Inventario\" />
-	<Folder Include="Empleados\" />
-	<Folder Include="Compras\" />
-    <Folder Include="Empleados\" />
-    <Folder Include="Inventario\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
