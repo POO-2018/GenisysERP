@@ -215,6 +215,7 @@
             this.btnImpuestos.TabIndex = 6;
             this.btnImpuestos.Text = "Impuestos";
             this.btnImpuestos.UseVisualStyleBackColor = true;
+            this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
             // 
             // btnCategorias
             // 
