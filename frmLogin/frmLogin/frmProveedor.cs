@@ -130,16 +130,34 @@ namespace frmLogin
 
         private void lstHabilitado_Click(object sender, EventArgs e)
         {
-            btnActualizar.Visible = true;
-            btnHa_In.Visible = true; 
-            btnAgregar.Visible = false; 
-            Clientes.Proveedor elProveedor = new Clientes.Proveedor();
-            elProveedor = Clientes.Proveedor.ObtenerProveedor2(lstHabilitado.SelectedItem.ToString());
-            mskTelefono.Text = elProveedor.telefono;
-            txtNombreEmpresa.Text = elProveedor.nombreEmpresa;
-            txtDireccion.Text = elProveedor.direccion;
-            txtCorreo.Text = elProveedor.correo;
+            try
+            {
+                if (lstHabilitado.SelectedItem.ToString() == "No hay registros habilitados")
+                {
+                    btnActualizar.Visible = false;
+                    btnHa_In.Visible = false;
+                    btnAgregar.Visible = true;
+                }
+                else
+                {
+                    btnActualizar.Visible = true;
+                    btnHa_In.Visible = true;
+                    btnAgregar.Visible = false;
+                    Clientes.Proveedor elproveedor = new Clientes.Proveedor();
+                    elproveedor = Clientes.Proveedor.ObtenerProveedor2(lstHabilitado.SelectedItem.ToString());
+
+                    txtNombreEmpresa.Text = elproveedor.nombreEmpresa;
+                    txtDireccion.Text = elproveedor.direccion;
+                    txtCorreo.Text = elproveedor.correo;
+                    mskTelefono.Text = elproveedor.telefono;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Acción a realizar es invalida");
+            }
         }
+
 
         public void datosH()
         {
@@ -185,16 +203,32 @@ namespace frmLogin
 
         private void lstInhabilitado_Click(object sender, EventArgs e)
         {
-            btnActualizar.Visible = true;
-            btnHa_In.Visible = true;
-            btnAgregar.Visible = false;
-            Clientes.Proveedor elproveedor = new Clientes.Proveedor();
-            elproveedor = Clientes.Proveedor.ObtenerProveedor2(lstInhabilitado.SelectedItem.ToString());
+            try
+            {
+                if (lstInhabilitado.SelectedItem.ToString() == "No hay registros inhabilitados")
+                {
+                    btnActualizar.Visible = false;
+                    btnHa_In.Visible = false;
+                    btnAgregar.Visible = true;
+                }
+                else
+                {
+                    btnActualizar.Visible = true;
+                    btnHa_In.Visible = true;
+                    btnAgregar.Visible = false;
+                    Clientes.Proveedor elproveedor = new Clientes.Proveedor();
+                    elproveedor = Clientes.Proveedor.ObtenerProveedor2(lstInhabilitado.SelectedItem.ToString());
 
-            txtNombreEmpresa.Text = elproveedor.nombreEmpresa;
-            txtDireccion.Text = elproveedor.direccion;
-            txtCorreo.Text = elproveedor.correo;
-            mskTelefono.Text = elproveedor.telefono;
+                    txtNombreEmpresa.Text = elproveedor.nombreEmpresa;
+                    txtDireccion.Text = elproveedor.direccion;
+                    txtCorreo.Text = elproveedor.correo;
+                    mskTelefono.Text = elproveedor.telefono;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Acción a realizar es invalida");
+            }
         }
 
         public void limpiar()
