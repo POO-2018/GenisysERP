@@ -24,6 +24,7 @@ namespace frmLogin.Inventario
         public string idCategoria;
         public string idProveedor;
         public string idProducto;
+        public string idInventario;
         private MaterialSkinManager materialSkinManager;
 
         public frmProducto(string x)
@@ -230,6 +231,7 @@ namespace frmLogin.Inventario
             Inventario.Producto habilitar = new Inventario.Producto();
             if (habilitar.HabilitarProducto(idProducto))
             {
+
                 MessageBox.Show("Exito!");
             }
             else
@@ -501,6 +503,31 @@ namespace frmLogin.Inventario
         private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Inventario.Producto Nuevo = new Inventario.Producto();
+            Nuevo.idProducto = txtCodigoProducto.Text;
+            Nuevo.nombre = txtNombre.Text;
+            Nuevo.cantidadExistencia = Convert.ToInt32(numericExistencia.Value);
+            Nuevo.cantidadMinima = Convert.ToInt32(numericCantidadMinima.Value);
+            Nuevo.precioCompra = Convert.ToInt32(numericPrecioCompra.Value);
+            Nuevo.precioVenta = Convert.ToInt32(numericPrecioVenta.Value);
+            Nuevo.idImpuesto = Convert.ToInt32(idimpuesto);
+            Nuevo.IdCategoria = Convert.ToInt32(idCategoria);
+            Nuevo.idProveedor = Convert.ToInt32(idProveedor);
+            Nuevo.idUsuario = 1;
+            Nuevo.observaciones = txtObservaciones.Text;
+
+            if (Nuevo.ActualizarProducto(Nuevo))
+            {
+                MessageBox.Show("Exito");
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
         }
     }
 }

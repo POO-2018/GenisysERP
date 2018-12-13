@@ -149,7 +149,7 @@ namespace frmLogin.Inventario
         }
 
 
-        public static bool ActualizarProducto(Producto elProducto)
+        public bool ActualizarProducto(Producto elProducto)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarProducto");
@@ -207,14 +207,16 @@ namespace frmLogin.Inventario
         public bool InhabilitarProducto(string elProducto)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            // Eniamos y especificamos el comando a utilizar
             SqlCommand cmd = conexion.EjecutarComando("sp_InhabiliarProducto");
 
             cmd.CommandType = CommandType.StoredProcedure;
 
             // Parámetros
-            cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
-           
-            cmd.Parameters["idInventario"].Value = elProducto;
+            cmd.Parameters.Add(new SqlParameter("@idInventario", SqlDbType.Int));
+            cmd.Parameters["@idInventario"].Value = elProducto;
+
+            //cmd.Parameters["idInventario"].Value = elProducto;
             try
             {
                 cmd.ExecuteNonQuery();
