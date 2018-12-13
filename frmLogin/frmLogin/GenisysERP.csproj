@@ -49,6 +49,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compras\Compra.cs" />
+    <Compile Include="Compras\DetalleCompra.cs" />
+    <Compile Include="Compras\frmActualizarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmActualizarCompra.Designer.cs">
+      <DependentUpon>frmActualizarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmActualizarEstadoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmActualizarEstadoCompra.Designer.cs">
+      <DependentUpon>frmActualizarEstadoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmAgregarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmAgregarCompra.Designer.cs">
+      <DependentUpon>frmAgregarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmBuscarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmBuscarCompras.Designer.cs">
+      <DependentUpon>frmBuscarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmInhabilitarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmInhabilitarCompra.Designer.cs">
+      <DependentUpon>frmInhabilitarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmMenuActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmMenuActualizar.Designer.cs">
+      <DependentUpon>frmMenuActualizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\frmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +130,24 @@
     <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Compras\frmActualizarCompra.resx">
+      <DependentUpon>frmActualizarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmActualizarEstadoCompra.resx">
+      <DependentUpon>frmActualizarEstadoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmAgregarCompra.resx">
+      <DependentUpon>frmAgregarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmBuscarCompras.resx">
+      <DependentUpon>frmBuscarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmInhabilitarCompra.resx">
+      <DependentUpon>frmInhabilitarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmMenuActualizar.resx">
+      <DependentUpon>frmMenuActualizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAcercaDe.resx">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,12 +193,12 @@
     <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Inventario\storeProcedureImpuesto\StoreProcedures_Impuesto.sql" />
     <Content Include="Inventario\sp_CategoriaInventario.sql" />
-    <Content Include="sp_ERPConfiguraciones.sql" />
+    <Content Include="Sql\sp_ERPConfiguraciones.sql" />
     <Content Include="Sql\GenisysDB.sql" />
+    <Content Include="Sql\sp_Compra.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clientes\" />
-    <Folder Include="Compras\" />
     <Folder Include="Empleados\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

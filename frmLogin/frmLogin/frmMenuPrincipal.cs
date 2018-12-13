@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using frmLogin.Inventario;
+using frmLogin.Compras;
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
 
-using frmLogin.Compras;
 
 
 namespace frmLogin
@@ -73,6 +74,24 @@ namespace frmLogin
         {
             frmInhabilitarCompra inhabilitarCompra = new frmInhabilitarCompra();
             inhabilitarCompra.ShowDialog();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategoriaInventario nuevo = new frmCategoriaInventario();
+            nuevo.ShowDialog();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            frmProducto nuevo = new frmProducto("1");
+            nuevo.ShowDialog();
+        }
+
+        private void btnImpuestos_Click(object sender, EventArgs e)
+        {
+            frmImpuestoProducto nuevo = new frmImpuestoProducto();
+            nuevo.ShowDialog();
         }
     }
 }
