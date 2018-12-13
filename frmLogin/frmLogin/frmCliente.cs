@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using frmLogin.Clientes;
+using System.Text.RegularExpressions;
 
 namespace frmLogin
 {
@@ -129,49 +130,64 @@ namespace frmLogin
 
         private void lstHabilitados_Click(object sender, EventArgs e)
         {
-            if (lstHabilitados.SelectedItem.ToString() == "No hay registros")
+            try
             {
-                btnActualizar.Visible = false;
-                btnHa_In.Visible = false;
-                btnAgregar.Visible = true;
+                if (lstHabilitados.SelectedItem.ToString() == "No hay registros")
+                {
+                    btnActualizar.Visible = false;
+                    btnHa_In.Visible = false;
+                    btnAgregar.Visible = true;
+                }
+                else
+                {
+                    btnActualizar.Visible = true;
+                    btnHa_In.Visible = true;
+                    btnAgregar.Visible = false;
+                    Cliente elCliente = new Cliente();
+                    elCliente = Cliente.ObtenerCliente2(lstHabilitados.SelectedItem.ToString());
+                    mskIdentidad.Text = elCliente.identidad;
+                    txtNombres.Text = elCliente.nombres;
+                    txtApellidos.Text = elCliente.apellidos;
+                    txtDireccion.Text = elCliente.direccion;
+                    mskTelefono.Text = elCliente.telefono;
+                    txtCorreo.Text = elCliente.correo;
+                }
             }
-            else
+            catch (Exception)
             {
-                btnActualizar.Visible = true;
-                btnHa_In.Visible = true;
-                btnAgregar.Visible = false;
-                Cliente elCliente = new Cliente();
-                elCliente = Cliente.ObtenerCliente2(lstHabilitados.SelectedItem.ToString());
-                mskIdentidad.Text = elCliente.identidad;
-                txtNombres.Text = elCliente.nombres;
-                txtApellidos.Text = elCliente.apellidos;
-                txtDireccion.Text = elCliente.direccion;
-                mskTelefono.Text = elCliente.telefono;
-                txtCorreo.Text = elCliente.correo;
+                MessageBox.Show("Acción invalida");
             }
+            
         }
 
         private void lstInhabilitados_Click(object sender, EventArgs e)
         {
-            if (lstInhabilitados.SelectedItem.ToString() == "No hay registros")
+            try
             {
-                btnActualizar.Visible = false;
-                btnHa_In.Visible = false;
-                btnAgregar.Visible = true;
+                if (lstInhabilitados.SelectedItem.ToString() == "No hay registros")
+                {
+                    btnActualizar.Visible = false;
+                    btnHa_In.Visible = false;
+                    btnAgregar.Visible = true;
+                }
+                else
+                {
+                    btnActualizar.Visible = true;
+                    btnHa_In.Visible = true;
+                    btnAgregar.Visible = false;
+                    Cliente elCliente = new Cliente();
+                    elCliente = Cliente.ObtenerCliente2(lstInhabilitados.SelectedItem.ToString());
+                    mskIdentidad.Text = elCliente.identidad;
+                    txtNombres.Text = elCliente.nombres;
+                    txtApellidos.Text = elCliente.apellidos;
+                    txtDireccion.Text = elCliente.direccion;
+                    mskTelefono.Text = elCliente.telefono;
+                    txtCorreo.Text = elCliente.correo;
+                }
             }
-            else
+            catch (Exception)
             {
-                btnActualizar.Visible = true;
-                btnHa_In.Visible = true;
-                btnAgregar.Visible = false;
-                Cliente elCliente = new Cliente();
-                elCliente = Cliente.ObtenerCliente2(lstInhabilitados.SelectedItem.ToString());
-                mskIdentidad.Text = elCliente.identidad;
-                txtNombres.Text = elCliente.nombres;
-                txtApellidos.Text = elCliente.apellidos;
-                txtDireccion.Text = elCliente.direccion;
-                mskTelefono.Text = elCliente.telefono;
-                txtCorreo.Text = elCliente.correo;
+                MessageBox.Show("Acción invalida");
             }
         }
 
@@ -246,6 +262,94 @@ namespace frmLogin
                 btnAgregar.Visible = true;
                 btnActualizar.Visible = false;
                 btnHa_In.Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad encargada de validar el formato de un correo válido
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static bool email_bien_escrito(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (!email_bien_escrito(txtCorreo.Text))
+            {
+                MessageBox.Show("Por favor ingrese un correo electrónico válido con el siguiente formato: nombre@dominio.com," +
+                   "Intente nuevamente con un registro válido", "Control de correo electrónico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //para utilizar la tecla backspace
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //nos permite utilizar la tecla de espacio
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Sólo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //para utilizar la tecla backspace
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //nos permite utilizar la tecla de espacio
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Sólo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
         }
     }
