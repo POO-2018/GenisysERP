@@ -19,6 +19,7 @@ namespace frmLogin
     {
 
         private MaterialSkinManager materialSkinManager;
+        protected string idUsuario;
         public frmLogin()
         {
             InitializeComponent();
@@ -42,10 +43,10 @@ namespace frmLogin
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             //Empleados.Encriptacion encriptacion = new Empleados.Encriptacion();
             Empleados.Usuario usuario = new Empleados.Usuario();
-            string sql = @"SELECT contrasena FROM Empleados.Usuario WHERE nombreUsuario = @Usuario";
+            string sql = @"SELECT contrasena, id FROM Empleados.Usuario WHERE nombreUsuario = @Usuario";
             SqlCommand cmd = conexion.EjecutarComando(sql);
             string laEncriptacion;
             laEncriptacion = Empleados.Encriptacion.procesarSha256Hash(txtContraseña.Text);
@@ -63,6 +64,7 @@ namespace frmLogin
                 while (rdr.Read())
                 {
                     usuario.contrasena = rdr.GetString(0);
+                    idUsuario = rdr.GetInt32(1).ToString();
 
                     // Remover espacios
                 }
@@ -70,8 +72,10 @@ namespace frmLogin
                 if (laEncriptacion == usuario.contrasena)
                 {
                     //Cambiar al formulario de Menu Principal
-                    Empleados.frmMantenimientoUsuarios mu = new Empleados.frmMantenimientoUsuarios();
-                    mu.Show();
+                    frmMenuPrincipal mu = new frmMenuPrincipal();
+                    this.Hide();
+                    mu.ShowDialog();
+                    
                 }
                 else
                 {

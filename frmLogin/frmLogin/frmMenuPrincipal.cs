@@ -23,7 +23,8 @@ namespace frmLogin
     public partial class frmMenuPrincipal : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-        public frmMenuPrincipal()
+        protected string idUsuario;
+        public frmMenuPrincipal(string x)
         {
             InitializeComponent();
             //Implementando temas y colores.
@@ -33,6 +34,7 @@ namespace frmLogin
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
+            idUsuario = x;
         }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
@@ -102,6 +104,24 @@ namespace frmLogin
         {
             frmImpuestoProducto nuevo = new frmImpuestoProducto();
             nuevo.ShowDialog();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            frmCliente vista = new frmCliente();
+            vista.ShowDialog();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedor vista = new frmProveedor();
+            vista.ShowDialog();
+        }
+
+        private void btnContactos_Click(object sender, EventArgs e)
+        {
+            frmContacto vista = new frmContacto();
+            vista.ShowDialog();
         }
     }
 }

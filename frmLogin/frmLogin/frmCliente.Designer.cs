@@ -137,7 +137,7 @@
             this.txtNombres.Hint = "";
             this.txtNombres.Location = new System.Drawing.Point(279, 214);
             this.txtNombres.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNombres.MaxLength = 32767;
+            //this.txtNombres.MaxLength = 32767;
             this.txtNombres.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PasswordChar = '\0';
@@ -156,7 +156,7 @@
             this.txtApellidos.Hint = "";
             this.txtApellidos.Location = new System.Drawing.Point(279, 287);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtApellidos.MaxLength = 32767;
+            //this.txtApellidos.MaxLength = 32767;
             this.txtApellidos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.PasswordChar = '\0';
@@ -175,7 +175,7 @@
             this.txtDireccion.Hint = "";
             this.txtDireccion.Location = new System.Drawing.Point(279, 350);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDireccion.MaxLength = 32767;
+            //this.txtDireccion.MaxLength = 32767;
             this.txtDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PasswordChar = '\0';
@@ -193,7 +193,7 @@
             this.txtCorreo.Hint = "";
             this.txtCorreo.Location = new System.Drawing.Point(279, 463);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCorreo.MaxLength = 32767;
+            //this.txtCorreo.MaxLength = 32767;
             this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.PasswordChar = '\0';
@@ -224,7 +224,7 @@
             this.btnInhabilitados.AutoSize = true;
             this.btnInhabilitados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnInhabilitados.Depth = 0;
-            this.btnInhabilitados.Icon = null;
+            //this.btnInhabilitados.Icon = null;
             this.btnInhabilitados.Location = new System.Drawing.Point(163, 6);
             this.btnInhabilitados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInhabilitados.MouseState = MaterialSkin.MouseState.HOVER;
@@ -241,7 +241,7 @@
             this.btnHabilitados.AutoSize = true;
             this.btnHabilitados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnHabilitados.Depth = 0;
-            this.btnHabilitados.Icon = null;
+            //this.btnHabilitados.Icon = null;
             this.btnHabilitados.Location = new System.Drawing.Point(15, 7);
             this.btnHabilitados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHabilitados.MouseState = MaterialSkin.MouseState.HOVER;
@@ -307,7 +307,7 @@
             this.btnAgregar.AutoSize = true;
             this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAgregar.Depth = 0;
-            this.btnAgregar.Icon = null;
+            //this.btnAgregar.Icon = null;
             this.btnAgregar.Location = new System.Drawing.Point(95, 569);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
@@ -324,7 +324,7 @@
             this.btnActualizar.AutoSize = true;
             this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizar.Depth = 0;
-            this.btnActualizar.Icon = null;
+            //this.btnActualizar.Icon = null;
             this.btnActualizar.Location = new System.Drawing.Point(240, 569);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
@@ -341,7 +341,7 @@
             this.btnHa_In.AutoSize = true;
             this.btnHa_In.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnHa_In.Depth = 0;
-            this.btnHa_In.Icon = null;
+            //this.btnHa_In.Icon = null;
             this.btnHa_In.Location = new System.Drawing.Point(405, 569);
             this.btnHa_In.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHa_In.MouseState = MaterialSkin.MouseState.HOVER;
@@ -358,7 +358,7 @@
             this.btnRegresar.AutoSize = true;
             this.btnRegresar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRegresar.Depth = 0;
-            this.btnRegresar.Icon = null;
+            //this.btnRegresar.Icon = null;
             this.btnRegresar.Location = new System.Drawing.Point(668, 569);
             this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER;

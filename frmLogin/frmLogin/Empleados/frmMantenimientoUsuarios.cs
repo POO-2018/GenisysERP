@@ -34,7 +34,7 @@ namespace frmLogin.Empleados
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
 
-            Conexion conn = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql;
             // Query SQL
             sql = @"SELECT * FROM Empleados.Empleado WHERE estado = 1";
@@ -124,7 +124,7 @@ namespace frmLogin.Empleados
 
         private void cmbEmpleado_TextChanged(object sender, EventArgs e)
         {
-            Conexion conn = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql;
             // Query SQL
             sql = @"SELECT * FROM Empleados.Empleado WHERE estado = 1";

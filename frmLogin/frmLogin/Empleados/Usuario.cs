@@ -26,7 +26,7 @@ namespace frmLogin.Empleados
         public bool InsertarUsuario(Usuario elUsuario)
         {
 
-            Conexion conn = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // enviamos y especificamos el comando a ejecutar
             SqlCommand cmd = conn.EjecutarComando("[Empleados].[sp_InsertarUsuario]");
@@ -67,7 +67,7 @@ namespace frmLogin.Empleados
 
         public List<Usuario> ListarUsuario()
         {
-            Conexion conexion = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql;
             List<Usuario> Lista = new List<Usuario>();
 
@@ -109,7 +109,7 @@ namespace frmLogin.Empleados
 
         public List<Usuario> ListarUsuarioUnico(string nick)
         {
-            Conexion conexion = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql;
             List<Usuario> Lista = new List<Usuario>();
 
@@ -155,7 +155,7 @@ namespace frmLogin.Empleados
 
         public bool Eliminar(string Nick)
         {
-            Conexion conn = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // enviamos y especificamos el comando a ejecutar
             SqlCommand cmd = conn.EjecutarComando(@"delete from Empleados.Usuario where nombreUsuario = @nick");
