@@ -51,14 +51,15 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
-    <Compile Include="Empleados\empleados.cs" />
+	<Compile Include="Empleados\Encriptacion.cs" />
+	<Compile Include="Empleados\empleados.cs" />
     <Compile Include="Empleados\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Empleados\frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empleados\frmMantenimientoUsuarios.cs">
+	<Compile Include="Empleados\frmMantenimientoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Empleados\frmMantenimientoUsuarios.Designer.cs">
