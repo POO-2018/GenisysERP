@@ -123,7 +123,7 @@ namespace frmLogin.Clientes
             cmd.Parameters.Add(new SqlParameter("@correo", SqlDbType.NVarChar, 100));
             cmd.Parameters["@correo"].Value = nuevoContacto.correo;
             cmd.Parameters.Add(new SqlParameter("@cargo", SqlDbType.NVarChar, 100));
-            cmd.Parameters["@cargo"].Value = nuevoContacto.correo;
+            cmd.Parameters["@cargo"].Value = nuevoContacto.cargo;
 
             // Intentamos ejecutar el procedimiento
             try

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using frmLogin.Clientes;
+using System.Text.RegularExpressions;
 
 namespace frmLogin
 {
@@ -32,56 +33,72 @@ namespace frmLogin
 
         private void lstHabilitado_Click(object sender, EventArgs e)
         {
-            if (lstHabilitado.SelectedItem.ToString() == "No hay registros")
+            try
             {
-                btnActualizar.Visible = false;
-                btnInhabilitarHabilitar.Visible = false;
-                btnAgregar.Visible = true;
+                if (lstHabilitado.SelectedItem.ToString() == "No hay registros")
+                {
+                    btnActualizar.Visible = false;
+                    btnInhabilitarHabilitar.Visible = false;
+                    btnAgregar.Visible = true;
+                }
+                else
+                {
+                    btnActualizar.Visible = true;
+                    btnInhabilitarHabilitar.Visible = true;
+                    btnAgregar.Visible = false;
+                    Contacto elContacto = new Contacto();
+                    elContacto = Contacto.ObtenerContacto2(lstHabilitado.SelectedItem.ToString());
+                    mskIdentidad.Text = elContacto.idContacto;
+                    txtNombres.Text = elContacto.nombres;
+                    txtApellidos.Text = elContacto.apellidos;
+                    txtDireccion.Text = elContacto.direccion;
+                    mskTelefono.Text = elContacto.telefono;
+                    txtCorreo.Text = elContacto.correo;
+                    txtCargo.Text = elContacto.cargo;
+                    cmbProveedor.Text = elContacto.idProveedor;
+                    cmbProveedor.Enabled = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                btnActualizar.Visible = true;
-                btnInhabilitarHabilitar.Visible = true;
-                btnAgregar.Visible = false;
-                Contacto elContacto = new Contacto();
-                elContacto = Contacto.ObtenerContacto2(lstHabilitado.SelectedItem.ToString());
-                mskIdentidad.Text = elContacto.idContacto;
-                txtNombres.Text = elContacto.nombres;
-                txtApellidos.Text = elContacto.apellidos;
-                txtDireccion.Text = elContacto.direccion;
-                mskTelefono.Text = elContacto.telefono;
-                txtCorreo.Text = elContacto.correo;
-                txtCargo.Text = elContacto.cargo;
-                cmbProveedor.Text = elContacto.idProveedor;
-                cmbProveedor.Enabled = false;
+                MessageBox.Show("Acción invalida");
             }
+            
         }
 
         private void lstInhabilitado_Click(object sender, EventArgs e)
         {
-            if (lstInhabilitado.SelectedItem.ToString() == "No hay registros")
+            try
             {
-                btnActualizar.Visible = false;
-                btnInhabilitarHabilitar.Visible = false;
-                btnAgregar.Visible = true;
+                if (lstInhabilitado.SelectedItem.ToString() == "No hay registros")
+                {
+                    btnActualizar.Visible = false;
+                    btnInhabilitarHabilitar.Visible = false;
+                    btnAgregar.Visible = true;
+                }
+                else
+                {
+                    btnActualizar.Visible = true;
+                    btnInhabilitarHabilitar.Visible = true;
+                    btnAgregar.Visible = false;
+                    Contacto elContacto = new Contacto();
+                    elContacto = Contacto.ObtenerContacto2(lstInhabilitado.SelectedItem.ToString());
+                    mskIdentidad.Text = elContacto.idContacto;
+                    txtNombres.Text = elContacto.nombres;
+                    txtApellidos.Text = elContacto.apellidos;
+                    txtDireccion.Text = elContacto.direccion;
+                    mskTelefono.Text = elContacto.telefono;
+                    txtCorreo.Text = elContacto.correo;
+                    txtCargo.Text = elContacto.cargo;
+                    cmbProveedor.Text = elContacto.idProveedor;
+                    cmbProveedor.Enabled = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                btnActualizar.Visible = true;
-                btnInhabilitarHabilitar.Visible = true;
-                btnAgregar.Visible = false;
-                Contacto elContacto = new Contacto();
-                elContacto = Contacto.ObtenerContacto2(lstInhabilitado.SelectedItem.ToString());
-                mskIdentidad.Text = elContacto.idContacto;
-                txtNombres.Text = elContacto.nombres;
-                txtApellidos.Text = elContacto.apellidos;
-                txtDireccion.Text = elContacto.direccion;
-                mskTelefono.Text = elContacto.telefono;
-                txtCorreo.Text = elContacto.correo;
-                txtCargo.Text = elContacto.cargo;
-                cmbProveedor.Text = elContacto.idProveedor;
-                cmbProveedor.Enabled = false;
+                MessageBox.Show("Acción invalida");
             }
+            
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -202,6 +219,7 @@ namespace frmLogin
                 btnAgregar.Visible = true;
                 btnActualizar.Visible = false;
                 btnInhabilitarHabilitar.Visible = false;
+                cmbProveedor.Enabled = true;
             }
         }
 
@@ -260,6 +278,94 @@ namespace frmLogin
             {
                 MessageBox.Show("Ha ocurrido un error en la actualización");
                 limpiar();
+            }
+        }
+
+        /// <summary>
+        /// Propiedad encargada de validar el formato de un correo válido
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static bool email_bien_escrito(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (!email_bien_escrito(txtCorreo.Text))
+            {
+                MessageBox.Show("Por favor ingrese un correo electrónico válido con el siguiente formato: nombre@dominio.com," +
+                   "Intente nuevamente con un registro válido", "Control de correo electrónico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //para utilizar la tecla backspace
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //nos permite utilizar la tecla de espacio
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Sólo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //para utilizar la tecla backspace
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //nos permite utilizar la tecla de espacio
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Sólo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
         }
     }
