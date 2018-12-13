@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Text.RegularExpressions;
+using frmLogin;
 
 namespace frmLogin
 {
@@ -51,8 +52,9 @@ namespace frmLogin
                 DialogResult res = MessageBox.Show("¿Desea registar contacto para este Proveedor?", "Control de proveedores", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
-                    //Contacto nuevo = new Contacto();
-                    //nuevo.ShowDialog();
+                    string texto = txtNombreEmpresa.Text;
+                    frmContacto nuevo = new frmContacto(texto);
+                    nuevo.ShowDialog();
 
                 }
                 else

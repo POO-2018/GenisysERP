@@ -19,9 +19,10 @@ namespace frmLogin
     public partial class frmContacto : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-        public frmContacto()
+        public frmContacto(string text)
         {
             InitializeComponent();
+            cmbIdProveedor.Text = text;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -110,7 +111,6 @@ namespace frmLogin
         {
             datosH();
             datosI();
-            cmbProveedor.SelectedIndex = -1;
             mskIdentidad.Text = "";
             txtNombres.Text = "";
             txtApellidos.Text = "";
@@ -134,10 +134,18 @@ namespace frmLogin
         private void frmContacto_Load(object sender, EventArgs e)
         {
             limpiar();
-            cmbProveedor.DataSource = cargar.CargarCombo();
-            cmbProveedor.DisplayMember = "nombreEmpresa";
-            cmbProveedor.ValueMember = "IdProveedor";
-            cmbProveedor.SelectedIndex = -1;
+            if (cmbIdProveedor.Text != "")
+            {
+                //cmbIdProveedor.Enabled = true;
+            }
+            else
+            {
+                cmbIdProveedor.DataSource = cargar.CargarCombo();
+                cmbIdProveedor.DisplayMember = "nombreEmpresa";
+                cmbIdProveedor.ValueMember = "idProveedor";
+                cmbProveedor.SelectedIndex = -1;
+            }
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
