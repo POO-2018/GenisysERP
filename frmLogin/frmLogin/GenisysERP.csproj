@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\GenisysDB.sql" />
+    <Content Include="Sql\sp_Compra.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clientes\" />

@@ -36,7 +36,7 @@ namespace frmLogin.Compras
         public static bool InsertarDetalleCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InsertarDetalleCompra");
@@ -89,7 +89,7 @@ namespace frmLogin.Compras
         public static bool EliminarDetalleCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_EliminarDetalleCompra");
@@ -130,7 +130,7 @@ namespace frmLogin.Compras
         public static bool ActualizarDetalleCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarDetalleCompra");
@@ -189,7 +189,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorCompra(int idCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -250,7 +250,7 @@ namespace frmLogin.Compras
         public static bool InsertarProductosCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InsertarProductosCompra");
@@ -297,7 +297,7 @@ namespace frmLogin.Compras
         public static bool EliminarProductosCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_EliminarProductosCompra");

@@ -193,7 +193,7 @@ namespace frmLogin.Compras
 
                         if (DetalleCompra.InsertarDetalleCompra(Detalle) == true)
                         {
-                            MessageBox.Show("Detalle agregado", "Información");
+                           // MessageBox.Show("Detalle agregado", "Información");
                             //Limpiar();
                         }
                         else
@@ -281,7 +281,7 @@ namespace frmLogin.Compras
         /// <param name="e"></param>
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            suma(id3, 1);
+           
         }
         /// <summary>
         /// Metodo para reducir la cantidad de una fila seleccionada en el grid
@@ -365,7 +365,7 @@ namespace frmLogin.Compras
             {
                 MessageBox.Show("Compra agregada", "Información");
                 Detalle();
-                //Limpiar();
+                Limpiar();
             }
             else
             {
@@ -420,6 +420,41 @@ namespace frmLogin.Compras
         private void dgvDetalleCompra_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             suma(id3, Convert.ToInt32(dgvDetalleCompra.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString()));
+        }
+
+
+        private void Limpiar()
+        {
+            cmbProveedore.SelectedIndex = -1;
+            txtSubTotal.Text = "";
+            txtImpuesto.Text = "";
+            txtTotal.Text = "0";
+            txtObservaciones.Text = "";
+
+            cmbCategoria.SelectedIndex = -1;
+            txtNombre.Text = "";
+
+            dgvProductos.DataSource = null;
+            dgvDetalleCompra.DataSource = null;
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            suma(id3, 1);
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+            suma(id3, -1);
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleCompra != null)
+            {
+                dgvDetalleCompra.Rows.RemoveAt(id3);
+                Total();
+            }
         }
     }
 }

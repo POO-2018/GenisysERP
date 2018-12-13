@@ -18,13 +18,14 @@ namespace frmLogin.Compras
     public partial class frmActualizarEstadoCompra : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-
+        private string idUsuario;
         // Propiedade para obtener el codigo de la compra
         private int idCompra;
 
-        public frmActualizarEstadoCompra()
+        public frmActualizarEstadoCompra(string x)
         {
             InitializeComponent();
+            idUsuario = x;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -337,7 +338,7 @@ namespace frmLogin.Compras
 
                 // Nuestro objeto adquiere los valores del formulario
                 laCompra.idCompra = this.idCompra;
-                laCompra.autorizadaPor = 1;
+                laCompra.autorizadaPor =Convert.ToInt32( idUsuario);
 
                 // Verificamos si se realizó el método
                 if (Compra.ActualizarEstadoaOrden(laCompra))
@@ -363,7 +364,7 @@ namespace frmLogin.Compras
 
                     // Nuestro objeto adquiere los valores del formulario
                     laCompra.idCompra = this.idCompra;
-                    laCompra.autorizadaPor = 1;
+                    laCompra.autorizadaPor = Convert.ToInt32(idUsuario);
                     laCompra.numeroFactura = mtxtNuevaFactura.Text;
 
                     if (Compra.ActualizarEstadoaCompra(laCompra))

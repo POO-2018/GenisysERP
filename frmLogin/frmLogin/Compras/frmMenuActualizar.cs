@@ -34,8 +34,9 @@ namespace frmLogin.Compras
         
         private void btnActualizarEstado_Click(object sender, EventArgs e)
         {
-            frmActualizarEstadoCompra actualizarEstado = new frmActualizarEstadoCompra();
+            frmActualizarEstadoCompra actualizarEstado = new frmActualizarEstadoCompra(idUsuario);
             actualizarEstado.ShowDialog();
+            this.Close();
         }
 
         
@@ -43,6 +44,7 @@ namespace frmLogin.Compras
         {
             frmActualizarCompra actualizarCompra = new frmActualizarCompra(idUsuario);
             actualizarCompra.ShowDialog();
+            this.Close();
         }
     }
 }
