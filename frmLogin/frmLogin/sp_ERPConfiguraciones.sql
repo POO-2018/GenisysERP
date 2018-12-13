@@ -2,11 +2,6 @@
 GO
 
 
-
-ALTER TABLE ERP.Configuracion
-	ADD  estado bit NOT NULL;
-GO
-
 CREATE PROCEDURE sp_InsertartConfiguracion(
 @appkey nchar(50),
 @valor nchar(50),
