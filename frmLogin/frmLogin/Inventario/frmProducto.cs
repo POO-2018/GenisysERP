@@ -195,15 +195,26 @@ namespace frmLogin.Inventario
                 Nuevo.idUsuario = 2;
                 Nuevo.observaciones = txtObservaciones.Text;
 
-                if (Nuevo.InsertarProducto(Nuevo))
+                int exist = Convert.ToInt32(numericExistencia.Value);
+                int minim = Convert.ToInt32(numericCantidadMinima.Value); 
+
+                if (exist < minim)
                 {
-                
-                    MessageBox.Show("Exito");
+                    MessageBox.Show("Error: La cantidad de la exixtencia no puede ser menor a la cantidad minima");
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    if (Nuevo.InsertarProducto(Nuevo))
+                    {
+
+                        MessageBox.Show("Exito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error");
+                    }
                 }
+                
             }
         }
 
