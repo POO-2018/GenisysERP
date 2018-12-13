@@ -41,7 +41,7 @@ namespace frmLogin.Clientes
         public string telefono { get; set; }
         public string correo { get; set; }
         public string cargo { get; set; }
-        public int estado { get; set; } 
+        public int estado { get; set; }
         public string nombreProveedor { get; set; }
         /// <summary>
         /// Obtiene un cliente desde la tabla Clientes.Contacto
@@ -144,7 +144,7 @@ namespace frmLogin.Clientes
             {
                 conexion.CerrarConexion();
             }
-           
+
         }
 
         public static bool ActualizarContacto(Contacto elContacto)
@@ -280,7 +280,7 @@ namespace frmLogin.Clientes
                 while (rdr.Read())
                 {
                     Contacto elContacto = new Contacto();
-                    
+
                     elContacto.idContacto = rdr.GetString(0);
                     elContacto.codProveedor = Convert.ToInt32(rdr[1]);
                     elContacto.nombres = rdr.GetString(2);
@@ -346,7 +346,7 @@ namespace frmLogin.Clientes
                 return losContactos;
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return losContactos;
             }
@@ -355,7 +355,7 @@ namespace frmLogin.Clientes
                 conn.CerrarConexion();
             }
         }
-        
+
         public static Contacto ObtenerContacto2(string nombress)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
@@ -372,7 +372,7 @@ namespace frmLogin.Clientes
             {
                 using (cmd)
                 {
-                    cmd.Parameters.Add("@nombres", SqlDbType.NVarChar, 
+                    cmd.Parameters.Add("@nombres", SqlDbType.NVarChar,
                     100).Value = nombress;
 
                     rdr = cmd.ExecuteReader();
@@ -445,6 +445,56 @@ FROM Clientes.Proveedor INNER JOIN Clientes.Contacto ON Proveedor.idProveedor = 
             {
                 conexion.CerrarConexion();
             }
+        }
+
+        public static Contacto ObtenerContacto4(string idContacto, string nombreEmpresa)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress",
+            "GenisysERP");
+            string sql;
+            Contacto resultado = new Contacto();
+
+            //Query SQL
+            sql = @"SELECT Clientes.Contacto.nombres, Clientes.Contacto.apellidos, Clientes.Contacto.direccion, Clientes.Contacto.telefono, Clientes.Contacto.correo, Clientes.Contacto.cargo
+FROM Clientes.Proveedor INNER JOIN Clientes.Contacto ON Proveedor.idProveedor = Contacto.idProveedor WHERE Clientes.Contacto.idContacto = @idContacto AND , Clientes.Proveedor.nombreEmpresa = @nombreEmpresa ;";
+
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@idContacto", SqlDbType.Char, 15).Value
+                    = idContacto;
+                    cmd.Parameters.Add("@nombreEmpresa ", SqlDbType.NVarChar, 100).Value
+                            = nombreEmpresa;
+
+                    rdr = cmd.ExecuteReader();
+                }
+                while (rdr.Read())
+                {
+                    resultado.nombres = rdr.GetString(0);
+                    resultado.apellidos = rdr.GetString(1);
+                    resultado.direccion = rdr.GetString(2);
+                    resultado.telefono = rdr.GetString(3);
+                    resultado.correo = rdr.GetString(4);
+                    resultado.cargo = rdr.GetString(5);
+                }
+
+                return resultado;
+            }
+            catch (SqlException ex)
+            {
+                return resultado;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+
+
         }
     }
 }

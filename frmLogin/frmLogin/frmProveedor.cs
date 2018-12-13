@@ -253,7 +253,7 @@ namespace frmLogin
             lstInhabilitado.Visible = false;
 
             //reestableciendo valor de focus
-            txtNombreEmpresa.Focus();
+            //txtNombreEmpresa.Focus();
 
         }
 

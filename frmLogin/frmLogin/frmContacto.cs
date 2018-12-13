@@ -207,31 +207,59 @@ namespace frmLogin
 
         private void mskIdentidad_Leave(object sender, EventArgs e)
         {
-            Contacto eContacto = Contacto.ObtenerContacto3(mskIdentidad.Text);
-            txtNombres.Text = eContacto.nombres;
-            txtApellidos.Text = eContacto.apellidos;
-            txtDireccion.Text = eContacto.direccion;
-            mskTelefono.Text = eContacto.telefono;
-            txtCorreo.Text = eContacto.correo;
-            txtCargo.Text = eContacto.cargo;
-            cmbProveedor.Text = eContacto.nombreProveedor;
-            if (txtNombres.Text != "")
+            if (cmbProveedor.Text != "")
             {
-                btnAgregar.Visible = false;
-                btnActualizar.Visible = true;
-                btnInhabilitarHabilitar.Visible = true;
-                cmbProveedor.Enabled = false;
+                Contacto eContacto = Contacto.ObtenerContacto4(mskIdentidad.Text,cmbProveedor.Text);
+                txtNombres.Text = eContacto.nombres;
+                txtApellidos.Text = eContacto.apellidos;
+                txtDireccion.Text = eContacto.direccion;
+                mskTelefono.Text = eContacto.telefono;
+                txtCorreo.Text = eContacto.correo;
+                txtCargo.Text = eContacto.cargo;
+                if (txtNombres.Text != "")
+                {
+                    btnAgregar.Visible = false;
+                    btnActualizar.Visible = true;
+                    btnInhabilitarHabilitar.Visible = true;
+                    cmbProveedor.Enabled = false;
+                }
+                else
+                {
+                    btnAgregar.Visible = true;
+                    btnActualizar.Visible = false;
+                    btnInhabilitarHabilitar.Visible = false;
+                    cmbProveedor.Enabled = true;
+                }
             }
             else
             {
-                btnAgregar.Visible = true;
-                btnActualizar.Visible = false;
-                btnInhabilitarHabilitar.Visible = false;
-                cmbProveedor.Enabled = true;
+                Contacto eContacto = Contacto.ObtenerContacto3(mskIdentidad.Text);
+                txtNombres.Text = eContacto.nombres;
+                txtApellidos.Text = eContacto.apellidos;
+                txtDireccion.Text = eContacto.direccion;
+                mskTelefono.Text = eContacto.telefono;
+                txtCorreo.Text = eContacto.correo;
+                txtCargo.Text = eContacto.cargo;
+                cmbProveedor.Text = eContacto.nombreProveedor;
+                if (txtNombres.Text != "")
+                {
+                    btnAgregar.Visible = false;
+                    btnActualizar.Visible = true;
+                    btnInhabilitarHabilitar.Visible = true;
+                    cmbProveedor.Enabled = false;
+                }
+                else
+                {
+                    btnAgregar.Visible = true;
+                    btnActualizar.Visible = false;
+                    btnInhabilitarHabilitar.Visible = false;
+                    cmbProveedor.Enabled = true;
+                }
             }
         }
 
-        public void datosH()
+
+            public void datosH()
         {
             // Cargar los datos al listbox
             Contacto nuevo = new Contacto();
