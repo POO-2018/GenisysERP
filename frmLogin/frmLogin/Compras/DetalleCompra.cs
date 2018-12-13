@@ -155,6 +155,7 @@ namespace frmLogin.Compras
 
             sql = @"SELECT		Compras.DetalleCompra.idDetalle					as Código,
 			                    Compras.DetalleCompra.idCompra					as Compra,
+                                Inventario.Producto.idInventario                as idProducto,
 			                    Inventario.Producto.nombre						as Producto,
 			                    Compras.DetalleCompra.precioUnitario			as PrecioU,
 			                    Compras.DetalleCompra.cantidad					as Cantidad,
@@ -191,6 +192,54 @@ namespace frmLogin.Compras
             {
 
                 throw ex;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+
+        /// <summary>
+        /// Método para insertar los productos compradas
+        /// al inventario
+        /// </summary>
+        /// <param name="laCompra"></param>
+        /// <returns></returns>
+        public static bool InsertarProductosCompra(DetalleCompra elDetalle)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando("sp_InsertarProductosCompra");
+
+            // Estableccer el comando como un Stored Procedure
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parámetros del Stored Procedure
+
+            cmd.Parameters.Add(new SqlParameter("@idProducto", SqlDbType.Int));
+            cmd.Parameters["@idProducto"].Value = elDetalle.idProducto;
+
+            cmd.Parameters.Add(new SqlParameter("@cantidadCompra", SqlDbType.Int));
+            cmd.Parameters["@cantidadCompra"].Value = elDetalle.cantidad;
+
+
+            // Intentamos ejecutar el procedimiento
+            try
+            {
+                // Establecemos la conexión
+                conexion.EstablecerConexion();
+
+                // Ejecutamos el query vía un ExecuteNonQuery
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
             }
             finally
             {

@@ -33,7 +33,7 @@ namespace frmLogin.Compras
         
         private void btnActualizarEstado_Click(object sender, EventArgs e)
         {
-            frmActualizarEstado actualizarEstado = new frmActualizarEstado();
+            frmActualizarEstadoCompra actualizarEstado = new frmActualizarEstadoCompra();
             actualizarEstado.ShowDialog();
         }
 
