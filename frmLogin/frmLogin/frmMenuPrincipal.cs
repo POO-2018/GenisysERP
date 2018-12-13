@@ -53,7 +53,8 @@ namespace frmLogin
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-
+            frmProducto nuevo = new frmProducto("1");
+            nuevo.ShowDialog();
         }
 
         private void btnImpuestos_Click(object sender, EventArgs e)

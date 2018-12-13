@@ -107,9 +107,8 @@ namespace frmLogin.Inventario
             cmd.Parameters.Add(new SqlParameter("nombre", SqlDbType.NVarChar,100));
             cmd.Parameters.Add(new SqlParameter("cantidadExistencia", SqlDbType.Int));
             cmd.Parameters.Add(new SqlParameter("cantidadMinima", SqlDbType.Int));
-            cmd.Parameters.Add(new SqlParameter("precioCompra", SqlDbType.Float));
-            cmd.Parameters.Add(new SqlParameter("precioVenta", SqlDbType.Float));
-            //cmd.Parameters.Add(new SqlParameter("fechaIngreso", SqlDbType.DateTime));
+            cmd.Parameters.Add(new SqlParameter("precioCompra", SqlDbType.Decimal));
+            cmd.Parameters.Add(new SqlParameter("precioVenta", SqlDbType.Decimal));
             cmd.Parameters.Add(new SqlParameter("idUsuario", SqlDbType.Int));
             cmd.Parameters.Add(new SqlParameter("observaciones", SqlDbType.NVarChar, 100));
             cmd.Parameters.Add(new SqlParameter("idImpuesto", SqlDbType.Int));                 

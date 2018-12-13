@@ -192,9 +192,9 @@ namespace frmLogin.Inventario
                 Nuevo.idImpuesto = Convert.ToInt32(idimpuesto);
                 Nuevo.IdCategoria = Convert.ToInt32(idCategoria);
                 Nuevo.idProveedor = Convert.ToInt32(idProveedor);
-                Nuevo.idUsuario = 2;
+                Nuevo.idUsuario = Convert.ToInt32(idUsuario);
                 Nuevo.observaciones = txtObservaciones.Text;
-
+                Nuevo.estado = 1;
                 int exist = Convert.ToInt32(numericExistencia.Value);
                 int minim = Convert.ToInt32(numericCantidadMinima.Value); 
 

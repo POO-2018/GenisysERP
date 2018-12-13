@@ -61,9 +61,9 @@ BEGIN
 	UPDATE Inventario.Producto SET estado=0
 								   WHERE idInventario=@idInventario;
 END
+GO
 
-CREATE PROCEDURE [dbo].[sp_HabiliarProducto](
-
+CREATE PROCEDURE sp_HabiliarProducto(
 @idInventario int
 )
 AS
