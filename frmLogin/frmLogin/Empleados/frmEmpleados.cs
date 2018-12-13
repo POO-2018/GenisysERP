@@ -73,24 +73,30 @@ namespace frmLogin.Empleados
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             empleados nuevo = new empleados();
-            nuevo.identidad = txtidentidad.Text;
-            nuevo.nombre = txtNombre.Text;
-            nuevo.apellido = txtApellido.Text;
-            nuevo.cargo = Convert.ToInt32(idCargo);
-            nuevo.telefono = txtTelefono.Text;
-            nuevo.direccion = txtDireccion.Text;
-            nuevo.correo = txtCorreo.Text;
-            nuevo.estado = 1;
-            if (nuevo.InsertarEmpleado(nuevo))
+            if (txtidentidad.Text.Trim() == "" || txtNombre.Text.Trim() == "" || txtApellido.Text.Trim() == "" || cmbCargo.Text.Trim() == "" || txtTelefono.Text.Trim() == "" || txtDireccion.Text.Trim() == "" || txtCorreo.Text.Trim() == "")
             {
-                MessageBox.Show("Exito!");
-                llenardgv();
+                MessageBox.Show("Debe llenar todos los datos!");
             }
             else
             {
-                MessageBox.Show("Error!");
+                nuevo.identidad = txtidentidad.Text;
+                nuevo.nombre = txtNombre.Text;
+                nuevo.apellido = txtApellido.Text;
+                nuevo.cargo = Convert.ToInt32(idCargo);
+                nuevo.telefono = txtTelefono.Text;
+                nuevo.direccion = txtDireccion.Text;
+                nuevo.correo = txtCorreo.Text;
+                nuevo.estado = 1;
+                if (nuevo.InsertarEmpleado(nuevo))
+                {
+                    MessageBox.Show("Exito!");
+                    llenardgv();
+                }
+                else
+                {
+                    MessageBox.Show("Error!");
+                }
             }
-            
         }
 
         private void cmbCargo_TextChanged(object sender, EventArgs e)
