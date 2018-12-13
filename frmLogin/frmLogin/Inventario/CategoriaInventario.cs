@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 // Agregar los namespaces necesarios
 using System.Data;
 using System.Data.SqlClient;
@@ -25,44 +25,32 @@ namespace frmLogin.Inventario
 
         // Métodos para la clase
 
-        public static CategoriaInventario ObtenerCategoria(string idCategoria)
+        public static bool ObtenerCategoria(CategoriaInventario categoria)
         {
 
-            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisyERP");
-            string sql;
-            CategoriaInventario resultado = new CategoriaInventario();
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            SqlCommand cmd = conexion.EjecutarComando("Inventario.sp_ListarCategoriaInventario");
 
-            // Query SQL
-            sql = @"SELECT *
-                   FROM [Inventario].[Categoria]
-                    WHERE idCategoria = @idCategoria";
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlCommand cmd = conexion.EjecutarComando(sql);
-            SqlDataReader rdr;
+            // Parametros
+
+            cmd.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.NVarChar, 100));
+            cmd.Parameters["@Nombre"].Value = categoria.nombre;
 
             try
             {
-                using (cmd)
-                {
-                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = idCategoria;
 
-                    rdr = cmd.ExecuteReader();
-                }
+                cmd.ExecuteNonQuery();
 
-                while (rdr.Read())
-                {
-                    resultado.idCategoria = rdr.GetInt32(0);
-                    resultado.idCodigoTipo = rdr.GetString(1);
-                    resultado.nombre = rdr.GetString(2);
-                    resultado.descripcion = rdr.GetString(3);
-                    resultado.idCategoria = rdr.GetInt32(4);
-                }
+               
 
-                return resultado;
+                return true;
             }
             catch (SqlException)
             {
-                return resultado;
+
+                return false;
             }
             finally
             {
@@ -71,21 +59,34 @@ namespace frmLogin.Inventario
         }
 
         // Listar las categorías de Inventario existentes 
-        public List<CategoriaInventario> ListarCategorias()
+        public static List<CategoriaInventario> ListarCategorias()
         {
-            Conexion conexion = new Conexion();
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+
             string sql;
             List<CategoriaInventario> Lista = new List<CategoriaInventario>();
 
             // Query SQL
-            sql = @"select  idCategoria, idCodigoTipo, nombre, descripcion, idUsuario FROM Inventario.Categoria Order by idCategoria";
+            sql = @"select  idCategoria, idCodigoTipo, nombre, descripcion, idUsuario FROM Inventario.Categoria  
+                    WHERE estado = 1 Order by idCategoria";
 
             SqlCommand cmd = conexion.EjecutarComando(sql);
             SqlDataReader rdr;
-
+            DataGridView data = new DataGridView();
             try
             {
+
+                conexion.EstablecerConexion();
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                data.DataSource = dt;
+
+
                 rdr = cmd.ExecuteReader();
+
+            
 
                 while (rdr.Read())
                 {
@@ -94,9 +95,12 @@ namespace frmLogin.Inventario
                     resultado.idCodigoTipo = rdr.GetString(1);
                     resultado.nombre = rdr.GetString(2);
                     resultado.descripcion = rdr.GetString(3);
-                    resultado.idCategoria = rdr.GetInt32(4);
-                }
+                    resultado.idUsuario = rdr.GetInt32(4);
+   
 
+                    Lista.Add(resultado);
+                }
+              
                 return Lista;
             }
             catch (SqlException)
@@ -111,7 +115,7 @@ namespace frmLogin.Inventario
 
         // Insertar Categoria de Inventario
         // Según el tipo de usuario, se podrá insertar diferentes categorias
-        public bool InsertarCategoria(CategoriaInventario Categoria)
+        public static bool InsertarCategoria(CategoriaInventario Categoria)
         {
 
             Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
@@ -125,22 +129,25 @@ namespace frmLogin.Inventario
             //cmd.Parameters.Add(new SqlParameter("@idCategoria", SqlDbType.Int));
             //cmd.Parameters["@idCategoria"].Value = Categoria.idCategoria;
 
-            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Int));
-            cmd.Parameters["@idCodigoTipo"].Value = Categoria.idCodigoTipo;
+            cmd.Parameters.Add(new SqlParameter("@IdCodigoTipo", SqlDbType.Char, 5));
+            cmd.Parameters["@IdCodigoTipo"].Value = Categoria.idCodigoTipo;
+            
 
-            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 50));
-            cmd.Parameters["@nombre"].Value = Categoria.nombre;
+            cmd.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar, 100));
+            cmd.Parameters["@Nombre"].Value = Categoria.nombre;
 
-            cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.VarChar, 10));
-            cmd.Parameters["@descripcion"].Value = Categoria.descripcion;
+            cmd.Parameters.Add(new SqlParameter("@Descripcion", SqlDbType.VarChar, 100));
+            cmd.Parameters["@Descripcion"].Value = Categoria.descripcion;
 
-            cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
-            cmd.Parameters["@idUsuario"].Value = Categoria.idUsuario;
+            cmd.Parameters.Add(new SqlParameter("@IdUsuario", SqlDbType.Int));
+            cmd.Parameters["@IdUsuario"].Value = Categoria.idUsuario;
 
 
             // intentamos insertar la nueva categoria
             try
             {
+                // establecemos la conexión
+                conn.EstablecerConexion();
 
                 // ejecutamos el comando
                 cmd.ExecuteNonQuery();
@@ -173,17 +180,17 @@ namespace frmLogin.Inventario
             cmd.CommandType = CommandType.StoredProcedure;
 
             // agregamos los parámetros que son requeridos
-            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Char, 5));
-            cmd.Parameters["@idCodigoTipo"].Value = Categoria.idCodigoTipo;
+            cmd.Parameters.Add(new SqlParameter("@IdCodigoTipo", SqlDbType.Char, 5));
+            cmd.Parameters["@IdCodigoTipo"].Value = Categoria.idCodigoTipo;
 
-            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 100));
-            cmd.Parameters["@nombre"].Value = Categoria.nombre;
+            cmd.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar, 100));
+            cmd.Parameters["@Nombre"].Value = Categoria.nombre;
 
-            cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.VarChar, 100));
-            cmd.Parameters["@descripcion"].Value = Categoria.descripcion;
+            cmd.Parameters.Add(new SqlParameter("@Descripcion", SqlDbType.VarChar, 100));
+            cmd.Parameters["@Descripcion"].Value = Categoria.descripcion;
 
-            cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
-            cmd.Parameters["@idUsuario"].Value = Categoria.idUsuario;
+            cmd.Parameters.Add(new SqlParameter("@IdUsuario", SqlDbType.Int));
+            cmd.Parameters["@IdUsuario"].Value = Categoria.idUsuario;
 
             // intentamos insertar la categoria
             try
@@ -214,21 +221,14 @@ namespace frmLogin.Inventario
             Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
 
             // enviamos y especificamos el comando a ejecutar
-            SqlCommand cmd = conn.EjecutarComando("Inventario.sp_EliminarCategoriaInevtario");
+            SqlCommand cmd = conn.EjecutarComando("Inventario.sp_InhabilitarCategoriaInventario");
             cmd.CommandType = CommandType.StoredProcedure;
 
             // agregamos los parámetros que son requeridos
-            cmd.Parameters.Add(new SqlParameter("@idCodigoTipo", SqlDbType.Char, 5));
-            cmd.Parameters["@idCodigoTipo"].Value = Categoria.idCodigoTipo;
+            cmd.Parameters.Add(new SqlParameter("@IdCodigoTipo", SqlDbType.Char, 5));
+            cmd.Parameters["@IdCodigoTipo"].Value = Categoria.idCodigoTipo;
 
-            cmd.Parameters.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 100));
-            cmd.Parameters["@nombre"].Value = Categoria.nombre;
-
-            //cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.VarChar, 10));
-            //cmd.Parameters["@descripcion"].Value = Categoria.descripcion;
-
-            cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
-            cmd.Parameters["@idUsuario"].Value = Categoria.idUsuario;
+    
 
 
             // intentamos insertar al nuevo Paciente

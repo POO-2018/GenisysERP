@@ -43,5 +43,11 @@ namespace frmLogin
         {
 
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategoriaInventario abrir = new frmCategoriaInventario();
+            abrir.Show();
+        }
     }
 }

@@ -154,6 +154,7 @@ idCategoria INT NOT NULL IDENTITY (100, 1) CONSTRAINT PK_idCategoria PRIMARY KEY
 idCodigoTipo CHAR(5) NOT NULL,
 nombre NVARCHAR(100) NOT NULL,
 descripcion NVARCHAR(100) NOT NULL,
+estado BIT NOT NULL,
 idUsuario INT NOT NULL
 );
 GO
@@ -316,6 +317,11 @@ GO
 ---------------------------------------------------------------------------
 -- CHECK CONSTRAINT
 ---------------------------------------------------------------------------
+ALTER TABLE Inventario.Categoria
+	ADD CONSTRAINT CHK_DFLT_Inventario_Categoria
+	DEFAULT '1' for estado
+GO
+
 
 ALTER TABLE Inventario.Producto
 ADD CONSTRAINT CHK_Inventario_Inventario$CantidadExistenciaDebeSerMayorA0

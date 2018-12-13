@@ -1,5 +1,6 @@
 USE GenisysERP;
 GO
+
 ---------------------- Buscar -----------------------
 IF OBJECT_ID('[Inventario].[sp_ListarCategoriaInventario]') IS NOT NULL
 BEGIN 
@@ -7,15 +8,17 @@ BEGIN
 END 
 GO
 CREATE PROC [Inventario].[sp_ListarCategoriaInventario]
-    @idCategoria int
+    @Nombre NVARCHAR(100)
 AS 
 BEGIN
 
     SELECT  [idCategoria],[idCodigoTipo],[nombre],[descripcion],[idUsuario]
 	FROM [Inventario].[Categoria] 
-    WHERE  ([idCategoria] = @idCategoria OR idCategoria IS NULL) 
+    WHERE  ([nombre] = @Nombre OR nombre IS NULL) 
 END
 GO
+
+
 
 ------------------------- Insertar--------------------------
 IF OBJECT_ID('[Inventario].[sp_InsertarCategoriaInventario]') IS NOT NULL
@@ -47,9 +50,8 @@ BEGIN
 END 
 GO
 
-CREATE PROC [Inventario].[sp_ActiualizarCategoriaInventario]
+CREATE PROC [Inventario].[sp_ActualizarCategoriaInventario]
     
-    @IdCategoria int,
 	@IdCodigoTipo char(5),
     @Nombre varchar(100),
     @Descripcion varchar(100),
@@ -58,27 +60,28 @@ AS
 BEGIN
 
 	UPDATE [Inventario].[Categoria]
-	SET [idCodigoTipo] = @IdCodigoTipo, [nombre] = @Nombre, [descripcion] = @Descripcion
+	SET  [nombre] = @Nombre, [descripcion] = @Descripcion
 		,[idUsuario] = @IdUsuario
-	WHERE  [idCategoria] = @IdCategoria
+	WHERE  [idCodigoTipo] = @IdCodigoTipo
 
 END
 GO
 
-------------------- Eliminar ------------------------------
-IF OBJECT_ID('[Inventario].[sp_EliminarCategoriaInventario]') IS NOT NULL
+------------------- Inhabilitar ------------------------------
+IF OBJECT_ID('[Inventario].[sp_InhabilitarCategoriaInventario]') IS NOT NULL
 BEGIN 
-    DROP PROC [Inventario].[sp_EliminarCategoriaInventario]
+    DROP PROC [Inventario].[sp_InhabilitarCategoriaInventario]
 END 
 GO
 
-CREATE PROC [Inventario].[sp_EliminarCategoriaInventario]
-    @idCategoria int
+CREATE PROC [Inventario].[sp_InhabilitarCategoriaInventario]
+    @IdCodigoTipo CHAR(5)
+	
 AS 
 BEGIN
 
-    DELETE FROM [Inventario].[Categoria]
-    WHERE  [idCategoria] = @idCategoria
+    UPDATE  [Inventario].[Categoria] SET estado  = 0
+    WHERE [idCodigoTipo] = @IdCodigoTipo
 
 END
 GO
