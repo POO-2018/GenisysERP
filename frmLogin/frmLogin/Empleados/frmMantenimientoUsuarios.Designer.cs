@@ -72,24 +72,30 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.AutoSize = true;
+            this.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCancelar.Depth = 0;
+            this.btnCancelar.Icon = null;
             this.btnCancelar.Location = new System.Drawing.Point(272, 363);
             this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Primary = true;
-            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(91, 36);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
+            this.btnAgregar.AutoSize = true;
+            this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAgregar.Depth = 0;
+            this.btnAgregar.Icon = null;
             this.btnAgregar.Location = new System.Drawing.Point(90, 363);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Primary = true;
-            this.btnAgregar.Size = new System.Drawing.Size(112, 35);
+            this.btnAgregar.Size = new System.Drawing.Size(83, 36);
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -100,6 +106,7 @@
             this.txtConfirmarContraseña.Depth = 0;
             this.txtConfirmarContraseña.Hint = "";
             this.txtConfirmarContraseña.Location = new System.Drawing.Point(203, 177);
+            this.txtConfirmarContraseña.MaxLength = 32767;
             this.txtConfirmarContraseña.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
             this.txtConfirmarContraseña.PasswordChar = '*';
@@ -108,6 +115,7 @@
             this.txtConfirmarContraseña.SelectionStart = 0;
             this.txtConfirmarContraseña.Size = new System.Drawing.Size(257, 23);
             this.txtConfirmarContraseña.TabIndex = 8;
+            this.txtConfirmarContraseña.TabStop = false;
             this.txtConfirmarContraseña.UseSystemPasswordChar = false;
             // 
             // txtContraseña
@@ -115,6 +123,7 @@
             this.txtContraseña.Depth = 0;
             this.txtContraseña.Hint = "";
             this.txtContraseña.Location = new System.Drawing.Point(203, 135);
+            this.txtContraseña.MaxLength = 32767;
             this.txtContraseña.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
@@ -123,6 +132,7 @@
             this.txtContraseña.SelectionStart = 0;
             this.txtContraseña.Size = new System.Drawing.Size(257, 23);
             this.txtContraseña.TabIndex = 7;
+            this.txtContraseña.TabStop = false;
             this.txtContraseña.UseSystemPasswordChar = false;
             // 
             // txtNombreUsuario
@@ -130,6 +140,7 @@
             this.txtNombreUsuario.Depth = 0;
             this.txtNombreUsuario.Hint = "";
             this.txtNombreUsuario.Location = new System.Drawing.Point(203, 93);
+            this.txtNombreUsuario.MaxLength = 32767;
             this.txtNombreUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.PasswordChar = '\0';
@@ -138,6 +149,7 @@
             this.txtNombreUsuario.SelectionStart = 0;
             this.txtNombreUsuario.Size = new System.Drawing.Size(257, 23);
             this.txtNombreUsuario.TabIndex = 6;
+            this.txtNombreUsuario.TabStop = false;
             this.txtNombreUsuario.UseSystemPasswordChar = false;
             // 
             // materialLabel4
@@ -229,12 +241,15 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.AutoSize = true;
+            this.btnEliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEliminar.Depth = 0;
+            this.btnEliminar.Icon = null;
             this.btnEliminar.Location = new System.Drawing.Point(195, 363);
             this.btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Primary = true;
-            this.btnEliminar.Size = new System.Drawing.Size(112, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(83, 36);
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -242,12 +257,15 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.AutoSize = true;
+            this.btnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBuscar.Depth = 0;
+            this.btnBuscar.Icon = null;
             this.btnBuscar.Location = new System.Drawing.Point(419, 24);
             this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Primary = true;
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(74, 36);
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -271,6 +289,7 @@
             this.txtNombreUsuarioBuscar.Depth = 0;
             this.txtNombreUsuarioBuscar.Hint = "";
             this.txtNombreUsuarioBuscar.Location = new System.Drawing.Point(153, 24);
+            this.txtNombreUsuarioBuscar.MaxLength = 32767;
             this.txtNombreUsuarioBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombreUsuarioBuscar.Name = "txtNombreUsuarioBuscar";
             this.txtNombreUsuarioBuscar.PasswordChar = '\0';
@@ -279,6 +298,7 @@
             this.txtNombreUsuarioBuscar.SelectionStart = 0;
             this.txtNombreUsuarioBuscar.Size = new System.Drawing.Size(164, 23);
             this.txtNombreUsuarioBuscar.TabIndex = 8;
+            this.txtNombreUsuarioBuscar.TabStop = false;
             this.txtNombreUsuarioBuscar.UseSystemPasswordChar = false;
             // 
             // frmMantenimientoUsuarios
@@ -289,6 +309,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmMantenimientoUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento usuarios";
             this.Load += new System.EventHandler(this.frmMantenimientoUsuarios_Load);
             this.groupBox1.ResumeLayout(false);
