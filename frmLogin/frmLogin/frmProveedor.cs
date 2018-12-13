@@ -11,6 +11,7 @@ using System.Windows.Forms;
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Text.RegularExpressions;
 
 namespace frmLogin
 {
@@ -237,6 +238,43 @@ namespace frmLogin
             else
             {
                 MessageBox.Show("ha ocurrido un  error en la actualización", "Control de proveedores", MessageBoxButtons.OK);
+            }
+        }
+
+        public static bool email_bien_escrito(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (email_bien_escrito(txtCorreo.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor ingrese un correo electrónico válido con el siguiente formato: nombre@dominio.com," +
+                   "Intente nuevamente con un registro válido", "Control de correo electrónico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
             }
         }
     }

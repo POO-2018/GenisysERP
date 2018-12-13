@@ -154,6 +154,7 @@
             this.txtCorreo.TabIndex = 3;
             this.txtCorreo.TabStop = false;
             this.txtCorreo.UseSystemPasswordChar = false;
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // pictureBox1
             // 
