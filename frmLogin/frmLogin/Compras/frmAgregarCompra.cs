@@ -138,7 +138,7 @@ namespace frmLogin.Compras
         /// </summary>
         public void Detalle()
         {
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql = "SELECT MAX(idCompra) FROM Compras.Compra";
             //SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
             try

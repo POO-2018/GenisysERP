@@ -78,7 +78,7 @@ namespace frmLogin.Compras
 
         public void CargarDetalle()
         {
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
             string sql = " SELECT		Compras.DetalleCompra.idDetalle	," +
                                     "Compras.DetalleCompra.idProducto,"+
                                     "Inventario.Producto.nombre , " +
