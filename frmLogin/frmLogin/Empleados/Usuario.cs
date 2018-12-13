@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace frmLogin.Empleados
 {
@@ -13,6 +14,7 @@ namespace frmLogin.Empleados
     {
         public int id { get; set; }
         public int idEmpleado { get; set; }
+        public string nombreEmpleado { get; set; }
         public string nombreUsuario { get; set; }
         public string contrasena { get; set; }
 
@@ -70,7 +72,8 @@ namespace frmLogin.Empleados
             List<Usuario> Lista = new List<Usuario>();
 
             // Query SQL
-            sql = @"Select * From  [Empleados].[Usuario]";
+            sql = @"select U.id, U.idEmpleado, E.nombre, U.nombreUsuario, U.contrasena from  
+                    [Empleados].[Usuario] as U inner join [Empleados].[Empleado] as E on U.idEmpleado = E.id ";
 
             SqlCommand cmd = conexion.EjecutarComando(sql);
             SqlDataReader rdr;
@@ -84,7 +87,8 @@ namespace frmLogin.Empleados
                     Usuario resultado = new Usuario();
                     resultado.id = rdr.GetInt32(0);
                     resultado.idEmpleado = rdr.GetInt32(1);
-                    resultado.nombreUsuario = rdr.GetString(2);
+                    resultado.nombreEmpleado = rdr.GetString(2);
+                    resultado.nombreUsuario = rdr.GetString(3);
                     resultado.contrasena = "*******";
                     Lista.Add(resultado);
                     // Remover espacios
@@ -94,11 +98,98 @@ namespace frmLogin.Empleados
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
                 return Lista;
             }
             finally
             {
                 conexion.CerrarConexion();
+            }
+        }
+
+        public List<Usuario> ListarUsuarioUnico(string nick)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            string sql;
+            List<Usuario> Lista = new List<Usuario>();
+
+            // Query SQL
+            sql = @"select U.id, U.idEmpleado, E.nombre, U.nombreUsuario, U.contrasena from  
+                   [Empleados].[Usuario] as U inner join [Empleados].[Empleado] as E on U.idEmpleado = E.id WHERE nombreUsuario = @nick";
+
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@nick", SqlDbType.VarChar, 50).Value = nick;
+                }
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Usuario resultado = new Usuario();
+                    resultado.id = rdr.GetInt32(0);
+                    resultado.idEmpleado = rdr.GetInt32(1);
+                    resultado.nombreEmpleado = rdr.GetString(2);
+                    resultado.nombreUsuario = rdr.GetString(3);
+                    resultado.contrasena = "*******";
+                    Lista.Add(resultado);
+                    // Remover espacios
+                }
+
+                return Lista;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return Lista;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public bool Eliminar(string Nick)
+        {
+            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+
+            // enviamos y especificamos el comando a ejecutar
+            SqlCommand cmd = conn.EjecutarComando(@"delete from Empleados.Usuario where nombreUsuario = @nick");
+
+
+
+            // agregamos los parámetros que son requeridos
+            using (cmd)
+            {
+                cmd.Parameters.Add("@nick", SqlDbType.VarChar, 50).Value = Nick;
+            }
+            
+            
+
+            // intentamos eliminar la cita
+            try
+            {
+                // establecemos la conexión
+                conn.EstablecerConexion();
+
+                // ejecutamos el comando
+                cmd.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message + ex.StackTrace + "Detalles de la excepción");
+                return false;
+            }
+            finally
+            {
+                conn.CerrarConexion();
             }
         }
     }
