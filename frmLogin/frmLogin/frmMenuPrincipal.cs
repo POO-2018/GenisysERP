@@ -187,6 +187,7 @@ namespace frmLogin
         private void Acercade_Click(object sender, EventArgs e)
         {
             frmAcercaDe vista = new frmAcercaDe();
+            vista.ShowDialog();
         }
     }
 }
