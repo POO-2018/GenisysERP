@@ -36,6 +36,8 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.txtNombreEmpleadoBuscar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtidentidad = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
@@ -50,8 +52,6 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtidentidad = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarEmpleados)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -75,12 +75,15 @@
             // 
             // btnInhabilitar
             // 
+            this.btnInhabilitar.AutoSize = true;
+            this.btnInhabilitar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnInhabilitar.Depth = 0;
+            this.btnInhabilitar.Icon = null;
             this.btnInhabilitar.Location = new System.Drawing.Point(190, 367);
             this.btnInhabilitar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInhabilitar.Name = "btnInhabilitar";
             this.btnInhabilitar.Primary = true;
-            this.btnInhabilitar.Size = new System.Drawing.Size(112, 35);
+            this.btnInhabilitar.Size = new System.Drawing.Size(103, 36);
             this.btnInhabilitar.TabIndex = 21;
             this.btnInhabilitar.Text = "Inhabilitar";
             this.btnInhabilitar.UseVisualStyleBackColor = true;
@@ -88,12 +91,15 @@
             // 
             // btnHabilitar
             // 
+            this.btnHabilitar.AutoSize = true;
+            this.btnHabilitar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnHabilitar.Depth = 0;
+            this.btnHabilitar.Icon = null;
             this.btnHabilitar.Location = new System.Drawing.Point(190, 367);
             this.btnHabilitar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Primary = true;
-            this.btnHabilitar.Size = new System.Drawing.Size(112, 35);
+            this.btnHabilitar.Size = new System.Drawing.Size(90, 36);
             this.btnHabilitar.TabIndex = 20;
             this.btnHabilitar.Text = "Habilitar";
             this.btnHabilitar.UseVisualStyleBackColor = true;
@@ -102,7 +108,7 @@
             // dgvListarEmpleados
             // 
             this.dgvListarEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvListarEmpleados.BackgroundColor = System.Drawing.Color.SlateGray;
+            this.dgvListarEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.dgvListarEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListarEmpleados.Location = new System.Drawing.Point(14, 55);
             this.dgvListarEmpleados.Name = "dgvListarEmpleados";
@@ -113,12 +119,15 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.AutoSize = true;
+            this.btnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBuscar.Depth = 0;
-            this.btnBuscar.Location = new System.Drawing.Point(419, 24);
+            this.btnBuscar.Icon = null;
+            this.btnBuscar.Location = new System.Drawing.Point(420, 15);
             this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Primary = true;
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(74, 36);
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -142,6 +151,7 @@
             this.txtNombreEmpleadoBuscar.Depth = 0;
             this.txtNombreEmpleadoBuscar.Hint = "";
             this.txtNombreEmpleadoBuscar.Location = new System.Drawing.Point(169, 24);
+            this.txtNombreEmpleadoBuscar.MaxLength = 32767;
             this.txtNombreEmpleadoBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombreEmpleadoBuscar.Name = "txtNombreEmpleadoBuscar";
             this.txtNombreEmpleadoBuscar.PasswordChar = '\0';
@@ -150,6 +160,7 @@
             this.txtNombreEmpleadoBuscar.SelectionStart = 0;
             this.txtNombreEmpleadoBuscar.Size = new System.Drawing.Size(164, 23);
             this.txtNombreEmpleadoBuscar.TabIndex = 8;
+            this.txtNombreEmpleadoBuscar.TabStop = false;
             this.txtNombreEmpleadoBuscar.UseSystemPasswordChar = false;
             this.txtNombreEmpleadoBuscar.Click += new System.EventHandler(this.txtNombreEmpleadoBuscar_Click);
             // 
@@ -179,6 +190,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de empleado";
             // 
+            // txtidentidad
+            // 
+            this.txtidentidad.Depth = 0;
+            this.txtidentidad.Hint = "";
+            this.txtidentidad.Location = new System.Drawing.Point(191, 46);
+            this.txtidentidad.MaxLength = 32767;
+            this.txtidentidad.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtidentidad.Name = "txtidentidad";
+            this.txtidentidad.PasswordChar = '\0';
+            this.txtidentidad.SelectedText = "";
+            this.txtidentidad.SelectionLength = 0;
+            this.txtidentidad.SelectionStart = 0;
+            this.txtidentidad.Size = new System.Drawing.Size(257, 23);
+            this.txtidentidad.TabIndex = 21;
+            this.txtidentidad.TabStop = false;
+            this.txtidentidad.UseSystemPasswordChar = false;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(34, 50);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(70, 19);
+            this.materialLabel8.TabIndex = 20;
+            this.materialLabel8.Text = "Identidad";
+            // 
             // cmbCargo
             // 
             this.cmbCargo.FormattingEnabled = true;
@@ -193,6 +234,7 @@
             this.txtCorreo.Depth = 0;
             this.txtCorreo.Hint = "";
             this.txtCorreo.Location = new System.Drawing.Point(191, 273);
+            this.txtCorreo.MaxLength = 32767;
             this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.PasswordChar = '\0';
@@ -201,6 +243,7 @@
             this.txtCorreo.SelectionStart = 0;
             this.txtCorreo.Size = new System.Drawing.Size(257, 23);
             this.txtCorreo.TabIndex = 18;
+            this.txtCorreo.TabStop = false;
             this.txtCorreo.UseSystemPasswordChar = false;
             // 
             // materialLabel7
@@ -221,6 +264,7 @@
             this.txtDireccion.Depth = 0;
             this.txtDireccion.Hint = "";
             this.txtDireccion.Location = new System.Drawing.Point(191, 236);
+            this.txtDireccion.MaxLength = 32767;
             this.txtDireccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PasswordChar = '\0';
@@ -229,6 +273,7 @@
             this.txtDireccion.SelectionStart = 0;
             this.txtDireccion.Size = new System.Drawing.Size(257, 23);
             this.txtDireccion.TabIndex = 5;
+            this.txtDireccion.TabStop = false;
             this.txtDireccion.UseSystemPasswordChar = false;
             // 
             // materialLabel6
@@ -249,6 +294,7 @@
             this.txtNombre.Depth = 0;
             this.txtNombre.Hint = "";
             this.txtNombre.Location = new System.Drawing.Point(191, 83);
+            this.txtNombre.MaxLength = 32767;
             this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
@@ -257,16 +303,20 @@
             this.txtNombre.SelectionStart = 0;
             this.txtNombre.Size = new System.Drawing.Size(257, 23);
             this.txtNombre.TabIndex = 14;
+            this.txtNombre.TabStop = false;
             this.txtNombre.UseSystemPasswordChar = false;
             // 
             // btnActualizar
             // 
+            this.btnActualizar.AutoSize = true;
+            this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizar.Depth = 0;
+            this.btnActualizar.Icon = null;
             this.btnActualizar.Location = new System.Drawing.Point(281, 367);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
-            this.btnActualizar.Size = new System.Drawing.Size(112, 35);
+            this.btnActualizar.Size = new System.Drawing.Size(103, 36);
             this.btnActualizar.TabIndex = 13;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -274,12 +324,15 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.AutoSize = true;
+            this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAgregar.Depth = 0;
+            this.btnAgregar.Icon = null;
             this.btnAgregar.Location = new System.Drawing.Point(97, 367);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Primary = true;
-            this.btnAgregar.Size = new System.Drawing.Size(112, 35);
+            this.btnAgregar.Size = new System.Drawing.Size(83, 36);
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -290,6 +343,7 @@
             this.txtTelefono.Depth = 0;
             this.txtTelefono.Hint = "";
             this.txtTelefono.Location = new System.Drawing.Point(191, 199);
+            this.txtTelefono.MaxLength = 32767;
             this.txtTelefono.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.PasswordChar = '\0';
@@ -298,6 +352,7 @@
             this.txtTelefono.SelectionStart = 0;
             this.txtTelefono.Size = new System.Drawing.Size(257, 23);
             this.txtTelefono.TabIndex = 8;
+            this.txtTelefono.TabStop = false;
             this.txtTelefono.UseSystemPasswordChar = false;
             // 
             // txtApellido
@@ -305,6 +360,7 @@
             this.txtApellido.Depth = 0;
             this.txtApellido.Hint = "";
             this.txtApellido.Location = new System.Drawing.Point(191, 120);
+            this.txtApellido.MaxLength = 32767;
             this.txtApellido.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.PasswordChar = '\0';
@@ -313,6 +369,7 @@
             this.txtApellido.SelectionStart = 0;
             this.txtApellido.Size = new System.Drawing.Size(257, 23);
             this.txtApellido.TabIndex = 6;
+            this.txtApellido.TabStop = false;
             this.txtApellido.UseSystemPasswordChar = false;
             // 
             // materialLabel4
@@ -366,34 +423,6 @@
             this.materialLabel1.Size = new System.Drawing.Size(63, 19);
             this.materialLabel1.TabIndex = 2;
             this.materialLabel1.Text = "Nombre";
-            // 
-            // txtidentidad
-            // 
-            this.txtidentidad.Depth = 0;
-            this.txtidentidad.Hint = "";
-            this.txtidentidad.Location = new System.Drawing.Point(191, 46);
-            this.txtidentidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtidentidad.Name = "txtidentidad";
-            this.txtidentidad.PasswordChar = '\0';
-            this.txtidentidad.SelectedText = "";
-            this.txtidentidad.SelectionLength = 0;
-            this.txtidentidad.SelectionStart = 0;
-            this.txtidentidad.Size = new System.Drawing.Size(257, 23);
-            this.txtidentidad.TabIndex = 21;
-            this.txtidentidad.UseSystemPasswordChar = false;
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.AutoSize = true;
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(34, 50);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(70, 19);
-            this.materialLabel8.TabIndex = 20;
-            this.materialLabel8.Text = "Identidad";
             // 
             // frmEmpleados
             // 
