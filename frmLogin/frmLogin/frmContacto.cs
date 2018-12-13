@@ -22,7 +22,7 @@ namespace frmLogin
         public frmContacto(string text)
         {
             InitializeComponent();
-            cmbIdProveedor.Text = text;
+            cmbProveedor.Text = text;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -134,15 +134,15 @@ namespace frmLogin
         private void frmContacto_Load(object sender, EventArgs e)
         {
             limpiar();
-            if (cmbIdProveedor.Text != "")
+            if (cmbProveedor.Text != "")
             {
                 //cmbIdProveedor.Enabled = true;
             }
             else
             {
-                cmbIdProveedor.DataSource = cargar.CargarCombo();
-                cmbIdProveedor.DisplayMember = "nombreEmpresa";
-                cmbIdProveedor.ValueMember = "idProveedor";
+                cmbProveedor.DataSource = cargar.CargarCombo();
+                cmbProveedor.DisplayMember = "nombreEmpresa";
+                cmbProveedor.ValueMember = "idProveedor";
                 cmbProveedor.SelectedIndex = -1;
             }
             
