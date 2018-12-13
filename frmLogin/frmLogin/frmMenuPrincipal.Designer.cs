@@ -323,6 +323,7 @@
             this.btnEmpleados.TabIndex = 5;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
             // tsMenu
             // 

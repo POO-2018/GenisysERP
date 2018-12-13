@@ -13,6 +13,9 @@ using frmLogin.Compras;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
+// namespaces adicionales
+using frmLogin.Empleados;
+
 
 
 namespace frmLogin
@@ -44,7 +47,14 @@ namespace frmLogin
 
         private void materialRaisedButton12_Click(object sender, EventArgs e)
         {
+            frmMantenimientoUsuarios vista = new frmMantenimientoUsuarios();
+            vista.Show();
+        }
 
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            Empleados.frmEmpleados vista = new frmEmpleados();
+            vista.ShowDialog();
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
