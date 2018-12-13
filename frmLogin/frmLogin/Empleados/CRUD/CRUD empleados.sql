@@ -17,6 +17,7 @@ BEGIN
 END
 GO
 
+
 IF OBJECT_ID('[Empleados].[sp_InsertarEmpleado]') IS NOT NULL
 BEGIN 
     DROP PROC [Empleados].[sp_InsertarEmpleado] 
