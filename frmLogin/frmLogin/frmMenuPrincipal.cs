@@ -66,13 +66,13 @@ namespace frmLogin
 
         private void btnAgregarCompra_Click(object sender, EventArgs e)
         {
-            frmAgregarCompra agregarCompra = new frmAgregarCompra("1");
+            frmAgregarCompra agregarCompra = new frmAgregarCompra(idUsuario);
             agregarCompra.ShowDialog();
         }
 
         private void btnActualizarCompra_Click(object sender, EventArgs e)
         {
-            frmMenuActualizar menuActualizar = new frmMenuActualizar("1");
+            frmMenuActualizar menuActualizar = new frmMenuActualizar(idUsuario);
             menuActualizar.ShowDialog();
         }
 
@@ -96,7 +96,7 @@ namespace frmLogin
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            frmProducto nuevo = new frmProducto("1");
+            frmProducto nuevo = new frmProducto(idUsuario);
             nuevo.ShowDialog();
         }
 
@@ -108,7 +108,7 @@ namespace frmLogin
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            frmCliente vista = new frmCliente();
+            frmCliente vista = new frmCliente(idUsuario);
             vista.ShowDialog();
         }
 
@@ -120,7 +120,7 @@ namespace frmLogin
 
         private void btnContactos_Click(object sender, EventArgs e)
         {
-            frmContacto vista = new frmContacto();
+            frmContacto vista = new frmContacto(idUsuario);
             vista.ShowDialog();
         }
     }

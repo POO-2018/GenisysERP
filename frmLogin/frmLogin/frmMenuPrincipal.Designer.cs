@@ -85,6 +85,7 @@
             // 
             this.btnContactos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnContactos.Depth = 0;
+            this.btnContactos.Icon = null;
             this.btnContactos.Location = new System.Drawing.Point(422, 93);
             this.btnContactos.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnContactos.Name = "btnContactos";
@@ -99,6 +100,7 @@
             // 
             this.btnProveedores.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnProveedores.Depth = 0;
+            this.btnProveedores.Icon = null;
             this.btnProveedores.Location = new System.Drawing.Point(238, 93);
             this.btnProveedores.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnProveedores.Name = "btnProveedores";
@@ -113,6 +115,7 @@
             // 
             this.btnClientes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClientes.Depth = 0;
+            this.btnClientes.Icon = null;
             this.btnClientes.Location = new System.Drawing.Point(54, 93);
             this.btnClientes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientes.Name = "btnClientes";
@@ -141,11 +144,12 @@
             // 
             this.btnInhabilitarCompra.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnInhabilitarCompra.Depth = 0;
+            this.btnInhabilitarCompra.Icon = null;
             this.btnInhabilitarCompra.Location = new System.Drawing.Point(354, 140);
             this.btnInhabilitarCompra.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInhabilitarCompra.Name = "btnInhabilitarCompra";
             this.btnInhabilitarCompra.Primary = true;
-            this.btnInhabilitarCompra.Size = new System.Drawing.Size(120, 50);
+            this.btnInhabilitarCompra.Size = new System.Drawing.Size(151, 50);
             this.btnInhabilitarCompra.TabIndex = 4;
             this.btnInhabilitarCompra.Text = "Inhabilitar";
             this.btnInhabilitarCompra.UseVisualStyleBackColor = true;
@@ -155,11 +159,12 @@
             // 
             this.btnBusquedaCompra.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBusquedaCompra.Depth = 0;
+            this.btnBusquedaCompra.Icon = null;
             this.btnBusquedaCompra.Location = new System.Drawing.Point(122, 140);
             this.btnBusquedaCompra.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBusquedaCompra.Name = "btnBusquedaCompra";
             this.btnBusquedaCompra.Primary = true;
-            this.btnBusquedaCompra.Size = new System.Drawing.Size(120, 50);
+            this.btnBusquedaCompra.Size = new System.Drawing.Size(151, 50);
             this.btnBusquedaCompra.TabIndex = 3;
             this.btnBusquedaCompra.Text = "Busquedas";
             this.btnBusquedaCompra.UseVisualStyleBackColor = true;
@@ -169,11 +174,12 @@
             // 
             this.btnActualizarCompra.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizarCompra.Depth = 0;
+            this.btnActualizarCompra.Icon = null;
             this.btnActualizarCompra.Location = new System.Drawing.Point(354, 42);
             this.btnActualizarCompra.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizarCompra.Name = "btnActualizarCompra";
             this.btnActualizarCompra.Primary = true;
-            this.btnActualizarCompra.Size = new System.Drawing.Size(120, 50);
+            this.btnActualizarCompra.Size = new System.Drawing.Size(151, 50);
             this.btnActualizarCompra.TabIndex = 2;
             this.btnActualizarCompra.Text = "Actualizar compra";
             this.btnActualizarCompra.UseVisualStyleBackColor = true;
@@ -183,11 +189,12 @@
             // 
             this.btnAgregarCompra.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAgregarCompra.Depth = 0;
+            this.btnAgregarCompra.Icon = null;
             this.btnAgregarCompra.Location = new System.Drawing.Point(122, 42);
             this.btnAgregarCompra.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregarCompra.Name = "btnAgregarCompra";
             this.btnAgregarCompra.Primary = true;
-            this.btnAgregarCompra.Size = new System.Drawing.Size(120, 50);
+            this.btnAgregarCompra.Size = new System.Drawing.Size(151, 50);
             this.btnAgregarCompra.TabIndex = 1;
             this.btnAgregarCompra.Text = "Agregar compras";
             this.btnAgregarCompra.UseVisualStyleBackColor = true;
@@ -209,6 +216,7 @@
             // 
             this.btnInventario.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnInventario.Depth = 0;
+            this.btnInventario.Icon = null;
             this.btnInventario.Location = new System.Drawing.Point(236, 93);
             this.btnInventario.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInventario.Name = "btnInventario";
@@ -223,6 +231,7 @@
             // 
             this.btnImpuestos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImpuestos.Depth = 0;
+            this.btnImpuestos.Icon = null;
             this.btnImpuestos.Location = new System.Drawing.Point(419, 93);
             this.btnImpuestos.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnImpuestos.Name = "btnImpuestos";
@@ -237,6 +246,7 @@
             // 
             this.btnCategorias.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCategorias.Depth = 0;
+            this.btnCategorias.Icon = null;
             this.btnCategorias.Location = new System.Drawing.Point(53, 93);
             this.btnCategorias.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCategorias.Name = "btnCategorias";
@@ -262,6 +272,7 @@
             // 
             this.btnUsuario.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnUsuario.Depth = 0;
+            this.btnUsuario.Icon = null;
             this.btnUsuario.Location = new System.Drawing.Point(113, 83);
             this.btnUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUsuario.Name = "btnUsuario";
@@ -276,6 +287,7 @@
             // 
             this.btnEmpleados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEmpleados.Depth = 0;
+            this.btnEmpleados.Icon = null;
             this.btnEmpleados.Location = new System.Drawing.Point(373, 83);
             this.btnEmpleados.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEmpleados.Name = "btnEmpleados";
@@ -299,13 +311,15 @@
             // 
             // materialRaisedButton1
             // 
+            this.materialRaisedButton1.AutoSize = true;
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
             this.materialRaisedButton1.Location = new System.Drawing.Point(522, 399);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(99, 38);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(58, 36);
             this.materialRaisedButton1.TabIndex = 2;
             this.materialRaisedButton1.Text = "Salir\r\n";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
@@ -329,6 +343,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

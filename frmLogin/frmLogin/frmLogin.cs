@@ -72,7 +72,7 @@ namespace frmLogin
                 if (laEncriptacion == usuario.contrasena)
                 {
                     //Cambiar al formulario de Menu Principal
-                    frmMenuPrincipal mu = new frmMenuPrincipal();
+                    frmMenuPrincipal mu = new frmMenuPrincipal(idUsuario);
                     this.Hide();
                     mu.ShowDialog();
                     
