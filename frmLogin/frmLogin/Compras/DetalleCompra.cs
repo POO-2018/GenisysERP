@@ -35,7 +35,7 @@ namespace frmLogin.Compras
         public static bool InsertarDetalleCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InsertarDetalleCompra");
@@ -80,7 +80,47 @@ namespace frmLogin.Compras
             }
 
         }
+        /// <summary>
+        /// Método para eliminar un Detalle de Compra
+        /// </summary>
+        /// <param name="elDetalle"></param>
+        /// <returns>true si se realiza el método, false de lo contrario</returns>
+        public static bool EliminarDetalleCompra(DetalleCompra elDetalle)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando("sp_EliminarDetalleCompra");
+
+            // Estableccer el comando como un Stored Procedure
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parámetros del Stored Procedure
+            cmd.Parameters.Add(new SqlParameter("@idDetalle", SqlDbType.Int));
+            cmd.Parameters["@idDetalle"].Value = elDetalle.idDetalle;
+
+            // Intentamos ejecutar el procedimiento
+            try
+            {
+                // Establecemos la conexión
+                conexion.EstablecerConexion();
+
+                // Ejecutamos el query vía un ExecuteNonQuery
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+        }
         /// <summary>
         /// Método para Actualizar un Detalle de Compra
         /// </summary>
@@ -89,7 +129,7 @@ namespace frmLogin.Compras
         public static bool ActualizarDetalleCompra(DetalleCompra elDetalle)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarDetalleCompra");
@@ -99,17 +139,17 @@ namespace frmLogin.Compras
 
             // Parámetros del Stored Procedure
 
-            cmd.Parameters.Add(new SqlParameter("@idDetalleCompra", SqlDbType.Int));
-            cmd.Parameters["@idDetalleCompra"].Value = elDetalle.idDetalle;
+            cmd.Parameters.Add(new SqlParameter("@idDetalle", SqlDbType.Int));
+            cmd.Parameters["@idDetalle"].Value = elDetalle.idDetalle;
 
-            cmd.Parameters.Add(new SqlParameter("@idCompra", SqlDbType.Int));
-            cmd.Parameters["@idCompra"].Value = elDetalle.idCompra;
+            //cmd.Parameters.Add(new SqlParameter("@idCompra", SqlDbType.Int));
+            //cmd.Parameters["@idCompra"].Value = elDetalle.idCompra;
 
-            cmd.Parameters.Add(new SqlParameter("@idProducto", SqlDbType.Int));
-            cmd.Parameters["@idProducto"].Value = elDetalle.idProducto;
+            //cmd.Parameters.Add(new SqlParameter("@idProducto", SqlDbType.Int));
+            //cmd.Parameters["@idProducto"].Value = elDetalle.idProducto;
 
-            cmd.Parameters.Add(new SqlParameter("@precioUnitario", SqlDbType.Decimal));
-            cmd.Parameters["@precioUnitario"].Value = elDetalle.precioUnitario;
+            //cmd.Parameters.Add(new SqlParameter("@precioUnitario", SqlDbType.Decimal));
+            //cmd.Parameters["@precioUnitario"].Value = elDetalle.precioUnitario;
 
             cmd.Parameters.Add(new SqlParameter("@cantidad", SqlDbType.SmallInt));
             cmd.Parameters["@cantidad"].Value = elDetalle.cantidad;
@@ -148,7 +188,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorCompra(int idCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;

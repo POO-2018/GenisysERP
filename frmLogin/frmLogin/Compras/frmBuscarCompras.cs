@@ -21,10 +21,22 @@ namespace frmLogin.Compras
 
         // Propiedade para obtener el codigo de la compra
         private int idCompra;
+        private int condicion;
 
-        public frmBuscarCompras()
+        public int idCompraBusqueda { get; set; }
+        public decimal subTotal { get; set; }
+        public decimal total { get; set; }
+        public decimal impuesto{ get; set; }
+        public string observaciones { get; set; }
+        public string Proveedor { get; set; }
+        public frmBuscarCompras(int valor)
         {
             InitializeComponent();
+            condicion = valor;
+            if (condicion==0)
+            {
+                btnVolver.Visible = false;
+            }
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -111,7 +123,14 @@ namespace frmLogin.Compras
         /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            if (condicion==0)
+            {
+                idCompraBusqueda = 0;
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
             this.Close();
+
         }
 
         /// <summary>
@@ -202,7 +221,7 @@ namespace frmLogin.Compras
 
             // Almacenamos todos los proveedores Existentes
             // y habilitados en una lista
-            List<Compra> listaProveedor = Compra.LeerTodosHabilitados();
+            List<Compra> listaProveedor = Compra.LeerTodosProveedores();
 
             // Si hay algún elemento en la lista
             // Lo agregamos al ComboBox
@@ -248,27 +267,55 @@ namespace frmLogin.Compras
         /// <param name="e"></param>
         private void dgvCompra_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            if (condicion == 0)
             {
-                this.idCompra = Convert.ToInt16(dgvCompra.Rows[e.RowIndex].Cells["Código"].Value);
-                try
+                if (e.RowIndex != -1)
                 {
-                    // El origen de los datos del DataGridView
-                    // está en un método en la clase DetalleCompra
-                    // hacemos referencia a él.
-                    dgvDetalleCompra.DataSource = DetalleCompra.GetDataViewPorCompra(this.idCompra);
-                    dgvDetalleCompra.Columns[0].Visible = false;
-                    dgvDetalleCompra.Columns[1].Visible = false;
-                    dgvDetalleCompra.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    this.idCompra = Convert.ToInt16(dgvCompra.Rows[e.RowIndex].Cells["Código"].Value);
+                    try
+                    {
+                        // El origen de los datos del DataGridView
+                        // está en un método en la clase DetalleCompra
+                        // hacemos referencia a él.
+                        dgvDetalleCompra.DataSource = DetalleCompra.GetDataViewPorCompra(this.idCompra);
+                        dgvDetalleCompra.Columns[0].Visible = false;
+                        dgvDetalleCompra.Columns[1].Visible = false;
+                        dgvDetalleCompra.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            else
+            {
+                idCompraBusqueda = Convert.ToInt16(dgvCompra.Rows[e.RowIndex].Cells["Código"].Value);
+                subTotal= Convert.ToDecimal(dgvCompra.Rows[e.RowIndex].Cells["SubTotal"].Value);
+                total = Convert.ToDecimal(dgvCompra.Rows[e.RowIndex].Cells["Total"].Value);
+                impuesto = Convert.ToDecimal(dgvCompra.Rows[e.RowIndex].Cells["Impuesto"].Value);
+                observaciones = dgvCompra.Rows[e.RowIndex].Cells["Observaciones"].Value.ToString();
+                Proveedor= dgvCompra.Rows[e.RowIndex].Cells["Proveedor"].Value.ToString();
             }
             
 
             
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            if (condicion == 1)
+            {
+                if (idCompraBusqueda == 0)
+                {
+                    MessageBox.Show("no ha seleccionado una compra");
+                }
+                else
+                {
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
         }
     }
 }

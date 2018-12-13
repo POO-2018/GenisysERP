@@ -49,7 +49,7 @@ namespace frmLogin.Compras
         public static bool InsertarCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InsertarCompra");
@@ -119,7 +119,7 @@ namespace frmLogin.Compras
         public static bool ActualizarCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarCompra");
@@ -132,17 +132,17 @@ namespace frmLogin.Compras
             cmd.Parameters.Add(new SqlParameter("@idCompra", SqlDbType.Int));
             cmd.Parameters["@idCompra"].Value = laCompra.idCompra;
 
-            cmd.Parameters.Add(new SqlParameter("@fechaCompra", SqlDbType.DateTime));
-            cmd.Parameters["@fechaCompra"].Value = laCompra.fechaCompra;
+            //cmd.Parameters.Add(new SqlParameter("@fechaCompra", SqlDbType.DateTime));
+            //cmd.Parameters["@fechaCompra"].Value = laCompra.fechaCompra;
 
-            cmd.Parameters.Add(new SqlParameter("@numeroFactura", SqlDbType.NVarChar, 19));
-            cmd.Parameters["@numeroFactura"].Value = laCompra.numeroFactura;
+            //cmd.Parameters.Add(new SqlParameter("@numeroFactura", SqlDbType.NVarChar, 19));
+            //cmd.Parameters["@numeroFactura"].Value = laCompra.numeroFactura;
 
-            cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.DateTime));
-            cmd.Parameters["@idProveedor"].Value = laCompra.idProveedor;
+            //cmd.Parameters.Add(new SqlParameter("@idProveedor", SqlDbType.DateTime));
+            //cmd.Parameters["@idProveedor"].Value = laCompra.idProveedor;
 
-            cmd.Parameters.Add(new SqlParameter("@subtotal", SqlDbType.Decimal));
-            cmd.Parameters["@subtotal"].Value = laCompra.subTotal;
+            cmd.Parameters.Add(new SqlParameter("@subTotal", SqlDbType.Decimal));
+            cmd.Parameters["@subTotal"].Value = laCompra.subTotal;
 
             cmd.Parameters.Add(new SqlParameter("@impuesto", SqlDbType.Decimal));
             cmd.Parameters["@impuesto"].Value = laCompra.impuesto;
@@ -150,17 +150,17 @@ namespace frmLogin.Compras
             cmd.Parameters.Add(new SqlParameter("@total", SqlDbType.Decimal));
             cmd.Parameters["@total"].Value = laCompra.total;
 
-            cmd.Parameters.Add(new SqlParameter("@observaciones", SqlDbType.NVarChar, 50));
+            cmd.Parameters.Add(new SqlParameter("@observaciones", SqlDbType.NVarChar, 150));
             cmd.Parameters["@observaciones"].Value = laCompra.observaciones;
 
-            cmd.Parameters.Add(new SqlParameter("@estadoCompra", SqlDbType.NVarChar, 50));
-            cmd.Parameters["@estadoCompra"].Value = laCompra.estadoCompra;
+            //cmd.Parameters.Add(new SqlParameter("@estadoCompra", SqlDbType.NVarChar, 50));
+            //cmd.Parameters["@estadoCompra"].Value = laCompra.estadoCompra;
 
-            cmd.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.Int));
-            cmd.Parameters["@idUsuario"].Value = laCompra.idUsuario;
+            cmd.Parameters.Add(new SqlParameter("@Usuario", SqlDbType.Int));
+            cmd.Parameters["@Usuario"].Value = laCompra.idUsuario;
 
-            cmd.Parameters.Add(new SqlParameter("@autorizadaPor", SqlDbType.NVarChar, 50));
-            cmd.Parameters["@autorizadaPor"].Value = laCompra.autorizadaPor;
+            //cmd.Parameters.Add(new SqlParameter("@autorizadaPor", SqlDbType.NVarChar, 50));
+            //cmd.Parameters["@autorizadaPor"].Value = laCompra.autorizadaPor;
 
             // Intentamos ejecutar el procedimiento
             try
@@ -175,6 +175,7 @@ namespace frmLogin.Compras
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Errors[0].ToString());
                 return false;
             }
             finally
@@ -192,7 +193,7 @@ namespace frmLogin.Compras
         public static bool ActualizarEstadoCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarEstadoCompra");
@@ -240,7 +241,7 @@ namespace frmLogin.Compras
         public static bool InhabilitarCompra(Compra laCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Enviamos el comando a ejecutar
             SqlCommand cmd = conexion.EjecutarComando("sp_InhabilitarCompra");
@@ -284,7 +285,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorEstado(string estadoCompra)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -350,7 +351,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorFactura(string factura)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -416,7 +417,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorProveedor(string nombreEmpresa)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -483,7 +484,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorPrevedorCategoria(int proveedor, int categoria)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -541,7 +542,69 @@ namespace frmLogin.Compras
                 conexion.CerrarConexion();
             }
         }
+        /// <summary>
+        /// Método para traer todo el inventario
+        /// Por el filtro del proveedor 
+        /// </summary>
+        /// <param name="proveedor"></param>
+        /// <returns>Un DataView con toda la información</returns>
+        public static DataView GetDataViewProductosPorProveedor(string proveedor)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
+            // Creamos la variable que contendrá el Query
+            string sql;
+
+            sql = @"  SELECT          Inventario.Producto.idInventario            as Id,
+                                    Inventario.Producto.idProducto              as Código,
+                                    Inventario.Producto.nombre                  as Nombre,
+                                --Inventario.Producto.cantidadExistencia      as Existencia,
+                                --Inventario.Producto.cantidadMinima          as Minimo,
+                                    Inventario.Producto.precioCompra            as Compra,
+                                --Inventario.Producto.precioVenta             as Venta,
+                                --Inventario.Producto.observaciones           as Observaciones,
+                                --Inventario.Impuesto.valor                   as Impuesto,
+                                Inventario.Categoria.nombre                 as Categoria
+                    FROM Inventario.Producto
+                    INNER JOIN Inventario.Categoria
+                    ON Inventario.Categoria.idCategoria = Inventario.Producto.idCategoria
+                    WHERE Inventario.Producto.idProveedor=(SELECT Clientes.Proveedor.idProveedor FROM Clientes.Proveedor WHERE Clientes.Proveedor.nombreEmpresa= @idProveedor)
+                    AND Inventario.Producto.estado = 1";
+
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+
+                // Enviamos el comando a ejecutar
+                SqlCommand cmd = conexion.EjecutarComando(sql);
+
+                // Especificamos las varibles escalares
+                cmd.Parameters.Add("@idProveedor", SqlDbType.NVarChar,100).Value = proveedor;
+
+                data.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                // La tabla con que vamos a llenar los datos
+                data.Fill(ds, "Compras.Compra");
+                DataTable dt = ds.Tables["Compras.Compra"];
+
+                DataView dv = new DataView(dt,
+                    "", "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
 
         /// <summary>
         /// Método para traer todo el inventario
@@ -553,7 +616,7 @@ namespace frmLogin.Compras
         public static DataView GetDataViewPorPrevedorCategoriaNombre(int proveedor, int categoria, string nombre)
         {
             // Instanciamos la conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos la variable que contendrá el Query
             string sql;
@@ -622,7 +685,7 @@ namespace frmLogin.Compras
         public static List<Compra> LeerTodosProveedores()
         {
             // Instanciamos la clase Conexion
-            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
 
             // Creamos una lista de tipo de cliente
             List<Compra> resultados = new List<Compra>();

@@ -17,10 +17,11 @@ namespace frmLogin.Compras
     public partial class frmMenuActualizar : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-
-        public frmMenuActualizar()
+        private string idUsuario;
+        public frmMenuActualizar(string x)
         {
             InitializeComponent();
+            idUsuario = x;
             //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -40,7 +41,7 @@ namespace frmLogin.Compras
         
         private void btnActualizarCompra_Click(object sender, EventArgs e)
         {
-            frmActualizarCompra actualizarCompra = new frmActualizarCompra();
+            frmActualizarCompra actualizarCompra = new frmActualizarCompra(idUsuario);
             actualizarCompra.ShowDialog();
         }
     }

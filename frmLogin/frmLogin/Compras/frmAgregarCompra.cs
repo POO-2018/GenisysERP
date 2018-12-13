@@ -19,10 +19,11 @@ namespace frmLogin.Compras
     public partial class frmAgregarCompra : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
-
-        public frmAgregarCompra()
+        private string idUsuario;
+        public frmAgregarCompra(string x)
         {
             InitializeComponent();
+            idUsuario = x;
             // Implementado temas y colores
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -298,19 +299,7 @@ namespace frmLogin.Compras
         /// <param name="e"></param>
         private void btnQuitarProducto_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (dgvDetalleCompra != null)
-                {
-                    dgvDetalleCompra.Rows.RemoveAt(id3);
-                    Total();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se puede disminuir más la cantidad");
-                throw ex;
-            }
+       
         }
         /// <summary>
         /// El metodo del grid de inventario donde seleccionamos los campos que ocupamos para la compra
@@ -369,8 +358,7 @@ namespace frmLogin.Compras
             compra.total = Convert.ToDecimal(txtTotal.Text);
             compra.observaciones = txtObservaciones.Text;
             compra.estadoCompra = txtCotizacion.Text;
-            //cambiar despues
-            compra.idUsuario = 1;
+            compra.idUsuario = Convert.ToInt32(idUsuario);
            // compra.autorizadaPor =
 
             if (Compra.InsertarCompra(compra) == true)

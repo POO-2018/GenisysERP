@@ -56,9 +56,6 @@
             this.btnNuevoProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
-            this.btnAgregarProducto = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnReducirProducto = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnQuitarProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtCotizacion = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -414,47 +411,6 @@
             this.lblNombre.TabIndex = 30;
             this.lblNombre.Text = "Nombre";
             // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.Depth = 0;
-            this.btnAgregarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProducto.Location = new System.Drawing.Point(599, 411);
-            this.btnAgregarProducto.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Primary = true;
-            this.btnAgregarProducto.Size = new System.Drawing.Size(43, 30);
-            this.btnAgregarProducto.TabIndex = 37;
-            this.btnAgregarProducto.Text = "+";
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // btnReducirProducto
-            // 
-            this.btnReducirProducto.Depth = 0;
-            this.btnReducirProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReducirProducto.Location = new System.Drawing.Point(685, 411);
-            this.btnReducirProducto.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnReducirProducto.Name = "btnReducirProducto";
-            this.btnReducirProducto.Primary = true;
-            this.btnReducirProducto.Size = new System.Drawing.Size(43, 30);
-            this.btnReducirProducto.TabIndex = 38;
-            this.btnReducirProducto.Text = "-";
-            this.btnReducirProducto.UseVisualStyleBackColor = true;
-            this.btnReducirProducto.Click += new System.EventHandler(this.btnReducirProducto_Click);
-            // 
-            // btnQuitarProducto
-            // 
-            this.btnQuitarProducto.Depth = 0;
-            this.btnQuitarProducto.Location = new System.Drawing.Point(771, 412);
-            this.btnQuitarProducto.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnQuitarProducto.Name = "btnQuitarProducto";
-            this.btnQuitarProducto.Primary = true;
-            this.btnQuitarProducto.Size = new System.Drawing.Size(65, 30);
-            this.btnQuitarProducto.TabIndex = 39;
-            this.btnQuitarProducto.Text = "Quitar";
-            this.btnQuitarProducto.UseVisualStyleBackColor = true;
-            this.btnQuitarProducto.Click += new System.EventHandler(this.btnQuitarProducto_Click);
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Depth = 0;
@@ -524,9 +480,6 @@
             this.Controls.Add(this.txtCotizacion);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnQuitarProducto);
-            this.Controls.Add(this.btnReducirProducto);
-            this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.btnNuevoProducto);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
@@ -587,9 +540,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnNuevoProducto;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtNombre;
         private MaterialSkin.Controls.MaterialLabel lblNombre;
-        private MaterialSkin.Controls.MaterialRaisedButton btnAgregarProducto;
-        private MaterialSkin.Controls.MaterialRaisedButton btnReducirProducto;
-        private MaterialSkin.Controls.MaterialRaisedButton btnQuitarProducto;
         private MaterialSkin.Controls.MaterialRaisedButton btnBuscar;
         private MaterialSkin.Controls.MaterialRaisedButton btnSalir;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCotizacion;

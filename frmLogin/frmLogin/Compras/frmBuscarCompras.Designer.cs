@@ -41,6 +41,7 @@
             this.rbFactura = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbProveedor = new MaterialSkin.Controls.MaterialRadioButton();
             this.btnNuevo = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnVolver = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
             this.SuspendLayout();
@@ -233,11 +234,26 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Depth = 0;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(577, 139);
+            this.btnVolver.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Primary = true;
+            this.btnVolver.Size = new System.Drawing.Size(81, 33);
+            this.btnVolver.TabIndex = 55;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
             // frmBuscarCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 658);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.rbProveedor);
             this.Controls.Add(this.rbFactura);
@@ -278,5 +294,6 @@
         private MaterialSkin.Controls.MaterialRadioButton rbFactura;
         private MaterialSkin.Controls.MaterialRadioButton rbProveedor;
         private MaterialSkin.Controls.MaterialRaisedButton btnNuevo;
+        private MaterialSkin.Controls.MaterialRaisedButton btnVolver;
     }
 }

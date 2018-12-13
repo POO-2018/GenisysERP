@@ -53,19 +53,19 @@ namespace frmLogin
 
         private void btnAgregarCompra_Click(object sender, EventArgs e)
         {
-            frmAgregarCompra agregarCompra = new frmAgregarCompra();
+            frmAgregarCompra agregarCompra = new frmAgregarCompra("1");
             agregarCompra.ShowDialog();
         }
 
         private void btnActualizarCompra_Click(object sender, EventArgs e)
         {
-            frmMenuActualizar menuActualizar = new frmMenuActualizar();
+            frmMenuActualizar menuActualizar = new frmMenuActualizar("1");
             menuActualizar.ShowDialog();
         }
 
         private void btnBusquedaCompra_Click(object sender, EventArgs e)
         {
-            frmBuscarCompras buscarCompras = new frmBuscarCompras();
+            frmBuscarCompras buscarCompras = new frmBuscarCompras(0);
             buscarCompras.ShowDialog();
         }
 
