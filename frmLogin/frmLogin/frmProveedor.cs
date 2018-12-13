@@ -130,9 +130,9 @@ namespace frmLogin
 
         private void lstHabilitado_Click(object sender, EventArgs e)
         {
-            btnActualizar.Visible = true; //actualizar
-            btnHa_In.Visible = true; //habilitar
-            btnAgregar.Visible = false; //agregar
+            btnActualizar.Visible = true;
+            btnHa_In.Visible = true; 
+            btnAgregar.Visible = false; 
             Clientes.Proveedor elProveedor = new Clientes.Proveedor();
             elProveedor = Clientes.Proveedor.ObtenerProveedor2(lstHabilitado.SelectedItem.ToString());
             mskTelefono.Text = elProveedor.telefono;
@@ -217,7 +217,7 @@ namespace frmLogin
             lstInhabilitado.Visible = false;
 
             //reestableciendo valor de focus
-            //txtNombreEmpresa.Focus();
+            txtNombreEmpresa.Focus();
 
         }
 

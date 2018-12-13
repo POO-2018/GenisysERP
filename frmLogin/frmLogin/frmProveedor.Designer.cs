@@ -340,7 +340,7 @@
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.lblNombreEmpresa);
             this.Name = "frmProveedor";
-            this.Text = "                    Información de Proveedor";
+            this.Text = "                    Información de proveedor";
             this.Load += new System.EventHandler(this.frmProveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.plOpciones.ResumeLayout(false);
