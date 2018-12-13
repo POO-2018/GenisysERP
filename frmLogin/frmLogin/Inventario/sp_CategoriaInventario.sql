@@ -37,9 +37,9 @@ AS
 BEGIN
 	
 	INSERT INTO [GenisysERP].[Inventario].[Categoria] ([idCodigoTipo],[nombre]
-					,[descripcion],[idUsuario])
+					,[descripcion],[idUsuario],[estado])
 
-	SELECT @IdCodigoTipo,@Nombre,@Descripcion,@IdUsuario
+	SELECT @IdCodigoTipo,@Nombre,@Descripcion,@IdUsuario,1
 END
 GO
 
@@ -61,7 +61,7 @@ BEGIN
 
 	UPDATE [Inventario].[Categoria]
 	SET  [nombre] = @Nombre, [descripcion] = @Descripcion
-		,[idUsuario] = @IdUsuario
+		,[idUsuario] = @IdUsuario, [estado]=1
 	WHERE  [idCodigoTipo] = @IdCodigoTipo
 
 END

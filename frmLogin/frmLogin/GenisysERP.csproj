@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inventario\CategoriaInventario.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="CustomException.cs" />
     <Compile Include="frmAcercaDe.cs">
@@ -56,6 +57,12 @@
     </Compile>
     <Compile Include="frmAcercaDe.Designer.cs">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmCategoriaInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmCategoriaInventario.Designer.cs">
+      <DependentUpon>frmCategoriaInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -81,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAcercaDe.resx">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmCategoriaInventario.resx">
+      <DependentUpon>frmCategoriaInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -117,6 +127,7 @@
   <ItemGroup>
     <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Inventario\storeProcedureImpuesto\StoreProcedures_Impuesto.sql" />
+    <Content Include="Inventario\sp_CategoriaInventario.sql" />
     <Content Include="sp_ERPConfiguraciones.sql" />
     <Content Include="Sql\GenisysDB.sql" />
   </ItemGroup>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 // Aplicando MaterialSkin
 using MaterialSkin;
 using MaterialSkin.Controls;
+using frmLogin.Inventario;
 
 
 namespace frmLogin
@@ -48,6 +49,17 @@ namespace frmLogin
         {
             frmCategoriaInventario abrir = new frmCategoriaInventario();
             abrir.Show();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImpuestos_Click(object sender, EventArgs e)
+        {
+            frmImpuestoProducto nuevo = new frmImpuestoProducto();
+            nuevo.ShowDialog();
         }
     }
 }

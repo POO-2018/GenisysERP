@@ -52,7 +52,7 @@ CREATE TABLE ERP.Configuracion(
 	appkey NCHAR(50) NOT NULL,
 	valor NCHAR(50) NOT NULL,
 	descripcion NVARCHAR(200) NOT NULL,
-	estado bit NOT NULL;
+	estado bit NOT NULL
 );
 GO
 
