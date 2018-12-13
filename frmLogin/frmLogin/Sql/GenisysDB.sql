@@ -102,7 +102,7 @@ CREATE TABLE Empleados.Usuario(
     CONSTRAINT PK_Usuarios_id
 		PRIMARY KEY NONCLUSTERED (id),
     idEmpleado int NOT NULL,
-    nombreUsuario varchar(50) NOT NULL,
+    nombreUsuario varchar(50) UNIQUE NOT NULL,
     contrasena varchar(256)  NOT NULL,   
 );
 GO
@@ -112,7 +112,7 @@ CREATE TABLE Empleados.Empleado
 	id INT IDENTITY(1,1)
 	CONSTRAINT PK_Empleado_id
 		PRIMARY KEY NONCLUSTERED (id),
-	identidad VARCHAR(15) NOT NULL,
+	identidad VARCHAR(15) UNIQUE NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
 	apellido VARCHAR(30) NOT NULL,
 	cargo int NOT NULL,
