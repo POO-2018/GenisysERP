@@ -743,7 +743,7 @@ namespace frmLogin.Compras
         public static List<Compra> LeerTodasCategorias()
         {
             // Instanciamos la clase Conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
             // Creamos una lista de tipo de cliente
             List<Compra> resultados = new List<Compra>();
@@ -803,7 +803,7 @@ namespace frmLogin.Compras
         {
 
             // Instanciamos la clase Conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
             // Creamos la variable que contendrá el Query
             string sql;
             // Instanciamos la clase Compra
@@ -851,7 +851,7 @@ namespace frmLogin.Compras
         {
 
             // Instanciamos la clase Conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
             // Creamos la variable que contendrá el Query
             string sql;
             // Instanciamos la clase Compra
@@ -901,7 +901,7 @@ namespace frmLogin.Compras
         {
 
             // Instanciamos la clase Conexion
-            Conexion conexion = new Conexion(@"192.168.0.190", "GenisysERP");
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
             // Creamos la variable que contendrá el Query
             string sql;
             // Instanciamos la clase Compra
@@ -949,7 +949,155 @@ namespace frmLogin.Compras
             }
         }
 
+        /// <summary>
+        /// Método para Obtener el estado de una compra
+        /// </summary>
+        /// <param name="idCompra"></param>
+        /// <returns></returns>
+        public static Compra ObtenerEstadoCompra(int idCompra)
+        {
+            // Instanciamos la clase Conexion
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
 
+            // Creamos la variable que contendrá el Query
+            string sql;
+
+            // Instanciamos la clase Compra
+            Compra resultado = new Compra();
+
+            // Query SQL
+            sql = @"SELECT  Compras.Compra.idCompra, Compras.Compra.estadoCompra
+                    FROM Compras.Compra
+                    WHERE Compras.Compra.idCompra = @idCompra
+                    AND Compras.Compra.estado = 1";
+
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+
+            // Crearemos la lectura
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@idCompra", SqlDbType.Int).Value = idCompra;
+                    // Ejecutamos el query vía un ExecuteReader
+                    rdr = cmd.ExecuteReader();
+                }
+
+                while (rdr.Read())
+                {
+                    resultado.idCompra = Convert.ToInt16(rdr[0]);
+                    resultado.estadoCompra = rdr.GetString(1);
+                }
+                return resultado;
+            }
+            catch (Exception)
+            {
+                return resultado;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+        }
+
+        /// <summary>
+        /// Método para actualizar el estado de una 
+        /// cotización a orden
+        /// </summary>
+        /// <param name="laCompra"></param>
+        /// <returns></returns>
+        public static bool ActualizarEstadoaOrden(Compra laCompra)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarEstadoAOrden");
+
+            // Estableccer el comando como un Stored Procedure
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parámetros del Stored Procedure
+
+            cmd.Parameters.Add(new SqlParameter("@idCompra", SqlDbType.Int));
+            cmd.Parameters["@idCompra"].Value = laCompra.idCompra;
+
+            cmd.Parameters.Add(new SqlParameter("@autorizadaPor", SqlDbType.Int));
+            cmd.Parameters["@autorizadaPor"].Value = laCompra.autorizadaPor;
+
+            // Intentamos ejecutar el procedimiento
+            try
+            {
+                // Establecemos la conexión
+                conexion.EstablecerConexion();
+
+                // Ejecutamos el query vía un ExecuteNonQuery
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Método para actualizar el estado de una 
+        /// orden a compra
+        /// </summary>
+        /// <param name="laCompra"></param>
+        /// <returns></returns>
+        public static bool ActualizarEstadoaCompra(Compra laCompra)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarEstadoACompra");
+
+            // Estableccer el comando como un Stored Procedure
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parámetros del Stored Procedure
+
+            cmd.Parameters.Add(new SqlParameter("@idCompra", SqlDbType.Int));
+            cmd.Parameters["@idCompra"].Value = laCompra.idCompra;
+
+            cmd.Parameters.Add(new SqlParameter("@autorizadaPor", SqlDbType.Int));
+            cmd.Parameters["@autorizadaPor"].Value = laCompra.autorizadaPor;
+
+            cmd.Parameters.Add(new SqlParameter("@numeroFactura", SqlDbType.NVarChar, 19));
+            cmd.Parameters["@numeroFactura"].Value = laCompra.numeroFactura;
+
+            // Intentamos ejecutar el procedimiento
+            try
+            {
+                // Establecemos la conexión
+                conexion.EstablecerConexion();
+
+                // Ejecutamos el query vía un ExecuteNonQuery
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }        
 
     }
 }

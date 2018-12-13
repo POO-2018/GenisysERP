@@ -57,11 +57,11 @@
     <Compile Include="Compras\frmActualizarCompra.Designer.cs">
       <DependentUpon>frmActualizarCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\frmActualizarEstado.cs">
+    <Compile Include="Compras\frmActualizarEstadoCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compras\frmActualizarEstado.Designer.cs">
-      <DependentUpon>frmActualizarEstado.cs</DependentUpon>
+    <Compile Include="Compras\frmActualizarEstadoCompra.Designer.cs">
+      <DependentUpon>frmActualizarEstadoCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmAgregarCompra.cs">
       <SubType>Form</SubType>
@@ -106,8 +106,8 @@
     <EmbeddedResource Include="Compras\frmActualizarCompra.resx">
       <DependentUpon>frmActualizarCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\frmActualizarEstado.resx">
-      <DependentUpon>frmActualizarEstado.cs</DependentUpon>
+    <EmbeddedResource Include="Compras\frmActualizarEstadoCompra.resx">
+      <DependentUpon>frmActualizarEstadoCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmAgregarCompra.resx">
       <DependentUpon>frmAgregarCompra.cs</DependentUpon>

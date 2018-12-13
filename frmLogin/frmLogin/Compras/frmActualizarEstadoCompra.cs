@@ -15,17 +15,17 @@ using MaterialSkin.Controls;
 
 namespace frmLogin.Compras
 {
-    public partial class frmInhabilitarCompra : MaterialForm
+    public partial class frmActualizarEstadoCompra : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
 
-        // Propiedad para obtener el código de la compra
+        // Propiedade para obtener el codigo de la compra
         private int idCompra;
 
-        public frmInhabilitarCompra()
+        public frmActualizarEstadoCompra()
         {
             InitializeComponent();
-            // Implementado temas y colores
+            //Implementando temas y colores.
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -34,15 +34,22 @@ namespace frmLogin.Compras
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
         }
 
-        private void frmInhabilitarCompra_Load(object sender, EventArgs e)
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Evento que carga todo s los componentes iniciales
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmActualizarEstadoCompra_Load(object sender, EventArgs e)
         {
             rbEstado.Checked = false;
             ListarComboProveedores();
         }
 
-        /// <summary>
-        /// Cargar los proveedores al comboBox
-        /// </summary>
         private void ListarComboProveedores()
         {
             // Limpiamos los items existentes
@@ -55,8 +62,8 @@ namespace frmLogin.Compras
             // y habilitados en una lista
             List<Compra> lisaProveedor = Compra.LeerTodosProveedores();
 
-            // Si hay algún elemento en lalista
-            // Lo agrggamos al Combobox
+            // Si hay algún elemento en la lista
+            // Lo agregamos al ComboBox
             if (lisaProveedor.Any())
             {
                 lisaProveedor.ForEach(proveedor => cmbProveedor.Items.Add(proveedor.nombreProveedor.ToString()));
@@ -65,18 +72,17 @@ namespace frmLogin.Compras
             {
                 cmbProveedor.Items.Add("No hay proveedores disponibles");
             }
-
         }
 
         /// <summary>
-        /// Evento para saber si se seleccionó
+        /// Eveento para saber si se seleccionó
         /// la búsqueda por estado de compra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void rbEstado_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbEstado.Checked == true)
+            if(rbEstado.Checked == true)
             {
                 cmbEstado.Enabled = true;
                 mtxtFactura.Enabled = false;
@@ -89,7 +95,7 @@ namespace frmLogin.Compras
         }
 
         /// <summary>
-        ///  Evento para saber si se seleccionó
+        /// Evento para saber si se seleccionó
         /// la búsqueda por número de factura
         /// </summary>
         /// <param name="sender"></param>
@@ -121,7 +127,7 @@ namespace frmLogin.Compras
                 cmbProveedor.Enabled = true;
                 mtxtFactura.Enabled = false;
                 cmbEstado.Enabled = false;
-
+                
             }
             else
             {
@@ -139,6 +145,12 @@ namespace frmLogin.Compras
             this.Close();
         }
 
+        /// <summary>
+        /// Evento para buscar compra que llama a los diferentes métodos
+        /// para realizar una búsqueda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             // si no se selcciono ninguno
@@ -160,7 +172,7 @@ namespace frmLogin.Compras
                     {
                         try
                         {
-                            // El origen de los datos del DataGridView
+                             // El origen de los datos del DataGridView
                             // está en un método en la clase Compras
                             // hacemos referencia a él.
                             dgvCompra.DataSource = Compra.GetDataViewPorEstado(cmbEstado.SelectedItem.ToString());
@@ -218,6 +230,9 @@ namespace frmLogin.Compras
             Limpiar();
         }
 
+        /// <summary>
+        /// Método para limpiar la pantalla
+        /// </summary>
         private void Limpiar()
         {
             dgvCompra.DataSource = null;
@@ -235,8 +250,12 @@ namespace frmLogin.Compras
             mtxtFactura.Enabled = false;
             cmbProveedor.Enabled = false;
 
-            btnInhabilitar.Enabled = false;
+            btnActualizar.Enabled = false;
             txtEstadoA.Text = "";
+            txtEstadoP.Text = "";
+            mtxtNuevaFactura.Text = "";
+            mtxtNuevaFactura.Visible = false;
+            btnActualizar.Enabled = false;
             btnBuscar.Enabled = true;
         }
 
@@ -251,7 +270,6 @@ namespace frmLogin.Compras
             // Si se selccionó una fila
             if (e.RowIndex != -1)
             {
-                btnInhabilitar.Enabled = true;
                 this.idCompra = Convert.ToInt16(dgvCompra.Rows[e.RowIndex].Cells["Código"].Value);
                 try
                 {
@@ -268,9 +286,10 @@ namespace frmLogin.Compras
                     Compra laCompra = new Compra();
                     laCompra = Compra.ObtenerEstadoCompra(Convert.ToInt16(dgvCompra.Rows[e.RowIndex].Cells["Código"].Value));
                     txtEstadoA.Text = laCompra.estadoCompra;
-                    //ValidarEstado(txtEstadoA.Text);
+                    ValidarEstado(txtEstadoA.Text);
 
-
+                   // btnActualizar.Enabled = true;
+                    
                 }
                 catch (Exception ex)
                 {
@@ -280,23 +299,50 @@ namespace frmLogin.Compras
         }
 
         /// <summary>
-        /// Evento para Inhabilitar el estado de una Compra
+        /// Método para validar el próximo estado de la compra
+        /// </summary>
+        /// <param name="estadoActual"></param>
+        private void ValidarEstado(string estadoActual)
+        {
+            if (estadoActual == "Cotización")
+            {
+                txtEstadoP.Text = "Orden de Compra";
+                btnActualizar.Enabled = true;
+            }
+            else if (estadoActual == "Orden de Compra")
+            {
+                txtEstadoP.Text = "Compra";
+                mtxtNuevaFactura.Enabled = true;
+                btnActualizar.Enabled = true;
+                mtxtNuevaFactura.Visible = true;
+            }
+            else if (estadoActual == "Compra")
+            {
+                txtEstadoP.Text = "Compra Realizada";
+                
+            }
+        }
+
+        /// <summary>
+        /// Evento para Actualizar el estado de una Compra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnInhabilitar_Click(object sender, EventArgs e)
+        private void rbActualizar_Click(object sender, EventArgs e)
         {
             if (txtEstadoA.Text == "Cotización")
             {
                 // Instanciamos la clase Compras
                 Compra laCompra = new Compra();
 
-                // Nuestro objeto adquiere los valores del fomulario
+                // Nuestro objeto adquiere los valores del formulario
                 laCompra.idCompra = this.idCompra;
+                laCompra.autorizadaPor = 1;
 
-                if (Compra.InhabilitarCompra(laCompra))
+                // Verificamos si se realizó el método
+                if (Compra.ActualizarEstadoaOrden(laCompra))
                 {
-                    MessageBox.Show("Inhabilitado", "Información");
+                    MessageBox.Show("Estado de Compra Actualizado","Información");
                     Limpiar();
                 }
                 else
@@ -306,44 +352,38 @@ namespace frmLogin.Compras
             }
             else if (txtEstadoA.Text == "Orden de Compra")
             {
-                // Instanciamos la clase Compras
-                Compra laCompra = new Compra();
-
-                // Nuestro objeto adquiere los valores del fomulario
-                laCompra.idCompra = this.idCompra;
-
-                if (Compra.InhabilitarCompra(laCompra))
+                if (mtxtNuevaFactura.MaskFull == false)
                 {
-                    MessageBox.Show("Inhabilitado", "Información");
-                    Limpiar();
+                    MessageBox.Show("Ingrese un número de factura para la Compra");
                 }
                 else
                 {
-                    MessageBox.Show("Ha ocurrido un error, verifique los datos", "Informacion");
-                }
-            }
-            else if (txtEstadoA.Text == "Compra")
-            {
-                // Instanciamos la clase Compras
-                Compra laCompra = new Compra();
+                    // Instancimos la clase Compras
+                    Compra laCompra = new Compra();
 
-                // Nuestro objeto adquiere los valores del fomulario
-                laCompra.idCompra = this.idCompra;
+                    // Nuestro objeto adquiere los valores del formulario
+                    laCompra.idCompra = this.idCompra;
+                    laCompra.autorizadaPor = 1;
+                    laCompra.numeroFactura = mtxtNuevaFactura.Text;
 
-                if (Compra.InhabilitarCompra(laCompra))
-                {
-                    MessageBox.Show("Inhabilitado", "Información");
-                    Producto();
-                }
-                else
-                {
-                    MessageBox.Show("Ha ocurrido un error, verifique los datos", "Informacion");
-                }
+                    if (Compra.ActualizarEstadoaCompra(laCompra))
+                    {
+                        MessageBox.Show("Estado de Compra Actualizado", "Información");
+                        Producto();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error, verifique los datos", "Información");
+                    }
+                }               
+
+
             }
+
         }
 
         /// <summary>
-        /// Método para eliminar la cantidad de productos comprados
+        /// Método para agregar la cantidad de productos comprados
         /// </summary>
         private void Producto()
         {
@@ -359,14 +399,15 @@ namespace frmLogin.Compras
                     elDetalle.idProducto = Convert.ToInt16(dgvDetalleCompra.Rows[i].Cells["idProducto"].Value.ToString());
                     elDetalle.cantidad = Convert.ToInt16(dgvDetalleCompra.Rows[i].Cells["Cantidad"].Value.ToString());
 
-                    if (DetalleCompra.EliminarProductosCompra(elDetalle))
+                    if (DetalleCompra.InsertarProductosCompra(elDetalle))
                     {
-                                                
+                        
                     }
                     else
                     {
                         MessageBox.Show("Ha ocurrido un error, verifique los datos", "Información");
                     }
+
                 }
                 catch (Exception ex)
                 {
@@ -375,8 +416,6 @@ namespace frmLogin.Compras
             }
             Limpiar();
         }
-
-
 
     }
 }
