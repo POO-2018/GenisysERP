@@ -49,10 +49,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes\Cliente.cs" />
+  <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\Contacto.cs" />
+    <Compile Include="Clientes\frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmCliente.designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmContacto.designer.cs">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmProveedor.designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Proveedor.cs" />
-    <Compile Include="Compras\Compra.cs" />
+	<Compile Include="Compras\Compra.cs" />
     <Compile Include="Compras\DetalleCompra.cs" />
     <Compile Include="Compras\frmActualizarCompra.cs">
       <SubType>Form</SubType>
@@ -166,7 +184,16 @@
     <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Compras\frmActualizarCompra.resx">
+	<EmbeddedResource Include="Clientes\frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmContacto.resx">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmActualizarCompra.resx">	<EmbeddedResource Include="Compras\frmActualizarCompra.resx">
       <DependentUpon>frmActualizarCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmActualizarEstadoCompra.resx">
@@ -247,8 +274,7 @@
     <Content Include="Inventario\sp_Producto.sql" />
     <Content Include="Inventario\storeProcedureImpuesto\StoreProcedures_Impuesto.sql" />
     <Content Include="Inventario\sp_CategoriaInventario.sql" />
-    <Content Include="Resources\proveedores.png" />
-    <Content Include="Sql\sp_ERPConfiguraciones.sql" />
+	<Content Include="Sql\sp_ERPConfiguraciones.sql" />
     <Content Include="Empleados\CRUD\CRUD empleados.sql" />
     <Content Include="Empleados\CRUD\CRUD Usuario.sql" />
     <Content Include="Empleados\CRUD\CRUD-empleados.sql" />
