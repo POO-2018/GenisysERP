@@ -119,6 +119,7 @@
             this.txtNombreEmpresa.TabIndex = 0;
             this.txtNombreEmpresa.TabStop = false;
             this.txtNombreEmpresa.UseSystemPasswordChar = false;
+            this.txtNombreEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreEmpresa_KeyPress);
             this.txtNombreEmpresa.Leave += new System.EventHandler(this.txtNombreEmpresa_Leave);
             // 
             // txtDireccion

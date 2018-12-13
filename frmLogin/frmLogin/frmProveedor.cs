@@ -277,5 +277,31 @@ namespace frmLogin
                 txtCorreo.Focus();
             }
         }
+
+        private void txtNombreEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // para solo ingresar datos de tipo texto
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //para utilizar la tecla backspace
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            //nos permite utilizar la tecla de espacio
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Sólo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
     }
 }
