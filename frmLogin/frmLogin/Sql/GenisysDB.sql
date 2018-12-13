@@ -391,3 +391,18 @@ ALTER TABLE Compras.DetalleCompra
 	ADD CONSTRAINT CHK_SubTotalDetalleMayorQueCero
 	CHECK (subTotal >= 0)
 GO
+
+ALTER TABLE Empleados.Empleado
+	ADD CONSTRAINT UC_Empleado_identidad 
+	UNIQUE (identidad)
+GO
+
+ALTER TABLE Empleados.Empleado
+	ADD CONSTRAINT UC_Empleado_telefono 
+	UNIQUE (telefono)
+GO
+
+ALTER TABLE Empleados.Usuario
+	ADD CONSTRAINT UC_Usuario_nombreUsuario 
+	UNIQUE (nombreUsuario)
+GO
