@@ -401,18 +401,20 @@ namespace frmLogin.Compras
 
                     if (DetalleCompra.InsertarProductosCompra(elDetalle))
                     {
-                        Limpiar();
+                        
                     }
                     else
                     {
                         MessageBox.Show("Ha ocurrido un error, verifique los datos", "Información");
                     }
+
                 }
                 catch (Exception ex)
                 {
                     throw ex;
                 }
             }
+            Limpiar();
         }
 
     }

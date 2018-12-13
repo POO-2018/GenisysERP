@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 // Agregamos los namespace necesario
 using System.Data;
@@ -239,6 +240,55 @@ namespace frmLogin.Compras
             }
             catch (SqlException ex)
             {
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        /// <summary>
+        /// Método para eliminar los productos compradas
+        /// al inventario
+        /// </summary>
+        /// <param name="elDetalle"></param>
+        /// <returns></returns>
+        public static bool EliminarProductosCompra(DetalleCompra elDetalle)
+        {
+            // Instanciamos la conexion
+            Conexion conexion = new Conexion(@"(local)", "GenisysERP");
+
+            // Enviamos el comando a ejecutar
+            SqlCommand cmd = conexion.EjecutarComando("sp_EliminarProductosCompra");
+
+            // Estableccer el comando como un Stored Procedure
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parámetros del Stored Procedure
+
+            cmd.Parameters.Add(new SqlParameter("@idProducto", SqlDbType.Int));
+            cmd.Parameters["@idProducto"].Value = elDetalle.idProducto;
+
+            cmd.Parameters.Add(new SqlParameter("@cantidadCompra", SqlDbType.Int));
+            cmd.Parameters["@cantidadCompra"].Value = elDetalle.cantidad;
+
+
+            // Intentamos ejecutar el procedimiento
+            try
+            {
+                // Establecemos la conexión
+                conexion.EstablecerConexion();
+
+                // Ejecutamos el query vía un ExecuteNonQuery
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                //MessageBox.Show(ex.StackTrace);
+                //MessageBox.Show(ex.Errors[0].ToString());
                 return false;
             }
             finally
