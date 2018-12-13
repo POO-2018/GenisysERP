@@ -12,13 +12,13 @@ namespace frmLogin.Empleados
 
         public string laCadena { get; set; }
 
-        static string procesarSha256Hash(Encriptacion cadena)
+        public static string procesarSha256Hash(string laCadena)
         {
             // Create a SHA256   
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(cadena.laCadena));
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(laCadena));
 
                 // Convert byte array to a string   
                 StringBuilder constructor = new StringBuilder();

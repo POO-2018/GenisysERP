@@ -35,6 +35,7 @@
             this.txtContraseña = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnAceptar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lblErrorUsuarioContrasena = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -134,12 +135,26 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // lblErrorUsuarioContrasena
+            // 
+            this.lblErrorUsuarioContrasena.AutoSize = true;
+            this.lblErrorUsuarioContrasena.Depth = 0;
+            this.lblErrorUsuarioContrasena.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblErrorUsuarioContrasena.ForeColor = System.Drawing.Color.Gold;
+            this.lblErrorUsuarioContrasena.Location = new System.Drawing.Point(179, 146);
+            this.lblErrorUsuarioContrasena.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblErrorUsuarioContrasena.Name = "lblErrorUsuarioContrasena";
+            this.lblErrorUsuarioContrasena.Size = new System.Drawing.Size(0, 19);
+            this.lblErrorUsuarioContrasena.TabIndex = 9;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 380);
+            this.Controls.Add(this.lblErrorUsuarioContrasena);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtContraseña);
@@ -152,6 +167,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,6 +180,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtContraseña;
         private MaterialSkin.Controls.MaterialRaisedButton btnAceptar;
         private MaterialSkin.Controls.MaterialRaisedButton btnCancelar;
+        private MaterialSkin.Controls.MaterialLabel lblErrorUsuarioContrasena;
     }
 }
 

@@ -34,11 +34,11 @@ namespace frmLogin.Empleados
                 Primary.Red700, Primary.Red900,
                 Primary.Brown500, Accent.Red100, TextShade.WHITE);
 
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            Conexion conn = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
             string sql;
             // Query SQL
             sql = @"SELECT * FROM Empleados.Empleado WHERE estado = 1";
-
+            
             SqlCommand cmd = conn.EjecutarComando(sql);
             SqlDataReader rdr;
 
@@ -72,7 +72,7 @@ namespace frmLogin.Empleados
             nuevo.nombreUsuario = txtNombreUsuario.Text;
             if (txtContraseña.Text == txtConfirmarContraseña.Text)
             {
-                nuevo.contrasena = procesarSha256Hash(txtContraseña.Text);
+                nuevo.contrasena = Encriptacion.procesarSha256Hash(txtContraseña.Text);
                 if (nuevo.InsertarUsuario(nuevo))
                 {
                     MessageBox.Show("Exito!");
@@ -88,24 +88,6 @@ namespace frmLogin.Empleados
                 MessageBox.Show("las contraseñas no coinciden!");
             }
             
-        }
-
-        static string procesarSha256Hash(string laCadena)
-        {
-            // Create a SHA256   
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(laCadena));
-
-                // Convert byte array to a string   
-                StringBuilder constructor = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    constructor.Append(bytes[i].ToString("x2"));
-                }
-                return constructor.ToString();
-            }
         }
 
         private void frmMantenimientoUsuarios_Load(object sender, EventArgs e)
@@ -142,7 +124,7 @@ namespace frmLogin.Empleados
 
         private void cmbEmpleado_TextChanged(object sender, EventArgs e)
         {
-            Conexion conn = new Conexion(@"(local)\sqlexpress", "GenisysERP");
+            Conexion conn = new Conexion(@"(local)\chrisfiallos", "GenisysERP");
             string sql;
             // Query SQL
             sql = @"SELECT * FROM Empleados.Empleado WHERE estado = 1";
