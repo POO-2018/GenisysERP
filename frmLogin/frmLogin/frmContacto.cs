@@ -109,6 +109,7 @@ namespace frmLogin
 
         public void limpiar()
         {
+            cmbProveedor.SelectedIndex = -1;
             datosH();
             datosI();
             mskIdentidad.Text = "";
@@ -214,9 +215,9 @@ namespace frmLogin
             mskTelefono.Text = eContacto.telefono;
             txtCorreo.Text = eContacto.correo;
             txtCargo.Text = eContacto.cargo;
-            cmbProveedor.Text = eContacto.nombreProveedor;
             if (txtNombres.Text != "")
             {
+                cmbProveedor.Text = eContacto.nombreProveedor;
                 btnAgregar.Visible = false;
                 btnActualizar.Visible = true;
                 btnInhabilitarHabilitar.Visible = true;
